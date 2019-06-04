@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import Register from '@/components/auth/Register.vue';
 import Login from '@/components/auth/Login.vue';
 import Test from './views/Test.vue';
+import Test1 from './views/Test1.vue';
 
 Vue.use(Router)
 
@@ -37,6 +38,11 @@ const router = new Router({
       path:'/test',
       name: 'Test',
       component: Test
+    },
+    {
+      path:'/test1',
+      name: 'Test1',
+      component: Test1
     },
     {
       path: '/userprofile',
