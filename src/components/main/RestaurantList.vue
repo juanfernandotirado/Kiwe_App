@@ -11,6 +11,25 @@ export default {
     data: function (){
         return{
             // Restaurant 
+            restaurantList: [
+                {
+                    restaurantName: 'Pizza', 
+                    restaurantID: 1,
+                },
+                {
+                    restaurantName: 'Hamburguer',
+                    restuarantID: 2,
+                },
+               {
+                    restaurantName: 'Taco',
+                    restuarantID: 3,
+                },
+                {
+                    restaurantName: 'Sushi',
+                    restuarantID: 4,
+                },
+
+            ]
         }
     },
     methods: {
