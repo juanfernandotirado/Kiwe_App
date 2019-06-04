@@ -1,5 +1,30 @@
 <template>
   <div class="user-profile">
-    <h1>This is an user profile page</h1>
+    <button v-on:click="logout" class="btn red">Log out</button>
   </div>
 </template>
+
+<script>
+import firebase from 'firebase';
+
+export default {
+  name:'UserProfile',
+  methods: {
+    logout: function(){
+      firebase.auth().signOut().then(()=>{
+        this.$router.replace('login');
+      }).catch(err => {
+        console.log('Err', err);
+      })
+    },
+   
+  },
+   mounted(){
+    const currentUser = firebase.auth().currentUser;
+    if(!currentUser){
+       this.$router.replace('login');
+    }
+  }
+}
+</script>
+

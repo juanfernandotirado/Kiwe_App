@@ -1,12 +1,26 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/login">Login</router-link> |
+      <router-link to="/home">Home</router-link> |
       <router-link to="/userprofile">Profile</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+   mounted(){
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        console.log(window.cordova);
+    }
+  }
+}
+</script>
+
 
 <style lang="scss">
 #app {
@@ -26,4 +40,11 @@
     }
   }
 }
+
+ .login-container,
+  .register-container{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
 </style>
