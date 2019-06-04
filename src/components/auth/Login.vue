@@ -33,6 +33,7 @@ export default {
           //Submit to Firebase
            firebase.auth().signInWithEmailAndPassword(this.inputEmail, this.inputPwd)
             .then(function(user){
+              //Help me check if the entered user and password is correct to what we have in the database
               console.log('Login Success', user);
              
             },

@@ -37,22 +37,30 @@ export default {
             e.preventDefault();
             //Submit to Firebase
             firebase.auth().createUserWithEmailAndPassword(this.inputEmail, this.inputPwd)
+            //grab the email and password to create a new user
             .then((resp)=>{
+              //resp is what the database is returning to us after creating a new user
               console.log(resp);
                let db = firebase.firestore();
+               //firestore is the cloud
                 return db.collection('users').doc(resp.user.uid).set({
+                  //From this object of the firebase(reps), grab just the UID to set the user information on firebase.
                 nickName : this.inputNickName,
                 profile: {},
                 isInLine: false,
                 createdTime: new Date()
+                //in here we created different properties for the user
                }).then(function(){
+                 // this function is related to resp 
                  console.log('Sign up success');
            
                }).catch(function (err) {
+                 //catch means 'if something is wrong with the date'
                  console.log('Error', err);
                })
              
             }).catch(function(err){
+              //this catch is when we create the user. When the user has already registered with an email and is registering again
                 console.log('Oh', + err.message);
                 this.errMsg = 'Fail';
                 this.inputEmail = '';
