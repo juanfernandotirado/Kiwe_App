@@ -38,7 +38,7 @@ export default {
             },
             function(err){
               console.log('Oh', + err.message);
-              this.errMsg = err.message;
+              // this.errMsg = err.message;
             })
       }
   }
