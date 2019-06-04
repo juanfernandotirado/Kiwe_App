@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <div v-if="isAuth" >
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     </div>
-    <div v-else class="login-section">
+    <div  v-else class="login-section">
       <Auth />
     </div>
    
@@ -25,6 +25,7 @@ export default {
   data:function(){
     return{
       isAuth: false,
+    
 
     }
   },

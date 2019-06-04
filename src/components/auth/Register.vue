@@ -7,7 +7,7 @@
         <label for="password">Password</label>
         <input v-model="inputPwd" type="password" name="password" >
         <button class="btn" v-on:click="submitLogin" type="submit">Sign up</button>
-    </form>
+      </form>
 
   </div>
 </template>
