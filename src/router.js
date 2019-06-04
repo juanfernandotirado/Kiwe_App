@@ -6,6 +6,7 @@ import Register from '@/components/auth/Register.vue';
 import Login from '@/components/auth/Login.vue';
 import Test from './views/Test.vue';
 import Test1 from './views/Test1.vue';
+import TestJuan from './views/TestJuan.vue';
 
 Vue.use(Router)
 
@@ -43,6 +44,11 @@ const router = new Router({
       path:'/test1',
       name: 'Test1',
       component: Test1
+    },
+    {
+      path:'/testjuan',
+      name: 'TestJuan',
+      component: TestJuan
     },
     {
       path: '/userprofile',
