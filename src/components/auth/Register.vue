@@ -50,23 +50,20 @@ export default {
                 isInLine: false,
                 createdTime: new Date()
                 //in here we created different properties for the user
-               }).then(function(){
+               }).then(() =>{
                  // this function is related to resp 
                  console.log('Sign up success');
-           
-               }).catch(function (err) {
+                 this.$router.push('home');
+               }).catch((err) => {
                  //catch means 'if something is wrong with the date'
-                 console.log('Error', err);
+                 this.errMsg = err.message;
                })
              
-            }).catch(function(err){
-              //this catch is when we create the user. When the user has already registered with an email and is registering again
-                console.log('Oh', + err.message);
-                this.errMsg = 'Fail';
-                this.inputEmail = '';
-                this.inputPwd = '';
-                this.inputNickName = '';
-            })
+            }).catch((err) => {
+                  // Handle Errors here.
+                  this.errMsg = err.message;
+                 
+                });
             
         }
   }
