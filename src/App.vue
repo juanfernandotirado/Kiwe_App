@@ -6,6 +6,7 @@
       <router-link to="/userprofile">Profile</router-link> |
       <router-link to="/test">Test</router-link> |
       <router-link to="/test1">Test1</router-link> |
+      <router-link to="/testjuan">TestJuan</router-link> |
     </div>
     <router-view/>
   </div>
