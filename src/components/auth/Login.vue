@@ -17,6 +17,10 @@
 
 <script>
 import firebase from 'firebase';
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
 
 export default {
   name: 'Login',
@@ -34,7 +38,13 @@ export default {
            firebase.auth().signInWithEmailAndPassword(this.inputEmail, this.inputPwd)
             .then((user) => {
               //Help me check if the entered user and password is correct to what we have in the database
-              console.log('Login Success', user);
+              console.log('Login Success', user.user);
+              const userStatus = {
+                uid: user.user.uid
+              }
+              //Set UserStatus to store
+              this.$store.dispatch('getUserStatus',userStatus);
+
               this.$router.push('home');
             }).catch((err) => {
                 // Handle Errors here.
