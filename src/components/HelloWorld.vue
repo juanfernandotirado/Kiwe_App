@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-      <h2>Hello I am Peter Parker</h2>
+      <h2>Hello I am {{nickName}}</h2>
+    
+      <label for="newName">New Name</label>
+      <input v-model="newName" type="text">
+      <button v-on:click="changeName">Change</button>
   </div>
 </template>
 
@@ -9,6 +13,24 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data(){
+    return {
+      newName: ''
+    }
+  },
+  computed:{
+     nickName () {
+     return this.$store.state.userStatus.nickName
+    }
+    
+  },
+  methods:{
+    changeName:function(){
+      this.$store.dispatch('changeName',this.newName).then(()=>{
+      this.newName = '';
+      });
+    }
   }
 }
 </script>
