@@ -1,17 +1,17 @@
 <template>
   <div class="TestJuan" >
-    <MenuGallery/>
+    <GroupSize/>
   </div>
 
 </template>
 
 <script>
-import MenuGallery from '../components/restaurant/MenuGallery.vue'
+import GroupSize from '../components/main/GroupSize.vue'
 
 export default {
   name: 'TestJuan',
   components: {
-    MenuGallery
+    GroupSize
   },
   data: function(){
       return{

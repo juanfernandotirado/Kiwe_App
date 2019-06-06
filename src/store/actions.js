@@ -6,7 +6,12 @@ const getUserStatus = (context,payload) => {
     context.commit('GET_USER_STATUS',payload);
 }
 
+const addGroupSize = (context) => {
+    context.commit('ADD_GROUP_SIZE');
+}
+
 export default{
     changeName,
-    getUserStatus
+    getUserStatus,
+    addGroupSize
 } 
