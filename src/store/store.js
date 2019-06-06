@@ -11,6 +11,8 @@ export default new Vuex.Store({
     userStatus: {
       nickName: ''
     },
-    groupSize: 1
-  } 
+    groupSize: 6
+  },
+  mutations,
+  actions
 });

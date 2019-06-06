@@ -23,7 +23,7 @@ export default {
 
     methods: {
     incrementSize: function(){
-        this.$store.dispatch('addGroupSize');
+         this.$store.dispatch('addGroupSize');
     },
 
     decreasetSize: function(){
