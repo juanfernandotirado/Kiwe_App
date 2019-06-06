@@ -1,5 +1,5 @@
 const UPDATE_USER_NICKNAME = (state,payload) =>{
-    state.nickName = payload;
+    state.userStatus.nickName = payload;
 }
 
 const GET_USER_STATUS = (state,payload) => {

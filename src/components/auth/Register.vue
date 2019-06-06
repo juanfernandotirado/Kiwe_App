@@ -51,6 +51,16 @@ export default {
                 createdTime: new Date()
                 //in here we created different properties for the user
                }).then(() =>{
+
+                 const userStatus = {
+                                          uid: resp.user.uid,
+                                          isInLine: false,
+                                          nickName: this.inputNickName,
+                                          profile: {}
+                                        }
+                  //Set UserStatus to store
+                  this.$store.dispatch('getUserStatus',userStatus);
+
                  // this function is related to resp 
                  console.log('Sign up success');
                  this.$router.push('home');

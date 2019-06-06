@@ -9,11 +9,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
-
 export default {
   name: 'HelloWorld',
   props: {
@@ -26,16 +21,14 @@ export default {
   },
   computed:{
      nickName () {
-     return this.$store.state.nickName
+     return this.$store.state.userStatus.nickName
     }
     
   },
   methods:{
     changeName:function(){
       this.$store.dispatch('changeName',this.newName).then(()=>{
-        this.newName = '';
-      console.log('new',this.nickName);
-      console.log(this.$store.state.userStatus);
+      this.newName = '';
       });
     }
   }

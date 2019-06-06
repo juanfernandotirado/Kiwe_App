@@ -8,8 +8,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userStatus: {},
-    nickName: 'Sunny'
+    userStatus: {
+      nickName: ''
+    }, 
   },
   mutations,
   actions

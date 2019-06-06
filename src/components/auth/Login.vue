@@ -17,10 +17,7 @@
 
 <script>
 import firebase from 'firebase';
-import Vue from 'vue';
-import Vuex from 'vuex';
 
-Vue.use(Vuex);
 
 export default {
   name: 'Login',
@@ -39,13 +36,33 @@ export default {
             .then((user) => {
               //Help me check if the entered user and password is correct to what we have in the database
               console.log('Login Success', user.user);
-              const userStatus = {
-                uid: user.user.uid
-              }
-              //Set UserStatus to store
-              this.$store.dispatch('getUserStatus',userStatus);
 
-              this.$router.push('home');
+              let db = firebase.firestore();
+              //Get user profile information
+              let docRef = db.collection("users").doc(user.user.uid);
+                  docRef.get().then((doc) => {
+                      if (doc.exists) {
+                          console.log("Document data:", doc.data());
+                          const userStatus = {
+                                          uid: user.user.uid,
+                                          isInLine: doc.data().isInLine,
+                                          nickName: doc.data().nickName,
+                                          profile: doc.data().profile
+                                        }
+                          //Set UserStatus to store
+                          this.$store.dispatch('getUserStatus',userStatus);
+                          //Go to Homepage
+                          this.$router.push('home');
+
+                      } else {
+                          // doc.data() will be undefined in this case
+                          console.log("No such document!");
+                      }
+                  }).catch((err) => {
+                      console.log("Error getting document:", err);
+                       this.errMsg = err;
+                  });
+
             }).catch((err) => {
                 // Handle Errors here.
                 this.errMsg = err.message;
