@@ -13,8 +13,8 @@ const ADD_GROUP_SIZE = (state) => {
     console.log(state.groupSize);
 }
 
-//// Function to substract people from the group
-const SUBSTRACT_GROUP_SIZE = (state) => {
+//// Function to subtract people from the group
+const SUBTRACT_GROUP_SIZE = (state) => {
     state.groupSize--;
     console.log(state.groupSize);
 }
@@ -23,5 +23,5 @@ export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
     ADD_GROUP_SIZE,
-    SUBSTRACT_GROUP_SIZE
+    SUBTRACT_GROUP_SIZE
 }
