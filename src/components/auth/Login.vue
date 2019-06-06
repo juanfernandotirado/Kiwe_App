@@ -1,7 +1,7 @@
 <template>
   <div class="login-container" >
     <h1 class="container-title">Log In</h1>
-    <form action="#">
+    <form >
         <label for="email">E-mail</label>
         <input v-model="inputEmail" type="email" name="email" >
          <label for="password">Password</label>
@@ -10,6 +10,7 @@
     </form>
      <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link>
     <p class="red-text">{{errMsg}}</p>
+
   </div>
 
 </template>
@@ -29,22 +30,20 @@ export default {
   methods: {
       submitLogin:function(e){
           e.preventDefault();
-          
           //Submit to Firebase
            firebase.auth().signInWithEmailAndPassword(this.inputEmail, this.inputPwd)
-            .then(function(user){
+            .then((user) => {
               //Help me check if the entered user and password is correct to what we have in the database
               console.log('Login Success', user);
-             
-            },
-            function(err){
-              console.log('Oh', + err.message);
-              // this.errMsg = err.message;
-            })
-      }
-  }
-}
-</script>
+              this.$router.push('home');
+            }).catch((err) => {
+                // Handle Errors here.
+                this.errMsg = err.message;
+              });
+                    }
+                }
+            }
+  </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
