@@ -17,7 +17,6 @@ export default {
   name: 'GroupSize',
     data:function(){
     return{
-        groupSize: 1
     }
     },
 
@@ -28,9 +27,15 @@ export default {
 
     decreasetSize: function(){
         if (this.groupSize > 1)
-        this.groupSize--
+        this.$store.dispatch('substractGroupSize');
     }
 
+    },
+
+    computed: {
+        groupSize(){
+            return this.$store.state.groupSize
+        } 
     }
   
 }

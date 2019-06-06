@@ -10,8 +10,13 @@ const addGroupSize = (context) => {
     context.commit('ADD_GROUP_SIZE');
 };
 
+const substractGroupSize = (context) => {
+    context.commit('SUBSTRACT_GROUP_SIZE');
+};
+
 export default{
     changeName,
     getUserStatus,
-    addGroupSize
+    addGroupSize,
+    substractGroupSize
 } 
