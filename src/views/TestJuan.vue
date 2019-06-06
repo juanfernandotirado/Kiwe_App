@@ -1,17 +1,20 @@
 <template>
   <div class="TestJuan" >
-    <MenuGallery/>
+    <GroupSize/>
+    <Drop-off-confirmation/>
   </div>
 
 </template>
 
 <script>
-import MenuGallery from '../components/restaurant/MenuGallery.vue'
+import GroupSize from '../components/main/GroupSize.vue'
+import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
 
 export default {
   name: 'TestJuan',
   components: {
-    MenuGallery
+    GroupSize,
+    DropOffConfirmation
   },
   data: function(){
       return{
