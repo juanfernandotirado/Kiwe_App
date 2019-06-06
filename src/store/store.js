@@ -11,8 +11,19 @@ export default new Vuex.Store({
     userStatus: {
       nickName: ''
     },
-    groupSize: 1
+    groupSize: 1,
+    currentListStatus:{
+      startTime: new Date(),
+      estTime: 60,
+      currentSpot: 5,
+      restaurantName: 'Frijol'
+    }
+
   },
+
+
+  
+
   mutations,
   actions
 });

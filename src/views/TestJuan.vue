@@ -1,17 +1,20 @@
 <template>
   <div class="TestJuan" >
     <GroupSize/>
+    <Drop-off-confirmation/>
   </div>
 
 </template>
 
 <script>
 import GroupSize from '../components/main/GroupSize.vue'
+import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
 
 export default {
   name: 'TestJuan',
   components: {
-    GroupSize
+    GroupSize,
+    DropOffConfirmation
   },
   data: function(){
       return{

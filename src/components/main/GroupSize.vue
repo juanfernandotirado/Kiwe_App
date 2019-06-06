@@ -2,8 +2,8 @@
   <div class="group-size">
     <h1>Group Size</h1>
 
-    <button v-on:click="incrementSize">Add</button>
-    <button v-on:click="decreasetSize">Subtract</button>
+    <button class="btn-floating blue" v-on:click="incrementSize">+</button>
+    <button class="btn-floating blue" v-on:click="decreasetSize">-</button>
     <p>{{ groupSize}}</p>
     
 
