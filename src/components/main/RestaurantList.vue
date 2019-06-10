@@ -1,14 +1,28 @@
 <template>
     <div class="listRest">
         <h1>Where to eat</h1>
+        <div>{{selectedRes}}</div>
+
         <ul>
-            <li v-for="x in restaurantList" v-bind:key="x.restaurantID">
-                <div v-for="(val,key) in x" v-bind:key="(val,key)" class="rest">
-                    <div class="restInfo">{{ key }}: </div>
-                    <div class="restInfoFil"> {{ val }}</div>
+            <li v-for="rest in restList" 
+            v-bind:key="rest.id" 
+            v-on:click="assignRestSelc(selectedRes, rest)">
+            
+                <div class="restClass">
+                   <div class="restInfo">Restaurant name: 
+                       <div class="restInfoFil"> {{ rest.Name }} </div>
+                   </div>
+                   
+                   <div class="restInfo">Est. Waiting Time: 
+                       <div class="restInfoFil"> {{rest.WaitTime}} </div>
+                   </div>
                 </div>
+                <router-link to="/restDetail" >See details</router-link>
+                
             </li>
+           
         </ul>
+        <div>{{ selectedRes }}</div>
 
     </div>
 </template>
@@ -16,53 +30,28 @@
 <script>
 export default {
     name: "RestaurantList",
-
     data(){
-        return{
-            restaurantList: [
-                {
-                    Name: 'Ramen ramen', 
-                    ID: 1,
-                    WaitTime: '30 min',
-                    //Information Available at Restaurant Details
-                    Rating: 5,
-                    PriceLevel: 3,
-                    Address: 'Alberni St',
-                },
-                {
-                    Name: "Vips",
-                    ID: 2,
-                    WaitTime: '40 min',
-                    //Information Available at Restaurant Details
-                    Rating: 4,
-                    PriceLevel: 4,
-                    Address: '49th Street'
-                },
-               {
-                    Name: 'La Fonda',
-                    ID: 3,
-                    WaitTime: '20 min',
-                    //Information Available at Restaurant Details
-                    Rating: 4,
-                    PriceLevel: 2,
-                    Address: 'Granville St'
-                },
-                {
-                    Name: 'Sub Viet',
-                    ID: 4,
-                    WaitTime: '40 min',
-                    //Information Available  at Restaurant Details
-                    Rating: 5,
-                    PriceLevel: 1,
-                    Address: 'Broadway St'
-                },
-
-            ]
+        return{  
         }
     },
-    methods: {
 
+    methods: {
+         assignRestSelc: function (tar, sor){
+            this.$store.dispatch('assignRest', this.restList.ID);
+        }
+    },
+
+    computed: {
+        restList(){
+            return this.$store.state.restaurantList
+        },
+        selectedRes(){
+            return this.$store.state.selRest
+        },
+       
+        
     }
+   
 }
 </script>
 
@@ -74,20 +63,25 @@ ul {
 li {
     border: 1px solid salmon;
     margin: 2rem auto;
-    padding-left: 10px;
-    
+    padding-left: 10px;   
+    cursor: pointer; 
 }
 
-.rest {
+
+
+.restClass {
     text-align: left,
 }
 
-.restInfo, .restInfoFil {
-    display: inline-block,
+.restInfoFil {
+    display: inline-block;
+    font-weight: normal;
 }
 
 .restInfo {
-    font-weight: bold,
+    font-weight: bold;
+    display: block,
+
 }
 
 .restInfoFil {
@@ -97,6 +91,8 @@ li {
 restaurantList.Name{
     display: none;
 }
+
+
 
 </style>
 

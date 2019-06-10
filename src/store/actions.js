@@ -14,9 +14,14 @@ const subtractGroupSize = (context) => {
     context.commit('SUBTRACT_GROUP_SIZE');
 };
 
+const assignRest = (context,payload) => {
+    context.commit('SELECT_RESTRAURANT',payload);
+};
+
 export default{
     changeName,
     getUserStatus,
     addGroupSize,
-    subtractGroupSize
+    subtractGroupSize,
+    assignRest
 } 

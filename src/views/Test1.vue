@@ -6,11 +6,13 @@
 
 <script>
 import RestaurantList from '../components/main/RestaurantList'
+import RestaurantDetail from '../components/restaurant/RestaurantDetail'
 
 export default {
     name: 'Test1',
     components: {
-        RestaurantList
+        RestaurantList,
+        RestaurantDetail
     },
     methods: {
 

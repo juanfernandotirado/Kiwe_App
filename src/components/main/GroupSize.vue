@@ -27,7 +27,7 @@ export default {
 
     decreasetSize: function(){
         if (this.groupSize > 1)
-        this.$store.dispatch('substractGroupSize');
+        this.$store.dispatch('subtractGroupSize');
     }
 
     },
