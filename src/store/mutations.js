@@ -22,8 +22,9 @@ const SUBTRACT_GROUP_SIZE = (state) => {
 }
 
 const SELECT_RESTRAURANT = (state,payload) =>{
-    const newSel = Object.assign(state.selRest, payload);
-    console.log(newSel);
+    // const newSel = Object.assign(state.selRest, payload);
+    state.selRest = payload;
+    // console.log(newSel);
 }
 
 export default {

@@ -37,7 +37,7 @@ export default {
 
     methods: {
          assignRestSelc: function (tar, sor){
-            this.$store.dispatch('assignRest', this.restList.ID);
+            this.$store.dispatch('assignRest', sor.ID);
         }
     },
 
