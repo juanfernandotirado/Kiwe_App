@@ -3,6 +3,7 @@
         <p>Restaurant Name: {{ currentListStatus.restaurantName }}</p>
         <p>Current Spot: {{ currentListStatus.currentSpot }}</p>
         <p>Estimated Waiting Time: {{ currentListStatus.estTime }} min.</p>
+        <p>Time you joined: {{ currentListStatus.joinTime.getDate() }} {{ months[currentListStatus.joinTime.getMonth()] }},  {{ currentListStatus.joinTime.getHours() }}:{{ currentListStatus.joinTime.getMinutes() }} </p>
   </div>
 </template>
 
@@ -10,6 +11,25 @@
 
 export default {
   name:'WaitListInfo',
+
+  data:function(){
+    return {
+       months:["January", 
+      "February", 
+      "March", 
+      "April", 
+      "May", 
+      "June", 
+      "July", 
+      "August", 
+      "September", 
+      "October", 
+      "November", 
+      "December"]
+    }
+   
+  },
+
   methods: {
   
    

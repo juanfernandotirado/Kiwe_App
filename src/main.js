@@ -2,7 +2,9 @@ import Vue from 'vue';
 import firebase from 'firebase';
 import App from './App.vue';
 import router from './router';
-import store from './store/store'
+import store from './store/store';
+import vueDateFormat from 'vue-date-format';
+Vue.use(vueDateFormat)
 
 Vue.config.productionTip = false
 

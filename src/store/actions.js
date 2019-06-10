@@ -15,13 +15,20 @@ const subtractGroupSize = (context) => {
 };
 
 const assignRest = (context,payload) => {
-    context.commit('SELECT_RESTRAURANT',payload);
+    context.commit('SELECT_RESTAURANT',payload);
 };
+
+//its like the state in mutation
+const joinList = (context,payload) => {
+    context.commit('JOIN_LIST', payload);
+}
+
 
 export default{
     changeName,
     getUserStatus,
     addGroupSize,
     subtractGroupSize,
-    assignRest
+    assignRest,
+    joinList
 } 

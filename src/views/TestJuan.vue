@@ -1,7 +1,12 @@
 <template>
   <div class="TestJuan" >
     <GroupSize/>
+    <!-- <vueDateFormat :format="'yyyy-MM-dd hh:mm:ss'" :time="'2019-06-10'" :type="'fmt'" :autoUpdate="false"></vueDateFormat> -->
+
     <Drop-off-confirmation/>
+    <AddToList/>
+
+  
   </div>
 
 </template>
@@ -9,20 +14,30 @@
 <script>
 import GroupSize from '../components/main/GroupSize.vue'
 import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
+import AddToList from '../components/main/AddToList.vue'
+
 
 export default {
   name: 'TestJuan',
   components: {
     GroupSize,
-    DropOffConfirmation
+    DropOffConfirmation,
+    AddToList
   },
   data: function(){
       return{
        
       }
   },
+
+  computed: {
+    joinTime: function (){
+      return this.$store.state.currentListStatus.currentSpot
+    }
+  },
   methods: {
   }
+
 }
 </script>
 

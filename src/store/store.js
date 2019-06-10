@@ -9,54 +9,66 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userStatus: {
-      nickName: ''
+      nickName: 'Karla'
     },
+
+
+
     groupSize: 1,
     currentListStatus:{
-      startTime: new Date(),
+      joinTime: new Date(),
       estTime: 60,
-      currentSpot: 5,
-      restaurantName: 'Frijol'
+      currentSpot: 0,
+      restaurantName: 'Frijol',
+      
     },
+
+
+    waitList: [],
+
+
+
     restaurantList: [
       {    
-        Name: 'Ramen ramen',
+        name: 'Ramen ramen',
         ID: 1,
-        WaitTime: '30 min',
+        waitTime: '30 min',
         //Information Available at Restaurant Details
-        Rating: 5,
-        PriceLevel: 3,
-        Address: 'Alberni St',
+        rating: 5,
+        priceLevel: 3,
+        address: 'Albern St',
+        
       },
       {
-        Name: "Vips",
-        ID: 2,
-        WaitTime: '40 min',
+        name: "Vips",
+        iD: 2,
+        waitTime: '40 min',
         //Information Available at Restaurant Details
-        Rating: 4,
-        PriceLevel: 4,
-        Address: '49th Street'
+        rating: 4,
+        priceLevel: 4,
+        address: '49th Street'
       },
       {
-        Name: 'La Fonda',
-        ID: 3,
-        WaitTime: '20 min',
+        name: 'La Fonda',
+        iD: 3,
+        waitTime: '20 min',
         //Information Available at Restaurant Details
-        Rating: 4,
-        PriceLevel: 2,
-        Address: 'Granville St'
+        rating: 4,
+        priceLevel: 2,
+        address: 'Granville St'
       },
       {
-        Name: 'Sub Viet',
-        ID: 4,
-        WaitTime: '40 min',
+        name: 'Sub Viet',
+        iD: 4,
+        waitTime: '40 min',
         //Information Available  at Restaurant Details
-        Rating: 5,
-        PriceLevel: 1,
-        Address: 'Broadway St'
+        rating: 5,
+        priceLevel: 1,
+        address: 'Broadway St'
       },
-  
     ],
+
+
     selRest: {
       
     }
