@@ -1,29 +1,23 @@
 <template>
     <div class="listRest">
         <h1>Where to eat</h1>
-        <div>{{selectedRes}}</div>
-
         <ul>
             <li v-for="rest in restList" 
-            v-bind:key="rest.id" 
-            v-on:click="assignRestSelc(selectedRes, rest)">
-            
+            v-bind:key="rest.id">
                 <div class="restClass">
                    <div class="restInfo">Restaurant name: 
-                       <div class="restInfoFil"> {{ rest.Name }} </div>
+                       <div class="restInfoFil"> {{ rest.name }} </div>
                    </div>
                    
                    <div class="restInfo">Est. Waiting Time: 
-                       <div class="restInfoFil"> {{rest.WaitTime}} </div>
+                       <div class="restInfoFil"> {{rest.waitTime}} </div>
                    </div>
                 </div>
-                <router-link to="/restDetail" >See details</router-link>
-                
+                <router-link to="/restDetail" >  
+                    <span v-on:click="assignRestSelc(selectedRes, rest)"> See details </span>
+                </router-link>
             </li>
-           
         </ul>
-        <div>{{ selectedRes }}</div>
-
     </div>
 </template>
 
@@ -64,7 +58,7 @@ li {
     border: 1px solid salmon;
     margin: 2rem auto;
     padding-left: 10px;   
-    cursor: pointer; 
+    // cursor: pointer; 
 }
 
 

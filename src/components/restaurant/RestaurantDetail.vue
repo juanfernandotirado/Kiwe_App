@@ -1,19 +1,13 @@
 <template>
   <div class="restaurant-detail">
     <h1>Restaurant Detail</h1>
-    <div>{{selectedRes}}</div>
-    <ul>
-      <li v-for="rest in restList" 
-      v-bind:key="rest.id" 
-      >
-        <div  v-for="(val,key) in rest" 
-        v-bind:key="(val,key)"
-        >
-          <div class="restInfo">{{ key }}: </div>
-          <div class="restInfoFil"> {{ val }}</div>
-        </div> 
-      </li>
-    </ul>
+    <!-- <div>{{selectedRes}}</div> -->
+    <div  v-for="(val,key) in selectedRes" 
+    v-bind:key="(val,key)">
+      <div class="restInfo">{{ key }}: </div>
+      <div class="restInfoFil"> {{ val }}</div>
+    </div> 
+    <div class="routerLinks"><router-link to="/testjuan"> Add me to Waiting list</router-link></div>
     <router-link to="/restList">Go back</router-link>
   </div>
 </template>
@@ -29,17 +23,18 @@ export default {
         }
     },
     computed: {
-      restList(){
-        return this.$store.state.restaurantList
-      },
       selectedRes(){
-        this.$store.state.selRest 
+        return this.$store.state.selRest
       }
     }
 }
 </script>
 
 <style scoped lang="scss">
+
+.routerLinks {
+  display: block;
+}
 
 ul {
     margin: 2rem;
@@ -50,10 +45,6 @@ li {
     padding-left: 10px;    
 }
 
-// .restoName {
-//         font-size: 2rem;
-
-// }
 
 .rest {
     text-align: left,
@@ -71,9 +62,7 @@ li {
     margin-left: 5px;
 }
 
-restaurantList.Name{
-    display: none;
-}
+
 
 </style>
 
