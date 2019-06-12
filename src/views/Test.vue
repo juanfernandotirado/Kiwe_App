@@ -1,16 +1,16 @@
 <template>
   <div class="test">
-      <Comfirmation />
+      <MenuGallery />
   </div>
 </template>
 
 <script>
-import Comfirmation from '../components/waitlist/Comfirmation.vue'
+import MenuGallery from '../components/restaurant/MenuGallery.vue'
 
 export default {
   name:'Test',
   components: {
-      Comfirmation
+      MenuGallery
   },
   methods: {
  

@@ -1,44 +1,92 @@
 <template>
     <div class="listRest">
         <h1>Where to eat</h1>
+        <ul>
+            <li v-for="rest in restList" 
+            v-bind:key="rest.id">
+                <div class="restClass">
+                   <div class="restInfo">Restaurant name: 
+                       <div class="restInfoFil"> {{ rest.name }} </div>
+                   </div>
+                   
+                   <div class="restInfo">Est. Waiting Time: 
+                       <div class="restInfoFil"> {{rest.waitTime}} </div>
+                   </div>
+                </div>
+                <router-link to="/restDetail" >  
+                    <span v-on:click="assignRestSelc(selectedRes, rest)"> See details </span>
+                </router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
     name: "RestaurantList",
-
-    data: function (){
-        return{
-            // Restaurant 
-            restaurantList: [
-                {
-                    restaurantName: 'Pizza', 
-                    restaurantID: 1,
-                },
-                {
-                    restaurantName: 'Hamburguer',
-                    restuarantID: 2,
-                },
-               {
-                    restaurantName: 'Taco',
-                    restuarantID: 3,
-                },
-                {
-                    restaurantName: 'Sushi',
-                    restuarantID: 4,
-                },
-
-            ]
+    data(){
+        return{  
         }
     },
-    methods: {
 
+    methods: {
+         assignRestSelc: function (tar, sor){
+            this.$store.dispatch('assignRest', sor);
+        }
+    },
+
+    computed: {
+        restList(){
+            return this.$store.state.restaurantList
+        },
+        selectedRes(){
+            return this.$store.state.selRest
+        },
+       
+        
     }
+   
 }
 </script>
 
 <style scoped lang="scss">
+
+ul {
+    margin: 2rem;
+}
+li {
+    border: 1px solid salmon;
+    margin: 2rem auto;
+    padding-left: 10px;   
+    // cursor: pointer; 
+}
+
+
+
+.restClass {
+    text-align: left,
+}
+
+.restInfoFil {
+    display: inline-block;
+    font-weight: normal;
+}
+
+.restInfo {
+    font-weight: bold;
+    display: block,
+
+}
+
+.restInfoFil {
+    margin-left: 5px;
+}
+
+restaurantList.Name{
+    display: none;
+}
+
+
 
 </style>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="menu-gallery">
-    <h1>Menu Gallery</h1>
+    <h2>Menu Gallery</h2>
+
   </div>
 </template>
 
@@ -9,9 +10,19 @@
 
 export default {
   name: 'MenuGallery',
-    data:function(){
-    return{}
-    }
+  
+  data:function(){
+    return{
+      dishes:[]
+      }
+    },
+
+  created(){
+
+    
+  }
+    
+
   
 }
 </script>
