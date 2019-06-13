@@ -30,18 +30,18 @@ export default new Vuex.Store({
 
     restaurantList: [
       {    
-        name: 'Ramen ramen',
-        ID: 1,
+        name: 'The Mexican Antojitos y Cantina',
+        rid: '3ba0ce3dbce01335cdf5e17c077a612146a4ac48',
         waitTime: '30 min',
         //Information Available at Restaurant Details
-        rating: 5,
-        priceLevel: 3,
-        address: 'Albern St',
+        rating: 4.5,
+        priceLevel: 2,
+        address: '1049 Granville St, Vancouver, BC V6Z 1L4, Canada',
         
       },
       {
         name: "Vips",
-        iD: 2,
+        rid: '3ba0ce3dbce01335cdf5e17c077a612146a4ac48',
         waitTime: '40 min',
         //Information Available at Restaurant Details
         rating: 4,
@@ -50,7 +50,7 @@ export default new Vuex.Store({
       },
       {
         name: 'La Fonda',
-        iD: 3,
+        rid: '3ba0ce3dbce01335cdf5e17c077a612146a4ac48',
         waitTime: '20 min',
         //Information Available at Restaurant Details
         rating: 4,
@@ -59,7 +59,7 @@ export default new Vuex.Store({
       },
       {
         name: 'Sub Viet',
-        iD: 4,
+        rid: '3ba0ce3dbce01335cdf5e17c077a612146a4ac48',
         waitTime: '40 min',
         //Information Available  at Restaurant Details
         rating: 5,
