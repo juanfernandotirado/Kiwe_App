@@ -8,6 +8,8 @@
         <input v-model="inputPwd" type="password" name="password" >
         <label for="nickname">Nickname</label>
         <input v-model="inputNickName" type="text" name="nickname" >
+        <label for="phone">Phone</label>
+        <input v-model="inputPhone" type="text" name="phone" >
         <button class="btn" v-on:click="submitSignup" type="submit">Sign up</button>
       </form>
        <router-link to="/login">Already a member? Log in</router-link>
@@ -29,6 +31,7 @@ export default {
           inputEmail: '',
           inputPwd: '',
           inputNickName: '',
+          inputPhone:'',
           errMsg:''
       }
   },
@@ -46,6 +49,7 @@ export default {
                 return db.collection('users').doc(resp.user.uid).set({
                   //From this object of the firebase(reps), grab just the UID to set the user information on firebase.
                 nickName : this.inputNickName,
+                phone: this.inputPhone,
                 profile: {},
                 isInLine: false,
                 createdTime: new Date()
@@ -56,6 +60,7 @@ export default {
                                           uid: resp.user.uid,
                                           isInLine: false,
                                           nickName: this.inputNickName,
+                                          phone:this.inputPhone,
                                           profile: {}
                                         }
                   //Set UserStatus to store
