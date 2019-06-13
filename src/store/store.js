@@ -52,7 +52,7 @@ export default new Vuex.Store({
         //Information Available at Restaurant Details
         rating: 4,
         priceLevel: 4,
-        address: '1178 Davie St, Vancouver'
+        address: '1178 Davie St, Vancouver',
         rImgRef: 'CmRaAAAAvDxgkReAe4Yl78TmgyAy8rQknYSXmaiqtp4SAGkkVU5UgGMuPu0A-gPxJDZWJAZF3jnA0RACW2Ak19B2QM-uRK4TcG4dQTVvXaV-I7pZgaNk-Rsb7ZUiCnKVWdTqwh_CEhA1UPjIOqLeG7mjtcdUb-VTGhTPw-DbYuubpm0wLoA43WqMBZ6_dQ'
       },
       {
