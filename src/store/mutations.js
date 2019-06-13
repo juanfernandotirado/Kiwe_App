@@ -40,6 +40,11 @@ const JOIN_LIST = (state,payload) => {
     console.log(state.waitList);
 }
 
+//Update menu gallery imgs
+const UPDATE_GALLERY_IMGS = (state,payload) => {
+    state.restaurantImgs = payload;
+}
+
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
@@ -47,6 +52,7 @@ export default {
     SUBTRACT_GROUP_SIZE,
     SELECT_RESTAURANT,
     JOIN_LIST,
-    ADD_TO_WAITING_LIST
+    ADD_TO_WAITING_LIST,
+    UPDATE_GALLERY_IMGS
 
 }

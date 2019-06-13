@@ -27,6 +27,11 @@ const joinList = (context,payload) => {
     context.commit('JOIN_LIST', payload);
 }
 
+//Update MenuGallery Imgs
+const updateGalleryImgs = (context,payload) => {
+    context.commit('UPDATE_GALLERY_IMGS',payload);
+}
+
 
 export default{
     changeName,
@@ -35,5 +40,6 @@ export default{
     subtractGroupSize,
     assignRest,
     joinList,
-    addWaitingList
+    addWaitingList,
+    updateGalleryImgs
 } 

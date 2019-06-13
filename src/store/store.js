@@ -95,8 +95,10 @@ export default new Vuex.Store({
     additionalInfo: {
       accessibility:'',
       seatingPreferences: ''
-      },
+    },
 
+    //Img array for menu gallery
+    restaurantImgs:[]
   
 
   },

@@ -1,7 +1,11 @@
 <template>
   <div class="menu-gallery">
-    <h2>Menu Gallery</h2>
-
+    <h5>Menu Gallery</h5>
+    <div class="gallery-container">
+      <div class="gallery-item" v-for="item in restaurantImgs" :key="item.photo_reference">
+          <img :src="'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference='+item.photo_reference" alt="">
+      </div>  
+    </div>  
   </div>
 </template>
 
@@ -13,23 +17,14 @@ export default {
   
   data:function(){
     return{
-      dishes:[]
+      
       }
     },
-
-  created(){
-
-    let api = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJZ04tZ9ZzhlQRDsJZp_cOS4U&key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ';
-    
-    this.axios.get(api,{ crossdomain: true }).then((response) => {
-        console.log(response.data)
-      })
-
- 
-
-  }
-    
-
+    computed:{
+      restaurantImgs(){
+        return this.$store.state.restaurantImgs;
+      }
+    }
   
 }
 </script>
