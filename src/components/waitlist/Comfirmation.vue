@@ -1,6 +1,6 @@
 <template>
   <div class="comfirmation-container">
-      <h1>Hello Peter</h1>
+      <h1>Hello {{userStatus.nickName}}</h1>
   </div>
 </template>
 
@@ -9,8 +9,11 @@
 export default {
   name:'Comfirmation',
   methods: {
-  
-   
+  },
+  computed: {
+    userStatus(){
+      return this.$store.state.userStatus
+    }
   }
 }
 </script>

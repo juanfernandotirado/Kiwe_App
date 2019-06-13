@@ -3,8 +3,10 @@
     <!-- <GroupSize/> -->
     <!-- <vueDateFormat :format="'yyyy-MM-dd hh:mm:ss'" :time="'2019-06-10'" :type="'fmt'" :autoUpdate="false"></vueDateFormat> -->
     <AdditionalInfo/>
-    <Drop-off-confirmation/>
     <AddToList/>
+    <WaitListInfo/>
+
+    <!-- <Drop-off-confirmation/> -->
     
 
   
@@ -17,6 +19,7 @@ import GroupSize from '../components/main/GroupSize.vue'
 import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
 import AddToList from '../components/main/AddToList.vue'
 import AdditionalInfo from '../components/main/AdditionalInfo.vue'
+import WaitListInfo from '../components/waitlist/WaitListInfo.vue'
 
 
 export default {
@@ -25,7 +28,8 @@ export default {
     GroupSize,
     DropOffConfirmation,
     AddToList,
-    AdditionalInfo
+    AdditionalInfo,
+    WaitListInfo
   },
   data: function(){
       return{

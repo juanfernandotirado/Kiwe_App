@@ -4,7 +4,7 @@
 
 <label for="additionalInfo">Accessibility</label>
 
-<select v-model="additionalInfo.accesibility" name="additionalInfo">
+<select v-model="additionalInfo.accessibility" name="additionalInfo">
 <option value="">No special needs</option>
 <option value="Wheelchair" > Wheelchair </option>
 <option value="Stroller" > Stroller </option> 
@@ -41,24 +41,22 @@
 
 export default {
   name: 'AdditionalInfo',
-    data:function(){
-    return{
-        additionalInfo: {
-        accessibility:'',
-        seatingPreferences: ''
-        },
+    // data:function(){
+    // // return{
+    // //     additionalInfo: {
+    // //     accessibility:'',
+    // //     seatingPreferences: ''
+    // //     },
         
-    }
-    },
+    // },
 
     methods: {
-  
-
-  
-
     },
 
     computed: {
+        additionalInfo(){
+            return this.$store.state.additionalInfo
+        }
 
     }
   

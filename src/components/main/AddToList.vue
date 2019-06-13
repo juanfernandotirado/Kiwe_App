@@ -1,5 +1,8 @@
 <template>
+
     <div>
+        <h1>Hello {{userStatus.nickName}}</h1>
+
         <button v-on:click="addToList" class="btn orange">Join</button>
 
     </div>
@@ -19,8 +22,15 @@ export default {
                 currSpot:this.$store.state.currentListStatus.currentSpot+1,
                 rid:this.$store.state.selRest.rid,
                 rName:this.$store.state.selRest.name,
+                addOptionsAccs:this.$store.state.additionalInfo.accessibility,
+                addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences
             }
             this.$store.dispatch('joinList', currentStatus)
+        }
+    },
+    computed: {
+        userStatus(){
+            return this.$store.state.userStatus
         }
     }
     

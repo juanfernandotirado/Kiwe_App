@@ -1,6 +1,6 @@
 <template>
   <div class="wait-list-info-container">
-        <p>Restaurant Name: {{ currentListStatus.restaurantName }}</p>
+        <p>Restaurant Name: {{ selRest.name }}</p>
         <p>Current Spot: {{ currentListStatus.currentSpot }}</p>
         <p>Estimated Waiting Time: {{ currentListStatus.estTime }} min.</p>
         <p>Time you joined: {{ currentListStatus.joinTime.getDate() }} {{ months[currentListStatus.joinTime.getMonth()] }},  {{ currentListStatus.joinTime.getHours() }}:{{ currentListStatus.joinTime.getMinutes() }} </p>
@@ -37,6 +37,9 @@ export default {
    computed:{
     currentListStatus(){
       return this.$store.state.currentListStatus
+    },
+    selRest(){
+      return this.$store.state.selRest
     }
   }
 }
