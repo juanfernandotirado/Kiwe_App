@@ -17,8 +17,8 @@ const ADD_GROUP_SIZE = (state) => {
 
 //// Function to subtract people from the group
 const SUBTRACT_GROUP_SIZE = (state) => {
-    state.groupSize -=1;
-    console.log(state.groupSize);
+    state.currentListStatus.groupSize -=1;
+    console.log(state.currentListStatus.groupSize);
 }
 
 //payload is receiving a parameter
@@ -26,6 +26,10 @@ const SELECT_RESTAURANT = (state,payload) =>{
     // const newSel = Object.assign(state.selRest, payload);
     state.selRest = payload;
     // console.log(newSel);
+}
+
+const ADD_TO_WAITING_LIST = (state, payload) => {
+    state.currentListStatus.rid = payload;
 }
 
 
@@ -42,6 +46,7 @@ export default {
     ADD_GROUP_SIZE,
     SUBTRACT_GROUP_SIZE,
     SELECT_RESTAURANT,
-    JOIN_LIST
+    JOIN_LIST,
+    ADD_TO_WAITING_LIST
 
 }

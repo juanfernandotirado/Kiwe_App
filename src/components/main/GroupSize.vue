@@ -26,7 +26,7 @@ export default {
     },
 
     decreasetSize: function(){
-        if (this.groupSize > 1)
+        if (this.currentListStatus.groupSize > 1)
         this.$store.dispatch('subtractGroupSize');
     }
 
@@ -34,7 +34,7 @@ export default {
 
     computed: {
         groupSize(){
-            return this.$store.state.groupSize
+            return this.$store.state.currentListStatus.groupSize
         } 
     }
   

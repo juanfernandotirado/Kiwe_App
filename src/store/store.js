@@ -9,18 +9,23 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userStatus: {
-      nickName: 'Karla'
+      nickName: 'Karla',
+      uid: '',
     },
 
 
+    
 
-    groupSize: 1,
     currentListStatus:{
       joinTime: new Date(),
       estTime: 60,
       currentSpot: 0,
-      restaurantName: 'Frijol',
-      
+      rName: '',
+      rid: '',
+      groupSize: 1,
+      uName: '',
+      uid: '',
+      uInLine: '',
     },
 
 

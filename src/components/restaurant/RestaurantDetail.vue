@@ -7,7 +7,11 @@
       <div class="restInfo">{{ key }}: </div>
       <div class="restInfoFil"> {{ val }}</div>
     </div> 
-    <div class="routerLinks"><router-link to="/testjuan"> Add me to Waiting list</router-link></div>
+    <div class="routerLinks">
+      <router-link to="/testjuan" > 
+        <span > Add me to Waiting list </span>
+      </router-link>
+    </div>
     <router-link to="/restList">Go back</router-link>
   </div>
 </template>
@@ -22,6 +26,15 @@ export default {
            
         }
     },
+
+    method: {
+      chosenRest: function (){
+        this.$store.state.currentStatusList.rid = this.$store.state.selRest.rid;
+        return this.$store.state.currentStatusList.rid;
+        // console.log(this.$store.state.currentStatusList.rid);
+      }
+    },
+
     computed: {
       selectedRes(){
         return this.$store.state.selRest

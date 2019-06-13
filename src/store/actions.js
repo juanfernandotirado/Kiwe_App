@@ -18,6 +18,10 @@ const assignRest = (context,payload) => {
     context.commit('SELECT_RESTAURANT',payload);
 };
 
+const addWaitingList = (context,payload) => {
+    context.commit('ADD_WAITING_LIST', payload);
+}
+
 //its like the state in mutation
 const joinList = (context,payload) => {
     context.commit('JOIN_LIST', payload);
@@ -30,5 +34,6 @@ export default{
     addGroupSize,
     subtractGroupSize,
     assignRest,
-    joinList
+    joinList,
+    addWaitingList
 } 
