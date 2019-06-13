@@ -1,15 +1,27 @@
 <template>
   <div class="hello">
-      <h2>Hello I am {{nickName}}</h2>
+      <!-- <h2>Hello I am {{nickName}}</h2>
     
       <label for="newName">New Name</label>
       <input v-model="newName" type="text">
-      <button v-on:click="changeName">Change</button>
+      <button v-on:click="changeName">Change</button> -->
+      <GroupSize/>
+      <button v-on:click="groupSizeDefined">Search</button>
+
   </div>
 </template>
 
 <script>
+
+import GroupSize from '../components/main/GroupSize.vue'
+import RestaurantList from '../components/main/RestaurantList.vue'
+
 export default {
+
+  components: {
+    GroupSize,
+    RestaurantList
+  },
   name: 'HelloWorld',
   props: {
     msg: String
@@ -30,6 +42,11 @@ export default {
       this.$store.dispatch('changeName',this.newName).then(()=>{
       this.newName = '';
       });
+    },
+
+    groupSizeDefined:function(){
+      this.$store.state.currentListStatus.groupSize
+      this.$router.push('test1');
     }
   }
 }

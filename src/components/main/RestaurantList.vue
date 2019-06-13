@@ -13,9 +13,9 @@
                        <div class="restInfoFil"> {{rest.waitTime}} </div>
                    </div>
                 </div>
-                <router-link to="/restDetail" >  
+                <!-- <router-link to="/restDetail" >   -->
                     <span v-on:click="assignRestSelc(selectedRes, rest)"> See details </span>
-                </router-link>
+                <!-- </router-link> -->
             </li>
         </ul>
     </div>
@@ -31,7 +31,9 @@ export default {
 
     methods: {
          assignRestSelc: function (tar, sor){
-            this.$store.dispatch('assignRest', sor);
+            this.$store.dispatch('assignRest', sor).then(
+                  this.$router.push('restDetail')
+            );
         }
     },
 

@@ -12,13 +12,15 @@ export default {
     methods: {
         addToList: function(){
             // console.log(this.$store.state.userStatus.nickName)
-            let person = {
-                id:this.$store.state.userStatus.uid,
+            let currentStatus = {
+                uid:this.$store.state.userStatus.uid,
                 nickName:this.$store.state.userStatus.nickName,
-                grSize:this.$store.state.groupSize,
-                currSpot:this.$store.state.waitList.lenght,
+                grSize:this.$store.state.currentListStatus.groupSize,
+                currSpot:this.$store.state.currentListStatus.currentSpot+1,
+                rid:this.$store.state.selRest.rid,
+                rName:this.$store.state.selRest.name,
             }
-            this.$store.dispatch('joinList', person)
+            this.$store.dispatch('joinList', currentStatus)
         }
     }
     

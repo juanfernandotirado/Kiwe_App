@@ -11,8 +11,8 @@ const GET_USER_STATUS = (state,payload) => {
 
 // Function to add people to the group
 const ADD_GROUP_SIZE = (state) => {
-    state.groupSize +=1;
-    console.log(state.groupSize);
+    state.currentListStatus.groupSize +=1;
+    console.log(state.currentListStatus.groupSize);
 }
 
 //// Function to subtract people from the group
@@ -29,7 +29,7 @@ const SELECT_RESTAURANT = (state,payload) =>{
 }
 
 const ADD_TO_WAITING_LIST = (state, payload) => {
-    state.currentListStatus.rid = payload;
+    state.currentListStatus = payload;
 }
 
 

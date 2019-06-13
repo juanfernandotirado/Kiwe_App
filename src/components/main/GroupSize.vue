@@ -4,7 +4,7 @@
 
     <button class="btn-floating blue" v-on:click="incrementSize">+</button>
     <button class="btn-floating blue" v-on:click="decreasetSize">-</button>
-    <p>{{ groupSize}}</p>
+    <p>{{ groupSize }}</p>
     
 
   </div>
@@ -26,7 +26,7 @@ export default {
     },
 
     decreasetSize: function(){
-        if (this.currentListStatus.groupSize > 1)
+        if (this.$store.state.currentListStatus.groupSize > 1)
         this.$store.dispatch('subtractGroupSize');
     }
 
