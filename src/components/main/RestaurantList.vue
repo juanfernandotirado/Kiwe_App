@@ -1,6 +1,7 @@
 <template>
     <div class="listRest">
         <h1>Where to eat</h1>
+        <SearchBox/>
         <ul>
             <li v-for="rest in restList" 
             v-bind:key="rest.id">
@@ -22,8 +23,13 @@
 </template>
 
 <script>
+
+import SearchBox from '../restaurant/SearchBox.vue'
 export default {
     name: "RestaurantList",
+    components: {
+        SearchBox
+    },
     data(){
         return{  
         }
