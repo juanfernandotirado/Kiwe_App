@@ -1,23 +1,24 @@
 <template>
   <div class="test">
-   <div class="collection">
+   <!-- <div class="collection">
       <a href="#!" v-for="item in restaurantList" :key="item.rid" v-on:click="getGalleryImgs(item.rid)" class="collection-item">
         {{item.name}}
       </a>
     </div>
-    <MenuGallery />
+    <MenuGallery /> -->
+    <AddToList />
   </div>
 </template>
 
 <script>
 import MenuGallery from '../components/restaurant/MenuGallery.vue';
-
+import AddToList from '../components/main/AddToList.vue';
 
 export default {
   name:'Test',
   components: {
       MenuGallery,
-     
+      AddToList
   },
   methods: {
     getGalleryImgs: function(rid){
