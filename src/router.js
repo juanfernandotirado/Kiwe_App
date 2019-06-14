@@ -8,8 +8,6 @@ import Test from './views/Test.vue';
 import Test1 from './views/Test1.vue';
 import TestJuan from './views/TestJuan.vue';
 import RestaurantDetail from './components/restaurant/RestaurantDetail.vue';
-import RestaurantList from './components/main/RestaurantList.vue';
-import SearchBox from './components/restaurant/SearchBox.vue'
 
 
 Vue.use(Router)
@@ -58,17 +56,6 @@ const router = new Router({
       path:'/restDetail',
       name: 'restDetail',
       component: RestaurantDetail
-    },
-    {
-      path:'/restList',
-      name: 'restList',
-      component: RestaurantList
-    },
-
-    {
-      path:'/searchBox',
-      name: 'searchBox',
-      component: SearchBox
     },
     {
       path: '/userprofile',
