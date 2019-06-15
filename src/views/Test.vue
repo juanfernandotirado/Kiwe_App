@@ -1,10 +1,10 @@
 <template>
   <div class="test">
-   <!-- <div class="collection">
+   <div >
       <a href="#!" v-for="item in restaurantList" :key="item.rid" v-on:click="getGalleryImgs(item.rid)" class="collection-item">
         {{item.name}}
       </a>
-    </div> -->
+    </div>
     <MenuGallery />
     <!-- <AddToList /> -->
   </div>
