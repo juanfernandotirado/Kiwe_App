@@ -1,6 +1,6 @@
 <template>
  <div class="additional-info">
-<h1>Accesibility Drop-down Menu</h1>
+<h5>Accesibility Drop-down Menu</h5>
 
 <label for="additionalInfo">Accessibility</label>
 
@@ -16,7 +16,7 @@
 
 <p>{{ additionalInfo.accessibility }}</p>
 
-<h1>Seating Preference</h1>
+<h5>Seating Preference</h5>
 
 <label for="seatingPreferences">Seating Preferences</label>
 
