@@ -32,13 +32,11 @@
 
 <script>
 
-import SearchBox from '../restaurant/SearchBox.vue';
 import MenuGallery from '../restaurant/MenuGallery.vue'
 
 export default {
     name: "RestaurantList",
     components: {
-        SearchBox,
         MenuGallery
     },
     data(){
