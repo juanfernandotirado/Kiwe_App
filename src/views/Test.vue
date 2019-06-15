@@ -4,9 +4,9 @@
       <a href="#!" v-for="item in restaurantList" :key="item.rid" v-on:click="getGalleryImgs(item.rid)" class="collection-item">
         {{item.name}}
       </a>
-    </div>
-    <MenuGallery /> -->
-    <AddToList />
+    </div> -->
+    <MenuGallery />
+    <!-- <AddToList /> -->
   </div>
 </template>
 

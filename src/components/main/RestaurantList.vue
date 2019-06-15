@@ -14,21 +14,24 @@
                        <div class="restInfoFil"> {{rest.waitTime}} </div>
                    </div>
                 </div>
-                <!-- <router-link to="/restDetail" >   -->
-                    <span v-on:click="assignRestSelc(selectedRes, rest)"> See details </span>
-                <!-- </router-link> -->
+                <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button>
             </li>
         </ul>
+        <br>
+        <!-- <MenuGallery/> -->
     </div>
 </template>
 
 <script>
 
-import SearchBox from '../restaurant/SearchBox.vue'
+import SearchBox from '../restaurant/SearchBox.vue';
+import MenuGallery from '../restaurant/MenuGallery.vue'
+
 export default {
     name: "RestaurantList",
     components: {
-        SearchBox
+        SearchBox,
+        MenuGallery
     },
     data(){
         return{  
@@ -40,7 +43,9 @@ export default {
             this.$store.dispatch('assignRest', sor).then(
                   this.$router.push('restDetail')
             );
-        }
+        },
+
+        
     },
 
     computed: {
@@ -66,7 +71,6 @@ li {
     border: 1px solid salmon;
     margin: 2rem auto;
     padding-left: 10px;   
-    // cursor: pointer; 
 }
 
 

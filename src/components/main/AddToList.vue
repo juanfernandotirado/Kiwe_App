@@ -52,12 +52,7 @@ export default {
             
         }
     },
-    // computed: {
-    //     userStatus(){
-    //         return this.$store.state.userStatus
-    //     }
-    // }
-    
+   
 }
 </script>
 

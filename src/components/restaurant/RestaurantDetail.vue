@@ -1,14 +1,29 @@
 <template>
   <div class="restaurant-detail">
-    <h1>Restaurant Detail</h1>
-    <!-- <div>{{selectedRes}}</div> -->
-    <div  v-for="(val,key) in selectedRes" 
-    v-bind:key="(val,key)">
-      <div class="restInfo">{{ key }}: </div>
-      <div class="restInfoFil"> {{ val }}</div>
-    </div> 
+    <h1>Restaurant Details</h1>
+    <section class="restDet">
+      <div>
+        <div class="restInfo">Restaurant Name: </div>
+        <div class="restInfoFil"> {{selectedRes.name}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Address: </div>
+        <div class="restInfoFil"> {{selectedRes.address}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Rating: </div>
+        <div class="restInfoFil"> {{selectedRes.rating}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Price Level: </div>
+        <div class="restInfoFil"> {{selectedRes.priceLevel}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Waiting time: </div>
+        <div class="restInfoFil"> {{selectedRes.waitTime}} </div>
+      </div>
+    </section>
     <button v-on:click="nextPage">Add me to waiting list</button>
-    <!-- <router-link to="../main/AddToList" class="routerLinks" >Add me to Waiting List</router-link> -->
     <router-link to="/restList" class="routerLinks">Go back</router-link>
   </div>
 </template>
@@ -74,7 +89,9 @@ li {
     margin-left: 5px;
 }
 
-
+.restDet {
+  padding: 1.5rem;
+}
 
 </style>
 
