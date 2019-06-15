@@ -35,9 +35,10 @@ export default new Vuex.Store({
 
     restaurantList: [
       {    
-        name: 'The Mexican Antojitos y Cantina',
+        name: 'the mexican antojitos y cantina',
         rid: 'ChIJSa1PpdVzhlQRmKSfG7q1eYQ',
         waitTime: '30 min',
+        cuisine: 'mexican',
         //Information Available at Restaurant Details
         rating: 4.5,
         priceLevel: 2,
@@ -46,9 +47,10 @@ export default new Vuex.Store({
         
       },
       {
-        name: "The Capital",
+        name: "the capital",
         rid: 'ChIJuekueytyhlQRVlHzMj9r2x4',
         waitTime: '40 min',
+        cuisine: 'bar',
         //Information Available at Restaurant Details
         rating: 4,
         priceLevel: 4,
@@ -56,9 +58,10 @@ export default new Vuex.Store({
         rImgRef: 'CmRaAAAAvDxgkReAe4Yl78TmgyAy8rQknYSXmaiqtp4SAGkkVU5UgGMuPu0A-gPxJDZWJAZF3jnA0RACW2Ak19B2QM-uRK4TcG4dQTVvXaV-I7pZgaNk-Rsb7ZUiCnKVWdTqwh_CEhA1UPjIOqLeG7mjtcdUb-VTGhTPw-DbYuubpm0wLoA43WqMBZ6_dQ'
       },
       {
-        name: 'Jam Cafe',
+        name: 'jam cafe',
         rid: 'ChIJUYBL3XtxhlQRrOYhW5_6DYc',
         waitTime: '20 min',
+        cuisine: 'brunch',
         //Information Available at Restaurant Details
         rating: 4,
         priceLevel: 2,
@@ -66,9 +69,10 @@ export default new Vuex.Store({
         rImgRef: 'CmRaAAAAEeLB56ic86mELGjs1uL7U8DAtzzwqm028kM7vNlqsl7TCn7pQ1y7JDKhZivlaQJLGg2mJ6ZkneyQVzUAUJHxNQPxhpdBV3qYQmEGqROYn95DmasZIkdWbdJSzQGiGE9bEhBRJjevB1bGBUItx5KfvMKQGhS6qJZXQgGp5D32aIa8v9CoeI2F_g'
       },
       {
-        name: 'Uncle Tetsu\'s Japanese Cheesecake',
+        name: 'uncle tetsu\'s japanese cheesecake',
         rid: 'ChIJBS1k_xh3hlQRfmUvS67QdwI',
         waitTime: '40 min',
+        cuisine: 'japanese',
         //Information Available  at Restaurant Details
         rating: 3.1,
         priceLevel: 1,
@@ -76,9 +80,10 @@ export default new Vuex.Store({
         rImgRef:'CmRaAAAAJ5IpGNeimNA7kvIP1hxR2VFrZ8xCmhOgsRh3AEl65LMqiPdBUkenX7en0Wd4KvRo7pAynXM13RgOmvHHA1adHe9ouqr433ptaQ2nzcGfrXHO38jm1cxT22MHLZrSw8O9EhC9RALhv2bXhNFcV4e2fsq7GhSLVe-XQQWhnzpuvbPtMVNIgyQg-w'
       },
       {
-        name: 'Ramen Danbo',
+        name: 'ramen danbo',
         rid: 'ChIJtwgTP4dxhlQRo5wIHcln0es',
         waitTime: '40 min',
+        cuisine: 'japanese',
         //Information Available  at Restaurant Details
         rating: 4.6,
         priceLevel: 1,

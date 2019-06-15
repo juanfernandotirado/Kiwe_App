@@ -1,6 +1,6 @@
 <template>
   <div class="wait-list-info-container">
-        <p>Restaurant Name: {{ currentListStatus.rName }}</p>
+        <p class="restName">Restaurant Name: {{ currentListStatus.rName }}</p>
         <p>Current Spot: {{ currentListStatus.currentSpot }}</p>
         <p>Estimated Waiting Time: {{ currentListStatus.estTime }} min.</p>
         <p>Time you joined: {{ currentListStatus.joinTime.getDate() }} {{ months[currentListStatus.joinTime.getMonth()] }},  {{ currentListStatus.joinTime.getHours() }}:{{ currentListStatus.joinTime.getMinutes() }} </p>
@@ -44,3 +44,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+  .restName{
+    text-transform: capitalize;
+  }
+</style>
+

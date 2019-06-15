@@ -1,10 +1,14 @@
 <template>
     <div class="listRest">
         <h1>Where to eat</h1>
-        <SearchBox/>
+        <div class="searchB">
+            <input type="text" v-model="search" placeholder="Search restaurants">
+            <!-- <button class="btnSearch">Search</button> -->
+        
+        </div> 
         <ul>
-            <li v-for="rest in restList" 
-            v-bind:key="rest.id">
+            <li v-for="rest in filteredRest" 
+            v-bind:key="rest.id" class="rests">
                 <div class="restClass">
                    <div class="restInfo">Restaurant name: 
                        <div class="restInfoFil"> {{ rest.name }} </div>
@@ -12,6 +16,10 @@
                    
                    <div class="restInfo">Est. Waiting Time: 
                        <div class="restInfoFil"> {{rest.waitTime}} </div>
+                   </div>
+
+                    <div class="restInfo">Cuisine: 
+                       <div class="restInfoFil"> {{ rest.cuisine }} </div>
                    </div>
                 </div>
                 <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button>
@@ -35,6 +43,9 @@ export default {
     },
     data(){
         return{  
+            search: '',
+            restList: []
+
         }
     },
 
@@ -48,13 +59,29 @@ export default {
         
     },
 
+    created() {
+        this.restList = this.$store.state.restaurantList
+    },
+
     computed: {
-        restList(){
-            return this.$store.state.restaurantList
-        },
+        // restList(){
+        //     return this.$store.state.restaurantList
+        // },
+
         selectedRes(){
             return this.$store.state.selRest
         },
+
+        filteredRest: function (){
+            return this.restList.filter((rest) => {
+                if(rest.name.match(this.search)){
+                    return rest.name.match(this.search);
+                }
+                else if(rest.cuisine.match(this.search)) {
+                    return rest.cuisine.match(this.search);
+                };
+            })
+        }
        
         
     }
@@ -92,10 +119,17 @@ li {
 
 .restInfoFil {
     margin-left: 5px;
+    text-transform: capitalize;
+
+    
 }
 
-restaurantList.Name{
-    display: none;
+.searchB {
+    margin: 2rem;
+}
+
+.rests {
+    padding: 1rem;
 }
 
 
