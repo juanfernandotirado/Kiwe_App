@@ -27,6 +27,7 @@ const SELECT_RESTAURANT = (state,payload) =>{
     state.selRest = payload;
     state.currentListStatus.rName = state.selRest.name;
     state.currentListStatus.rid = state.selRest.rid;
+    state.currentListStatus.estTime = state.selRest.waitTime;
     // console.log(newSel);
 }
 

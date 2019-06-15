@@ -17,7 +17,7 @@ export default new Vuex.Store({
     // groupSize: 1,
     currentListStatus:{
       joinTime: new Date(),
-      estTime: 60,
+      estTime: 0,
       currentSpot: 0,
       rName: '',
       rid: '',
@@ -37,7 +37,7 @@ export default new Vuex.Store({
       {    
         name: 'the mexican antojitos y cantina',
         rid: 'ChIJSa1PpdVzhlQRmKSfG7q1eYQ',
-        waitTime: '30 min',
+        waitTime: 30,
         cuisine: 'mexican',
         //Information Available at Restaurant Details
         rating: 4.5,
@@ -49,7 +49,7 @@ export default new Vuex.Store({
       {
         name: "the capital",
         rid: 'ChIJuekueytyhlQRVlHzMj9r2x4',
-        waitTime: '40 min',
+        waitTime: 40,
         cuisine: 'bar',
         //Information Available at Restaurant Details
         rating: 4,
@@ -60,7 +60,7 @@ export default new Vuex.Store({
       {
         name: 'jam cafe',
         rid: 'ChIJUYBL3XtxhlQRrOYhW5_6DYc',
-        waitTime: '20 min',
+        waitTime: 20,
         cuisine: 'brunch',
         //Information Available at Restaurant Details
         rating: 4,
@@ -71,7 +71,7 @@ export default new Vuex.Store({
       {
         name: 'uncle tetsu\'s japanese cheesecake',
         rid: 'ChIJBS1k_xh3hlQRfmUvS67QdwI',
-        waitTime: '40 min',
+        waitTime: 40,
         cuisine: 'japanese',
         //Information Available  at Restaurant Details
         rating: 3.1,
@@ -82,7 +82,7 @@ export default new Vuex.Store({
       {
         name: 'ramen danbo',
         rid: 'ChIJtwgTP4dxhlQRo5wIHcln0es',
-        waitTime: '40 min',
+        waitTime: 45,
         cuisine: 'japanese',
         //Information Available  at Restaurant Details
         rating: 4.6,

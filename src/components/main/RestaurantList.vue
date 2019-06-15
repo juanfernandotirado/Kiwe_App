@@ -15,7 +15,7 @@
                    </div>
                    
                    <div class="restInfo">Est. Waiting Time: 
-                       <div class="restInfoFil"> {{rest.waitTime}} </div>
+                       <div class="restInfoFil wait"> {{rest.waitTime}} min</div>
                    </div>
 
                     <div class="restInfo">Cuisine: 
@@ -130,6 +130,9 @@ li {
     padding: 1rem;
 }
 
+.wait {
+    text-transform: lowercase;
+}
 
 
 </style>

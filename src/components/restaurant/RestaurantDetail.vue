@@ -20,11 +20,11 @@
       </div>
       <div>
         <div class="restInfo">Waiting time: </div>
-        <div class="restInfoFil"> {{selectedRes.waitTime}} </div>
+        <div class="restInfoFil wait"> {{selectedRes.waitTime}} min</div>
       </div>
     </section>
-    <button v-on:click="nextPage">Add me to waiting list</button>
-    <router-link to="/restList" class="routerLinks">Go back</router-link>
+    <button v-on:click="nextPage" class="btn orange">Add me to waiting list</button>
+    <button v-on:click="backPage" class="btn blue">Go back</button>
   </div>
 </template>
 
@@ -44,7 +44,10 @@ export default {
 
       nextPage:function() {
         this.$router.push('testJuan');
+      },
 
+      backPage:function() {
+        this.$router.push('test1');
       }
 
     },
@@ -87,10 +90,20 @@ li {
 
 .restInfoFil {
     margin-left: 5px;
+    text-transform: capitalize;
 }
 
 .restDet {
   padding: 1.5rem;
+}
+
+.wait {
+  text-transform: lowercase;
+}
+
+.btn {
+  display: block;
+  margin: 1rem auto;
 }
 
 </style>
