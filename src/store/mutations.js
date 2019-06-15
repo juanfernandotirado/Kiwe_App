@@ -25,8 +25,11 @@ const SUBTRACT_GROUP_SIZE = (state) => {
 const SELECT_RESTAURANT = (state,payload) =>{
     // const newSel = Object.assign(state.selRest, payload);
     state.selRest = payload;
+    state.currentListStatus.rName = state.selRest.name;
+    state.currentListStatus.rid = state.selRest.rid;
     // console.log(newSel);
 }
+
 
 const ADD_TO_WAITING_LIST = (state, payload) => {
     state.currentListStatus = payload;
@@ -53,6 +56,6 @@ export default {
     SELECT_RESTAURANT,
     JOIN_LIST,
     ADD_TO_WAITING_LIST,
-    UPDATE_GALLERY_IMGS
+    UPDATE_GALLERY_IMGS,
 
 }

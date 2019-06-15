@@ -32,17 +32,6 @@ export default {
 
       }
 
-
-      // chosenRest: function (){
-      //   // this.$store.state.currentStatusList.rid = this.$store.state.selRest.rid;
-      //   // return this.$store.state.currentStatusList.rid;
-      //   // console.log(this.$store.state.currentStatusList.rid);
-      //   let currentStatus= {
-      //     rid = this.$store.state.selRest.rid,
-      //     rName = this.$store.state.selRest.name,
-      //   }
-        
-      // }
     },
 
     computed: {

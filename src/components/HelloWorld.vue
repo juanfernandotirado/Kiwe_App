@@ -6,9 +6,7 @@
       <input v-model="newName" type="text">
       <button v-on:click="changeName">Change</button> -->
       <GroupSize/> 
-      <!-- <button v-on:click="groupSizeDefined">Search</button> -->
-      <AdditionalInfo />
-      <AddToList />
+      <button v-on:click="groupSizeDefined">Search</button>
   </div>
 </template>
 
@@ -16,16 +14,12 @@
 
 import GroupSize from '../components/main/GroupSize.vue'
 import RestaurantList from '../components/main/RestaurantList.vue'
-import AddToList from './main/AddToList.vue'
-import AdditionalInfo from './main/AdditionalInfo.vue'
 
 export default {
 
   components: {
     GroupSize,
     RestaurantList,
-    AdditionalInfo,
-    AddToList
   },
   name: 'HelloWorld',
   props: {
