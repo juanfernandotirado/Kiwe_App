@@ -2,9 +2,12 @@
   <div class="TestJuan" >
     <!-- <GroupSize/> -->
     <!-- <vueDateFormat :format="'yyyy-MM-dd hh:mm:ss'" :time="'2019-06-10'" :type="'fmt'" :autoUpdate="false"></vueDateFormat> -->
+    
+    
+    <WaitListInfo/>
     <AdditionalInfo/>
     <AddToList/>
-    <WaitListInfo/>
+    <VerificationPopUp/>
 
     <!-- <Drop-off-confirmation/> -->
     
@@ -20,6 +23,8 @@ import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
 import AddToList from '../components/main/AddToList.vue'
 import AdditionalInfo from '../components/main/AdditionalInfo.vue'
 import WaitListInfo from '../components/waitlist/WaitListInfo.vue'
+import VerificationPopUp from '../components/waitlist/VerificationPopUp.vue'
+
 
 
 export default {
@@ -29,11 +34,12 @@ export default {
     DropOffConfirmation,
     AddToList,
     AdditionalInfo,
-    WaitListInfo
+    WaitListInfo,
+    VerificationPopUp
   },
   data: function(){
       return{
-       
+      
       }
   },
 

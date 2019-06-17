@@ -65,6 +65,13 @@ export default {
 </script>
 
 <style scoped>
+
+.additional-info{
+
+    width: 30%;
+    margin: 2% auto;
+}
+
 select{
     display: block;
 
