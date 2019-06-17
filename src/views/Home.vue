@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <div>
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-if="!isInLine">
+      <HelloWorld />
+    </div>
+    <div v-else>
+      <WaitListInfo />
     </div>
   
     <!-- <router-link to="../views/Test1.vue" class="routerLinks">Search</router-link> -->
@@ -13,17 +16,23 @@
 import firebase, { firestore } from 'firebase';
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
-
+import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
 
 export default {
   name: 'home',
   components: {
     HelloWorld,
+    WaitListInfo
    
   },
   data:function(){
     return{
 
+    }
+  },
+  computed:{
+    isInLine(){
+      return this.$store.state.userStatus.isInLine
     }
   },
   mounted(){
