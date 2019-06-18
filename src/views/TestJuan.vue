@@ -5,7 +5,7 @@
     
     
     <WaitListInfo/>
-    <AdditionalInfo/>
+    <Seating/>
     <AddToList/>
     <VerificationPopUp/>
 
@@ -21,7 +21,7 @@
 import GroupSize from '../components/main/GroupSize.vue'
 import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
 import AddToList from '../components/main/AddToList.vue'
-import AdditionalInfo from '../components/main/AdditionalInfo.vue'
+import Seating from '../components/main/Seating.vue'
 import WaitListInfo from '../components/waitlist/WaitListInfo.vue'
 import VerificationPopUp from '../components/waitlist/VerificationPopUp.vue'
 
@@ -33,7 +33,7 @@ export default {
     GroupSize,
     DropOffConfirmation,
     AddToList,
-    AdditionalInfo,
+    Seating,
     WaitListInfo,
     VerificationPopUp
   },
