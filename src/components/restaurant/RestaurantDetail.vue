@@ -23,6 +23,7 @@
         <div class="restInfoFil wait"> {{selectedRes.waitTime}} min</div>
       </div>
     </section>
+    <scanQRcode/>  
     <button v-on:click="nextPage" class="btn orange">Add me to waiting list</button>
     <button v-on:click="backPage" class="btn blue">Go back</button>
   </div>
@@ -30,8 +31,14 @@
 
 <script>
 
+import scanQRcode from '../main/scanQRcode.vue'
+
 
 export default {
+    components: {
+      scanQRcode
+    },
+
     name: "RestaurantList",
  
     data(){
