@@ -44,7 +44,8 @@ export default new Vuex.Store({
         rating: 4.5,
         priceLevel: 2,
         address: '1049 Granville St, Vancouver, BC V6Z 1L4, Canada',
-        rImgRef: 'CmRaAAAAp-l2rZ3MEMsulFInOWKoNPYqh3PHwMLsqqt1n9GCWNVfmqRfmxAbRB-unLEZE8UevNWwP7e_M3uAOtVPjRgcjJWKP77pC58lxqD6i2XrsR_dPxoxktquCqQZ0aIlIPGAEhBqfl6pyLaQFrG9SrRUVkpRGhS1mtJfMO8hpi4EDK1utQYASNDnZw'
+        rImgRef: 'CmRaAAAAp-l2rZ3MEMsulFInOWKoNPYqh3PHwMLsqqt1n9GCWNVfmqRfmxAbRB-unLEZE8UevNWwP7e_M3uAOtVPjRgcjJWKP77pC58lxqD6i2XrsR_dPxoxktquCqQZ0aIlIPGAEhBqfl6pyLaQFrG9SrRUVkpRGhS1mtJfMO8hpi4EDK1utQYASNDnZw',
+        qrCode: ''
         
       },
       {
