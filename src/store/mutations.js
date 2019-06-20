@@ -22,7 +22,11 @@ const SUBTRACT_GROUP_SIZE = (state) => {
 }
 
 const SELECT_REST_DB = (state,payload) => {
-    state.restaurantList = payload;
+    state.restaurantList.push(payload);
+}
+
+const EMPTY_REST_DB = (state) => {
+    state.restaurantList=[];
 }
 
 //payload is receiving a parameter
@@ -59,6 +63,7 @@ export default {
     ADD_GROUP_SIZE,
     SUBTRACT_GROUP_SIZE,
     SELECT_REST_DB,
+    EMPTY_REST_DB,
     SELECT_RESTAURANT,
     JOIN_LIST,
     ADD_TO_WAITING_LIST,

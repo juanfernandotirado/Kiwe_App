@@ -11,7 +11,7 @@
             v-bind:key="rest.id" class="rests">
                 <div class="restClass">
                    <div class="restInfo">Restaurant name: 
-                       <div class="restInfoFil"> {{ rest.name }} </div>
+                       <div class="restInfoFil"> {{ rest.rName }} </div>
                    </div>
                    
                    <div class="restInfo">Est. Waiting Time: 
@@ -45,8 +45,7 @@ export default {
     },
     data(){
         return{  
-            search: '',
-            restList: [],
+            search: ''
 
         }
     },
@@ -68,24 +67,16 @@ export default {
     },
 
     created() {
-        // let restList= [];
+     
         let db = firebase.firestore();
-        let tar;
-        let sor;
-        // assignRestdb: function (tar,sor){
-        //     this.tar.push(sor)
-        // }
-        
-        // assignRestdb: function (tar,sor){
-        //         this.tar.push(sor)
-        //         assignRestdb(restList, restListdb)
-        // }
-
+        let that = this;
 
         db.collection("restaurants").get().then(function (querySnapshot){
+            that.$store.dispatch('emptyRestDb');
+
             querySnapshot.forEach(function(doc){
                 console.log(doc.id, " => " , doc.data());
-                const restListdb = {
+                let restListdb = {
                     address: doc.data().address,
                     cuisine: doc.data().cuisine,
                     loginId: doc.data().loginId,
@@ -95,7 +86,7 @@ export default {
                     rid: doc.data().rid,
                     waitTime: doc.data().waitTime
                 }
-                this.$store.dispatch('assignRestDb', restListdb);
+                that.$store.dispatch('assignRestDb', restListdb);
 
             })
 
@@ -106,9 +97,9 @@ export default {
     },
 
     computed: {
-        // restList(){
-        //     return this.restListdb
-        // },
+        restList(){
+            return this.$store.state.restaurantList
+        },
 
         selectedRes(){
             return this.$store.state.selRest
@@ -116,10 +107,14 @@ export default {
 
         filteredRest: function (){
             return this.restList.filter((rest) => {
-                if(rest.name.match(this.search)){
-                    return rest.name.match(this.search);
+                let lowerName = rest.rName.toLowerCase();
+                console.log(lowerName);
+                if(lowerName.match(this.search)){
+                 
+                    return rest.rName.match(this.search);
                 }
                 else if(rest.cuisine.match(this.search)) {
+                    
                     return rest.cuisine.match(this.search);
                 };
             })
