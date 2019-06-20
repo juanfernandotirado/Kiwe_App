@@ -42,6 +42,19 @@ const updateGalleryImgs = (context,payload) => {
 }
 
 
+//Toggle pop up confirmation
+
+const popUpShows = (context) => {
+    context.commit('TOGGLE_POPUP');
+}
+
+//Toggle isInLine
+
+const isInLine = (context) => {
+    context.commit('TOGGLE_ISINLINE');
+}
+
+
 export default{
     changeName,
     getUserStatus,
@@ -52,5 +65,7 @@ export default{
     assignRest,
     joinList,
     addWaitingList,
-    updateGalleryImgs
+    updateGalleryImgs,
+    popUpShows,
+    isInLine
 } 

@@ -7,7 +7,7 @@
       <WaitListInfo />
     </div>
   
-    <!-- <router-link to="../views/Test1.vue" class="routerLinks">Search</router-link> -->
+    
 
   </div>
 </template>
