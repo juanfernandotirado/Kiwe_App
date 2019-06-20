@@ -26,6 +26,9 @@
             </li>
         </ul>
         <br>
+
+        <button v-on:click='goHome' class="btn blue">Back</button>
+
         <!-- <MenuGallery/> -->
     </div>
 </template>
@@ -53,6 +56,9 @@ export default {
                   this.$router.push('restDetail')
             );
         },
+        goHome:function(){
+            this.$router.push('home')
+        }
 
         
     },
