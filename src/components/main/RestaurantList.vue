@@ -108,15 +108,22 @@ export default {
         filteredRest: function (){
             return this.restList.filter((rest) => {
                 let lowerName = rest.rName.toLowerCase();
-                console.log(lowerName);
-                if(lowerName.match(this.search)){
-                 
-                    return rest.rName.match(this.search);
+                let lowerCuisine = rest.cuisine.toLowerCase();
+                let lowerSearch = this.search.toLowerCase();
+                console.log(lowerSearch);
+                if(lowerName.match(lowerSearch)){
+                    return lowerName.match(lowerSearch);
                 }
-                else if(rest.cuisine.match(this.search)) {
+                // else if(rest.rName.match(this.search)){
+                //     return rest.rName.match(this.search);
+                // }
+                else if (lowerCuisine.match(lowerSearch)){
+                    return lowerCuisine.match(lowerSearch);
+                }
+                // else if(rest.cuisine.match(this.search)) {
                     
-                    return rest.cuisine.match(this.search);
-                };
+                //     return rest.cuisine.match(this.search);
+                // };
             })
         }
        
