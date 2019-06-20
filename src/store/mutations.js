@@ -21,6 +21,10 @@ const SUBTRACT_GROUP_SIZE = (state) => {
     console.log(state.currentListStatus.groupSize);
 }
 
+const SELECT_REST_DB = (state,payload) => {
+    state.restaurantList = payload;
+}
+
 //payload is receiving a parameter
 const SELECT_RESTAURANT = (state,payload) =>{
     // const newSel = Object.assign(state.selRest, payload);
@@ -54,6 +58,7 @@ export default {
     GET_USER_STATUS,
     ADD_GROUP_SIZE,
     SUBTRACT_GROUP_SIZE,
+    SELECT_REST_DB,
     SELECT_RESTAURANT,
     JOIN_LIST,
     ADD_TO_WAITING_LIST,

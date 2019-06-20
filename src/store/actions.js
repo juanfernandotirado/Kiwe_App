@@ -13,7 +13,9 @@ const addGroupSize = (context) => {
 const subtractGroupSize = (context) => {
     context.commit('SUBTRACT_GROUP_SIZE');
 };
-
+const assignRestDb = (context,payload) => {
+    context.commit('SELECT_REST_DB');
+}
 const assignRest = (context,payload) => {
     context.commit('SELECT_RESTAURANT',payload);
 };
@@ -38,6 +40,7 @@ export default{
     getUserStatus,
     addGroupSize,
     subtractGroupSize,
+    assignRestDb,
     assignRest,
     joinList,
     addWaitingList,

@@ -35,7 +35,8 @@
 
 <script>
 
-import MenuGallery from '../restaurant/MenuGallery.vue'
+import MenuGallery from '../restaurant/MenuGallery.vue';
+import firebase, { firestore } from 'firebase';
 
 export default {
     name: "RestaurantList",
@@ -45,7 +46,7 @@ export default {
     data(){
         return{  
             search: '',
-            restList: []
+            restList: [],
 
         }
     },
@@ -58,18 +59,55 @@ export default {
         },
         goHome:function(){
             this.$router.push('home')
-        }
+        },
+
+        
+        
 
         
     },
 
     created() {
-        this.restList = this.$store.state.restaurantList
+        // let restList= [];
+        let db = firebase.firestore();
+        let tar;
+        let sor;
+        // assignRestdb: function (tar,sor){
+        //     this.tar.push(sor)
+        // }
+        
+        // assignRestdb: function (tar,sor){
+        //         this.tar.push(sor)
+        //         assignRestdb(restList, restListdb)
+        // }
+
+
+        db.collection("restaurants").get().then(function (querySnapshot){
+            querySnapshot.forEach(function(doc){
+                console.log(doc.id, " => " , doc.data());
+                const restListdb = {
+                    address: doc.data().address,
+                    cuisine: doc.data().cuisine,
+                    loginId: doc.data().loginId,
+                    priceLevel: doc.data().priceLevel,
+                    rName: doc.data().rName,
+                    rImgRef: doc.data().rImgRef,
+                    rid: doc.data().rid,
+                    waitTime: doc.data().waitTime
+                }
+                this.$store.dispatch('assignRestDb', restListdb);
+
+            })
+
+        })
+        
+        // this.restList = this.$store.state.restaurantList
+        // console.log(restList)
     },
 
     computed: {
         // restList(){
-        //     return this.$store.state.restaurantList
+        //     return this.restListdb
         // },
 
         selectedRes(){
