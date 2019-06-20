@@ -2,7 +2,7 @@
 <div>
     <h1>Read QR Code</h1>
     <div class="camera">
-        <!-- <qrcode-stream @decode="onDecode"></qrcode-stream> -->
+        <qrcode-stream @decode="onDecode"></qrcode-stream>
 
     </div>
     <button v-on:click='goHome' class="btn blue">Back</button>
@@ -27,9 +27,30 @@ export default {
             this.$router.push('home')
         },
         onDecode:function (decodedString) {
+            let scanRid = decodedString;
+            let restList = this.$store.state.restaurantList;
             //   alert(decodedString)
             console.log(decodedString)
-        }
+            console.log(restList);
+            restList.map(item => {
+                if(item.rid === scanRid){
+                    this.$store.dispatch("assignRest", item);
+                    this.$router.push('restDetail')
+                }
+            })
+        },
+
+
+        // async Detect (promise){
+        //     try {
+        //         const {
+        //             content
+        //         } = await promise
+        //     } catch (error) {
+
+        //     }
+        //     console.log(content)
+        // }
 
     }
     

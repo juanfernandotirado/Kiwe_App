@@ -68,30 +68,30 @@ export default {
 
     created() {
      
-        let db = firebase.firestore();
-        let that = this;
+        // let db = firebase.firestore();
+        // let that = this;
 
-        db.collection("restaurants").get().then(function (querySnapshot){
-            that.$store.dispatch('emptyRestDb');
+        // db.collection("restaurants").get().then(function (querySnapshot){
+        //     that.$store.dispatch('emptyRestDb');
 
-            querySnapshot.forEach(function(doc){
-                console.log(doc.id, " => " , doc.data());
-                let restListdb = {
-                    address: doc.data().address,
-                    cuisine: doc.data().cuisine,
-                    loginId: doc.data().loginId,
-                    priceLevel: doc.data().priceLevel,
-                    rName: doc.data().rName,
-                    rImgRef: doc.data().rImgRef,
-                    rid: doc.data().rid,
-                    waitTime: doc.data().waitTime,
-                    rating: doc.data().rating,
-                }
-                that.$store.dispatch('assignRestDb', restListdb);
+        //     querySnapshot.forEach(function(doc){
+        //         console.log(doc.id, " => " , doc.data());
+        //         let restListdb = {
+        //             address: doc.data().address,
+        //             cuisine: doc.data().cuisine,
+        //             loginId: doc.data().loginId,
+        //             priceLevel: doc.data().priceLevel,
+        //             rName: doc.data().rName,
+        //             rImgRef: doc.data().rImgRef,
+        //             rid: doc.data().rid,
+        //             waitTime: doc.data().waitTime,
+        //             rating: doc.data().rating,
+        //         }
+        //         that.$store.dispatch('assignRestDb', restListdb);
 
-            })
+        //     })
 
-        })
+        // })
         
         // this.restList = this.$store.state.restaurantList
         // console.log(restList)
