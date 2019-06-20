@@ -2,7 +2,7 @@
   <div class="test">
    <div >
       <a href="#!" v-for="item in restaurantList" :key="item.rid" v-on:click="getGalleryImgs(item.rid)" class="collection-item">
-        {{item.name}}
+        {{item.rName}}
       </a>
     </div>
     <MenuGallery />

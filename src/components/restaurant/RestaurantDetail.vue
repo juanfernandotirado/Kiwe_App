@@ -4,7 +4,7 @@
     <section class="restDet">
       <div>
         <div class="restInfo">Restaurant Name: </div>
-        <div class="restInfoFil"> {{selectedRes.name}} </div>
+        <div class="restInfoFil"> {{selectedRes.rName}} </div>
       </div>
       <div>
         <div class="restInfo">Address: </div>

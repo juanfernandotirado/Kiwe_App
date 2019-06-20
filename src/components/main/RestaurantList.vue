@@ -84,7 +84,8 @@ export default {
                     rName: doc.data().rName,
                     rImgRef: doc.data().rImgRef,
                     rid: doc.data().rid,
-                    waitTime: doc.data().waitTime
+                    waitTime: doc.data().waitTime,
+                    rating: doc.data().rating,
                 }
                 that.$store.dispatch('assignRestDb', restListdb);
 
