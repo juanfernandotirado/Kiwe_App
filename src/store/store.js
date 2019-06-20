@@ -104,10 +104,14 @@ export default new Vuex.Store({
     },
 
     //Img array for menu gallery
-    restaurantImgs:[]
+    restaurantImgs:[],
   
 
+    popUpShow: false,
+
   },
+
+  
   
 
   

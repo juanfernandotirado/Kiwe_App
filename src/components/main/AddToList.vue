@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-on:click="addToList" class="btn orange">Join</button>
+        <button v-on:click="addToList" class="btn orange">Confirm</button>
     </div>
     
 </template>
@@ -30,6 +30,9 @@ export default {
             }
 
             this.$store.dispatch('joinList', currentStatus)
+            this.$store.dispatch('popUpShows')
+            this.$store.dispatch('isInLine')
+      
 
 
              let db = firebase.firestore();

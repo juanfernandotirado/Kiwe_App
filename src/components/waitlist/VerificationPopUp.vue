@@ -1,6 +1,6 @@
 <template>
 <div>
-    <button @click="show=true" class="btn">Confirm</button>
+    <!--<button @click="show=true" class="btn">Confirm</button>-->
   <div class="modal-backdrop" v-show="show">
     <div class="modal">
       <header class="modal-header">
@@ -10,7 +10,7 @@
           <button
             type="button"
             class="btn-close"
-            v-on:click="show=false"
+            v-on:click="goHome()"
           >
             x
           </button>
@@ -29,7 +29,7 @@
             <button
               type="button"
               class="btn-green"
-              v-on:click="show=false"
+              v-on:click="goHome()"
             >
               Close me!
           </button>
@@ -53,22 +53,25 @@ import WaitListInfo from './WaitListInfo.vue'
 
     data:function(){
     return{
-      show:false
+      //show:false
     }
     },
 
     methods: {
-      close() {
-        this.$emit('close');
-      },
+
+      goHome: function(){
+        this.$router.push('home');
+      }
+      
     },
 
     computed: {
-      selectedRes(){
-        return this.$store.state.selRest
-      }
+      show() {
+      return this.$store.state.popUpShow
     }
-  };
+  }
+
+  }
 </script>
 
 <style scoped>

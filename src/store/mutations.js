@@ -49,6 +49,19 @@ const UPDATE_GALLERY_IMGS = (state,payload) => {
     state.restaurantImgs = payload;
 }
 
+//Toggle pop up confirmation
+
+const TOGGLE_POPUP = (state) => {
+    state.popUpShow = !state.popUpShow;
+}
+
+//Toggle isInLine
+
+const TOGGLE_ISINLINE = (state) => {
+    state.userStatus.isInLine = !state.userStatus.isInLine;
+}
+
+
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
@@ -58,5 +71,7 @@ export default {
     JOIN_LIST,
     ADD_TO_WAITING_LIST,
     UPDATE_GALLERY_IMGS,
+    TOGGLE_POPUP,
+    TOGGLE_ISINLINE
 
 }
