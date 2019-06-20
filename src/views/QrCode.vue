@@ -2,7 +2,8 @@
 <div>
     <h1>Read QR Code</h1>
     <div class="camera">
-        <span>Camera Here...</span>
+        <!-- <qrcode-stream @decode="onDecode"></qrcode-stream> -->
+
     </div>
     <button v-on:click='goHome' class="btn blue">Back</button>
 
@@ -11,11 +12,25 @@
 </template>
 
 <script>
+
+import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
+
 export default {
+    components:{
+        QrcodeStream,
+        QrcodeDropZone,
+        QrcodeCapture
+    },
+
     methods:{
         goHome:function(){
             this.$router.push('home')
+        },
+        onDecode:function (decodedString) {
+            //   alert(decodedString)
+            console.log(decodedString)
         }
+
     }
     
 }
