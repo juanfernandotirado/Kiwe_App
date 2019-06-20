@@ -8,6 +8,7 @@ import Test from './views/Test.vue';
 import Test1 from './views/Test1.vue';
 import TestJuan from './views/TestJuan.vue';
 import RestaurantDetail from './components/restaurant/RestaurantDetail.vue';
+import QrCode from './views/QrCode.vue'
 
 
 Vue.use(Router)
@@ -56,6 +57,12 @@ const router = new Router({
       path:'/restDetail',
       name: 'restDetail',
       component: RestaurantDetail
+    },
+    {
+      path:'/qrCode',
+      name: 'qrCode',
+      component: QrCode
+
     },
     {
       path: '/userprofile',
