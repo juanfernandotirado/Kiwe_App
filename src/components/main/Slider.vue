@@ -49,7 +49,7 @@ export default {
           
       }
 
-
+//  https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference=
 
     
   

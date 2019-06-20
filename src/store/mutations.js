@@ -33,7 +33,7 @@ const EMPTY_REST_DB = (state) => {
 const SELECT_RESTAURANT = (state,payload) =>{
     // const newSel = Object.assign(state.selRest, payload);
     state.selRest = payload;
-    state.currentListStatus.rName = state.selRest.name;
+    state.currentListStatus.rName = state.selRest.rName;
     state.currentListStatus.rid = state.selRest.rid;
     state.currentListStatus.estTime = state.selRest.waitTime;
     // console.log(newSel);
