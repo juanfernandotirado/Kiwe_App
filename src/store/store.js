@@ -51,6 +51,8 @@ export default new Vuex.Store({
   
 
     popUpShow: false,
+    popUpShowD: false,
+
 
   },
 

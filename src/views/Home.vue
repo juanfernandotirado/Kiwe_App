@@ -5,6 +5,8 @@
     </div>
     <div v-else>
       <WaitListInfo />
+      <DropOffConf />
+      <DropOffPop />
     </div>
   
     
@@ -17,12 +19,16 @@ import firebase, { firestore } from 'firebase';
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
 import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
+import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
+import DropOffPop from '../components/waitlist/DropOffPopUp.vue';
 
 export default {
   name: 'home',
   components: {
     HelloWorld,
-    WaitListInfo
+    WaitListInfo,
+    DropOffConf,
+    DropOffPop
    
   },
   data:function(){

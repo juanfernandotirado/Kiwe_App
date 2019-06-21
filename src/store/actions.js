@@ -48,6 +48,10 @@ const popUpShows = (context) => {
     context.commit('TOGGLE_POPUP');
 }
 
+const popUpShowsD = (context) => {
+    context.commit('TOGGLE_POPUP_DROP');
+}
+
 //Toggle isInLine
 
 const isInLine = (context) => {
@@ -67,5 +71,6 @@ export default{
     addWaitingList,
     updateGalleryImgs,
     popUpShows,
+    popUpShowsD,
     isInLine
 } 

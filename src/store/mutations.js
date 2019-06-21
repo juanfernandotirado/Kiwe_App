@@ -63,6 +63,10 @@ const TOGGLE_POPUP = (state) => {
     state.popUpShow = !state.popUpShow;
 }
 
+const TOGGLE_POPUP_DROP = (state) => {
+    state.popUpShowD = !state.popUpShowD;
+}
+
 //Toggle isInLine
 
 const TOGGLE_ISINLINE = (state) => {
@@ -82,6 +86,7 @@ export default {
     ADD_TO_WAITING_LIST,
     UPDATE_GALLERY_IMGS,
     TOGGLE_POPUP,
+    TOGGLE_POPUP_DROP,
     TOGGLE_ISINLINE
 
 }
