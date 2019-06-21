@@ -126,9 +126,7 @@ import firebase from 'firebase';
         let didUser = this.$store.state.currentListStatus.did
 
         let db = firebase.firestore();
-        db.collection('waitlist').doc(didUser).update({
-           status: 'cancel'
-        })
+        db.collection('waitlist').doc(didUser).delete()
         
       },
     },
