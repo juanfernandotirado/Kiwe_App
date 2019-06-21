@@ -106,43 +106,41 @@ import firebase from 'firebase';
     },
 
     methods: {
-        keepWaiting: function() {
-            
-            this.$store.dispatch('popUpShowsD')
-            // this.$router.push('home');
-        },
+      keepWaiting: function() {
+        this.$store.dispatch('popUpShowsD')
+        // this.$router.push('home');
+      },
 
-        dropOffConfirm: function(){
-            this.show2 = true;
-        },
+      dropOffConfirm: function(){
+        this.show2 = true;
+        console.log(this.$store.state.currentListStatus)
+      },
 
-        dropOffSpot: function() {
-            let currentStatus = {
-                status: 'cancel'
-            }
+      dropOffSpot: function() {
+        this.$store.state.userStatus.status = 'cancel'
+        console.log(this.$store.state.userStatus)
 
-            this.$store.dispatch('isInLine')
-            this.$router.push('home');
+        this.$store.dispatch('isInLine')
+        this.$router.push('home');
 
-            let db = firebase.firestore();
-                return db.collection('waitlist').doc(docName).update({
-                  //From this object of the firebase(reps), grab just the UID to set the user information on firebase.
-                uid:this.$store.state.userStatus.uid,
-                status: 'cancel'
-                //in here we created different properties for the user
-               })
-        }
+        let didUser = this.$store.state.currentListStatus.did
+
+        let db = firebase.firestore();
+        db.collection('waitlist').doc(didUser).update({
+           status: 'cancel'
+        })
         
-    //   goHome: function(){
-    //     this.$router.push('home');
-    //   }
-      
+      },
     },
 
     computed: {
       show() {
       return this.$store.state.popUpShowD
-    }
+    },
+
+    // didUser() {
+    //   return this.$store.state.userStatus.did
+    // }
   }
 
   }

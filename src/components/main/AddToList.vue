@@ -13,6 +13,7 @@ export default {
     methods: {
         addToList: function(){
              let currentTime = new Date();
+             let that = this;
              let docName = currentTime.getTime() + '_' +this.$store.state.userStatus.uid;
              console.log(docName);
              let currentStatus = {
@@ -26,7 +27,7 @@ export default {
                 addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences,
                 joinTime: currentTime.getTime(),
                 date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
-                status: 'waiting'
+                status: 'waiting',
             }
 
             this.$store.dispatch('joinList', currentStatus)
@@ -36,7 +37,7 @@ export default {
 
 
              let db = firebase.firestore();
-                return db.collection('waitlist').doc(docName).set({
+                db.collection('waitlist').doc(docName).set({
                   //From this object of the firebase(reps), grab just the UID to set the user information on firebase.
                 uid:this.$store.state.userStatus.uid,
                 nickName:this.$store.state.userStatus.nickName,
@@ -48,9 +49,11 @@ export default {
                 addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences,
                 joinTime: currentTime.getTime(),
                 date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
-                status: 'waiting'
+                status: 'waiting',
                 //in here we created different properties for the user
                })
+
+               that.$store.state.currentListStatus.did= db.collection('waitlist').doc(docName).id
 
             
         }
