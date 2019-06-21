@@ -36,7 +36,7 @@
           <button
               type="button"
               class="btn-green"
-              v-on:click="dropOffSpot"
+              v-on:click="dropOffConfirm"
             >
               Drop Off
           </button>
@@ -44,12 +44,52 @@
       </footer>
     </div>
   </div>
+
+
+
+  <div class="modal-backdrop" v-if="show2">
+      <div class="modal">
+      <header class="modal-header">
+        <slot name="header">
+          <!-- You have been successfully added to the queue!  -->
+
+          <button
+            type="button"
+            class="btn-close"
+          >
+            x
+          </button>
+        </slot>
+      </header>
+      <section class="modal-body">
+        <slot name="body">
+            Your spot has been removed fom the restaurant! 
+
+            <!-- <WaitListInfo/> -->
+        </slot>
+       </section>
+       <footer class="modal-footer">
+          <slot name="footer">
+            <!-- I'm the default footer! -->
+          <button
+              type="button"
+              class="btn-green"
+              v-on:click="dropOffSpot">
+              Close
+          </button>
+        </slot>
+      </footer>
+    </div>
+
+
+  </div>
   </div>
 </template>
 
 <script>
 
 import WaitListInfo from './WaitListInfo.vue'
+import firebase from 'firebase';
 
   export default {
     name: 'VerificationPopUp',
@@ -61,6 +101,7 @@ import WaitListInfo from './WaitListInfo.vue'
     data:function(){
     return{
       //show:false
+      show2: false
     }
     },
 
@@ -71,10 +112,25 @@ import WaitListInfo from './WaitListInfo.vue'
             // this.$router.push('home');
         },
 
+        dropOffConfirm: function(){
+            this.show2 = true;
+        },
+
         dropOffSpot: function() {
             let currentStatus = {
-                status: ''
+                status: 'cancel'
             }
+
+            this.$store.dispatch('isInLine')
+            this.$router.push('home');
+
+            let db = firebase.firestore();
+                return db.collection('waitlist').doc(docName).update({
+                  //From this object of the firebase(reps), grab just the UID to set the user information on firebase.
+                uid:this.$store.state.userStatus.uid,
+                status: 'cancel'
+                //in here we created different properties for the user
+               })
         }
         
     //   goHome: function(){
