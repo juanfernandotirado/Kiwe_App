@@ -9,8 +9,10 @@
     <AddToList/>
     <VerificationPopUp/>
     <br>
-    <Slider/>
-    <!-- <Drop-off-confirmation/> -->
+    <!-- <Slider/> -->
+    <Profile/>
+
+    
     
 
   
@@ -26,6 +28,7 @@ import AdditionalInfo from '../components/main/AdditionalInfo.vue'
 import WaitListInfo from '../components/waitlist/WaitListInfo.vue'
 import VerificationPopUp from '../components/waitlist/VerificationPopUp.vue'
 import Slider from '../components/main/Slider.vue'
+import Profile from '../components/main/Profile.vue'
 
 
 
@@ -38,7 +41,8 @@ export default {
     AdditionalInfo,
     WaitListInfo,
     VerificationPopUp,
-    Slider
+    Slider,
+    Profile
   },
   data: function(){
       return{
