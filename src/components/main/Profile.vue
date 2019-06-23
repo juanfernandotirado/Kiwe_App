@@ -1,6 +1,13 @@
 <template>
   <div class="profile">
       <h1>Profile</h1>
+<div class="" v-show="!show">
+      <p>Nickname: {{ docRef.nickName }}</p>
+
+      <p>Phone Number: {{ docRef.phone }}</p>
+
+      <p>Preferences: {{ docRef.profile.preferences }}</p>
+</div>
 
     <div>
 
@@ -13,27 +20,29 @@
 
             <div>
                 <label>Nickname:</label>
-                <input type="text" name="fullname"  placeholder="Enter Your Nickname"/>
-                
-            </div>
-            <div>
-                <label>Email:</label>
-                <input type="email" name="email" placeholder="Enter Your Email"/>
+                <input v-model="inputNickName" type="text" name="fullname"  placeholder="Enter Your Nickname"/>
                 
             </div>
             <div>
                 <label>Phone Number:</label>
-                <input type="tel" name="tel" placeholder="Enter Phone Number"/>
+                <input v-model="inputPhone" type="tel" name="tel" placeholder="Enter Phone Number"/>
                 
-            </div>    
+            </div> 
+            <div>
+                <label>Preferences:</label>
+                <input v-model="inputPreferences" type="text" name="Preferences" placeholder="Enter Your Preferences"/>
+                
+            </div>   
             
         </form>
 
     </div>
     
-        <button class="btn" @click="editProfile">Edit</button>
+        <button class="btn" @click="editProfile" v-show="!show">Edit</button>
         <br> <br>
-        <button class="btn" @click="cancelEdit">Cancel</button>
+        <button class="btn" @click="cancelEdit" v-show="show">Cancel</button>
+        <br> <br>
+        <button class="btn" @click="saveProfileChanges" type="submit" v-show="show">Save</button>
 
   </div>
 </template>
@@ -46,7 +55,11 @@ export default {
   name: 'Profile',
     data:function(){
     return{
-        show:false
+        show:false,
+        inputNickName:'',
+        inputPhone:'',
+        inputPreferences:'',
+       
     }
     },
 
@@ -60,15 +73,28 @@ export default {
         this.show = false
     },
 
+    saveProfileChanges:function(){
+        let db = firebase.firestore();
+        var docRef = db.collection("users").doc(this.$store.state.userStatus.uid).update({
+            nickName : this.inputNickName,
+            phone: this.inputPhone,
+            profile:{preferences:this.inputPreferences},
+
+        });
+        this.show = false
+    }
+
     },
 
     computed: {
-      
+      docRef(){
+           return this.$store.state.userStatus
+      }
     },
 
     created(){
         let db = firebase.firestore();
-        var docRef = db.collection("users").doc();
+        var docRef = db.collection("users").doc(this.$store.state.userStatus.uid);
 
         docRef.get().then(function(doc) {
         if (doc.exists) {
