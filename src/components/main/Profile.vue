@@ -33,9 +33,9 @@
                 
             </div> 
             <div>
-                <label>Preferences:</label>
+                <p>Preferences:</p>
                 <!--<input v-model="inputPreferences" type="text" name="Preferences" placeholder="Enter Your Preferences"/>-->
-                <input type="checkbox" value="Vegan" v-model="checkedPrefs">
+                <input type="checkbox" id="Vegan" value="Vegan" v-model="checkedPrefs">
                 <label>Vegan</label>
 
                 <input type="checkbox" value="Gluten Free" v-model="checkedPrefs">
@@ -70,7 +70,7 @@ export default {
         show:false,
         inputNickName:'',
         inputPhone:'',
-        checkedPrefs: ''
+        checkedPrefs: []
        
     }
     },
@@ -90,7 +90,7 @@ export default {
         var docRef = db.collection("users").doc(this.$store.state.userStatus.uid).update({
             nickName : this.inputNickName,
             phone: this.inputPhone,
-            profile:this.checkedPrefs,
+            profile:this.checkedPrefs
 
         });
         this.show = false
