@@ -47,7 +47,8 @@ export default {
                                           uid: user.user.uid,
                                           isInLine: doc.data().isInLine,
                                           nickName: doc.data().nickName,
-                                          profile: doc.data().profile
+                                          profile: doc.data().profile,
+                                          phone: doc.data().phone,
                                         }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);

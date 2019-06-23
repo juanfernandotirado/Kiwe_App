@@ -6,7 +6,11 @@
 
       <p>Phone Number: {{ docRef.phone }}</p>
 
-      <p>Preferences: {{ docRef.profile.preferences }}</p>
+      <p>Preferences:
+          <ul>
+              <li v-for="(item, index) in docRef.profile" v-bind:key="index">{{ item }}</li>
+          </ul>
+      </p>
 </div>
 
     <div>
@@ -30,8 +34,16 @@
             </div> 
             <div>
                 <label>Preferences:</label>
-                <input v-model="inputPreferences" type="text" name="Preferences" placeholder="Enter Your Preferences"/>
-                
+                <!--<input v-model="inputPreferences" type="text" name="Preferences" placeholder="Enter Your Preferences"/>-->
+                <input type="checkbox" value="Vegan" v-model="checkedPrefs">
+                <label>Vegan</label>
+
+                <input type="checkbox" value="Gluten Free" v-model="checkedPrefs">
+                <label>Gluten Free</label>
+
+                <input type="checkbox" value="Allergies" v-model="checkedPrefs">
+                <label>Allergies</label>
+
             </div>   
             
         </form>
@@ -58,7 +70,7 @@ export default {
         show:false,
         inputNickName:'',
         inputPhone:'',
-        inputPreferences:'',
+        checkedPrefs: ''
        
     }
     },
@@ -78,7 +90,7 @@ export default {
         var docRef = db.collection("users").doc(this.$store.state.userStatus.uid).update({
             nickName : this.inputNickName,
             phone: this.inputPhone,
-            profile:{preferences:this.inputPreferences},
+            profile:this.checkedPrefs,
 
         });
         this.show = false
@@ -106,7 +118,22 @@ export default {
     }).catch(function(error) {
     console.log("Error getting document:", error);
               });
+
+        
         }
   
         }
 </script>
+
+<style scoped>
+
+input[type="checkbox"], input[type="checkbox"]:checked{
+pointer-events: all;
+position: relative;
+opacity: 1;
+margin: auto 3%;
+margin-right: 0.5%;
+
+}
+
+</style>
