@@ -73,6 +73,8 @@ export default {
                                         rid: doc.data().rid,
                                         waitTime: doc.data().waitTime,
                                         rating: doc.data().rating,
+                                        sizeStandard: doc.data().sizeStandard,
+                                        estTime: 0,
                                     }
                                     that.$store.dispatch('assignRestDb', restListdb);
 

@@ -20,7 +20,7 @@
       </div>
       <div>
         <div class="restInfo">Waiting time: </div>
-        <div class="restInfoFil wait"> {{selectedRes.waitTime}} min</div>
+        <div class="restInfoFil wait"> {{selectedRes.estTime}} min</div>
       </div>
     </section>
     <!-- <createQRcode/>   -->
@@ -61,6 +61,7 @@ export default {
 
     computed: {
       selectedRes(){
+        console.log(this.$store.state.restaurantList)
         return this.$store.state.selRest
       }
     }

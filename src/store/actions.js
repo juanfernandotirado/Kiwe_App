@@ -13,15 +13,14 @@ const addGroupSize = (context) => {
 const subtractGroupSize = (context) => {
     context.commit('SUBTRACT_GROUP_SIZE');
 };
+
 const assignRestDb = (context,payload) => {
     context.commit('SELECT_REST_DB',payload);
-
-}
+};
 
 const emptyRestDb = (context) => {
     context.commit('EMPTY_REST_DB');
-
-}
+};
 
 const assignRest = (context,payload) => {
     context.commit('SELECT_RESTAURANT',payload);
@@ -29,7 +28,7 @@ const assignRest = (context,payload) => {
 
 const addWaitingList = (context,payload) => {
     context.commit('ADD_WAITING_LIST', payload);
-}
+};
 
 //its like the state in mutation
 const joinList = (context,payload) => {
@@ -43,7 +42,6 @@ const updateGalleryImgs = (context,payload) => {
 
 
 //Toggle pop up confirmation
-
 const popUpShows = (context) => {
     context.commit('TOGGLE_POPUP');
 }

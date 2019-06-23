@@ -15,7 +15,7 @@
                    </div>
                    
                    <div class="restInfo">Est. Waiting Time: 
-                       <div class="restInfoFil wait"> {{rest.waitTime}} min</div>
+                       <div class="restInfoFil wait"> {{ assignWaitTime(groupSize, rest) }} min</div>
                    </div>
 
                     <div class="restInfo">Cuisine: 
@@ -60,41 +60,37 @@ export default {
             this.$router.push('home')
         },
 
-        
-        
+        assignWaitTime:function(grp, rest){
+            let restList = this.$store.state.restaurantList;
+            // grp = this.$store.state.currentListStatus.groupSize;
+            let smallTable = rest.sizeStandard.small;
+            let mediumTable = rest.sizeStandard.medium;
+            let bigTable = rest.sizeStandard.large;
+            let smallTableWait = rest.waitTime.small;
+            let mediumTableWait = rest.waitTime.medium;
+            let bigTableWait = rest.waitTime.large;
+            console.log('restaurant');
+            console.log(grp);
 
-        
+            if (grp <= smallTable) {
+                rest.estTime = smallTableWait;
+                console.log(rest.estTime);
+                return rest.estTime;
+            }
+            else if (grp <=mediumTable) {
+                rest.estTime = mediumTableWait;
+                console.log(rest.estTime);
+                return rest.estTime;
+            }
+            else if (grp <=bigTable) {
+                rest.estTime = bigTableWait;
+                console.log(rest.estTime);
+                return rest.estTime;
+            }
+        }   
     },
 
     created() {
-     
-        // let db = firebase.firestore();
-        // let that = this;
-
-        // db.collection("restaurants").get().then(function (querySnapshot){
-        //     that.$store.dispatch('emptyRestDb');
-
-        //     querySnapshot.forEach(function(doc){
-        //         console.log(doc.id, " => " , doc.data());
-        //         let restListdb = {
-        //             address: doc.data().address,
-        //             cuisine: doc.data().cuisine,
-        //             loginId: doc.data().loginId,
-        //             priceLevel: doc.data().priceLevel,
-        //             rName: doc.data().rName,
-        //             rImgRef: doc.data().rImgRef,
-        //             rid: doc.data().rid,
-        //             waitTime: doc.data().waitTime,
-        //             rating: doc.data().rating,
-        //         }
-        //         that.$store.dispatch('assignRestDb', restListdb);
-
-        //     })
-
-        // })
-        
-        // this.restList = this.$store.state.restaurantList
-        // console.log(restList)
     },
 
     computed: {
@@ -106,6 +102,10 @@ export default {
             return this.$store.state.selRest
         },
 
+        groupSize(){
+            return this.$store.state.currentListStatus.groupSize
+        },
+
         filteredRest: function (){
             return this.restList.filter((rest) => {
                 let lowerName = rest.rName.toLowerCase();
@@ -115,22 +115,12 @@ export default {
                 if(lowerName.match(lowerSearch)){
                     return lowerName.match(lowerSearch);
                 }
-                // else if(rest.rName.match(this.search)){
-                //     return rest.rName.match(this.search);
-                // }
                 else if (lowerCuisine.match(lowerSearch)){
                     return lowerCuisine.match(lowerSearch);
                 }
-                // else if(rest.cuisine.match(this.search)) {
-                    
-                //     return rest.cuisine.match(this.search);
-                // };
             })
         }
-       
-        
     }
-   
 }
 </script>
 
