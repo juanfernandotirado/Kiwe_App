@@ -47,7 +47,7 @@ const JOIN_LIST = (state,payload) => {
     state.waitList.push(payload);
     state.currentListStatus.currentSpot++;
     state.currentListStatus.joinTime=new Date();
-    console.log(state.waitList);
+
 }
 
 //Update menu gallery imgs

@@ -27,7 +27,7 @@ const assignRest = (context,payload) => {
 };
 
 const addWaitingList = (context,payload) => {
-    context.commit('ADD_WAITING_LIST', payload);
+    context.commit('ADD_TO_WAITING_LIST', payload);
 };
 
 //its like the state in mutation

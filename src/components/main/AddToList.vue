@@ -23,7 +23,7 @@ export default {
              let currentTime = new Date();
              let that = this;
              let docName = currentTime.getTime() + '_' +this.$store.state.userStatus.uid;
-             console.log(docName);
+            
              let currentStatus = {
                 uid:this.$store.state.userStatus.uid,
                 nickName:this.$store.state.userStatus.nickName,
@@ -36,8 +36,9 @@ export default {
                 joinTime: currentTime.getTime(),
                 date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
                 status: 'waiting',
+                did:docName
             }
-
+    
 
              let db = firebase.firestore();
                 db.collection('waitlist').doc(docName).set({
@@ -55,6 +56,7 @@ export default {
                     status: 'waiting',
                 //in here we created different properties for the user
                })
+                that.$store.dispatch('addWaitingList',currentStatus);
                 that.$store.dispatch('joinList', currentStatus)
                 that.$store.dispatch('isInLine')
                 that.$store.state.currentListStatus.did= db.collection('waitlist').doc(docName).id

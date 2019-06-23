@@ -15,7 +15,7 @@ export default new Vuex.Store({
 
 
 
-    // groupSize: 1,
+  
     currentListStatus:{
       joinTime: new Date(),
       estTime: 0,
