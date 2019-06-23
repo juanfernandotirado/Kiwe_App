@@ -7,12 +7,10 @@
     <WaitListInfo/>
     <Seating/>
     <AddToList/>
-    <VerificationPopUp/>
     <br>
     <Slider/>
     <!-- <Drop-off-confirmation/> -->
     
-
   
   </div>
 
@@ -24,7 +22,6 @@ import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
 import AddToList from '../components/main/AddToList.vue'
 import Seating from '../components/main/Seating.vue'
 import WaitListInfo from '../components/waitlist/WaitListInfo.vue'
-import VerificationPopUp from '../components/waitlist/VerificationPopUp.vue'
 import Slider from '../components/main/Slider.vue'
 
 
@@ -37,7 +34,6 @@ export default {
     AddToList,
     Seating,
     WaitListInfo,
-    VerificationPopUp,
     Slider
   },
   data: function(){

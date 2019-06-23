@@ -71,6 +71,24 @@ const TOGGLE_ISINLINE = (state) => {
     state.userStatus.isInLine = !state.userStatus.isInLine;
 }
 
+//Empty waitlist Array
+const EMPTY_WAITLIST = (state) => {
+    state.waitList = [];
+}
+
+//Empty currentListStatus object
+const EMPTY_STATUS = (state) => {
+    state.currentListStatus.estTime = 0;
+    state.currentListStatus.currentSpot = 0;
+    state.currentListStatus.rName = '';
+    state.currentListStatus.rid = '';
+    state.currentListStatus.groupSize = 1;
+    state.currentListStatus.uName = '';
+    state.currentListStatus.uid = '';
+    state.currentListStatus.uInLine = '';
+    state.currentListStatus.did = '';
+}
+
 
 export default {
     UPDATE_USER_NICKNAME,
@@ -85,6 +103,8 @@ export default {
     UPDATE_GALLERY_IMGS,
     TOGGLE_POPUP,
     TOGGLE_POPUP_DROP,
-    TOGGLE_ISINLINE
+    TOGGLE_ISINLINE,
+    EMPTY_WAITLIST,
+    EMPTY_STATUS
 
 }

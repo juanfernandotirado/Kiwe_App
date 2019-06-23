@@ -119,15 +119,20 @@ import firebase from 'firebase';
       dropOffSpot: function() {
         this.$store.state.userStatus.status = 'cancel'
         console.log(this.$store.state.userStatus)
+        // this.$store.state.waitList.status = 'cancel'
 
-        this.$store.dispatch('isInLine')
+        this.$store.dispatch('isInLine');
+        this.$store.dispatch('emptyWaitlist');
         this.$router.push('home');
+        this.$store.dispatch('popUpShowsD');
 
-        let didUser = this.$store.state.currentListStatus.did
+
+        let didUser = this.$store.state.currentListStatus.did;
 
         let db = firebase.firestore();
-        db.collection('waitlist').doc(didUser).delete()
-        
+        db.collection('waitlist').doc(didUser).delete();
+
+        this.$store.dispatch('emptyStatus');
       },
     },
 

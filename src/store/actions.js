@@ -56,6 +56,14 @@ const isInLine = (context) => {
     context.commit('TOGGLE_ISINLINE');
 }
 
+const emptyWaitlist = (context) => {
+    context.commit('EMPTY_WAITLIST');
+}
+
+const emptyStatus = (context) => {
+    context.commit('EMPTY_STATUS');
+}
+
 
 export default{
     changeName,
@@ -70,5 +78,7 @@ export default{
     updateGalleryImgs,
     popUpShows,
     popUpShowsD,
-    isInLine
+    isInLine,
+    emptyWaitlist,
+    emptyStatus
 } 

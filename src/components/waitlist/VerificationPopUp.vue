@@ -6,7 +6,6 @@
       <header class="modal-header">
         <slot name="header">
           You have been successfully added to the queue! 
-
           <button
             type="button"
             class="btn-close"
@@ -61,6 +60,7 @@ import WaitListInfo from './WaitListInfo.vue'
 
       goHome: function(){
         this.$router.push('home');
+        this.$store.dispatch('popUpShows')
       }
       
     },
