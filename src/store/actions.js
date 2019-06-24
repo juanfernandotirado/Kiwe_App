@@ -46,18 +46,18 @@ const isInLine = (context) => {
 }
 
 //Profile Update Nickname
-const updateNickname = (context) => {
-    context.commit('UPDATE_NICKNAME');
+const updateNickname = (context, payload) => {
+    context.commit('UPDATE_NICKNAME', payload);
 }
 
 //Profile Update Phone Number
-const updatePhoneNumber = (context) => {
-    context.commit('UPDATE_PHONENUMBER');
+const updatePhoneNumber = (context, payload) => {
+    context.commit('UPDATE_PHONENUMBER', payload);
 }
 
 //Profile Update Profile
-const updateProfile = (context) => {
-    context.commit('UPDATE_PROFILE');
+const updateProfile = (context,payload) => {
+    context.commit('UPDATE_PROFILE', payload);
 }
 
 

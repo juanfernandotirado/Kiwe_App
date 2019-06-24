@@ -70,7 +70,7 @@ export default {
         show:false,
         //inputNickName:'',
         //inputPhone:'',
-        checkedPrefs: []
+       // checkedPrefs: []
        
     }
     },
@@ -138,6 +138,17 @@ export default {
                 this.$store.dispatch('updatePhoneNumber', value)
             }
         },
+
+        checkedPrefs: {
+                   
+            get() {
+                return this.$store.state.userStatus.profile
+            },
+            set(value){
+                this.$store.dispatch('updateProfile', value)
+            }
+        
+        }
 
 
 
