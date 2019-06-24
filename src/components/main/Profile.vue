@@ -35,14 +35,14 @@
             <div>
                 <p>Preferences:</p>
                 <!--<input v-model="inputPreferences" type="text" name="Preferences" placeholder="Enter Your Preferences"/>-->
-                <input type="checkbox" id="Vegan" value="Vegan" v-model="checkedPrefs">
-                <label>Vegan</label>
+                <input type="checkbox" id="vegan" value="Vegan" v-model="checkedPrefs">
+                <label for='vegan' >Vegan</label>
 
-                <input type="checkbox" value="Gluten Free" v-model="checkedPrefs">
-                <label>Gluten Free</label>
+                <input type="checkbox" id="glute-free" value="Gluten Free" v-model="checkedPrefs">
+                <label for='glute-free'>Gluten Free</label>
 
-                <input type="checkbox" value="Allergies" v-model="checkedPrefs">
-                <label>Allergies</label>
+                <input type="checkbox" id="allergies" value="Allergies" v-model="checkedPrefs">
+                <label for= 'allergies'>Allergies</label>
 
             </div>   
             
@@ -68,9 +68,7 @@ export default {
     data:function(){
     return{
         show:false,
-        //inputNickName:'',
-        //inputPhone:'',
-       // checkedPrefs: []
+       
        
     }
     },
@@ -94,23 +92,8 @@ export default {
             profile:this.checkedPrefs
 
         }).then(()=>{
-
-            /*const userStatus = {
-            
-            uid: that.$store.state.userStatus.uid,
-            isInLine: that.$store.state.userStatus.isInLine,
-            nickName : that.inputNickName,
-            phone: that.inputPhone,
-            profile:that.checkedPrefs
-
-                                        }
-        //Set UserStatus to store
-        that.$store.dispatch('getUserStatus',userStatus);*/
-
-       
+  
         that.show = false
-
-                       
 
             })}
 
