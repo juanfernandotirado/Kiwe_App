@@ -61,6 +61,22 @@ const TOGGLE_ISINLINE = (state) => {
     state.userStatus.isInLine = !state.userStatus.isInLine;
 }
 
+//Profile Update Nickname
+const UPDATE_NICKNAME = (state,payload) => {
+    state.userStatus.nickName = payload;
+}
+
+//Profile Update Phone Number
+const UPDATE_PHONENUMBER = (state,payload) => {
+    state.userStatus.phone = payload;
+}
+
+//Profile Update Profile
+const UPDATE_PROFILE = (state,payload) => {
+    state.userStatus.profile = payload;
+}
+
+
 
 export default {
     UPDATE_USER_NICKNAME,
@@ -72,6 +88,9 @@ export default {
     ADD_TO_WAITING_LIST,
     UPDATE_GALLERY_IMGS,
     TOGGLE_POPUP,
-    TOGGLE_ISINLINE
+    TOGGLE_ISINLINE,
+    UPDATE_NICKNAME,
+    UPDATE_PHONENUMBER,
+    UPDATE_PROFILE
 
 }

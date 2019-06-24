@@ -24,7 +24,7 @@
 
             <div>
                 <label>Nickname:</label>
-                <input v-model="inputNickName" type="text" name="fullname"  placeholder="Enter Your Nickname"/>
+                <input v-model.lazy="inputNickname" type="text" name="fullname"  placeholder="Enter Your Nickname"/>
                 
             </div>
             <div>
@@ -68,8 +68,8 @@ export default {
     data:function(){
     return{
         show:false,
-        inputNickName:'',
-        inputPhone:'',
+        //inputNickName:'',
+        //inputPhone:'',
         checkedPrefs: []
        
     }
@@ -87,21 +87,60 @@ export default {
 
     saveProfileChanges:function(){
         let db = firebase.firestore();
+        let that = this;
         var docRef = db.collection("users").doc(this.$store.state.userStatus.uid).update({
-            nickName : this.inputNickName,
-            phone: this.inputPhone,
+            nickName : this.$store.state.userStatus.nickName,
+            phone: this.$store.state.userStatus.phone,
             profile:this.checkedPrefs
 
-        });
-        this.show = false
-    }
+        }).then(()=>{
+
+            /*const userStatus = {
+            
+            uid: that.$store.state.userStatus.uid,
+            isInLine: that.$store.state.userStatus.isInLine,
+            nickName : that.inputNickName,
+            phone: that.inputPhone,
+            profile:that.checkedPrefs
+
+                                        }
+        //Set UserStatus to store
+        that.$store.dispatch('getUserStatus',userStatus);*/
+
+       
+        that.show = false
+
+                       
+
+            })}
 
     },
 
     computed: {
       docRef(){
            return this.$store.state.userStatus
-      }
+      },
+
+        inputNickname: {
+            get() {
+                return this.$store.state.userStatus.nickName
+            },
+            set(value){
+                this.$store.dispatch('updateNickname', value)
+            }
+        },
+
+        inputPhone: {
+            get() {
+                return this.$store.state.userStatus.phone
+            },
+            set(value){
+                this.$store.dispatch('updatePhoneNumber', value)
+            }
+        },
+
+
+
     },
 
     created(){

@@ -45,6 +45,22 @@ const isInLine = (context) => {
     context.commit('TOGGLE_ISINLINE');
 }
 
+//Profile Update Nickname
+const updateNickname = (context) => {
+    context.commit('UPDATE_NICKNAME');
+}
+
+//Profile Update Phone Number
+const updatePhoneNumber = (context) => {
+    context.commit('UPDATE_PHONENUMBER');
+}
+
+//Profile Update Profile
+const updateProfile = (context) => {
+    context.commit('UPDATE_PROFILE');
+}
+
+
 
 export default{
     changeName,
@@ -56,5 +72,9 @@ export default{
     addWaitingList,
     updateGalleryImgs,
     popUpShows,
-    isInLine
+    isInLine,
+    updateNickname,
+    updatePhoneNumber,
+    updateProfile
+
 } 

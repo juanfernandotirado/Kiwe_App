@@ -9,7 +9,8 @@
     <AddToList/>
     <VerificationPopUp/>
     <br>
-    <!-- <Slider/> -->
+   <!-- <Slider/> -->
+    <br><br>
     <Profile/>
 
     
