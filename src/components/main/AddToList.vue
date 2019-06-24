@@ -36,7 +36,7 @@ export default {
                 joinTime: currentTime.getTime(),
                 date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
                 status: 'waiting',
-                did:docName
+                did:docName //Save the document name in currentStatus
             }
     
 
@@ -57,10 +57,9 @@ export default {
                 //in here we created different properties for the user
                })
                 that.$store.dispatch('addWaitingList',currentStatus);
-                that.$store.dispatch('joinList', currentStatus)
-                that.$store.dispatch('isInLine')
-                that.$store.state.currentListStatus.did= db.collection('waitlist').doc(docName).id
-                that.$store.dispatch('popUpShows')
+                that.$store.dispatch('joinList', currentStatus);
+                that.$store.dispatch('isInLine');
+                that.$store.dispatch('popUpShows');
                 
 
             
