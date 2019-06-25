@@ -64,6 +64,22 @@ const emptyStatus = (context) => {
     context.commit('EMPTY_STATUS');
 }
 
+//Profile Update Nickname
+const updateNickname = (context, payload) => {
+    context.commit('UPDATE_NICKNAME', payload);
+}
+
+//Profile Update Phone Number
+const updatePhoneNumber = (context, payload) => {
+    context.commit('UPDATE_PHONENUMBER', payload);
+}
+
+//Profile Update Profile
+const updateProfile = (context,payload) => {
+    context.commit('UPDATE_PROFILE', payload);
+}
+
+
 
 export default{
     changeName,
@@ -80,5 +96,9 @@ export default{
     popUpShowsD,
     isInLine,
     emptyWaitlist,
-    emptyStatus
+    emptyStatus,
+    updateNickname,
+    updatePhoneNumber,
+    updateProfile
+
 } 
