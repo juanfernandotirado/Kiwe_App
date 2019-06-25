@@ -103,7 +103,7 @@ export default {
         },
 
         groupSize(){
-            return this.$store.state.currentListStatus.groupSize
+            return this.$store.state.currentListStatus.grSize
         },
 
         filteredRest: function (){

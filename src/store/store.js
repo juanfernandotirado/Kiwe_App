@@ -25,7 +25,6 @@ export default new Vuex.Store({
       grSize: 1,
       uName: '',
       uid: '',
-      uInLine: '',
       did: ''
       
     },

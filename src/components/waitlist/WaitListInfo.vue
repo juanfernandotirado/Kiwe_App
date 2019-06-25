@@ -2,7 +2,7 @@
   <div class="wait-list-info-container">
         <p class="restName">Restaurant Name: {{ rName }}</p>
         <p>Current Spot: {{currentSpot}}</p>
-        <p>Estimated Waiting Time: {{ estTime }} min.</p>
+        <p>Estimated Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
         <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
   </div>
 </template>
@@ -34,7 +34,32 @@ export default {
   },
 
   methods: {
-  
+      assignWaitTime:function(grp, rest){
+            let currentSpot = this.$store.state.currentListStatus.currentSpot;
+            let smallTable = rest.sizeStandard.small;
+            let mediumTable = rest.sizeStandard.medium;
+            let bigTable = rest.sizeStandard.large;
+            let smallTableWait = rest.waitTime.small;
+            let mediumTableWait = rest.waitTime.medium;
+            let bigTableWait = rest.waitTime.large;
+            
+
+            if (grp <= smallTable) {
+                rest.estTime = smallTableWait;
+                console.log(rest.estTime);
+                return rest.estTime*currentSpot;
+            }
+            else if (grp <=mediumTable) {
+                rest.estTime = mediumTableWait;
+                console.log(rest.estTime);
+                return rest.estTime*currentSpot;
+            }
+            else if (grp <=bigTable) {
+                rest.estTime = bigTableWait;
+                console.log(rest.estTime);
+                return rest.estTime*currentSpot;
+            }
+        }  
    
   },
    computed:{
@@ -54,9 +79,18 @@ export default {
      joinTime(){
       return new Date(this.$store.state.currentListStatus.joinTime);
     },
+
+    grSize(){
+      return this.$store.state.currentListStatus.grSize;
+    },
+
+     selectedRes(){
+            return this.$store.state.selRest
+      },
+
     
   },
-  updated(){
+  created(){
         let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
         
         let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
@@ -76,7 +110,7 @@ export default {
             mediumGroup:0,
             bigGroup:0,
           }
-          console.log(querySnapshot);
+         
           querySnapshot.forEach(function(doc){
             let item = doc.data();
             if (item.grSize <= grpLimitSmall) {
@@ -109,7 +143,6 @@ export default {
 
           })
             
-            console.log(spotCounter);
 
           
         })

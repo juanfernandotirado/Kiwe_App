@@ -11,14 +11,14 @@ const GET_USER_STATUS = (state,payload) => {
 
 // Function to add people to the group
 const ADD_GROUP_SIZE = (state) => {
-    state.currentListStatus.groupSize +=1;
-    console.log(state.currentListStatus.groupSize);
+    state.currentListStatus.grSize +=1;
+    console.log(state.currentListStatus.grSize);
 }
 
 //// Function to subtract people from the group
 const SUBTRACT_GROUP_SIZE = (state) => {
-    state.currentListStatus.groupSize -=1;
-    console.log(state.currentListStatus.groupSize);
+    state.currentListStatus.grSize -=1;
+    console.log(state.currentListStatus.grSize);
 }
 
 const SELECT_REST_DB = (state,payload) => {
