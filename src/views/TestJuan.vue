@@ -8,8 +8,11 @@
     <Seating/>
     <AddToList/>
     <br>
-    <Slider/>
-    <!-- <Drop-off-confirmation/> -->
+   <!-- <Slider/> -->
+    <br><br>
+    <Profile/>
+
+    
     
   
   </div>
@@ -23,6 +26,7 @@ import AddToList from '../components/main/AddToList.vue'
 import Seating from '../components/main/Seating.vue'
 import WaitListInfo from '../components/waitlist/WaitListInfo.vue'
 import Slider from '../components/main/Slider.vue'
+import Profile from '../components/main/Profile.vue'
 
 
 
@@ -34,7 +38,9 @@ export default {
     AddToList,
     Seating,
     WaitListInfo,
-    Slider
+    VerificationPopUp,
+    Slider,
+    Profile
   },
   data: function(){
       return{
