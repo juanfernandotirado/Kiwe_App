@@ -45,7 +45,7 @@ const ADD_TO_WAITING_LIST = (state, payload) => {
 
 const JOIN_LIST = (state,payload) => {
     state.waitList.push(payload);
-    state.currentListStatus.currentSpot++;
+    //state.currentListStatus.currentSpot += 1;
     state.currentListStatus.joinTime=new Date();
 
 }
@@ -105,6 +105,12 @@ const UPDATE_PROFILE = (state,payload) => {
 }
 
 
+//Update current spot
+const UPDATE_CURRENT_SPOT = (state) => {
+    state.currentListStatus.currentSpot += 1;
+}
+
+
 
 export default {
     UPDATE_USER_NICKNAME,
@@ -125,6 +131,7 @@ export default {
     TOGGLE_ISINLINE,
     UPDATE_NICKNAME,
     UPDATE_PHONENUMBER,
-    UPDATE_PROFILE
+    UPDATE_PROFILE,
+    UPDATE_CURRENT_SPOT
 
 }

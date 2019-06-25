@@ -80,6 +80,12 @@ const updateProfile = (context,payload) => {
 }
 
 
+//Current spot Update
+const updateSpot = (context) => {
+    context.commit('UPDATE_CURRENT_SPOT');
+}
+
+
 
 export default{
     changeName,
@@ -99,6 +105,7 @@ export default{
     emptyStatus,
     updateNickname,
     updatePhoneNumber,
-    updateProfile
+    updateProfile,
+    updateSpot
 
 } 

@@ -34,9 +34,8 @@ export default {
     AddToList,
     Seating,
     WaitListInfo,
-    VerificationPopUp,
     Slider,
-    Profile
+    // Profile
   },
   data: function(){
       return{

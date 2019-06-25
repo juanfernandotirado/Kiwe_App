@@ -28,7 +28,7 @@ export default {
                 uid:this.$store.state.userStatus.uid,
                 nickName:this.$store.state.userStatus.nickName,
                 grSize:this.$store.state.currentListStatus.groupSize,
-                currSpot:this.$store.state.currentListStatus.currentSpot+1,
+                currSpot:this.$store.state.currentListStatus.currentSpot,
                 rid:this.$store.state.currentListStatus.rid,
                 rName:this.$store.state.currentListStatus.rName,
                 addOptionsAccs:this.$store.state.additionalInfo.accessibility,
@@ -38,6 +38,8 @@ export default {
                 status: 'waiting',
                 did:docName //Save the document name in currentStatus
             }
+
+            //this.$store.dispatch('updateSpot');
     
 
              let db = firebase.firestore();
@@ -46,7 +48,7 @@ export default {
                     uid:this.$store.state.userStatus.uid,
                     nickName:this.$store.state.userStatus.nickName,
                     grSize:this.$store.state.currentListStatus.groupSize,
-                    currSpot:this.$store.state.currentListStatus.currentSpot+1,
+                    currSpot:this.$store.state.currentListStatus.currentSpot,
                     rid:this.$store.state.currentListStatus.rid,
                     rName:this.$store.state.currentListStatus.rName,
                     addOptionsAccs:this.$store.state.additionalInfo.accessibility,
