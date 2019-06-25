@@ -1,10 +1,15 @@
 <template>
   <div class="home">
-    <div>
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-if="!isInLine">
+      <HelloWorld />
+    </div>
+    <div v-else>
+      <WaitListInfo />
+      <DropOffConf />
+      <DropOffPop />
     </div>
   
-    <!-- <router-link to="../views/Test1.vue" class="routerLinks">Search</router-link> -->
+    
 
   </div>
 </template>
@@ -13,17 +18,27 @@
 import firebase, { firestore } from 'firebase';
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
-
+import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
+import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
+import DropOffPop from '../components/waitlist/DropOffPopUp.vue';
 
 export default {
   name: 'home',
   components: {
     HelloWorld,
+    WaitListInfo,
+    DropOffConf,
+    DropOffPop
    
   },
   data:function(){
     return{
 
+    }
+  },
+  computed:{
+    isInLine(){
+      return this.$store.state.userStatus.isInLine
     }
   },
   mounted(){

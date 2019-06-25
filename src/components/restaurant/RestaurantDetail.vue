@@ -1,25 +1,42 @@
 <template>
   <div class="restaurant-detail">
-    <h1>Restaurant Detail</h1>
-    <!-- <div>{{selectedRes}}</div> -->
-    <div  v-for="(val,key) in selectedRes" 
-    v-bind:key="(val,key)">
-      <div class="restInfo">{{ key }}: </div>
-      <div class="restInfoFil"> {{ val }}</div>
-    </div> 
-    <button v-on:click="nextPage">Add me to waiting list</button>
-    <!-- <router-link to="../main/AddToList" class="routerLinks" >Add me to Waiting List</router-link> -->
-    <router-link to="/restList" class="routerLinks">Go back</router-link>
+    <h1>Restaurant Details</h1>
+    <section class="restDet">
+      <div>
+        <div class="restInfo">Restaurant Name: </div>
+        <div class="restInfoFil"> {{selectedRes.rName}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Address: </div>
+        <div class="restInfoFil"> {{selectedRes.address}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Rating: </div>
+        <div class="restInfoFil"> {{selectedRes.rating}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Price Level: </div>
+        <div class="restInfoFil"> {{selectedRes.priceLevel}} </div>
+      </div>
+      <div>
+        <div class="restInfo">Waiting time: </div>
+        <div class="restInfoFil wait"> {{selectedRes.estTime}} min</div>
+      </div>
+    </section>
+   
+    <button v-on:click="nextPage" class="btn orange">Add me to waiting list</button>
+    <button v-on:click="backPage" class="btn blue">Go back</button>
   </div>
 </template>
 
 <script>
 
-import createQRcode from '../main/CreateQRcode.vue'
-
-
 
 export default {
+    components: {
+      
+    },
+
     name: "RestaurantList",
  
     data(){
@@ -36,26 +53,18 @@ export default {
 
 
 
-
         this.$router.push('testJuan');
+      },
 
+      backPage:function() {
+        this.$router.push('test1');
       }
 
-
-      // chosenRest: function (){
-      //   // this.$store.state.currentStatusList.rid = this.$store.state.selRest.rid;
-      //   // return this.$store.state.currentStatusList.rid;
-      //   // console.log(this.$store.state.currentStatusList.rid);
-      //   let currentStatus= {
-      //     rid = this.$store.state.selRest.rid,
-      //     rName = this.$store.state.selRest.name,
-      //   }
-        
-      // }
     },
 
     computed: {
       selectedRes(){
+        // console.log(this.$store.state.restaurantList)
         return this.$store.state.selRest
       }
     }
@@ -92,9 +101,21 @@ li {
 
 .restInfoFil {
     margin-left: 5px;
+    text-transform: capitalize;
 }
 
+.restDet {
+  padding: 1.5rem;
+}
 
+.wait {
+  text-transform: lowercase;
+}
+
+.btn {
+  display: block;
+  margin: 1rem auto;
+}
 
 </style>
 

@@ -1,6 +1,6 @@
 <template>
  <div class="additional-info">
-<h1>Accesibility Drop-down Menu</h1>
+<h5>Accesibility Drop-down Menu</h5>
 
 <label for="additionalInfo">Accessibility</label>
 
@@ -16,22 +16,8 @@
 
 <p>{{ additionalInfo.accessibility }}</p>
 
-<h1>Seating Preference</h1>
 
-<label for="seatingPreferences">Seating Preferences</label>
 
-<select v-model="additionalInfo.seatingPreferences" name="seatingPreferences">
-<option value="">No preferences</option>
-<option value="Indoor" > Indoor </option>
-<option value="Outdoor" > Outdoor </option> 
-<option value="Private-Table" > Private-Table </option> 
-<option value="Shared-Table" > Shared-Table </option> 
-<option value="Bar" > Bar </option> 
-<option value="Window-View" > Window-View </option> 
-
-</select>
-
-<p>{{ additionalInfo.seatingPreferences }}</p>
 
 </div>
 </template>
@@ -40,7 +26,7 @@
 
 
 export default {
-  name: 'AdditionalInfo',
+  name: 'Accesibility',
     // data:function(){
     // // return{
     // //     additionalInfo: {
@@ -65,6 +51,13 @@ export default {
 </script>
 
 <style scoped>
+
+.additional-info{
+
+    width: 30%;
+    margin: 2% auto;
+}
+
 select{
     display: block;
 

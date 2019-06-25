@@ -116,3 +116,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+  
+  .restName{
+    text-transform: capitalize;
+  }
+</style>
+

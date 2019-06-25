@@ -21,11 +21,21 @@ const SUBTRACT_GROUP_SIZE = (state) => {
     console.log(state.currentListStatus.groupSize);
 }
 
+const SELECT_REST_DB = (state,payload) => {
+    state.restaurantList.push(payload);
+}
+
+const EMPTY_REST_DB = (state) => {
+    state.restaurantList=[];
+}
+
 //payload is receiving a parameter
 const SELECT_RESTAURANT = (state,payload) =>{
     // const newSel = Object.assign(state.selRest, payload);
     state.selRest = payload;
-    // console.log(newSel);
+    state.currentListStatus.rName = state.selRest.rName;
+    state.currentListStatus.rid = state.selRest.rid;
+    state.currentListStatus.estTime = state.selRest.estTime;
 }
 
 const ADD_TO_WAITING_LIST = (state, payload) => {
@@ -35,9 +45,9 @@ const ADD_TO_WAITING_LIST = (state, payload) => {
 
 const JOIN_LIST = (state,payload) => {
     state.waitList.push(payload);
-    state.currentListStatus.currentSpot++;
+    //state.currentListStatus.currentSpot += 1;
     state.currentListStatus.joinTime=new Date();
-    console.log(state.waitList);
+
 }
 
 //Update menu gallery imgs
@@ -107,9 +117,21 @@ export default {
     GET_USER_STATUS,
     ADD_GROUP_SIZE,
     SUBTRACT_GROUP_SIZE,
+    SELECT_REST_DB,
+    EMPTY_REST_DB,
     SELECT_RESTAURANT,
     JOIN_LIST,
     ADD_TO_WAITING_LIST,
-    UPDATE_GALLERY_IMGS
+    UPDATE_GALLERY_IMGS,
+    TOGGLE_POPUP,
+    TOGGLE_POPUP_DROP,
+    TOGGLE_ISINLINE,
+    EMPTY_WAITLIST,
+    EMPTY_STATUS,
+    TOGGLE_ISINLINE,
+    UPDATE_NICKNAME,
+    UPDATE_PHONENUMBER,
+    UPDATE_PROFILE,
+    UPDATE_CURRENT_SPOT
 
 }

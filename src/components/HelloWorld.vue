@@ -5,9 +5,10 @@
       <label for="newName">New Name</label>
       <input v-model="newName" type="text">
       <button v-on:click="changeName">Change</button> -->
-      <GroupSize/>
-      <button v-on:click="groupSizeDefined">Search</button>
-
+      <GroupSize/> 
+      <Accesibility/>
+      <button v-on:click="groupSizeDefined" class="btn orange">Search</button>
+      <button v-on:click="scanCode" class="btn orange">Scan QR code</button>
   </div>
 </template>
 
@@ -15,12 +16,14 @@
 
 import GroupSize from '../components/main/GroupSize.vue'
 import RestaurantList from '../components/main/RestaurantList.vue'
+import Accesibility from '../components/main/Accesibility.vue'
 
 export default {
 
   components: {
     GroupSize,
-    RestaurantList
+    RestaurantList,
+    Accesibility
   },
   name: 'HelloWorld',
   props: {
@@ -47,6 +50,10 @@ export default {
     groupSizeDefined:function(){
       this.$store.state.currentListStatus.groupSize
       this.$router.push('test1');
+    },
+
+    scanCode:function(){
+      this.$router.push('qrCode');
     }
   }
 }
@@ -67,5 +74,12 @@ li {
 }
 a {
   color: #42b983;
+}
+
+button {
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: 1rem;
 }
 </style>
