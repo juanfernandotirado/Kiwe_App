@@ -45,6 +45,66 @@ const UPDATE_GALLERY_IMGS = (state,payload) => {
     state.restaurantImgs = payload;
 }
 
+<<<<<<< Updated upstream
+=======
+//Toggle pop up confirmation
+
+const TOGGLE_POPUP = (state) => {
+    state.popUpShow = !state.popUpShow;
+}
+
+const TOGGLE_POPUP_DROP = (state) => {
+    state.popUpShowD = !state.popUpShowD;
+}
+
+//Toggle isInLine
+
+const TOGGLE_ISINLINE = (state) => {
+    state.userStatus.isInLine = !state.userStatus.isInLine;
+}
+
+//Empty waitlist Array
+const EMPTY_WAITLIST = (state) => {
+    state.waitList = [];
+}
+
+//Empty currentListStatus object
+const EMPTY_STATUS = (state) => {
+    state.currentListStatus.estTime = 0;
+    state.currentListStatus.currentSpot = 0;
+    state.currentListStatus.rName = '';
+    state.currentListStatus.rid = '';
+    state.currentListStatus.groupSize = 1;
+    state.currentListStatus.uName = '';
+    state.currentListStatus.uid = '';
+    state.currentListStatus.uInLine = '';
+    state.currentListStatus.did = '';
+}
+
+//Profile Update Nickname
+const UPDATE_NICKNAME = (state,payload) => {
+    state.userStatus.nickName = payload;
+}
+
+//Profile Update Phone Number
+const UPDATE_PHONENUMBER = (state,payload) => {
+    state.userStatus.phone = payload;
+}
+
+//Profile Update Profile
+const UPDATE_PROFILE = (state,payload) => {
+    state.userStatus.profile = payload;
+}
+
+
+//Update current spot
+const UPDATE_CURRENT_SPOT = (state,payload) => {
+    state.currentListStatus.currentSpot = payload;
+}
+
+
+
+>>>>>>> Stashed changes
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,

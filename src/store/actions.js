@@ -33,6 +33,55 @@ const updateGalleryImgs = (context,payload) => {
 }
 
 
+<<<<<<< Updated upstream
+=======
+//Toggle pop up confirmation
+const popUpShows = (context) => {
+    context.commit('TOGGLE_POPUP');
+}
+
+const popUpShowsD = (context) => {
+    context.commit('TOGGLE_POPUP_DROP');
+}
+
+//Toggle isInLine
+
+const isInLine = (context) => {
+    context.commit('TOGGLE_ISINLINE');
+}
+
+const emptyWaitlist = (context) => {
+    context.commit('EMPTY_WAITLIST');
+}
+
+const emptyStatus = (context) => {
+    context.commit('EMPTY_STATUS');
+}
+
+//Profile Update Nickname
+const updateNickname = (context, payload) => {
+    context.commit('UPDATE_NICKNAME', payload);
+}
+
+//Profile Update Phone Number
+const updatePhoneNumber = (context, payload) => {
+    context.commit('UPDATE_PHONENUMBER', payload);
+}
+
+//Profile Update Profile
+const updateProfile = (context,payload) => {
+    context.commit('UPDATE_PROFILE', payload);
+}
+
+
+//Current spot Update
+const updateSpot = (context,payload) => {
+    context.commit('UPDATE_CURRENT_SPOT',payload);
+}
+
+
+
+>>>>>>> Stashed changes
 export default{
     changeName,
     getUserStatus,
