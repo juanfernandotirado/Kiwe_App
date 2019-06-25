@@ -15,12 +15,9 @@
 
 <script>
 
-<<<<<<< Updated upstream
-=======
 import createQRcode from '../main/CreateQRcode.vue'
 
 
->>>>>>> Stashed changes
 
 export default {
     name: "RestaurantList",
@@ -34,15 +31,12 @@ export default {
     methods: {
 
       nextPage:function() {
-<<<<<<< Updated upstream
-=======
         console.log('selectedRest');
         console.log(this.$store.state.selRest);
 
 
 
 
->>>>>>> Stashed changes
         this.$router.push('testJuan');
 
       }

@@ -45,8 +45,6 @@ const UPDATE_GALLERY_IMGS = (state,payload) => {
     state.restaurantImgs = payload;
 }
 
-<<<<<<< Updated upstream
-=======
 //Toggle pop up confirmation
 
 const TOGGLE_POPUP = (state) => {
@@ -104,7 +102,6 @@ const UPDATE_CURRENT_SPOT = (state,payload) => {
 
 
 
->>>>>>> Stashed changes
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,

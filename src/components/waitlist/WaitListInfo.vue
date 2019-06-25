@@ -1,16 +1,9 @@
 <template>
   <div class="wait-list-info-container">
-<<<<<<< Updated upstream
-        <p>Restaurant Name: {{ currentListStatus.rName }}</p>
-        <p>Current Spot: {{ currentListStatus.currentSpot }}</p>
-        <p>Estimated Waiting Time: {{ currentListStatus.estTime }} min.</p>
-        <p>Time you joined: {{ currentListStatus.joinTime.getDate() }} {{ months[currentListStatus.joinTime.getMonth()] }},  {{ currentListStatus.joinTime.getHours() }}:{{ currentListStatus.joinTime.getMinutes() }} </p>
-=======
         <p class="restName">Restaurant Name: {{ rName }}</p>
         <p>Current Spot: {{currentSpot}}</p>
         <p>Estimated Waiting Time: {{ estTime }} min.</p>
         <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
->>>>>>> Stashed changes
   </div>
 </template>
 

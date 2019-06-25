@@ -33,8 +33,6 @@ const updateGalleryImgs = (context,payload) => {
 }
 
 
-<<<<<<< Updated upstream
-=======
 //Toggle pop up confirmation
 const popUpShows = (context) => {
     context.commit('TOGGLE_POPUP');
@@ -81,7 +79,6 @@ const updateSpot = (context,payload) => {
 
 
 
->>>>>>> Stashed changes
 export default{
     changeName,
     getUserStatus,
