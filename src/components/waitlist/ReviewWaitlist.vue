@@ -9,7 +9,6 @@
 
 <script>
 import firebase from 'firebase';
-import { constants } from 'crypto';
 
 export default {
   name:'ReviewList',
@@ -22,6 +21,10 @@ export default {
   },
 
   methods: {
+
+    //   assignRestWait:function(){
+
+    //   }
   
    
   },

@@ -15,7 +15,6 @@
 
 <script>
 import firebase from 'firebase';
-import { constants } from 'crypto';
 import SuccessPopUp from './SuccessPopUp.vue';
 
 export default {
