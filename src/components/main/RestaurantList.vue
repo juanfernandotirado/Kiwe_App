@@ -1,6 +1,10 @@
 <template>
     <div class="listRest">
         <h1>Where to eat</h1>
+
+        <Slider class="slider"/>
+
+        
         <div class="searchB">
             <input type="text" v-model="search" placeholder="Search restaurants">
             <!-- <button class="btnSearch">Search</button> -->
@@ -36,12 +40,14 @@
 <script>
 
 import MenuGallery from '../restaurant/MenuGallery.vue';
+import Slider from '../main/Slider.vue'
 import firebase, { firestore } from 'firebase';
 
 export default {
     name: "RestaurantList",
     components: {
-        MenuGallery
+        MenuGallery,
+        Slider,
     },
     data(){
         return{  
@@ -169,6 +175,11 @@ li {
 
 .wait {
     text-transform: lowercase;
+}
+
+
+.slider {
+//   z-index: -1;
 }
 
 

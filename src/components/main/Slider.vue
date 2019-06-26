@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <h1>Slider</h1>
+    <h3>Featured Restaurants</h3>
 
     <carousel>
   <slide v-for="(url, index) in slider" v-bind:key="index">

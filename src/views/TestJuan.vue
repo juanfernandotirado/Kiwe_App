@@ -8,7 +8,7 @@
     <Seating/>
     <AddToList/>
     <br>
-    <Slider class="slider"/>
+    <!-- <Slider class="slider"/> -->
     <!-- <Drop-off-confirmation/> -->
     
   
