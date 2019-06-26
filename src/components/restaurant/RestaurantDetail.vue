@@ -23,6 +23,8 @@
         <div class="restInfoFil wait"> {{selectedRes.estTime}} min</div>
       </div>
     </section>
+
+      <Seating/>
    
     <button v-on:click="nextPage" class="btn orange">Add me to waiting list</button>
     <button v-on:click="backPage" class="btn blue">Go back</button>
@@ -31,10 +33,13 @@
 
 <script>
 
+import Seating from '../main/Seating.vue'
+
+
 
 export default {
     components: {
-      
+      Seating,
     },
 
     name: "RestaurantList",

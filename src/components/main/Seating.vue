@@ -3,7 +3,7 @@
 
 <h5>Seating Preference</h5>
 
-<label for="seatingPreferences">Seating Preferences</label>
+<!-- <label for="seatingPreferences">Seating Preferences</label> -->
 
 <select v-model="additionalInfo.seatingPreferences" name="seatingPreferences">
 <option value="">No preferences</option>

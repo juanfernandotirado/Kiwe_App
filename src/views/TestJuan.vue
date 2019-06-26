@@ -1,15 +1,12 @@
 <template>
   <div class="TestJuan" >
-    <!-- <GroupSize/> -->
     <!-- <vueDateFormat :format="'yyyy-MM-dd hh:mm:ss'" :time="'2019-06-10'" :type="'fmt'" :autoUpdate="false"></vueDateFormat> -->
     
     
-    <!-- <WaitListInfo/> -->
+    <ReviewWaitlist/>
     <Seating/>
     <AddToList/>
     <br>
-    <!-- <Slider class="slider"/> -->
-    <!-- <Drop-off-confirmation/> -->
     
   
   </div>
@@ -17,24 +14,18 @@
 </template>
 
 <script>
-import GroupSize from '../components/main/GroupSize.vue'
-import DropOffConfirmation from '../components/waitlist/DropOffConfirmation.vue'
 import AddToList from '../components/main/AddToList.vue'
 import Seating from '../components/main/Seating.vue'
-import WaitListInfo from '../components/waitlist/WaitListInfo.vue'
-import Slider from '../components/main/Slider.vue'
+import ReviewWaitlist from '../components/waitlist/ReviewWaitlist.vue'
 
 
 
 export default {
   name: 'TestJuan',
   components: {
-    GroupSize,
-    DropOffConfirmation,
     AddToList,
     Seating,
-    WaitListInfo,
-    Slider,
+    ReviewWaitlist,
     // Profile
   },
   data: function(){
