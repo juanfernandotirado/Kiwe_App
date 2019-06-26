@@ -1,6 +1,5 @@
 <template>
 <div>
-    <!--<button @click="show=true" class="btn">Confirm</button>-->
   <div class="modal-backdrop">
     <div class="modal">
       <header class="modal-header">
@@ -12,7 +11,6 @@
         <slot name="body">
           <p>Your table is ready!</p>
           <p>Please go back to the restaurant.</p>
-          
         </slot>
        </section>
        <footer class="modal-footer">
@@ -37,7 +35,7 @@
 
     data:function(){
     return{
-      //show:false
+      
     }
     },
 
@@ -45,7 +43,7 @@
 
       goHome: function(){
         this.$router.push('home');
-        this.$store.dispatch('popUpShows')
+        
       }
       
     },
