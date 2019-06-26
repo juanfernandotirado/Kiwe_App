@@ -34,14 +34,16 @@
     name: 'SuccessPopUp',
 
     data:function(){
-    return{
-      
-    }
+      return{
+        
+      }
     },
+    
 
     methods: {
 
       goHome: function(){
+        this.$store.dispatch('isInLine');
         this.$router.push('home');
         
       }
@@ -49,8 +51,8 @@
     },
 
     computed: {
-    
-    
+
+  
   }
 
   }
@@ -115,5 +117,6 @@
     background: #4AAE9B;
     border: 1px solid #4AAE9B;
     border-radius: 2px;
+    cursor: pointer;
   }
 </style>

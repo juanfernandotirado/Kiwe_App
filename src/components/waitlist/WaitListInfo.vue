@@ -37,7 +37,6 @@ export default {
       "October", 
       "November", 
       "December"],
-      showSuccessPop: false
     }
    
   },
@@ -97,8 +96,8 @@ export default {
       return this.$store.state.currentListStatus.grSize;
     },
 
-     selectedRes(){
-       return this.$store.state.selRest
+    selectedRes(){
+      return this.$store.state.selRest
     },
 
     

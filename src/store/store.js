@@ -38,6 +38,7 @@ export default new Vuex.Store({
 
 
     selRest: {
+      waiting: 0,
       
     },
 

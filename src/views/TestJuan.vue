@@ -4,7 +4,6 @@
     
     
     <ReviewWaitlist/>
-    <Seating/>
     <AddToList/>
     <br>
     
@@ -15,7 +14,6 @@
 
 <script>
 import AddToList from '../components/main/AddToList.vue'
-import Seating from '../components/main/Seating.vue'
 import ReviewWaitlist from '../components/waitlist/ReviewWaitlist.vue'
 
 
@@ -24,7 +22,6 @@ export default {
   name: 'TestJuan',
   components: {
     AddToList,
-    Seating,
     ReviewWaitlist,
     // Profile
   },
