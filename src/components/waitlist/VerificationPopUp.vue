@@ -6,31 +6,29 @@
       <header class="modal-header">
         <slot name="header">
           You have been successfully added to the queue! 
-          <button
+          <!-- <button
             type="button"
             class="btn-close"
             v-on:click="goHome()"
           >
             x
-          </button>
+          </button> -->
         </slot>
       </header>
       <section class="modal-body">
         <slot name="body">
-          I'm the default body!
           <!-- <WaitListInfo/> -->
         </slot>
        </section>
        <footer class="modal-footer">
           <slot name="footer">
-            I'm the default footer!
 
             <button
               type="button"
-              class="btn-green"
+              class="btn-green btn-close"
               v-on:click="goHome()"
             >
-              Close me!
+              Go back to Home
           </button>
         </slot>
       </footer>
@@ -110,7 +108,7 @@ import WaitListInfo from './WaitListInfo.vue'
 
   .modal-footer {
     border-top: 1px solid #eeeeee;
-    justify-content: flex-end;
+    justify-content: space-around;
   }
 
   .modal-body {
@@ -118,7 +116,7 @@ import WaitListInfo from './WaitListInfo.vue'
     padding: 20px 10px;
   }
 
-  .btn-close {
+  /* .btn-close {
     border: none;
     font-size: 20px;
     padding: 20px;
@@ -126,12 +124,14 @@ import WaitListInfo from './WaitListInfo.vue'
     font-weight: bold;
     color: #4AAE9B;
     background: transparent;
-  }
+  } */
 
   .btn-green {
     color: white;
     background: #4AAE9B;
     border: 1px solid #4AAE9B;
     border-radius: 2px;
+    cursor: pointer;
+
   }
 </style>
