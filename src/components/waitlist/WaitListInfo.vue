@@ -36,6 +36,7 @@ export default {
       "October", 
       "November", 
       "December"],
+      showSuccessPop: false
     }
    
   },
