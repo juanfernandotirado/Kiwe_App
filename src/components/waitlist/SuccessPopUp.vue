@@ -1,36 +1,28 @@
 <template>
 <div>
     <!--<button @click="show=true" class="btn">Confirm</button>-->
-  <div class="modal-backdrop" v-show="show">
+  <div class="modal-backdrop">
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          You have been successfully added to the queue! 
-          <button
-            type="button"
-            class="btn-close"
-            v-on:click="goHome()"
-          >
-            x
-          </button>
+          <h4 class="green-text center-align">Congratulation!</h4>
         </slot>
       </header>
       <section class="modal-body">
         <slot name="body">
-          I'm the default body!
-          <!-- <WaitListInfo/> -->
+          <p>Your table is ready!</p>
+          <p>Please go back to the restaurant.</p>
+          
         </slot>
        </section>
        <footer class="modal-footer">
           <slot name="footer">
-            I'm the default footer!
-
             <button
               type="button"
               class="btn-green"
               v-on:click="goHome()"
             >
-              Close me!
+              OK
           </button>
         </slot>
       </footer>
@@ -40,15 +32,8 @@
 </template>
 
 <script>
-
-import WaitListInfo from './WaitListInfo.vue'
-
   export default {
-    name: 'VerificationPopUp',
-
-      components: {
-    WaitListInfo
-  },
+    name: 'SuccessPopUp',
 
     data:function(){
     return{
@@ -66,9 +51,8 @@ import WaitListInfo from './WaitListInfo.vue'
     },
 
     computed: {
-      show() {
-      return this.$store.state.popUpShow
-    }
+    
+    
   }
 
   }
@@ -105,7 +89,7 @@ import WaitListInfo from './WaitListInfo.vue'
   .modal-header {
     border-bottom: 1px solid #eeeeee;
     color: #4AAE9B;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .modal-footer {

@@ -40,8 +40,6 @@ export default {
             }
 
             //this.$store.dispatch('updateSpot');
-    
-
              let db = firebase.firestore();
                 db.collection('waitlist').doc(docName).set({
                   //From this object of the firebase(reps), grab just the UID to set the user information on firebase.

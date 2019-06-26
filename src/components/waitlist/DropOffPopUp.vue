@@ -117,8 +117,8 @@ import firebase from 'firebase';
       },
 
       dropOffSpot: function() {
-        this.$store.state.userStatus.status = 'cancel'
-        console.log(this.$store.state.userStatus)
+        // this.$store.state.userStatus.status = 'cancel'
+        // console.log(this.$store.state.userStatus)
         // this.$store.state.waitList.status = 'cancel'
 
         this.$store.dispatch('isInLine');

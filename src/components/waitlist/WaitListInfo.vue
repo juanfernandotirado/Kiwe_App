@@ -4,16 +4,23 @@
         <p>Current Spot: {{currentSpot}}</p>
         <p>Estimated Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
         <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
+
+    <div v-show="showSuccessPop">
+      <SuccessPopUp />
+    </div>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase';
 import { constants } from 'crypto';
+import SuccessPopUp from './SuccessPopUp.vue';
 
 export default {
   name:'WaitListInfo',
-
+  components: {
+    SuccessPopUp
+  },
   data:function(){
     return {
        months:["January", 
@@ -28,7 +35,7 @@ export default {
       "October", 
       "November", 
       "December"],
-      
+      showSuccessPop: false
     }
    
   },
@@ -96,9 +103,12 @@ export default {
         let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
         let rid = this.$store.state.selRest.rid;
         let uid = this.$store.state.currentListStatus.uid;
+        let did = this.$store.state.currentListStatus.did;
+       
         let grpLimitSmall = this.$store.state.selRest.sizeStandard.small;
         let grpLimitMedium = this.$store.state.selRest.sizeStandard.medium;
         let grpLimitLarge = this.$store.state.selRest.sizeStandard.large;
+
 
         let db = firebase.firestore();
         let that = this;
@@ -142,10 +152,21 @@ export default {
             }
 
           })
-            
-
-          
         })
+        console.log(did);
+       let unsubscribe = db.collection("waitlist").doc(did)
+            .onSnapshot(function(doc) {
+   
+                let item = doc.data();
+                if(item.status==="success")
+                {
+                    console.log("You're ready to sit!");
+                    that.showSuccessPop = true;
+                    //stop listen update
+                    unsubscribe();
+                }
+            });
+
     }
 }
 </script>

@@ -4,7 +4,7 @@
     <!-- <vueDateFormat :format="'yyyy-MM-dd hh:mm:ss'" :time="'2019-06-10'" :type="'fmt'" :autoUpdate="false"></vueDateFormat> -->
     
     
-    <WaitListInfo/>
+    <!-- <WaitListInfo/> -->
     <Seating/>
     <AddToList/>
     <br>

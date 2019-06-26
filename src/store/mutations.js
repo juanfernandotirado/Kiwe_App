@@ -82,10 +82,9 @@ const EMPTY_STATUS = (state) => {
     state.currentListStatus.currentSpot = 0;
     state.currentListStatus.rName = '';
     state.currentListStatus.rid = '';
-    state.currentListStatus.groupSize = 1;
+    state.currentListStatus.grSize = 1;
     state.currentListStatus.uName = '';
     state.currentListStatus.uid = '';
-    state.currentListStatus.uInLine = '';
     state.currentListStatus.did = '';
 }
 
