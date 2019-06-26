@@ -1,6 +1,8 @@
 <template>
   <div class="wait-list-info-container">
-        <p class="restName">Restaurant Name: {{ rName }}</p>
+        <h2>Hello {{uName}} </h2>
+        <p>In a party for {{grSize}}</p>
+        <p class="restName">Your spot at: {{ rName }}</p>
         <p>Current Spot: {{currentSpot}}</p>
         <p>Estimated Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
         <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
@@ -71,6 +73,10 @@ export default {
   },
    computed:{
 
+    uName(){
+      return this.$store.state.userStatus.nickName
+    },
+
     rName(){
       return this.$store.state.currentListStatus.rName
     },
@@ -92,8 +98,8 @@ export default {
     },
 
      selectedRes(){
-            return this.$store.state.selRest
-      },
+       return this.$store.state.selRest
+    },
 
     
   },
@@ -173,8 +179,8 @@ export default {
 
 <style scoped>
   
-  .restName{
+  /* .restName{
     text-transform: capitalize;
-  }
+  } */
 </style>
 

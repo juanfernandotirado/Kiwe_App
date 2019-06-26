@@ -17,7 +17,7 @@
       </header>
       <section class="modal-body">
         <slot name="body">
-          <!-- <WaitListInfo/> -->
+           <WaitListInfo/> 
         </slot>
        </section>
        <footer class="modal-footer">
