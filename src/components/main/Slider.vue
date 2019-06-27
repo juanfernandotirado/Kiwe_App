@@ -2,9 +2,16 @@
   <div class="slider">
     <h3>Featured Restaurants</h3>
 
-    <carousel>
-  <slide v-for="(item, index) in slider" v-bind:key="index">
-    <img :src="compileUrl(item.rImgRef) " v-on:click='selectedRest(item)'> 
+    <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" autoplay="true" speed="1500">
+  <slide class="slide" v-for="(item, index) in slider" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
+    <img class="img" :src="compileUrl(item.rImgRef)" >
+    <p> {{ item.rName }}</p>    
+    <p> Raiting: {{ item.rating }}</p>
+    <p> Price Level: {{ item.priceLevel }}</p>
+    <p> Address: {{ item.address }}</p>
+    <p> Estimated Waiting Time: {{ item.estTime }}</p>
+
+    
   </slide>
    
 </carousel>
@@ -45,7 +52,13 @@ export default {
         this.$store.dispatch('assignRest', item).then(
         this.$router.push('restDetail')
         )
-      }
+      },
+
+        handleSlideClick: function (dataset) {
+          this.selectedRest(this.$store.state.restaurantList[dataset.item])
+    console.log(dataset.item)
+    console.log(this.$store.state.restaurantList[dataset.item])
+  }
 
     },
 
@@ -83,3 +96,23 @@ export default {
   
 }
 </script>
+
+<style scoped>
+.carousel{
+
+
+}
+
+.slide {
+
+}
+
+.img {
+ width: 300px;
+ 
+ margin-left: 2%;
+ margin-right: 2%;
+
+}
+</style>
+
