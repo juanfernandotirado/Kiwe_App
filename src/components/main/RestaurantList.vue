@@ -55,10 +55,10 @@ export default {
 
         }
     },
-
+-
     methods: {
-         assignRestSelc: function (tar, sor){
-            this.$store.dispatch('assignRest', sor).then(
+         assignRestSelc: function (target, source){
+            this.$store.dispatch('assignRest', source).then(
                   this.$router.push('restDetail')
             );
         },
