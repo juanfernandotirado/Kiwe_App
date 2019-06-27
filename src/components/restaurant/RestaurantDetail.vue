@@ -34,6 +34,8 @@
 <script>
 
 import Seating from '../main/Seating.vue'
+import firebase from 'firebase';
+
 
 
 
@@ -50,16 +52,49 @@ export default {
         }
     },
 
+    created() {
+
+      let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
+
+        let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
+        let rid = this.$store.state.selRest.rid;
+        let grSize = this.$store.state.currentListStatus.grSize;
+
+        let db = firebase.firestore();
+
+        let that = this;
+
+        db.collection('waitlist').where("rid", "==", rid).where("status", "==", 'waiting').where("date", "==", formatDate).orderBy("joinTime", "desc").onSnapshot(function(querySnapshot) {
+          let spotCounter = {
+            group:0,
+          }
+
+          querySnapshot.forEach(function(doc){
+            let item = doc.data();
+            spotCounter.group++;
+            that.$store.dispatch('rUpdateSpot', spotCounter.group);
+          
+            //console.log('Item from database');
+            //console.log(spot);
+          })
+          console.log('Item from database');
+          console.log(spotCounter.group);
+
+        })
+
+    },
+
     methods: {
 
       nextPage:function() {
-        console.log('selectedRest');
-        console.log(this.$store.state.selRest);
 
+      console.log('selectedRest');
+      console.log(this.$store.state.selRest);
 
-
-        this.$router.push('testJuan');
+      this.$router.push('testJuan');
       },
+
+
 
       backPage:function() {
         this.$router.push('test1');

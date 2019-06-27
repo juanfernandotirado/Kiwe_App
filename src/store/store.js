@@ -38,7 +38,7 @@ export default new Vuex.Store({
 
 
     selRest: {
-      
+      //spot: 0,
       
     },
 
