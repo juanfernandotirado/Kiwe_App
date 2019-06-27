@@ -85,6 +85,10 @@ const updateSpot = (context,payload) => {
     context.commit('UPDATE_CURRENT_SPOT',payload);
 }
 
+const rUpdateSpot = (context, payload) => {
+    context.commit('REST_CURRENT_SPOT', payload);
+}
+
 
 
 export default{
@@ -106,6 +110,7 @@ export default{
     updateNickname,
     updatePhoneNumber,
     updateProfile,
-    updateSpot
+    updateSpot,
+    rUpdateSpot
 
 } 

@@ -36,6 +36,7 @@ const SELECT_RESTAURANT = (state,payload) =>{
     state.currentListStatus.rName = state.selRest.rName;
     state.currentListStatus.rid = state.selRest.rid;
     state.currentListStatus.estTime = state.selRest.estTime;
+    //state.selRest.waiting = 0;
 }
 
 const ADD_TO_WAITING_LIST = (state, payload) => {
@@ -109,6 +110,9 @@ const UPDATE_CURRENT_SPOT = (state,payload) => {
     state.currentListStatus.currentSpot = payload;
 }
 
+const REST_CURRENT_SPOT = (state,payload) => {
+    state.selRest.spot = payload;
+}
 
 
 export default {
@@ -131,6 +135,7 @@ export default {
     UPDATE_NICKNAME,
     UPDATE_PHONENUMBER,
     UPDATE_PROFILE,
-    UPDATE_CURRENT_SPOT
+    UPDATE_CURRENT_SPOT,
+    REST_CURRENT_SPOT
 
 }
