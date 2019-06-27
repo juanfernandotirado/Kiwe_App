@@ -5,14 +5,6 @@
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          You have been successfully added to the queue! 
-
-          <button
-            type="button"
-            class="btn-close"
-          >
-            x
-          </button>
         </slot>
       </header>
       <section class="modal-body">
@@ -70,7 +62,6 @@
        </section>
        <footer class="modal-footer">
           <slot name="footer">
-            <!-- I'm the default footer! -->
           <button
               type="button"
               class="btn-green"
@@ -123,9 +114,9 @@ import firebase from 'firebase';
 
         this.$store.dispatch('isInLine');
         this.$store.dispatch('emptyWaitlist');
-        this.$router.push('home');
+       
         this.$store.dispatch('popUpShowsD');
-
+        this.$store.dispatch('togglePopUpSuccessShows');
 
         let didUser = this.$store.state.currentListStatus.did;
 
@@ -133,6 +124,7 @@ import firebase from 'firebase';
         db.collection('waitlist').doc(didUser).delete();
 
         this.$store.dispatch('emptyStatus');
+         this.$router.push('home');
       },
     },
 

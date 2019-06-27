@@ -43,6 +43,7 @@
     methods: {
 
       goHome: function(){
+        this.$store.dispatch('togglePopUpSuccessShows');
         this.$store.dispatch('isInLine');
         this.$router.push('home');
         

@@ -1,8 +1,10 @@
 <template>
     <div>
         <button v-on:click="addToList()" class="btn orange">Confirm</button>
+        
+        <div v-if="showPopup">
         <VerificationPopUp/>
-
+        </div>
     </div>
     
 </template>
@@ -17,7 +19,11 @@ export default {
     components: {
     VerificationPopUp,
     },
-
+    computed:{
+        showPopup() {
+        return this.$store.state.popUpShow
+            }
+    },
     methods: {
         addToList: function(){
              let currentTime = new Date();
@@ -54,11 +60,13 @@ export default {
                     date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
                     status: 'waiting',
                 //in here we created different properties for the user
-               })
+               }).then(()=>{
                 that.$store.dispatch('addWaitingList',currentStatus);
                 that.$store.dispatch('joinList', currentStatus);
                 that.$store.dispatch('isInLine');
                 that.$store.dispatch('popUpShows');
+               })
+               
                 
 
             

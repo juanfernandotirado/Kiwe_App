@@ -53,7 +53,7 @@ export default {
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
 
-
+                                                            
                             //Get restaurant list from firebase
                             let db = firebase.firestore();
                             let that = this;

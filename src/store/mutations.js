@@ -114,6 +114,11 @@ const REST_CURRENT_SPOT = (state,payload) => {
     state.selRest.spot = payload;
 }
 
+//Toggle success pop up confirmation
+const TOGGLE_POPUP_SUCCESS = (state) => {
+    state.popUpSuccessShow = !state.popUpSuccessShow;
+}
+
 
 export default {
     UPDATE_USER_NICKNAME,
@@ -136,6 +141,7 @@ export default {
     UPDATE_PHONENUMBER,
     UPDATE_PROFILE,
     UPDATE_CURRENT_SPOT,
-    REST_CURRENT_SPOT
+    REST_CURRENT_SPOT,
+    TOGGLE_POPUP_SUCCESS
 
 }

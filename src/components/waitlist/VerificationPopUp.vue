@@ -1,7 +1,7 @@
 <template>
 <div>
     <!--<button @click="show=true" class="btn">Confirm</button>-->
-  <div class="modal-backdrop" v-show="show">
+  <div class="modal-backdrop">
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
@@ -64,9 +64,7 @@ import WaitListInfo from './WaitListInfo.vue'
     },
 
     computed: {
-      show() {
-      return this.$store.state.popUpShow
-    }
+     
   }
 
   }

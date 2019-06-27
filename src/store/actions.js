@@ -89,7 +89,10 @@ const rUpdateSpot = (context, payload) => {
     context.commit('REST_CURRENT_SPOT', payload);
 }
 
-
+//Toggle success pop up confirmation
+const togglePopUpSuccessShows = (context) => {
+    context.commit('TOGGLE_POPUP_SUCCESS');
+}
 
 export default{
     changeName,
@@ -111,6 +114,7 @@ export default{
     updatePhoneNumber,
     updateProfile,
     updateSpot,
-    rUpdateSpot
+    rUpdateSpot,
+    togglePopUpSuccessShows
 
 } 

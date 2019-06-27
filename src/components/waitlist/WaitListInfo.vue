@@ -7,7 +7,7 @@
         <p>Estimated Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
         <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
 
-    <div v-show="showSuccessPop">
+    <div v-show="popUpSuccessShow">
       <SuccessPopUp />
     </div>
   </div>
@@ -36,37 +36,37 @@ export default {
       "October", 
       "November", 
       "December"],
-      showSuccessPop: false
+   
     }
    
   },
 
   methods: {
       assignWaitTime:function(grp, rest){
-            let currentSpot = this.$store.state.currentListStatus.currentSpot;
-            let smallTable = rest.sizeStandard.small;
-            let mediumTable = rest.sizeStandard.medium;
-            let bigTable = rest.sizeStandard.large;
-            let smallTableWait = rest.waitTime.small;
-            let mediumTableWait = rest.waitTime.medium;
-            let bigTableWait = rest.waitTime.large;
+            // let currentSpot = this.$store.state.currentListStatus.currentSpot;
+            // let smallTable = rest.sizeStandard.small;
+            // let mediumTable = rest.sizeStandard.medium;
+            // let bigTable = rest.sizeStandard.large;
+            // let smallTableWait = rest.waitTime.small;
+            // let mediumTableWait = rest.waitTime.medium;
+            // let bigTableWait = rest.waitTime.large;
             
 
-            if (grp <= smallTable) {
-                rest.estTime = smallTableWait;
-                console.log(rest.estTime);
-                return rest.estTime*currentSpot;
-            }
-            else if (grp <=mediumTable) {
-                rest.estTime = mediumTableWait;
-                //console.log(rest.estTime);
-                return rest.estTime*currentSpot;
-            }
-            else if (grp <=bigTable) {
-                rest.estTime = bigTableWait;
-                console.log(rest.estTime);
-                return rest.estTime*currentSpot;
-            }
+            // if (grp <= smallTable) {
+            //     rest.estTime = smallTableWait;
+            //     console.log(rest.estTime);
+            //     return rest.estTime*currentSpot;
+            // }
+            // else if (grp <=mediumTable) {
+            //     rest.estTime = mediumTableWait;
+            //     //console.log(rest.estTime);
+            //     return rest.estTime*currentSpot;
+            // }
+            // else if (grp <=bigTable) {
+            //     rest.estTime = bigTableWait;
+            //     console.log(rest.estTime);
+            //     return rest.estTime*currentSpot;
+            // }
         }  
    
   },
@@ -100,6 +100,9 @@ export default {
       return this.$store.state.selRest
     },
 
+    popUpSuccessShow(){
+      return this.$store.state.popUpSuccessShow
+    },
     
   },
   created(){
@@ -158,15 +161,14 @@ export default {
 
           })
         })
-        console.log(did);
+  
        let unsubscribe = db.collection("waitlist").doc(did)
             .onSnapshot(function(doc) {
    
                 let item = doc.data();
-                if(item.status==="success")
+                if(item.status=="success")
                 {
-                    console.log("You're ready to sit!");
-                    that.showSuccessPop = true;
+                    that.$store.dispatch('togglePopUpSuccessShows');
                     //stop listen update
                     unsubscribe();
                 }

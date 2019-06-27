@@ -19,7 +19,8 @@
                    </div>
                    
                    <div class="restInfo">Est. Waiting Time: 
-                       <div class="restInfoFil wait"> {{ assignWaitTime(groupSize, rest) }} min</div>
+                       <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
+                       <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
                    </div>
 
                     <div class="restInfo">Cuisine: 
@@ -66,37 +67,120 @@ export default {
             this.$router.push('home')
         },
 
+        returnSpotTime:function(spotTime){
+            return spotTime;
+        },
+
         assignWaitTime:function(grp, rest){
-            let restList = this.$store.state.restaurantList;
-            // grp = this.$store.state.currentListStatus.groupSize;
+
+
+            let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
+
+            let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
+            let rid = rest.rid;
+            let grSize = this.$store.state.currentListStatus.grSize;
+            //rest.spot = 1;
+
+            let spotCounter = {
+                    smallGroup:0,
+                    mediumGroup:0,
+                    bigGroup:0,
+            }
+
             let smallTable = rest.sizeStandard.small;
             let mediumTable = rest.sizeStandard.medium;
             let bigTable = rest.sizeStandard.large;
-            let smallTableWait = rest.waitTime.small;
-            let mediumTableWait = rest.waitTime.medium;
-            let bigTableWait = rest.waitTime.large;
-            console.log('restaurant');
-            console.log(grp);
 
-            if (grp <= smallTable) {
-                rest.estTime = smallTableWait;
-                console.log(rest.estTime);
-                return rest.estTime;
-            }
-            else if (grp <=mediumTable) {
-                rest.estTime = mediumTableWait;
-                console.log(rest.estTime);
-                return rest.estTime;
-            }
-            else if (grp <=bigTable) {
-                rest.estTime = bigTableWait;
-                console.log(rest.estTime);
-                return rest.estTime;
-            }
+            let db = firebase.firestore();
+
+            let that = this;
+
+            db.collection('waitlist').where("rid", "==", rid).where("status", "==", 'waiting').where("date", "==", formatDate).orderBy("joinTime", "desc").get().then(function(querySnapshot){ 
+                
+
+                querySnapshot.forEach(function(doc){
+                    let item = doc.data();
+
+                    if (item.grSize <= smallTable){
+                        spotCounter.smallGroup++
+                    
+                    }
+
+                    else if (item.grSize <= mediumTable){
+                        spotCounter.mediumGroup++
+                    }
+
+                    else {
+                        spotCounter.bigGroup++
+                    }
+
+
+                    //that.$store.dispatch('rUpdateSpot', spotCounter.group);
+
+                    // if ( spotCounter.group === 0 ){
+                    // //that.$store.dispatch('rUpdateSpot', none)
+                    // }
+                
+                    //console.log('Item from database');
+                    //console.log(spot);
+                })
+
+            rest.spot = spotCounter;
+            console.log('Spot from ' + rest.rName);
+            console.log(rest.spot);
+
+            }).then(function(){
+
+                let currentSpot = spotCounter;
+
+                let smallTableWait = rest.waitTime.small;
+                let mediumTableWait = rest.waitTime.medium;
+                let bigTableWait = rest.waitTime.large;
+                
+
+                if (grp <= smallTable) {
+                    //rest.estTime = smallTableWait;
+                    console.log('Small group spot');
+                    //console.log(currentSpot.smallGroup);
+                    //return rest.estTime*(currentSpot.smallGroup+1);
+                    rest.estTime = smallTableWait*(rest.spot.smallGroup+1);
+                    console.log(rest.spot.smallGroup+1);
+                    console.log('Small group wait');
+                    console.log(smallTableWait);
+                    console.log('est wait time for your group');
+                    console.log(rest.estTime)
+                    return rest.estTime;
+                }
+                else if (grp <=mediumTable) {
+                    rest.estTime = mediumTableWait*(rest.spot.mediumGroup+1);
+                    console.log('Medium group spot');
+                    console.log(rest.spot.mediumGroup+1);
+                    console.log('Medium group wait');
+                    console.log(mediumTableWait);
+                    console.log('est wait time for your group');
+                    console.log(rest.estTime)
+                    //console.log(rest.estTime);
+                    return rest.estTime;
+                }
+                else  {
+                    rest.estTime = bigTableWait*(rest.spot.bigGroup+1);
+                    console.log('Large group spot');
+                    console.log(rest.spot.bigGroup+1);
+                    console.log('Large group wait');
+                    console.log(bigTableWait);
+                    console.log('est wait time for your group');
+                    console.log(rest.estTime)
+                    //console.log(rest.estTime);
+                    return rest.estTime;
+                }
+
+            })
         }   
     },
 
     created() {
+
+        
     },
 
     computed: {
@@ -108,7 +192,7 @@ export default {
             return this.$store.state.selRest
         },
 
-        groupSize(){
+        grSize(){
             return this.$store.state.currentListStatus.grSize
         },
 
@@ -180,6 +264,10 @@ li {
 
 .slider {
 //   z-index: -1;
+}
+
+.restInfoHide{
+    display: none;
 }
 
 
