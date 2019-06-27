@@ -55,7 +55,7 @@ export default {
 
         }
     },
--
+
     methods: {
          assignRestSelc: function (target, source){
             this.$store.dispatch('assignRest', source).then(
