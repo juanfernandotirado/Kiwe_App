@@ -43,30 +43,30 @@ export default {
 
   methods: {
       assignWaitTime:function(grp, rest){
-            // let currentSpot = this.$store.state.currentListStatus.currentSpot;
-            // let smallTable = rest.sizeStandard.small;
-            // let mediumTable = rest.sizeStandard.medium;
-            // let bigTable = rest.sizeStandard.large;
-            // let smallTableWait = rest.waitTime.small;
-            // let mediumTableWait = rest.waitTime.medium;
-            // let bigTableWait = rest.waitTime.large;
+            let currentSpot = this.$store.state.currentListStatus.currentSpot;
+            let smallTable = rest.sizeStandard.small;
+            let mediumTable = rest.sizeStandard.medium;
+            let bigTable = rest.sizeStandard.large;
+            let smallTableWait = rest.waitTime.small;
+            let mediumTableWait = rest.waitTime.medium;
+            let bigTableWait = rest.waitTime.large;
             
 
-            // if (grp <= smallTable) {
-            //     rest.estTime = smallTableWait;
-            //     console.log(rest.estTime);
-            //     return rest.estTime*currentSpot;
-            // }
-            // else if (grp <=mediumTable) {
-            //     rest.estTime = mediumTableWait;
-            //     //console.log(rest.estTime);
-            //     return rest.estTime*currentSpot;
-            // }
-            // else if (grp <=bigTable) {
-            //     rest.estTime = bigTableWait;
-            //     console.log(rest.estTime);
-            //     return rest.estTime*currentSpot;
-            // }
+            if (grp <= smallTable) {
+                rest.estTime = smallTableWait;
+                console.log(rest.estTime);
+                return rest.estTime*currentSpot;
+            }
+            else if (grp <=mediumTable) {
+                rest.estTime = mediumTableWait;
+                //console.log(rest.estTime);
+                return rest.estTime*currentSpot;
+            }
+            else if (grp <=bigTable) {
+                rest.estTime = bigTableWait;
+                console.log(rest.estTime);
+                return rest.estTime*currentSpot;
+            }
         }  
    
   },

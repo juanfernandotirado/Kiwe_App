@@ -91,6 +91,7 @@ export default {
             let mediumTable = rest.sizeStandard.medium;
             let bigTable = rest.sizeStandard.large;
 
+
             let db = firebase.firestore();
 
             let that = this;
@@ -102,16 +103,24 @@ export default {
                     let item = doc.data();
 
                     if (item.grSize <= smallTable){
-                        spotCounter.smallGroup++
+                        spotCounter.smallGroup++;
+                        rest.groupSpot = spotCounter.smallGroup;
+                        console.log(rest.groupSpot)
                     
                     }
 
                     else if (item.grSize <= mediumTable){
-                        spotCounter.mediumGroup++
+                        spotCounter.mediumGroup++;
+                        rest.groupSpot = spotCounter.mediumGroup;
+                        console.log(rest.groupSpot)
+
                     }
 
                     else {
-                        spotCounter.bigGroup++
+                        spotCounter.bigGroup++;
+                        rest.groupSpot = spotCounter.bigGroup;
+                        console.log(rest.groupSpot)
+
                     }
 
 
