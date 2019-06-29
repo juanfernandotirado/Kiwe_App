@@ -36,9 +36,6 @@
 import Seating from '../main/Seating.vue'
 import firebase from 'firebase';
 
-
-
-
 export default {
     components: {
       Seating,
@@ -63,16 +60,13 @@ export default {
       },
 
 
-
       backPage:function() {
         this.$router.push('test1');
       }
-
     },
 
     computed: {
       selectedRes(){
-        // console.log(this.$store.state.restaurantList)
         return this.$store.state.selRest
       }
     }

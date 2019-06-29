@@ -1,18 +1,10 @@
 <template>
 <div>
-    <!--<button @click="show=true" class="btn">Confirm</button>-->
   <div class="modal-backdrop">
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
           You have been successfully added to the queue! 
-          <!-- <button
-            type="button"
-            class="btn-close"
-            v-on:click="goHome()"
-          >
-            x
-          </button> -->
         </slot>
       </header>
       <section class="modal-body">
@@ -49,9 +41,8 @@ import WaitListInfo from './WaitListInfo.vue'
   },
 
     data:function(){
-    return{
-      //show:false
-    }
+      return{
+      }
     },
 
     methods: {
@@ -63,14 +54,10 @@ import WaitListInfo from './WaitListInfo.vue'
       
     },
 
-    computed: {
-     
-  }
-
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
   .modal-backdrop {
     position: fixed;
@@ -113,16 +100,6 @@ import WaitListInfo from './WaitListInfo.vue'
     position: relative;
     padding: 20px 10px;
   }
-
-  /* .btn-close {
-    border: none;
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  } */
 
   .btn-green {
     color: white;

@@ -29,7 +29,6 @@ export default {
     //Get imgs from google map api
     this.axios.get(api,{ crossdomain: true }).then((response) => {
         console.log(response.data)
-
         this.$store.dispatch('updateGalleryImgs',response.data.result.photos)
 
       })
@@ -46,4 +45,9 @@ export default {
 
 }
 </script>
+
+<style scoped lang="scss">
+
+</style>
+
 

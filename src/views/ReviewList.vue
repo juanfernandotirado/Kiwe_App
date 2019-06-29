@@ -14,28 +14,25 @@ export default {
   name:'ReviewList',
 
   data:function(){
-    return {
-      
+    return { 
     }
    
   },
 
   methods: {
-  
-   
   },
-   computed:{
+
+  computed:{
 
     rName(){
       return this.$store.state.selRest.rName
     },
 
-
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   
   .restName{
     text-transform: capitalize;

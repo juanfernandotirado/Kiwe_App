@@ -1,10 +1,10 @@
 <template>
     <div>
+
         <qrcode-vue :value='value' :size='size' level='H'></qrcode-vue> 
 
     </div>
 </template>
-
 
 <script>
 
@@ -22,11 +22,6 @@ export default {
         }
     },
 
-    computed: {
-        // restaurantID () {
-        //     return this.$store.state.selRest.rid
-        // }
-    }
     
 }
 

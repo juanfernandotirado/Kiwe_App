@@ -3,8 +3,6 @@
 
 <h5>Seating Preference</h5>
 
-<!-- <label for="seatingPreferences">Seating Preferences</label> -->
-
 <select v-model="additionalInfo.seatingPreferences" name="seatingPreferences">
 <option value="">No preferences</option>
 <option value="Indoor" > Indoor </option>
@@ -16,40 +14,29 @@
 
 </select>
 
-<p>{{ additionalInfo.seatingPreferences }}</p>
-
 </div>
 </template>
 
 <script>
 
-
 export default {
   name: 'Seating',
-    // data:function(){
-    // // return{
-    // //     additionalInfo: {
-    // //     accessibility:'',
-    // //     seatingPreferences: ''
-    // //     },
-        
-    // },
-
-    methods: {
+    data:function(){
+        return{    
+        }
     },
 
     computed: {
         additionalInfo(){
             return this.$store.state.additionalInfo
         }
-
     }
   
 }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .additional-info{
 
@@ -59,6 +46,5 @@ export default {
 
 select{
     display: block;
-
 }
 </style>

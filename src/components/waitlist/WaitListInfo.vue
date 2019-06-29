@@ -54,7 +54,7 @@ export default {
             }
             else if (grp <=mediumTable) {
                 rest.estTime = mediumTableWait;
-                //console.log(rest.estTime);
+                console.log(rest.estTime);
                 return rest.estTime*currentSpot;
             }
             else if (grp <=bigTable) {
@@ -65,6 +65,7 @@ export default {
         }  
    
   },
+
    computed:{
 
     uName(){
@@ -95,9 +96,8 @@ export default {
       return this.$store.state.selRest
     },
 
-    
-    
   },
+
   created(){
         let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
         
@@ -161,7 +161,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   
 </style>
 

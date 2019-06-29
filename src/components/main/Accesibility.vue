@@ -14,11 +14,6 @@
 
 </select>
 
-<p>{{ additionalInfo.accessibility }}</p>
-
-
-
-
 </div>
 </template>
 
@@ -27,30 +22,22 @@
 
 export default {
   name: 'Accesibility',
-    // data:function(){
-    // // return{
-    // //     additionalInfo: {
-    // //     accessibility:'',
-    // //     seatingPreferences: ''
-    // //     },
-        
-    // },
-
-    methods: {
+    data:function(){
+        return{
+        }
     },
 
     computed: {
         additionalInfo(){
-            return this.$store.state.additionalInfo
+            return this.$store.state.additionalInfo;
         }
-
     }
   
 }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .additional-info{
 

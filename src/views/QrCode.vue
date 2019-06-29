@@ -2,6 +2,7 @@
 <div>
     <h1>Read QR Code</h1>
     <div class="camera">
+        
         <qrcode-stream @decode="onDecode"></qrcode-stream>
 
     </div>
@@ -40,24 +41,12 @@ export default {
             })
         },
 
-
-        // async Detect (promise){
-        //     try {
-        //         const {
-        //             content
-        //         } = await promise
-        //     } catch (error) {
-
-        //     }
-        //     console.log(content)
-        // }
-
     }
     
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .camera {
     border: 1px solid salmon;
     width: 300px;

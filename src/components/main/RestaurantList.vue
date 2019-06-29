@@ -4,12 +4,10 @@
 
         <Slider class="slider"/>
 
-        
         <div class="searchB">
             <input type="text" v-model="search" placeholder="Search restaurants">
-            <!-- <button class="btnSearch">Search</button> -->
-        
-        </div> 
+        </div>
+
         <ul>
             <li v-for="rest in filteredRest" 
             v-bind:key="rest.id" class="rests">
@@ -34,7 +32,6 @@
 
         <button v-on:click='goHome' class="btn blue">Back</button>
 
-        <!-- <MenuGallery/> -->
     </div>
 </template>
 
@@ -73,13 +70,11 @@ export default {
 
         assignWaitTime:function(grp, rest){
 
-
             let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
 
             let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
             let rid = rest.rid;
             let grSize = this.$store.state.currentListStatus.grSize;
-            //rest.spot = 1;
 
             let spotCounter = {
                     smallGroup:0,
@@ -106,32 +101,20 @@ export default {
                         spotCounter.smallGroup++;
                         rest.groupSpot = spotCounter.smallGroup;
                         console.log(rest.groupSpot)
-                    
                     }
 
                     else if (item.grSize <= mediumTable){
                         spotCounter.mediumGroup++;
                         rest.groupSpot = spotCounter.mediumGroup;
                         console.log(rest.groupSpot)
-
                     }
 
                     else {
                         spotCounter.bigGroup++;
                         rest.groupSpot = spotCounter.bigGroup;
                         console.log(rest.groupSpot)
-
                     }
 
-
-                    //that.$store.dispatch('rUpdateSpot', spotCounter.group);
-
-                    // if ( spotCounter.group === 0 ){
-                    // //that.$store.dispatch('rUpdateSpot', none)
-                    // }
-                
-                    //console.log('Item from database');
-                    //console.log(spot);
                 })
 
             rest.spot = spotCounter;
@@ -146,12 +129,8 @@ export default {
                 let mediumTableWait = rest.waitTime.medium;
                 let bigTableWait = rest.waitTime.large;
                 
-
                 if (grp <= smallTable) {
-                    //rest.estTime = smallTableWait;
                     console.log('Small group spot');
-                    //console.log(currentSpot.smallGroup);
-                    //return rest.estTime*(currentSpot.smallGroup+1);
                     rest.estTime = smallTableWait*(rest.spot.smallGroup+1);
                     console.log(rest.spot.smallGroup+1);
                     console.log('Small group wait');
@@ -168,7 +147,6 @@ export default {
                     console.log(mediumTableWait);
                     console.log('est wait time for your group');
                     console.log(rest.estTime)
-                    //console.log(rest.estTime);
                     return rest.estTime;
                 }
                 else  {
@@ -179,7 +157,6 @@ export default {
                     console.log(bigTableWait);
                     console.log('est wait time for your group');
                     console.log(rest.estTime)
-                    //console.log(rest.estTime);
                     return rest.estTime;
                 }
 
@@ -187,10 +164,6 @@ export default {
         }   
     },
 
-    created() {
-
-        
-    },
 
     computed: {
         restList(){
@@ -234,8 +207,6 @@ li {
     padding-left: 10px;   
 }
 
-
-
 .restClass {
     text-align: left,
 }
@@ -248,14 +219,11 @@ li {
 .restInfo {
     font-weight: bold;
     display: block,
-
 }
 
 .restInfoFil {
     margin-left: 5px;
-    text-transform: capitalize;
-
-    
+    text-transform: capitalize;  
 }
 
 .searchB {

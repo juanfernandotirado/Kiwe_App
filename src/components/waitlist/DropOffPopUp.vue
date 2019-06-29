@@ -1,6 +1,5 @@
 <template>
 <div>
-    <!--<button @click="show=true" class="btn">Confirm</button>-->
   <div class="modal-backdrop" v-if="show">
     <div class="modal">
       <header class="modal-header">
@@ -10,13 +9,10 @@
       <section class="modal-body">
         <slot name="body">
             Are you sure you want to drop off? 
-
-            <!-- <WaitListInfo/> -->
         </slot>
        </section>
        <footer class="modal-footer">
           <slot name="footer">
-            <!-- I'm the default footer! -->
 
             <button
               type="button"
@@ -43,7 +39,6 @@
       <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          <!-- You have been successfully added to the queue!  -->
 
           <button
             type="button"
@@ -56,8 +51,6 @@
       <section class="modal-body">
         <slot name="body">
             Your spot has been removed fom the restaurant! 
-
-            <!-- <WaitListInfo/> -->
         </slot>
        </section>
        <footer class="modal-footer">
@@ -133,7 +126,7 @@ import firebase from 'firebase';
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
   .modal-backdrop {
     position: fixed;

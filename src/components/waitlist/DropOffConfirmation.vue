@@ -10,20 +10,18 @@ import firebase from 'firebase';
 
 export default {
     name: 'DropOffConfirmation',
-    methods: {
-        dropOff: function(){
-  
-            this.$store.dispatch('popUpShowsD')
-   
 
-            
+    methods: {
+
+        dropOff: function(){
+            this.$store.dispatch('popUpShowsD')
         }
     },
    
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 
 </style>
 

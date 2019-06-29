@@ -69,15 +69,12 @@
         this.$store.dispatch('togglePopUpSuccessShows');
         this.$store.dispatch('isInLine');
         this.$router.push('home');
-        
-      }
-      
+      }  
     },
-
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
   .modal-backdrop {
     position: fixed;

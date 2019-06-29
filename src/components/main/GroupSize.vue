@@ -53,7 +53,7 @@ export default {
             }
             else if (grp <=mediumTable) {
                 rest.estTime = mediumTableWait;
-                //console.log(rest.estTime);
+                console.log(rest.estTime);
                 return rest.estTime*currentSpot;
             }
             else if (grp <=bigTable) {
@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
     * {
         box-sizing: border-box;

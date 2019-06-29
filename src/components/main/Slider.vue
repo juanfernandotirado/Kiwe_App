@@ -10,7 +10,6 @@
     <p> Price Level: {{ item.priceLevel }}</p>
     <p> Address: {{ item.address }}</p>
     <p> Estimated Waiting Time: {{ item.estTime }}</p>
-
     
   </slide>
    
@@ -23,7 +22,6 @@
 
 import { Carousel, Slide } from 'vue-carousel';
 
-
 export default {
   name: 'Slider',
 
@@ -31,73 +29,55 @@ export default {
     Carousel,
     Slide
   },
-    data:function(){
+
+  data:function(){
     return{
       slider: [],
       pro: [],
       urlPart: 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference='
     }
-    },
+  },
 
-    methods: {
+  methods: {
 
-      compileUrl:function(item){
-          return this.urlPart + item
-        },
+    compileUrl:function(item){
+        return this.urlPart + item;
+      },
    
 
-      selectedRest: function(item) {
-
-        console.log(item);
-        this.$store.dispatch('assignRest', item).then(
+    selectedRest: function(item) {
+      console.log(item);
+      this.$store.dispatch('assignRest', item).then(
         this.$router.push('restDetail')
-        )
-      },
-
-        handleSlideClick: function (dataset) {
-          this.selectedRest(this.$store.state.restaurantList[dataset.item])
-    console.log(dataset.item)
-    console.log(this.$store.state.restaurantList[dataset.item])
-  }
-
+      )
     },
 
-    computed: {
-        
-      },
+    handleSlideClick: function (dataset) {
+      this.selectedRest(this.$store.state.restaurantList[dataset.item]);
+      console.log(dataset.item);
+      console.log(this.$store.state.restaurantList[dataset.item]);
+    }
 
-     
-
-      created(){
-          //let pro = item;
-          let that = this;
-
-          this.slider = this.$store.state.restaurantList.map(item =>{
-            let rest = item;
-            that.pro.push(rest.rImgRef);
-                                  //console.log(that.pro);
-
-              return item
-              //imgRef = ;
-              //return 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference=' + rest.rImgRef
-          })
-          console.log(that.pro); 
+  },
 
 
+  created(){
 
+    let that = this;
 
-          
-          
-      }
+    this.slider = this.$store.state.restaurantList.map(item =>{
+      let rest = item;
+      that.pro.push(rest.rImgRef);
+      return item;
+    })
+    console.log(that.pro);      
+  }
 
-//  https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference=
-
-    
   
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .carousel{
 
 
