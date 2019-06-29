@@ -1,95 +1,127 @@
+
+// Action change user's nickname
+
 const changeName = (context,payload) => {
     context.commit('UPDATE_USER_NICKNAME',payload);
   };
+
+// Action get user information
 
 const getUserStatus = (context,payload) => {
     context.commit('GET_USER_STATUS',payload);
 };
 
+// Action to add people to the group
+
 const addGroupSize = (context) => {
     context.commit('ADD_GROUP_SIZE');
 };
+
+// Action to subtract people from the group
 
 const subtractGroupSize = (context) => {
     context.commit('SUBTRACT_GROUP_SIZE');
 };
 
+// Action select restaurant from database
+
 const assignRestDb = (context,payload) => {
     context.commit('SELECT_REST_DB',payload);
 };
+
+// Action empty restaurant list array
 
 const emptyRestDb = (context) => {
     context.commit('EMPTY_REST_DB');
 };
 
+// Action add information to selected restaurant
+
 const assignRest = (context,payload) => {
     context.commit('SELECT_RESTAURANT',payload);
 };
+
+// Action add information to currentList store variable
 
 const addWaitingList = (context,payload) => {
     context.commit('ADD_TO_WAITING_LIST', payload);
 };
 
-//its like the state in mutation
+// Action join list in waitlist store variable
+
 const joinList = (context,payload) => {
     context.commit('JOIN_LIST', payload);
 }
 
-//Update MenuGallery Imgs
+// Action update menu gallery imgs
+
 const updateGalleryImgs = (context,payload) => {
     context.commit('UPDATE_GALLERY_IMGS',payload);
 }
 
+// Action toggle pop up confirmation
 
-//Toggle pop up confirmation
 const popUpShows = (context) => {
     context.commit('TOGGLE_POPUP');
 }
+
+// Action toggle pop up drop off
 
 const popUpShowsD = (context) => {
     context.commit('TOGGLE_POPUP_DROP');
 }
 
-//Toggle isInLine
+// Action toggle isInLine
 
 const isInLine = (context) => {
     context.commit('TOGGLE_ISINLINE');
 }
 
+// Action empty waitlist array
+
 const emptyWaitlist = (context) => {
     context.commit('EMPTY_WAITLIST');
 }
+
+// Action empty currentListStatus object
 
 const emptyStatus = (context) => {
     context.commit('EMPTY_STATUS');
 }
 
-//Profile Update Nickname
+// Action profile Update Nickname
+
 const updateNickname = (context, payload) => {
     context.commit('UPDATE_NICKNAME', payload);
 }
 
-//Profile Update Phone Number
+// Action profile Update Phone Number
+
 const updatePhoneNumber = (context, payload) => {
     context.commit('UPDATE_PHONENUMBER', payload);
 }
 
-//Profile Update Profile
+// Action profile Update Profile
+
 const updateProfile = (context,payload) => {
     context.commit('UPDATE_PROFILE', payload);
 }
 
 
-//Current spot Update
+// Action update current spot
+
 const updateSpot = (context,payload) => {
     context.commit('UPDATE_CURRENT_SPOT',payload);
 }
+
+// Action set current spot in selected restaurant
 
 const rUpdateSpot = (context, payload) => {
     context.commit('REST_CURRENT_SPOT', payload);
 }
 
-//Toggle success pop up confirmation
+// Action toggle success pop up confirmation
+
 const togglePopUpSuccessShows = (context) => {
     context.commit('TOGGLE_POPUP_SUCCESS');
 }

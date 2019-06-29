@@ -135,7 +135,7 @@ const REST_CURRENT_SPOT = (state,payload) => {
     state.selRest.spot = payload;
 }
 
-// Fucntion toggle success pop up confirmation
+// Function toggle success pop up confirmation
 
 const TOGGLE_POPUP_SUCCESS = (state) => {
     state.popUpSuccessShow = !state.popUpSuccessShow;
