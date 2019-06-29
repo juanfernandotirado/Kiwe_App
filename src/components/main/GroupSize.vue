@@ -1,6 +1,6 @@
 <template>
   <div class="group-size">
-      
+
     <h4>Set up a table</h4>
 
     <h5>Party for how many?</h5>
@@ -11,10 +11,8 @@
         <p>{{ groupSize }}</p>
     </div>
 
-
     <button class="btn-floating blue" v-on:click="incrementSize">+</button>
     
-
   </div>
 </template>
 

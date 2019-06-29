@@ -91,7 +91,6 @@ import firebase from 'firebase';
 
     data:function(){
     return{
-      //show:false
       show2: false
     }
     },
@@ -99,7 +98,6 @@ import firebase from 'firebase';
     methods: {
       keepWaiting: function() {
         this.$store.dispatch('popUpShowsD')
-        // this.$router.push('home');
       },
 
       dropOffConfirm: function(){
@@ -108,9 +106,6 @@ import firebase from 'firebase';
       },
 
       dropOffSpot: function() {
-        // this.$store.state.userStatus.status = 'cancel'
-        // console.log(this.$store.state.userStatus)
-        // this.$store.state.waitList.status = 'cancel'
 
         this.$store.dispatch('isInLine');
         this.$store.dispatch('emptyWaitlist');
@@ -133,9 +128,6 @@ import firebase from 'firebase';
       return this.$store.state.popUpShowD
     },
 
-    // didUser() {
-    //   return this.$store.state.userStatus.did
-    // }
   }
 
   }

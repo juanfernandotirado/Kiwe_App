@@ -8,12 +8,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    
     userStatus: {
       nickName: '',
       isInLine: false
     },
-
-
 
   
     currentListStatus:{
@@ -33,14 +32,10 @@ export default new Vuex.Store({
     waitList: [],
 
 
-
     restaurantList: [],
 
 
-    selRest: {
-      //spot: 0,
-      
-    },
+    selRest: {},
 
     additionalInfo: {
       accessibility:'',

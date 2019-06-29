@@ -40,7 +40,6 @@ export default {
 
       let smallGroupSpot = this.$store.state.selRest.spot.smallGroup;
       let mediumGroupSpot = this.$store.state.selRest.spot.mediumGroup;
-      //
      
     },
 
