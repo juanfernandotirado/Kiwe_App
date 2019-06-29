@@ -1,10 +1,18 @@
 <template>
   <div class="group-size">
-    <h5>Group Size</h5>
+      
+    <h4>Set up a table</h4>
+
+    <h5>Party for how many?</h5>
+
+    <button class="btn-floating blue" v-on:click="decreasetSize">-</button>
+
+    <div class="groupSize">
+        <p>{{ groupSize }}</p>
+    </div>
+
 
     <button class="btn-floating blue" v-on:click="incrementSize">+</button>
-    <button class="btn-floating blue" v-on:click="decreasetSize">-</button>
-    <p>{{ groupSize }}</p>
     
 
   </div>
@@ -67,3 +75,34 @@ export default {
   
 }
 </script>
+
+<style scoped>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .groupSize,
+    .btn-floating {
+        display: inline-block;
+    }
+
+    .groupSize {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        margin: 1rem;
+        border: 2px solid orange;
+        border-radius: 5px;
+    }
+
+    .groupSize p {
+        font-size: 2rem;
+        height: fit-content;
+        margin: 0;
+    }
+
+
+</style>
+
