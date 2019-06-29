@@ -7,21 +7,16 @@
         <p>Estimated Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
         <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
 
-    <div v-show="popUpSuccessShow">
-      <SuccessPopUp />
-    </div>
+    
   </div>
 </template>
 
 <script>
 import firebase from 'firebase';
-import SuccessPopUp from './SuccessPopUp.vue';
 
 export default {
   name:'WaitListInfo',
-  components: {
-    SuccessPopUp
-  },
+  
   data:function(){
     return {
        months:["January", 
@@ -100,9 +95,7 @@ export default {
       return this.$store.state.selRest
     },
 
-    popUpSuccessShow(){
-      return this.$store.state.popUpSuccessShow
-    },
+    
     
   },
   created(){
@@ -162,17 +155,7 @@ export default {
           })
         })
   
-       let unsubscribe = db.collection("waitlist").doc(did)
-            .onSnapshot(function(doc) {
-   
-                let item = doc.data();
-                if(item.status=="success")
-                {
-                    that.$store.dispatch('togglePopUpSuccessShows');
-                    //stop listen update
-                    unsubscribe();
-                }
-            });
+       
 
     }
 }

@@ -30,6 +30,9 @@
 </template>
 
 <script>
+
+  import firebase from 'firebase';
+
   export default {
     name: 'SuccessPopUp',
 
@@ -37,6 +40,26 @@
       return{
         
       }
+    },
+
+    beforeCreate(){
+      let did = this.$store.state.currentListStatus.did;
+
+      let db = firebase.firestore();
+      let that = this;
+
+      let unsubscribe = db.collection("waitlist").doc(did)
+            .onSnapshot(function(doc) {
+   
+                let item = doc.data();
+                if(item.status=="success")
+                {
+                    that.$store.dispatch('togglePopUpSuccessShows');
+                    //stop listen update
+                    unsubscribe();
+                }
+            });
+
     },
     
 

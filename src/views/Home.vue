@@ -8,8 +8,10 @@
       <DropOffConf />
       <DropOffPop />
     </div>
-  
-    
+
+    <div v-show="popUpSuccessShow">
+      <SuccessPopUp />
+    </div>
 
   </div>
 </template>
@@ -21,6 +23,8 @@ import HelloWorld from '@/components/HelloWorld.vue';
 import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
 import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
 import DropOffPop from '../components/waitlist/DropOffPopUp.vue';
+import SuccessPopUp from '../components/waitlist/SuccessPopUp.vue';
+
 
 export default {
   name: 'home',
@@ -28,7 +32,9 @@ export default {
     HelloWorld,
     WaitListInfo,
     DropOffConf,
-    DropOffPop
+    DropOffPop,
+    SuccessPopUp
+
    
   },
   data:function(){
@@ -39,7 +45,12 @@ export default {
   computed:{
     isInLine(){
       return this.$store.state.userStatus.isInLine
+    },
+
+    popUpSuccessShow(){
+      return this.$store.state.popUpSuccessShow
     }
+
   },
   mounted(){
     //functiom provided by vue. Run each time we go to a component. 
