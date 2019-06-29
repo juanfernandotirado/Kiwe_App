@@ -52,6 +52,39 @@ export default {
     }
 
   },
+
+  created(){
+
+    let db = firebase.firestore();
+    let that = this;
+
+    db.collection("restaurants").get().then(function (querySnapshot){
+      that.$store.dispatch('emptyRestDb');
+
+      querySnapshot.forEach(function(doc){
+        console.log(doc.id, " => " , doc.data());
+
+        let restListdb = {
+          address: doc.data().address,
+          cuisine: doc.data().cuisine,
+          loginId: doc.data().loginId,
+          priceLevel: doc.data().priceLevel,
+          rName: doc.data().rName,
+          rImgRef: doc.data().rImgRef,
+          rid: doc.data().rid,
+          waitTime: doc.data().waitTime,
+          rating: doc.data().rating,
+          sizeStandard: doc.data().sizeStandard,
+          estTime: 0,
+        }
+
+        that.$store.dispatch('assignRestDb', restListdb);
+
+      })
+
+    })
+
+  },
   mounted(){
     //functiom provided by vue. Run each time we go to a component. 
     //currentUser is all the information about the user. 
@@ -61,6 +94,7 @@ export default {
     //    this.$router.replace('login');
     // }
   }
+
  
 }
 </script>
