@@ -1,0 +1,27 @@
+<template>
+    <div>
+        <RestaurantList />
+    </div>
+</template>
+
+<script>
+import RestaurantList from '../components/main/RestaurantList'
+import RestaurantDetail from '../components/restaurant/RestaurantDetail'
+
+export default {
+    name: 'Restaurant',
+    components: {
+        RestaurantList,
+        RestaurantDetail
+    },
+    methods: {
+
+    },
+    
+}
+</script>
+
+<style scoped lang="scss">
+
+</style>
+

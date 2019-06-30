@@ -1,41 +1,48 @@
 <template>
-  <div class="wait-list-info-container">
-        <p class="restName">Restaurant Name: {{ currentListStatus.rName }}</p>
-        <p>Group Before you: {{currentSpot}}</p>
-        <p>Estimated Waiting Time: {{ currentListStatus.estTime }} min.</p>
+  <div class="TestJuan" >    
+    
+    <ReviewWaitlist/>
+    <AddToList/>
+    <br>
+  
   </div>
+
 </template>
 
 <script>
-import firebase from 'firebase';
-import { constants } from 'crypto';
+import AddToList from '../components/main/AddToList.vue'
+import ReviewWaitlist from '../components/waitlist/ReviewWaitlist.vue'
+
+
 
 export default {
-  name:'ReviewList',
+  name: 'ReviewList',
+  components: {
+    AddToList,
+    ReviewWaitlist,
+  },
+  
+  data: function(){
+      return{
+      }
+  },
 
-  data:function(){
-    return { 
+  computed: {
+    joinTime: function (){
+      return this.$store.state.currentListStatus.currentSpot
     }
-   
   },
 
   methods: {
-  },
-
-  computed:{
-
-    rName(){
-      return this.$store.state.selRest.rName
-    },
-
   }
+
 }
 </script>
 
 <style scoped lang="scss">
-  
-  .restName{
-    text-transform: capitalize;
-  }
-</style>
 
+.slider {
+  z-index: -1;
+}
+
+</style>

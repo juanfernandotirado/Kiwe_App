@@ -5,8 +5,8 @@
       <router-link to="/home">Home</router-link> |
       <router-link to="/userprofile">Profile</router-link> |
       <router-link to="/test">Test</router-link> |
-      <router-link to="/test1">Test1</router-link> |
-      <router-link to="/testjuan">TestJuan</router-link> |
+      <router-link to="/restaurant">Restaurant</router-link> |
+      <router-link to="/reviewList">Review List</router-link> |
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div>
     <router-view/>

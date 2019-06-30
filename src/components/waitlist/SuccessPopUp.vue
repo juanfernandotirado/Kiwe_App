@@ -1,10 +1,10 @@
 <template>
 <div>
-  <div class="modal-backdrop">
+  <div class="modal-backdrop" v-if="popUpSuccessShow">
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          <h4 class="green-text center-align">Congratulation!</h4>
+          <h4 class="green-text center-align">Congratulations!</h4>
         </slot>
       </header>
       <section class="modal-body">
@@ -44,6 +44,7 @@
 
     beforeCreate(){
       let did = this.$store.state.currentListStatus.did;
+      let joinTime = this.$store.state.currentListStatus.joinAt;
 
       let db = firebase.firestore();
       let that = this;
@@ -71,6 +72,12 @@
         this.$router.push('home');
       }  
     },
+
+    computed:{
+      popUpSuccessShow(){
+      return this.$store.state.popUpSuccessShow
+    }
+    }
   }
 </script>
 

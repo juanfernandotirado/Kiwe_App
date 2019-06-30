@@ -7,11 +7,12 @@
       <WaitListInfo />
       <DropOffConf />
       <DropOffPop />
+
+      <SuccessPopUp />
+
     </div>
 
-    <div v-show="popUpSuccessShow">
-      <SuccessPopUp />
-    </div>
+    
 
   </div>
 </template>
@@ -47,9 +48,9 @@ export default {
       return this.$store.state.userStatus.isInLine
     },
 
-    popUpSuccessShow(){
-      return this.$store.state.popUpSuccessShow
-    }
+    // popUpSuccessShow(){
+    //   return this.$store.state.popUpSuccessShow
+    // }
 
   },
 

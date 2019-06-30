@@ -39,13 +39,6 @@
       <div class="modal">
       <header class="modal-header">
         <slot name="header">
-
-          <button
-            type="button"
-            class="btn-close"
-          >
-            x
-          </button>
         </slot>
       </header>
       <section class="modal-body">
@@ -104,7 +97,6 @@ import firebase from 'firebase';
         this.$store.dispatch('emptyWaitlist');
        
         this.$store.dispatch('popUpShowsD');
-        this.$store.dispatch('togglePopUpSuccessShows');
 
         let didUser = this.$store.state.currentListStatus.did;
 

@@ -67,6 +67,7 @@ export default {
         returnSpotTime:function(spotTime){
             return spotTime;
         },
+        
 
         assignWaitTime:function(grp, rest){
 

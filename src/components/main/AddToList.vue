@@ -42,6 +42,7 @@ export default {
                 addOptionsAccs:this.$store.state.additionalInfo.accessibility,
                 addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences,
                 joinTime: currentTime.getTime(),
+                joinAt: currentTime.getTime(),
                 date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
                 status: 'waiting',
                 did:docName //Save the document name in currentStatus
@@ -70,7 +71,6 @@ export default {
                 that.$store.dispatch('popUpShows');
             })
                
-            
         }
     },
    

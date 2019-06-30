@@ -5,10 +5,12 @@ import Home from './views/Home.vue'
 import Register from '@/components/auth/Register.vue';
 import Login from '@/components/auth/Login.vue';
 import Test from './views/Test.vue';
-import Test1 from './views/Test1.vue';
-import TestJuan from './views/TestJuan.vue';
+// import Test1 from './views/Test1.vue';
+import Restaurant from './views/Restaurant.vue'
+// import TestJuan from './views/TestJuan.vue';
 import RestaurantDetail from './components/restaurant/RestaurantDetail.vue';
-import QrCode from './views/QrCode.vue'
+import QrCode from './views/QrCode.vue';
+import ReviewList from './views/ReviewList.vue'
 
 
 Vue.use(Router)
@@ -43,15 +45,25 @@ const router = new Router({
       name: 'Test',
       component: Test
     },
+    // {
+    //   path:'/test1',
+    //   name: 'Test1',
+    //   component: Test1
+    // },
     {
-      path:'/test1',
-      name: 'Test1',
-      component: Test1
+      path:'/restaurant',
+      name: 'restaurant',
+      component: Restaurant
     },
+    // {
+    //   path:'/testjuan',
+    //   name: 'TestJuan',
+    //   component: TestJuan
+    // },
     {
-      path:'/testjuan',
-      name: 'TestJuan',
-      component: TestJuan
+      path: '/reviewList',
+      name: 'reviewList',
+      component: ReviewList
     },
     {
       path:'/restDetail',

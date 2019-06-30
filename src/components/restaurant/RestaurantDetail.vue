@@ -56,12 +56,12 @@ export default {
       console.log('selectedRest');
       console.log(this.$store.state.selRest);
 
-      this.$router.push('testJuan');
+      this.$router.push('reviewList');
       },
 
 
       backPage:function() {
-        this.$router.push('test1');
+        this.$router.push('restaurant');
       }
     },
 

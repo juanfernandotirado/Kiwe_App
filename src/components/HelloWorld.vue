@@ -49,7 +49,7 @@ export default {
 
     groupSizeDefined:function(){
       this.$store.state.currentListStatus.groupSize
-      this.$router.push('test1');
+      this.$router.push('restaurant');
     },
 
     scanCode:function(){
