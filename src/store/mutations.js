@@ -121,7 +121,7 @@ const UPDATE_PHONENUMBER = (state,payload) => {
 // Function profile Update Profile
 
 const UPDATE_PROFILE = (state,payload) => {
-    state.userStatus.profile = payload;
+    state.userStatus.preferences = payload;
 }
 
 // Function update current spot
