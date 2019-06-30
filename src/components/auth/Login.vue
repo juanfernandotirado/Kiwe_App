@@ -50,7 +50,7 @@ export default {
                                           nickName: doc.data().nickName,
                                           profile: doc.data().profile,
                                           phone: doc.data().phone,  
-                                          preferences: [],                                      }
+                                          preferences: doc.data().profile,                                      }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
 

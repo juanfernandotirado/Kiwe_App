@@ -87,14 +87,15 @@ export default {
     saveProfileChanges:function(){
         let db = firebase.firestore();
         let that = this;
+        this.$store.dispatch('updateProfile', that.pref);
+
         var docRef = db.collection("users").doc(this.$store.state.userStatus.uid).update({
             nickName : this.$store.state.userStatus.nickName,
             phone: this.$store.state.userStatus.phone,
-            profile:this.$store.state.userStatus.preferences,
+            profile: this.$store.state.userStatus.preferences,
 
         }).then(()=>{
         
-        that.$store.dispatch('updateProfile', that.pref);
         that.show = false;
         console.log(that.pref);
 
