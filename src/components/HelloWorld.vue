@@ -1,14 +1,27 @@
 <template>
   <div class="hello">
-      <!-- <h2>Hello I am {{nickName}}</h2>
+
+      <div class="welcome section">
+        <h2>Hello, {{nickName}}</h2>
+        <h3>Welcome!</h3>
+      </div>
     
-      <label for="newName">New Name</label>
+      <!-- <label for="newName">New Name</label>
       <input v-model="newName" type="text">
-      <button v-on:click="changeName">Change</button> -->
-      <GroupSize/> 
-      <Accesibility/>
-      <button v-on:click="groupSizeDefined" class="btn orange">Search</button>
-      <button v-on:click="scanCode" class="btn orange">Scan QR code</button>
+      <button v-on:click="changeName">Change</button> --> 
+
+      <div class="section setT">
+        <GroupSize/> 
+        <Accesibility/>
+        <button v-on:click="nextStep" class="btn orange"><a href="#rest">Proceed</a></button>
+      </div>
+
+      <div class="section" id="rest">
+        <h4>Choose the restaurant</h4>
+        <button v-on:click="groupSizeDefined" class="btn orange">Search</button>
+        <h4>or</h4>
+        <button v-on:click="scanCode" class="btn orange">Scan QR code</button>
+      </div>
   </div>
 </template>
 
@@ -61,8 +74,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+
+
+h2 {
+  margin-bottom: 0;
+}
+
 h3 {
-  margin: 40px 0 0;
+  margin: 0;
+}
+
+.section {
+  border: 2px solid green; 
+  margin: 2rem 0;
 }
 ul {
   list-style-type: none;
@@ -73,7 +98,7 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: white;
 }
 
 button {

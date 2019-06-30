@@ -1,8 +1,8 @@
 <template>
  <div class="additional-info">
-<h5>Accesibility Drop-down Menu</h5>
+<!-- <h5>Accesibility Drop-down Menu</h5> -->
 
-<label for="additionalInfo">Accessibility</label>
+<label for="additionalInfo" class="menuTitle">Any accesibility needed?</label>
 
 <select v-model="additionalInfo.accessibility" name="additionalInfo">
 <option value="">No special needs</option>
@@ -41,12 +41,15 @@ export default {
 
 .additional-info{
 
-    width: 30%;
-    margin: 2% auto;
+    margin: 2% 1rem;
 }
 
 select{
     display: block;
+}
 
+.menuTitle {
+    color:black;
+    font-size: 1.5rem;
 }
 </style>

@@ -1,14 +1,20 @@
 <template>
   <div class="login-container" >
-    <h1 class="container-title">Log In</h1>
+    <img src="../../assets/KiweLogo.png" alt="Kiwe Logo">    
+    <h1 class="container-title">Kiwe</h1>
     <form >
         <label for="email">E-mail</label>
         <input v-model="inputEmail" type="email" name="email" >
          <label for="password">Password</label>
         <input v-model="inputPwd" type="password" name="password" >
-        <button class="btn" v-on:click="submitLogin" type="submit">Log in</button>
     </form>
-     <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link>
+
+    <div class="buttons">
+        <button class="btn" v-on:click="submitLogin" type="submit">Log in</button>
+        <button class="btn" v-on:click="signUp">Sign up</button>
+    </div>
+
+     <!-- <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link> -->
     <p class="red-text">{{errMsg}}</p>
 
   </div>
@@ -30,6 +36,11 @@ export default {
   },
 
   methods: {
+
+      signUp:function(){
+          this.$router.push(Signup);
+      },
+
       submitLogin:function(e){
           e.preventDefault();
           //Submit to Firebase
@@ -78,5 +89,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+    
+
+    .container-title{
+        text-align: center;
+        // width: 500px;
+    }
+
+    form {
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+            display: block;
+            text-align: center;
+            margin: 1rem auto;
+            width: 100%;
+        }
+    
 
 </style>
