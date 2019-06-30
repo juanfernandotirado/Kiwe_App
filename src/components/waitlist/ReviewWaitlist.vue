@@ -1,17 +1,21 @@
 <template>
   <div class="wait-list-info-container">
-        <h3>Waiting list information</h3>
+      <div class="section">
+        <h4>Waiting list information</h4>
         <div>
-        <h4 class="restName">Restaurant Name: {{ currentListStatus.rName }}</h4>
-        <p>Party for: <span class="information"> {{ currentListStatus.grSize }}</span></p>
-        <p>Group before you: {{rWaiting}}</p>
-        <p>Accesibility needed: <span class="information"> {{assignAdditionalInfo(additionalInfo.accessibility)}} </span></p>
-        <p>Seating preference: <span class="information"> {{assignAdditionalInfo(additionalInfo.seatingPreferences)}} </span></p>
+        <h4 class="restName"> {{ currentListStatus.rName }}</h4>
+        <div class="restaurant">
+          <p>Party for: <span class="information"> {{ currentListStatus.grSize }}</span></p>
+          <!-- <p>Group before you: {{rWaiting}}</p> -->
+          <p>Accesibility needed: <span class="information"> {{assignAdditionalInfo(additionalInfo.accessibility)}} </span></p>
+          <p>Seating preference: <span class="information"> {{assignAdditionalInfo(additionalInfo.seatingPreferences)}} </span></p>
+          <button class="btn blue" v-on:click='EditInfo'>Edit information</button>
         </div>
 
-        <button class="btn blue" v-on:click='EditInfo'>Edit</button>
+      </div>
 
         <p>Estimated Waiting Time: {{ currentListStatus.estTime }} min.</p>
+      </div>
   </div>
 </template>
 
@@ -74,6 +78,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  // .section {
+  //   border: 2px solid green;
+  //   margin: 2rem 0;
+  // }
+
+  .restaurant {
+    border: 2px solid lightgreen;
+    border-radius: 50px;
+    margin: 2rem;
+    padding-bottom: 1rem;
+  }
   
   .restName{
     text-transform: capitalize;

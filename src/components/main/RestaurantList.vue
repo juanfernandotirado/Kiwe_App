@@ -1,36 +1,42 @@
 <template>
     <div class="listRest">
-        <h1>Where to eat</h1>
+        <!-- <h1>Where to eat</h1> -->
 
-        <Slider class="slider"/>
+        <button v-on:click='goHome' class="btn blue goBack">Back</button>
 
-        <div class="searchB">
-            <input type="text" v-model="search" placeholder="Search restaurants">
+        <div class="section">
+                <Slider class="slider"/>
         </div>
 
-        <ul>
-            <li v-for="rest in filteredRest" 
-            v-bind:key="rest.id" class="rests">
-                <div class="restClass">
-                   <div class="restInfo">Restaurant name: 
-                       <div class="restInfoFil"> {{ rest.rName }} </div>
-                   </div>
-                   
-                   <div class="restInfo">Est. Waiting Time: 
-                       <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
-                       <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
-                   </div>
+        <div class="section searchList">
 
-                    <div class="restInfo">Cuisine: 
-                       <div class="restInfoFil"> {{ rest.cuisine }} </div>
-                   </div>
-                </div>
-                <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button>
-            </li>
-        </ul>
+            <div class="searchB">
+                <h4>Search</h4>
+                <input type="text" v-model="search" placeholder="Search restaurants or cuisines">
+            </div>
+
+            <ul>
+                <li v-for="rest in filteredRest" 
+                v-bind:key="rest.id" class="rests">
+                    <div class="restClass">
+                    <div class="restInfo">Restaurant name: 
+                        <div class="restInfoFil"> {{ rest.rName }} </div>
+                    </div>
+                    
+                    <div class="restInfo">Est. Waiting Time: 
+                        <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
+                        <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
+                    </div>
+
+                        <div class="restInfo">Cuisine: 
+                        <div class="restInfoFil"> {{ rest.cuisine }} </div>
+                    </div>
+                    </div>
+                    <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button>
+                </li>
+            </ul>
+        </div>
         <br>
-
-        <button v-on:click='goHome' class="btn blue">Back</button>
 
     </div>
 </template>
@@ -199,9 +205,19 @@ export default {
 
 <style scoped lang="scss">
 
+.section {
+    border: 2px solid green;
+    margin: 2rem 0;
+}
+
 ul {
     margin: 2rem;
 }
+
+.goBack {
+    display: flex;
+}
+
 li {
     border: 1px solid salmon;
     margin: 2rem auto;
@@ -242,6 +258,7 @@ li {
 
 .slider {
 //   z-index: -1;
+height: 450px;
 }
 
 .restInfoHide{

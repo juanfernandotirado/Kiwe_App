@@ -1,33 +1,46 @@
 <template>
   <div class="restaurant-detail">
-    <h1>Restaurant Details</h1>
-    <section class="restDet">
-      <div>
-        <div class="restInfo">Restaurant Name: </div>
-        <div class="restInfoFil"> {{selectedRes.rName}} </div>
-      </div>
-      <div>
-        <div class="restInfo">Address: </div>
-        <div class="restInfoFil"> {{selectedRes.address}} </div>
-      </div>
-      <div>
-        <div class="restInfo">Rating: </div>
-        <div class="restInfoFil"> {{selectedRes.rating}} </div>
-      </div>
-      <div>
-        <div class="restInfo">Price Level: </div>
-        <div class="restInfoFil"> {{selectedRes.priceLevel}} </div>
-      </div>
-      <div>
-        <div class="restInfo">Waiting time: </div>
-        <div class="restInfoFil wait"> {{selectedRes.estTime}} min</div>
-      </div>
-    </section>
+    <!-- <h1>Restaurant Details</h1> -->
 
-      <Seating/>
-   
-    <button v-on:click="nextPage" class="btn orange">Add me to waiting list</button>
-    <button v-on:click="backPage" class="btn blue">Go back</button>
+    <button v-on:click="backPage" class="btn blue goBack">Go back</button>
+
+
+    <div class="section">
+      <h4>(Menu gallery component here)</h4>
+      <h4 class="restInfoFil"> {{selectedRes.rName}} </h4>
+
+      <section class="selectedRest">
+
+        <div class="restInformation">
+          <div>
+            <div class="restInfo">Rating: </div>
+            <div class="restInfoFil"> {{selectedRes.rating}} </div>
+          </div>
+          <div>
+            <div class="restInfo">Cuisine: </div>
+            <div class="restInfoFil"> {{selectedRes.cuisine}} </div>
+          </div>
+          <div>
+            <div class="restInfo">Address: </div>
+            <div class="restInfoFil"> {{selectedRes.address}} </div>
+          </div>
+          <div>
+            <div class="restInfo">Price Level: </div>
+            <div class="restInfoFil"> {{selectedRes.priceLevel}} </div>
+          </div>
+        </div>
+
+        <div class="restWaiting">
+          <div class="restInfo">Waiting time: </div>
+          <div class="restInfoFil wait"> {{selectedRes.estTime}} min</div>
+        </div>
+      </section>
+
+        <Seating/>
+    
+      <button v-on:click="nextPage" class="btn orange">I'm ready!</button>
+    </div>
+
   </div>
 </template>
 
@@ -75,6 +88,11 @@ export default {
 
 <style scoped lang="scss">
 
+.goBack {
+  display: flex;
+  margin: 0 !important;
+}
+
 .routerLinks {
   display: block;
 }
@@ -88,10 +106,26 @@ li {
     padding-left: 10px;    
 }
 
+.selectedRest {
+  display: flex;
+  justify-content: space-between;
 
-.rest {
-    text-align: left,
+  .restInformation {
+    text-align-last: left;
+  }
+
 }
+
+.section {
+  border: 2px solid green;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+
+// .rest {
+//     text-align: left,
+// }
 
 .restInfo, .restInfoFil {
     display: inline-block,

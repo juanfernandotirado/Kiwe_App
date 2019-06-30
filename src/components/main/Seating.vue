@@ -1,7 +1,7 @@
 <template>
  <div class="additional-info">
 
-<h5>Seating Preference</h5>
+<h5>Any seating preference?</h5>
 
 <select v-model="additionalInfo.seatingPreferences" name="seatingPreferences">
 <option value="">No preferences</option>
@@ -40,7 +40,6 @@ export default {
 
 .additional-info{
 
-    width: 30%;
     margin: 2% auto;
 }
 

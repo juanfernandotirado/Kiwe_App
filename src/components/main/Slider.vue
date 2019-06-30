@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <h3>Featured Restaurants</h3>
+    <h4>Featured Restaurants</h4>
 
     <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" autoplay="true" speed="1500">
   <slide class="slide" v-for="(item, index) in slider" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
