@@ -2,7 +2,7 @@
   <div class="slider">
     <h4>Featured Restaurants</h4>
 
-    <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" autoplay="true" speed="1500">
+    <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" :autoplay="true" :speed="1500">
   <slide class="slide" v-for="(item, index) in slider" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
     <img class="img" :src="compileUrl(item.rImgRef)" >
     <p> {{ item.rName }}</p>    
