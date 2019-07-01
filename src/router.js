@@ -19,11 +19,11 @@ const router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/home'
+      redirect: '/login'
     },
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/login'
     },
     {
       path: '/home',
