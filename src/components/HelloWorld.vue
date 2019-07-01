@@ -13,7 +13,7 @@
       <div class="section setT">
         <GroupSize/> 
         <Accesibility/>
-        <button v-on:click="nextStep" class="btn orange"><a href="#rest">Proceed</a></button>
+        <button class="btn orange"><a href="#rest">Proceed</a></button>
       </div>
 
       <div class="section" id="rest">
