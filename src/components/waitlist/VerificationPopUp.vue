@@ -4,12 +4,13 @@
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          You have been successfully added to the queue! 
         </slot>
       </header>
       <section class="modal-body">
         <slot name="body">
-           <WaitListInfo/> 
+          <p>Hello, </p>
+          <h3> {{userName}} </h3>
+          <WaitListInfo/> 
         </slot>
        </section>
        <footer class="modal-footer">
@@ -20,7 +21,7 @@
               class="btn-green btn-close"
               v-on:click="goHome()"
             >
-              Go back to Home
+              Done
           </button>
         </slot>
       </footer>
@@ -54,6 +55,12 @@ import WaitListInfo from './WaitListInfo.vue'
       
     },
 
+    computed:{
+      userName(){
+        return this.$store.state.userStatus.nickName
+      }
+    }
+
   }
 </script>
 
@@ -79,17 +86,12 @@ import WaitListInfo from './WaitListInfo.vue'
     flex-direction: column;
   }
 
-  .modal-header,
   .modal-footer {
     padding: 15px;
     display: flex;
   }
 
-  .modal-header {
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: space-between;
-  }
+ 
 
   .modal-footer {
     border-top: 1px solid #eeeeee;

@@ -8,10 +8,14 @@
       </header>
       <section class="modal-body">
         <slot name="body">
-            Are you sure you want to drop off? 
+          <h4>Drop me off</h4>
+          <p>Leave the queue at</p>
+          <p> {{waiting.rName}} </p> 
+          <p>Waiting time</p>
+          <p> {{selRest.estTime}} </p>
         </slot>
-       </section>
-       <footer class="modal-footer">
+      </section>
+      <footer class="modal-footer">
           <slot name="footer">
 
             <button
@@ -113,6 +117,14 @@ import firebase from 'firebase';
       return this.$store.state.popUpShowD
     },
 
+    waiting() {
+      return this.$store.state.currentListStatus
+    },
+
+    selRest() {
+      return this.$store.state.selRest
+    }
+
   }
 
   }
@@ -140,10 +152,8 @@ import firebase from 'firebase';
     flex-direction: column;
   }
 
-  .modal-header,
   .modal-footer {
     padding: 15px;
-    display: flex;
   }
 
   .modal-header {
@@ -177,7 +187,10 @@ import firebase from 'firebase';
     background: #4AAE9B;
     border: 1px solid #4AAE9B;
     border-radius: 2px;
-    margin: auto 1rem;
+    margin: 2rem auto;
     cursor: pointer;
+    display: block;
+    padding: 0.25rem;
+    width: 300px;
   }
 </style>

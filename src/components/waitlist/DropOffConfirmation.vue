@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-on:click="dropOff" class="btn orange">Drop Off</button>
+        <button v-on:click="dropOff" class="btn orange">Drop off the queue</button>
     </div>
     
 </template>

@@ -1,12 +1,14 @@
 <template>
   <div class="wait-list-info-container">
     
-        <h2>Hello {{uName}} </h2>
-        <p>In a party for {{grSize}}</p>
-        <p class="restName">Your spot at: {{ rName }}</p>
-        <p>Current Spot: {{currentSpot}}</p>
-        <p>Estimated Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
+        <!-- <h2>Hello {{uName}} </h2> -->
+        <h4>Your current spot</h4>
+        <h4 class="restName">{{ rName }}</h4>
+        <p>Party for {{grSize}}</p>
+        <p>Position in the queue: {{currentSpot}}</p>
+        <p>Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
         <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
+
     
   </div>
 </template>
@@ -62,7 +64,9 @@ export default {
                 console.log(rest.estTime);
                 return rest.estTime*currentSpot;
             }
-        }  
+      },
+
+      
    
   },
 

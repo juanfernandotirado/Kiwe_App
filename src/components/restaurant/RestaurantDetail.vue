@@ -2,7 +2,7 @@
   <div class="restaurant-detail">
     <!-- <h1>Restaurant Details</h1> -->
 
-    <button v-on:click="backPage" class="btn blue goBack">Go back</button>
+    <button v-on:click="backPage" class="btn blue goBack">Back</button>
 
 
     <div class="section">

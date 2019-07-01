@@ -4,8 +4,17 @@
       <HelloWorld />
     </div>
     <div v-else>
-      <WaitListInfo />
-      <DropOffConf />
+
+      <div class="section">
+        <WaitListInfo />
+        <Menu />
+      </div>
+
+      <div class="section">
+        <DropOffConf />
+      </div>
+
+
       <DropOffPop />
 
       <SuccessPopUp />
@@ -22,6 +31,7 @@ import firebase, { firestore } from 'firebase';
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
 import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
+import Menu from '../components/restaurant/Menu.vue';
 import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
 import DropOffPop from '../components/waitlist/DropOffPopUp.vue';
 import SuccessPopUp from '../components/waitlist/SuccessPopUp.vue';
@@ -32,6 +42,7 @@ export default {
   components: {
     HelloWorld,
     WaitListInfo,
+    Menu,
     DropOffConf,
     DropOffPop,
     SuccessPopUp
@@ -102,5 +113,9 @@ export default {
 
 <style scoped lang="scss">
 
+  .section {
+    border: 2px solid green;
+    margin: 2rem 0;
+  }
 </style>
 
