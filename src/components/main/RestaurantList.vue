@@ -1,40 +1,48 @@
 <template>
     <div class="listRest">
+
+        <div v-if="loadedRestaurantList">
+            <LoadingKiwe />
+        </div>
         <!-- <h1>Where to eat</h1> -->
 
-        <button v-on:click='goHome' class="btn blue goBack">Back</button>
+        <div v-else>
 
-        <div class="section">
-                <Slider class="slider"/>
-        </div>
+            <button v-on:click='goHome' class="btn blue goBack">Back</button>
 
-        <div class="section searchList">
-
-            <div class="searchB">
-                <h4>Search</h4>
-                <input type="text" v-model="search" placeholder="Search restaurants or cuisines">
+            <div class="section">
+                    <Slider class="slider"/>
             </div>
 
-            <ul>
-                <li v-for="rest in filteredRest" 
-                v-bind:key="rest.id" class="rests">
-                    <div class="restClass">
-                    <div class="restInfo">Restaurant name: 
-                        <div class="restInfoFil"> {{ rest.rName }} </div>
-                    </div>
-                    
-                    <div class="restInfo">Est. Waiting Time: 
-                        <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
-                        <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
-                    </div>
+            <div class="section searchList">
 
-                        <div class="restInfo">Cuisine: 
-                        <div class="restInfoFil"> {{ rest.cuisine }} </div>
-                    </div>
-                    </div>
-                    <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button>
-                </li>
-            </ul>
+                <div class="searchB">
+                    <h4>Search</h4>
+                    <input type="text" v-model="search" placeholder="Search restaurants or cuisines">
+                </div>
+
+                <ul>
+                    <li v-for="rest in filteredRest" 
+                    v-bind:key="rest.id" class="rests">
+                        <div class="restClass">
+                        <div class="restInfo">Restaurant name: 
+                            <div class="restInfoFil"> {{ rest.rName }} </div>
+                        </div>
+                        
+                        <div class="restInfo">Est. Waiting Time: 
+                            <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
+                            <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
+                        </div>
+
+                            <div class="restInfo">Cuisine: 
+                            <div class="restInfoFil"> {{ rest.cuisine }} </div>
+                        </div>
+                        </div>
+                        <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button>
+                    </li>
+                </ul>
+            </div>
+
         </div>
         <br>
 
@@ -45,6 +53,7 @@
 
 import MenuGallery from '../restaurant/MenuGallery.vue';
 import Slider from '../main/Slider.vue'
+import LoadingKiwe from '../main/LoadingKiwe.vue'
 import firebase, { firestore } from 'firebase';
 
 export default {
@@ -52,6 +61,7 @@ export default {
     components: {
         MenuGallery,
         Slider,
+        LoadingKiwe
     },
     data(){
         return{  
@@ -175,6 +185,10 @@ export default {
     computed: {
         restList(){
             return this.$store.state.restaurantList
+        },
+
+        loadedRestaurantList(){
+            return this.$store.state.loadedRestaurantList;
         },
 
         selectedRes(){

@@ -126,6 +126,12 @@ const togglePopUpSuccessShows = (context) => {
     context.commit('TOGGLE_POPUP_SUCCESS');
 }
 
+// Action toggle loader restaurant list
+
+const toggleLoaderRestList = (context) => {
+    context.commit('TOGGLE_LOADING_REST');
+}
+
 export default{
     changeName,
     getUserStatus,
@@ -147,6 +153,7 @@ export default{
     updateProfile,
     updateSpot,
     rUpdateSpot,
-    togglePopUpSuccessShows
+    togglePopUpSuccessShows,
+    toggleLoaderRestList
 
 } 

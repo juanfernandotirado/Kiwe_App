@@ -70,6 +70,9 @@ export default {
     let db = firebase.firestore();
     let that = this;
 
+    let loadedRestaurantList = this.$store.state.loadedRestaurantList;
+    
+
     db.collection("restaurants").get().then(function (querySnapshot){
       that.$store.dispatch('emptyRestDb');
 
@@ -90,14 +93,24 @@ export default {
           estTime: 0,
         }
 
+
         that.$store.dispatch('assignRestDb', restListdb);
 
       })
 
+
+    }).then(function(){
+        that.$store.dispatch('toggleLoaderRestList');
+
     })
 
   },
-  mounted(){
+
+
+  mounted:{
+
+    
+
     //functiom provided by vue. Run each time we go to a component. 
     //currentUser is all the information about the user. 
   

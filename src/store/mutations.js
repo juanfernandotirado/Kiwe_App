@@ -142,6 +142,12 @@ const TOGGLE_POPUP_SUCCESS = (state) => {
     state.popUpSuccessShow = !state.popUpSuccessShow;
 }
 
+//Function toggle loader restaurant list
+
+const TOGGLE_LOADING_REST = (state) => {
+    state.loadedRestaurantList = !state.loadedRestaurantList;
+}
+
 
 export default {
     UPDATE_USER_NICKNAME,
@@ -165,6 +171,7 @@ export default {
     UPDATE_PROFILE,
     UPDATE_CURRENT_SPOT,
     REST_CURRENT_SPOT,
-    TOGGLE_POPUP_SUCCESS
+    TOGGLE_POPUP_SUCCESS,
+    TOGGLE_LOADING_REST
 
 }

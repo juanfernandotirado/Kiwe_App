@@ -48,7 +48,10 @@ export default new Vuex.Store({
 
     popUpShow: false,
     popUpShowD: false,
-    popUpSuccessShow: false
+    popUpSuccessShow: false,
+
+
+    loadedRestaurantList: false,
 
   },
 
