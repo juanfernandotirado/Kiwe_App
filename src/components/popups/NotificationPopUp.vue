@@ -1,15 +1,16 @@
 <template>
 <div>
-  <div class="modal-backdrop" v-if="popUpSuccessShow">
+  <div class="modal-backdrop" v-if="popUpNotificationShow">
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          <h4 class="green-text center-align">Congratulations!</h4>
+          <h4 class="green-text center-align"></h4>
         </slot>
       </header>
       <section class="modal-body">
         <slot name="body">
-          <p>Your table is ready!</p>
+          <p>Your table will be ready in</p>
+          <h5 class="green-text">5 mintues</h5>
           <p>Please go back to the restaurant.</p>
         </slot>
        </section>
@@ -18,7 +19,7 @@
             <button
               type="button"
               class="btn-green"
-              v-on:click="goHome()"
+              v-on:click="gotIt()"
             >
               OK
           </button>
@@ -30,67 +31,27 @@
 </template>
 
 <script>
-
-  import firebase from 'firebase';
-
   export default {
-    name: 'SuccessPopUp',
+    name: 'NotificationPopUp',
 
     data:function(){
       return{
-       
+        
       }
     },
 
-    beforeCreate(){
-      let did = this.$store.state.currentListStatus.did;
-      let joinTime = this.$store.state.currentListStatus.joinAt;
-
-      let db = firebase.firestore();
-      let that = this;
-
-
-      //Fetch Realtime Notification from firebase update
-      let unsubscribe = db.collection("waitlist").doc(did)
-            .onSnapshot(function(doc) {
-                
-                let item = doc.data();
-                console.log('Something updated in firebase.',item)
-                try {
-                if(!that.$store.state.denyNotification&&item.notification.length>1)
-                { 
-                  //Get notification
-                  that.$store.dispatch('controlPopupNotification',true);
-                }
-
-                else if(item.status=="success")
-                {
-                    that.$store.dispatch('togglePopUpSuccessShows');
-                    //stop listen update
-                    unsubscribe();
-                }
-                } catch (error) {
-                  console.log(error);
-                }
-            });
-
-    },
-    
-
     methods: {
 
-      goHome: function(){
-        this.$store.dispatch('togglePopUpSuccessShows');
-        this.$store.dispatch('denyPopupNotification',false);
-        this.$store.dispatch('isInLine');
-        this.$router.push('home');
+      gotIt: function(){
+        this.$store.dispatch('denyPopupNotification',true);
       }  
     },
 
     computed:{
-      popUpSuccessShow(){
-      return this.$store.state.popUpSuccessShow
-    }
+      popUpNotificationShow(){
+      return this.$store.state.popUpNotificationShow
+      }
+    
     }
   }
 </script>

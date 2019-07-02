@@ -126,10 +126,21 @@ const togglePopUpSuccessShows = (context) => {
     context.commit('TOGGLE_POPUP_SUCCESS');
 }
 
-// Action toggle loader restaurant list
+// Action control loader restaurant list
 const controlLoading = (context,payload) => {
     context.commit('CONTROL_LOADING',payload);
 }
+
+// Action control notification
+const controlPopupNotification = (context,payload) => {
+    context.commit('CONTROL_POPUP_NOTIFICATION',payload);
+}
+
+// Action deny notification
+const denyPopupNotification = (context,payload) => {
+    context.commit('DENY_POPUP_NOTIFICATION',payload);
+}
+
 
 export default{
     changeName,
@@ -153,6 +164,8 @@ export default{
     updateSpot,
     rUpdateSpot,
     togglePopUpSuccessShows,
-    controlLoading
+    controlLoading,
+    controlPopupNotification,
+    denyPopupNotification
 
 } 

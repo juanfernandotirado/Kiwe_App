@@ -62,6 +62,7 @@ export default {
                 joinTime: currentTime.getTime(),
                 date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
                 status: 'waiting',
+                notification: ''
                 //in here we created different properties for the user
 
             }).then(()=>{

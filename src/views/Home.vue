@@ -16,6 +16,7 @@
 
       <DropOffPop />
       <SuccessPopUp />
+      <NotificationPopUp />
 
     </div>
 
@@ -33,7 +34,7 @@ import Menu from '../components/restaurant/Menu.vue';
 import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
 import DropOffPop from '../components/waitlist/DropOffPopUp.vue';
 import SuccessPopUp from '../components/waitlist/SuccessPopUp.vue';
-
+import NotificationPopUp from '../components/popups/NotificationPopUp.vue';
 
 export default {
   name: 'home',
@@ -43,7 +44,8 @@ export default {
     Menu,
     DropOffConf,
     DropOffPop,
-    SuccessPopUp
+    SuccessPopUp,
+    NotificationPopUp
 
    
   },

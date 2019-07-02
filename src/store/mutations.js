@@ -142,11 +142,23 @@ const TOGGLE_POPUP_SUCCESS = (state) => {
     state.popUpSuccessShow = !state.popUpSuccessShow;
 }
 
-//Function toggle loader restaurant list
-
+//Function control loader restaurant list
 const CONTROL_LOADING = (state,payload) => {
     state.loadedRestaurantList = payload;
 }
+
+// Function control notification pop up
+const CONTROL_POPUP_NOTIFICATION = (state,payload) => {
+    state.popUpNotificationShow = payload;
+}
+
+// Function deny notification pop up
+const DENY_POPUP_NOTIFICATION = (state,payload) => {
+    state.denyNotification = payload;
+    state.popUpNotificationShow = false;
+}
+
+
 
 
 export default {
@@ -172,6 +184,9 @@ export default {
     UPDATE_CURRENT_SPOT,
     REST_CURRENT_SPOT,
     TOGGLE_POPUP_SUCCESS,
-    CONTROL_LOADING
+    CONTROL_LOADING,
+    CONTROL_POPUP_NOTIFICATION,
+    DENY_POPUP_NOTIFICATION,
+    
 
 }

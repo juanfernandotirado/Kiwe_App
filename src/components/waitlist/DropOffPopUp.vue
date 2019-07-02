@@ -98,6 +98,7 @@ import firebase from 'firebase';
       dropOffSpot: function() {
 
         this.$store.dispatch('isInLine');
+        this.$store.dispatch('denyPopupNotification',false);
         this.$store.dispatch('emptyWaitlist');
        
         this.$store.dispatch('popUpShowsD');
