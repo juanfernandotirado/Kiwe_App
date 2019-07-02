@@ -3,7 +3,7 @@
     <h4>Featured Restaurants</h4>
 
     <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" :autoplay="true" :speed="1500">
-  <slide class="slide" v-for="(item, index) in slider" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
+  <slide class="slide" v-for="(item,index) in restList" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
     <img class="img" :src="compileUrl(item.rImgRef)" >
     <p> {{ item.rName }}</p>    
     <p> Raiting: {{ item.rating }}</p>
@@ -54,25 +54,14 @@ export default {
 
     handleSlideClick: function (dataset) {
       this.selectedRest(this.$store.state.restaurantList[dataset.item]);
-      console.log(dataset.item);
-      console.log(this.$store.state.restaurantList[dataset.item]);
     }
 
   },
-
-
-  created(){
-
-    let that = this;
-
-    this.slider = this.$store.state.restaurantList.map(item =>{
-      let rest = item;
-      that.pro.push(rest.rImgRef);
-      return item;
-    })
-    console.log(that.pro);      
-  }
-
+  computed:{
+     restList(){
+            return this.$store.state.restaurantList
+        },
+  },
   
 }
 </script>

@@ -144,8 +144,8 @@ const TOGGLE_POPUP_SUCCESS = (state) => {
 
 //Function toggle loader restaurant list
 
-const TOGGLE_LOADING_REST = (state) => {
-    state.loadedRestaurantList = !state.loadedRestaurantList;
+const CONTROL_LOADING = (state,payload) => {
+    state.loadedRestaurantList = payload;
 }
 
 
@@ -172,6 +172,6 @@ export default {
     UPDATE_CURRENT_SPOT,
     REST_CURRENT_SPOT,
     TOGGLE_POPUP_SUCCESS,
-    TOGGLE_LOADING_REST
+    CONTROL_LOADING
 
 }

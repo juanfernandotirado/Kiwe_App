@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="loading-container">
         <img class="loading" src="../../assets/KiweLoading.png" alt="Loading">
         <p class="align-center">Loading</p>
     </div>
@@ -12,8 +12,17 @@ export default {
 </script>
 
 <style>
+    .loading-container{
+        display: flex;
+        height: 70vh;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .loading{
-        width: 100px;
+        width: 150px;
         height: auto;
         -webkit-animation: rotating 5s linear infinite;
         -moz-animation: rotating 5s linear infinite;

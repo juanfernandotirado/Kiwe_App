@@ -127,9 +127,8 @@ const togglePopUpSuccessShows = (context) => {
 }
 
 // Action toggle loader restaurant list
-
-const toggleLoaderRestList = (context) => {
-    context.commit('TOGGLE_LOADING_REST');
+const controlLoading = (context,payload) => {
+    context.commit('CONTROL_LOADING',payload);
 }
 
 export default{
@@ -154,6 +153,6 @@ export default{
     updateSpot,
     rUpdateSpot,
     togglePopUpSuccessShows,
-    toggleLoaderRestList
+    controlLoading
 
 } 

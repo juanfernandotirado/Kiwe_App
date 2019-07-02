@@ -1,7 +1,7 @@
 <template>
     <div class="listRest">
 
-        <div v-if="loadedRestaurantList">
+        <div v-if="!loadedRestaurantList">
             <LoadingKiwe />
         </div>
         <!-- <h1>Where to eat</h1> -->
@@ -117,26 +117,25 @@ export default {
                     if (item.grSize <= smallTable){
                         spotCounter.smallGroup++;
                         rest.groupSpot = spotCounter.smallGroup;
-                        console.log(rest.groupSpot)
+                    
                     }
 
                     else if (item.grSize <= mediumTable){
                         spotCounter.mediumGroup++;
                         rest.groupSpot = spotCounter.mediumGroup;
-                        console.log(rest.groupSpot)
+                      
                     }
 
                     else {
                         spotCounter.bigGroup++;
                         rest.groupSpot = spotCounter.bigGroup;
-                        console.log(rest.groupSpot)
+                     
                     }
 
                 })
 
             rest.spot = spotCounter;
-            console.log('Spot from ' + rest.rName);
-            console.log(rest.spot);
+       
 
             }).then(function(){
 
@@ -147,33 +146,16 @@ export default {
                 let bigTableWait = rest.waitTime.large;
                 
                 if (grp <= smallTable) {
-                    console.log('Small group spot');
+            
                     rest.estTime = smallTableWait*(rest.spot.smallGroup+1);
-                    console.log(rest.spot.smallGroup+1);
-                    console.log('Small group wait');
-                    console.log(smallTableWait);
-                    console.log('est wait time for your group');
-                    console.log(rest.estTime)
                     return rest.estTime;
                 }
                 else if (grp <=mediumTable) {
                     rest.estTime = mediumTableWait*(rest.spot.mediumGroup+1);
-                    console.log('Medium group spot');
-                    console.log(rest.spot.mediumGroup+1);
-                    console.log('Medium group wait');
-                    console.log(mediumTableWait);
-                    console.log('est wait time for your group');
-                    console.log(rest.estTime)
                     return rest.estTime;
                 }
                 else  {
                     rest.estTime = bigTableWait*(rest.spot.bigGroup+1);
-                    console.log('Large group spot');
-                    console.log(rest.spot.bigGroup+1);
-                    console.log('Large group wait');
-                    console.log(bigTableWait);
-                    console.log('est wait time for your group');
-                    console.log(rest.estTime)
                     return rest.estTime;
                 }
 
@@ -204,7 +186,6 @@ export default {
                 let lowerName = rest.rName.toLowerCase();
                 let lowerCuisine = rest.cuisine.toLowerCase();
                 let lowerSearch = this.search.toLowerCase();
-                console.log(lowerSearch);
                 if(lowerName.match(lowerSearch)){
                     return lowerName.match(lowerSearch);
                 }

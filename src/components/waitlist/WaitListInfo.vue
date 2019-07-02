@@ -1,7 +1,5 @@
 <template>
   <div class="wait-list-info-container">
-    
-        <!-- <h2>Hello {{uName}} </h2> -->
         <h4>Your current spot</h4>
         <h4 class="restName">{{ rName }}</h4>
         <p>Party for {{grSize}}</p>

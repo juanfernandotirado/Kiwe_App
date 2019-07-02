@@ -1,14 +1,8 @@
 <template>
-  <div class="TestJuan" >    
-    
     <div class="section">
       <ReviewWaitlist/>
       <AddToList/>
     </div>
-    <br>
-  
-  </div>
-
 </template>
 
 <script>
