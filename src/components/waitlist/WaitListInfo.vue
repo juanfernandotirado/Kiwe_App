@@ -49,17 +49,14 @@ export default {
 
             if (grp <= smallTable) {
                 rest.estTime = smallTableWait;
-                console.log(rest.estTime);
                 return rest.estTime*currentSpot;
             }
             else if (grp <=mediumTable) {
                 rest.estTime = mediumTableWait;
-                console.log(rest.estTime);
                 return rest.estTime*currentSpot;
             }
             else if (grp <=bigTable) {
                 rest.estTime = bigTableWait;
-                console.log(rest.estTime);
                 return rest.estTime*currentSpot;
             }
       },
@@ -101,6 +98,7 @@ export default {
   },
 
   created(){
+        
         let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
         
         let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
@@ -124,35 +122,39 @@ export default {
             bigGroup:0,
           }
          
-          querySnapshot.forEach(function(doc){
-            let item = doc.data();
-            if (item.grSize <= grpLimitSmall) {
-            
-              spotCounter.smallGroup++;
-              if(uid === item.uid)
-              {
-                console.log("your spot!",spotCounter.smallGroup);
-                that.$store.dispatch('updateSpot',spotCounter.smallGroup);
-              }
-              
-            }
-            else if (item.grSize <= grpLimitMedium) {
-              spotCounter.mediumGroup++;
-               if(uid === item.uid)
-              {
-                console.log("your spot!",spotCounter.mediumGroup);
-                that.$store.dispatch('updateSpot',spotCounter.mediumGroup);
-              }
+          querySnapshot.docChanges().forEach(function(change){
+            if(change.type==="added" || change.type==="removed")
+              { 
+                  let item = change.doc.data();
+                if (item.grSize <= grpLimitSmall) {
+                
+                  spotCounter.smallGroup++;
+                  if(uid === item.uid)
+                  {
+                    console.log("your spot!",spotCounter.smallGroup);
+                    that.$store.dispatch('updateSpot',spotCounter.smallGroup);
+                  }
+                  
+                }
+                else if (item.grSize <= grpLimitMedium) {
+                  spotCounter.mediumGroup++;
+                  if(uid === item.uid)
+                  {
+                    console.log("your spot!",spotCounter.mediumGroup);
+                    that.$store.dispatch('updateSpot',spotCounter.mediumGroup);
+                  }
 
-            }
-            else if (item.grSize <= grpLimitLarge) {
-              spotCounter.bigGroup++;
-               if(uid === item.uid)
-              {
-                console.log("your spot!",spotCounter.bigGroup);
-                that.$store.dispatch('updateSpot',spotCounter.bigGroup);
+                }
+                else if (item.grSize <= grpLimitLarge) {
+                  spotCounter.bigGroup++;
+                  if(uid === item.uid)
+                  {
+                    console.log("your spot!",spotCounter.bigGroup);
+                    that.$store.dispatch('updateSpot',spotCounter.bigGroup);
+                  }
+                }
               }
-            }
+           
 
           })
         })

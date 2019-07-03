@@ -53,7 +53,6 @@
       //Fetch Realtime Notification from firebase update
       let unsubscribe = db.collection("waitlist").doc(did)
             .onSnapshot(function(doc) {
-                
                 let item = doc.data();
                 console.log('Something updated in firebase.',item)
                 try {
