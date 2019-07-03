@@ -5,10 +5,6 @@
         <h2>Hello, {{nickName}}</h2>
         <h3>Welcome!</h3>
       </div>
-    
-      <!-- <label for="newName">New Name</label>
-      <input v-model="newName" type="text">
-      <button v-on:click="changeName">Change</button> --> 
 
       <div class="section setT">
         <GroupSize/> 

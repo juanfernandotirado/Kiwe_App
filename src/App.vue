@@ -9,7 +9,9 @@
       <router-link to="/reviewList">Review List</router-link> |
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div>
+    <div class="container">
     <router-view/>
+    </div>
   </div>
 </template>
 
@@ -33,7 +35,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 500px;
+  width: 100vw;
   margin: auto;
 }
 #nav {
