@@ -3,16 +3,17 @@
 
     <h2 class="section-title">Set up a table</h2>
 
-    <h5>Party for how many?</h5>
+    <h3>Party for how many?</h3>
 
-    <button class="btn-floating btn" v-on:click="decreasetSize">-</button>
+    <div class="container">
+    <button class="btn" v-on:click="decreasetSize"><img src="../../assets/icons/icon-minus.png" alt="Minus Icon"></button>
 
     <div class="groupSize">
         <p>{{ groupSize }}</p>
     </div>
 
-    <button class="btn-floating btn" v-on:click="incrementSize">+</button>
-    
+    <button class="btn" v-on:click="incrementSize"><img src="../../assets/icons/icon-plus.png" alt="Plus Icon"></button>
+    </div>
   </div>
 </template>
 
@@ -77,6 +78,35 @@ export default {
 <style scoped lang="scss">
 
       @import "../../sass/_variables.scss";
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+
+    .btn {
+    background-color: $bt-background-color;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+  }
+
+  .btn img{
+      width: 30px;
+  }
+
+
+
+
 
     * {
         box-sizing: border-box;

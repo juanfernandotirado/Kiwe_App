@@ -119,6 +119,7 @@ export default {
   .btn {
     background-color: $bt-background-color;
     display: block;
+    font-family: $bt-font-family;
   }
 
   .btn-text {
