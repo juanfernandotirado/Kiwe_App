@@ -40,48 +40,9 @@ export default {
 
 
 <style lang="scss">
+ 
 
-
-///////VARIABLES
-
-//Dark green
-$main-green: rgba(98, 175, 70, 1); //buttoms, search border, drop down header, reservation info border,"hellos", sections name.
-
-// Light green
-$csecond-green:rgba(235, 241, 200, 1); // All pages background, login form
-
-//Orange
-$accent:rgba(246, 167, 27, 1); //active icons, number border, waiting time background, restaurant name, information confirmation
-
-//BUTTOMS
-$bt-font-family : Open Sans;
-$bt-font-weight : bold;
-$bt-font-size : 18px;
-$bt-color : rgb(255, 255, 255); //white
-$bt-background-color: $main-green; //Dark green
-$bt-border-radius: 7px;
-
-
-//section names
-$sc-font-family : Source Serif Pro;//font family
-$sc-font-size : 18px;//font size
-$sc-text-transform : uppercase; //text transform
-$sc-font-color: $main-green; //Dark green
-
-//waiting time box
-$wtb-background: $accent; //Orange
-$wtb-radius: 7px;
-
-   //witing time text
-       $wtb-ff: Myriad Pro; //font family
-       $wtb-fs: 20px; //font size
-       $wt-lh: 15px; //line height
-       $wt-fc: rgb(255, 255, 255);; //font color white
-
-   //witing time text HOVER IMAGE
-       $wtb-ff: Myriad Pro; //font family
-       $wtb-fs: 13px; //font size
-       $wt-lh: 10px; //line height
+@import "./sass/_variables.scss";
 
 
 #app {
@@ -124,15 +85,18 @@ $wtb-radius: 7px;
   }
 
   .btn {
-    background-color: green;
+    background-color: $bt-background-color;
     display: block;
   }
 
   .btn-text {
     text-align: center;
+    font-size: $bt-font-size;
     width: 80%;
     margin: 1rem auto !important;
-    border-radius: 10px;
+    border-radius: $bt-border-radius;
+    font-weight: $bt-font-weight;
+    font-family: $bt-font-family;
   }
 
   .btn:hover {
