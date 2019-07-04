@@ -92,7 +92,7 @@ export default {
     text-transform: capitalize;
     font-size: $sc-font-size;
     font-family: $sc-font-family;
-    
+    margin-top: 10px;
   }
 
 
