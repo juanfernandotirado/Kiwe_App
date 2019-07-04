@@ -4,18 +4,21 @@
       <div>
         <h4>Waiting list information</h4>
         <div>
-        <h4 class="restName"> {{ currentListStatus.rName }}</h4>
-        <div class="restaurant">
-          <p>Party for: <span class="information"> {{ currentListStatus.grSize }}</span></p>
-          <!-- <p>Group before you: {{rWaiting}}</p> -->
-          <p>Accesibility needed: <span class="information"> {{assignAdditionalInfo(additionalInfo.accessibility)}} </span></p>
-          <p>Seating preference: <span class="information"> {{assignAdditionalInfo(additionalInfo.seatingPreferences)}} </span></p>
-          <button class="btn btn-text" v-on:click='EditInfo'>Edit information</button>
+          <h4 class="restName"> {{ currentListStatus.rName }}</h4>
+          <div class="restaurant">
+            <p>Party for: <span class="information"> {{ currentListStatus.grSize }}</span></p>
+            <!-- <p>Group before you: {{rWaiting}}</p> -->
+            <p>Accesibility needed: <span class="information"> {{assignAdditionalInfo(additionalInfo.accessibility)}} </span></p>
+            <p>Seating preference: <span class="information"> {{assignAdditionalInfo(additionalInfo.seatingPreferences)}} </span></p>
+            <button class="btn btn-text" v-on:click='EditInfo'>Edit information</button>
+          </div>
+
         </div>
 
-      </div>
-
-        <p>Estimated Waiting Time: {{ currentListStatus.estTime }} min.</p>
+      
+        <div class="restWaiting"> Est. Waiting Time:
+          <div class="wait"> {{ currentListStatus.estTime }} min.</div>
+        </div>
       </div>
   </div>
 </template>

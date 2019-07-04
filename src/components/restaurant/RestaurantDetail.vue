@@ -32,7 +32,7 @@
 
         <div class="restWaiting">
           <div class="restInfo">Waiting time: </div>
-          <div class="restInfoFil wait"> {{selectedRes.estTime}} min</div>
+          <div class=" wait"> {{selectedRes.estTime}} min</div>
         </div>
       </section>
 

@@ -4,8 +4,11 @@
         <h4 class="restName">{{ rName }}</h4>
         <p>Party for {{grSize}}</p>
         <p>Position in the queue: {{currentSpot}}</p>
-        <p>Waiting Time: {{ assignWaitTime(grSize,selectedRes) }} min.</p>
-        <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p>
+
+        <div class="restWaiting"> Waiting Time:
+          <div class="wait"> {{ assignWaitTime(grSize,selectedRes) }} min.</div>
+        </div>
+        <!-- <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p> -->
 
     
   </div>

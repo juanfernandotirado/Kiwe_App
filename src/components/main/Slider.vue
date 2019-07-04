@@ -16,7 +16,7 @@
       </div>
 
       <div class="restWaiting">Est. Waiting Time: 
-        <div class="wait">{{ item.estTime }}</div>
+        <div class="wait">{{ item.estTime }} min</div>
       </div>
     </span>
     
