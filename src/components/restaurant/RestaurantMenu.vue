@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="btn orange" v-on:click='restMenu'>Restaurant Menu</button>
+        <button class="btn btn-text" v-on:click='restMenu'>Restaurant Menu</button>
     </div>
 </template>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="wait-list-info-container">
-      <div class="section">
+
+      <div>
         <h4>Waiting list information</h4>
         <div>
         <h4 class="restName"> {{ currentListStatus.rName }}</h4>
@@ -9,7 +10,7 @@
           <!-- <p>Group before you: {{rWaiting}}</p> -->
           <p>Accesibility needed: <span class="information"> {{assignAdditionalInfo(additionalInfo.accessibility)}} </span></p>
           <p>Seating preference: <span class="information"> {{assignAdditionalInfo(additionalInfo.seatingPreferences)}} </span></p>
-          <button class="btn blue" v-on:click='EditInfo'>Edit information</button>
+          <button class="btn btn-text" v-on:click='EditInfo'>Edit information</button>
         </div>
 
       </div>
@@ -79,10 +80,6 @@ export default {
 
 <style scoped lang="scss">
 
-  // .section {
-  //   border: 2px solid green;
-  //   margin: 2rem 0;
-  // }
 
   .restaurant {
     border: 2px solid lightgreen;

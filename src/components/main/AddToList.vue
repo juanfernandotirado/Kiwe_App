@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-on:click="addToList()" class="btn orange">Confirm</button>
+        <button v-on:click="addToList()" class="btn btn-text">Confirm</button>
         
         <div v-if="showPopup">
         <VerificationPopUp/>

@@ -7,7 +7,7 @@
 
       <div class="section">
         <WaitListInfo />
-        <!-- <RestaurantMenu /> -->
+        <RestaurantMenu />
       </div>
 
       <div class="section">

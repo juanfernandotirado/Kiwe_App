@@ -20,14 +20,14 @@
 
             <button
               type="button"
-              class="btn-green"
+              class="btn btn-text"
               v-on:click="keepWaiting"
             >
               Keep Waiting
           </button>
           <button
               type="button"
-              class="btn-green"
+              class="btn btn-text"
               v-on:click="dropOffConfirm"
             >
               Drop Off
@@ -54,7 +54,7 @@
           <slot name="footer">
           <button
               type="button"
-              class="btn-green"
+              class="btn btn-text"
               v-on:click="dropOffSpot">
               Close
           </button>
@@ -153,9 +153,7 @@ import firebase from 'firebase';
     flex-direction: column;
   }
 
-  .modal-footer {
-    padding: 15px;
-  }
+ 
 
   .modal-header {
     border-bottom: 1px solid #eeeeee;
@@ -163,35 +161,13 @@ import firebase from 'firebase';
     justify-content: space-between;
   }
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    justify-content: center;
-  }
+ 
 
   .modal-body {
     position: relative;
     padding: 20px 10px;
   }
 
-  .btn-close {
-    border: none;
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  }
-
-  .btn-green {
-    color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
-    margin: 2rem auto;
-    cursor: pointer;
-    display: block;
-    padding: 0.25rem;
-    width: 300px;
-  }
+ 
+ 
 </style>

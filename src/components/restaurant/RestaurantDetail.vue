@@ -2,7 +2,7 @@
   <div class="restaurant-detail">
     <!-- <h1>Restaurant Details</h1> -->
 
-    <button v-on:click="backPage" class="btn blue goBack">Back</button>
+    <button v-on:click="backPage" class="btn btn-round goBack">B</button>
 
 
     <div class="section">
@@ -38,7 +38,7 @@
 
         <Seating/>
     
-      <button v-on:click="nextPage" class="btn orange">I'm ready!</button>
+      <button v-on:click="nextPage" class="btn btn-text">I'm ready!</button>
     </div>
 
   </div>
@@ -116,11 +116,7 @@ li {
 
 }
 
-.section {
-  border: 2px solid green;
-  margin: 2rem 0;
-  padding: 1rem;
-}
+
 
 
 // .rest {

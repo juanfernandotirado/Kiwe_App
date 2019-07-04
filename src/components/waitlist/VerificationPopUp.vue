@@ -18,7 +18,7 @@
 
             <button
               type="button"
-              class="btn-green btn-close"
+              class="btn btn-text"
               v-on:click="goHome()"
             >
               Done
@@ -103,12 +103,5 @@ import WaitListInfo from './WaitListInfo.vue'
     padding: 20px 10px;
   }
 
-  .btn-green {
-    color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
-    cursor: pointer;
-
-  }
+  
 </style>

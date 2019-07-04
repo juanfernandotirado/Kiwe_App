@@ -8,7 +8,7 @@
 
         <div v-else>
 
-            <button v-on:click='goHome' class="btn blue goBack">Back</button>
+            <button v-on:click='goHome' class="btn goBack btn-round"> b </button>
 
             <div class="section">
                     <Slider class="slider"/>
@@ -23,22 +23,23 @@
 
                 <ul>
                     <li v-for="rest in filteredRest" 
-                    v-bind:key="rest.id" class="rests">
+                    v-bind:key="rest.id" class="rests"
+                    v-on:click="assignRestSelc(selectedRes, rest)">
                         <div class="restClass">
-                        <div class="restInfo">Restaurant name: 
-                            <div class="restInfoFil"> {{ rest.rName }} </div>
-                        </div>
-                        
-                        <div class="restInfo">Est. Waiting Time: 
-                            <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
-                            <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
-                        </div>
+                            <div class="restInfo">Restaurant name: 
+                                <div class="restInfoFil"> {{ rest.rName }} </div>
+                            </div>
+                            
+                            <div class="restInfo">Est. Waiting Time: 
+                                <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
+                                <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
+                            </div>
 
                             <div class="restInfo">Cuisine: 
-                            <div class="restInfoFil"> {{ rest.cuisine }} </div>
+                                <div class="restInfoFil"> {{ rest.cuisine }} </div>
+                            </div>
                         </div>
-                        </div>
-                        <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button>
+                        <!-- <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button> -->
                     </li>
                 </ul>
             </div>
@@ -200,10 +201,7 @@ export default {
 
 <style scoped lang="scss">
 
-.section {
-    border: 2px solid green;
-    margin: 2rem 0;
-}
+
 
 ul {
     margin: 2rem;

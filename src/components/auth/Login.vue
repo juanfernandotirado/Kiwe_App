@@ -10,8 +10,8 @@
     </form>
 
     <div class="buttons">
-        <button class="btn" v-on:click="submitLogin" type="submit">Log in</button>
-        <button class="btn" v-on:click="signUp">Sign up</button>
+        <button class="btn btn-text" v-on:click="submitLogin" type="submit">Log in</button>
+        <button class="btn btn-text" v-on:click="signUp">Sign up</button>
     </div>
 
      <!-- <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link> -->

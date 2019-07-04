@@ -1,7 +1,12 @@
 <template>
-    <div class="section">
-      <ReviewWaitlist/>
-      <AddToList/>
+    <div>
+
+      <button v-on:click="backPage" class="btn btn-round">B</button>
+
+      <div class="section">
+        <ReviewWaitlist/>
+        <AddToList/>
+      </div>
     </div>
 </template>
 
@@ -30,6 +35,9 @@ export default {
   },
 
   methods: {
+    backPage:function (){
+      this.$router.push('restDetail')
+    }
   }
 
 }

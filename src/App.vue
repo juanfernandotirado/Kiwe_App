@@ -10,10 +10,13 @@
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div> -->
     <div class="container">
-    <router-view/>
+      <div>
+        <router-view/>
+      </div>
     </div>
 
     <div id="nav">
+      <router-link to="/login">Login</router-link> |
       <router-link to="/home">Home</router-link> |
       <router-link to="/userprofile">Profile</router-link> |
       <router-link to="/menu">Menu</router-link> |
@@ -82,10 +85,17 @@ export default {
     text-align: center;
     width: 80%;
     margin: 1rem auto;
+    border-radius: 10px;
   }
 
   .btn:hover {
     background-color: green;
+  }
+
+  .btn-round {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
   }
 
 </style>

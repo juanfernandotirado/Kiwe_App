@@ -9,14 +9,14 @@
       <div class="section setT">
         <GroupSize/> 
         <Accesibility/>
-        <button class="btn orange"><a href="#rest">Proceed</a></button>
+        <button class="btn btn-text"><a href="#rest">Proceed</a></button>
       </div>
 
       <div class="section" id="rest">
         <h4>Choose the restaurant</h4>
-        <button v-on:click="groupSizeDefined" class="btn orange">Search</button>
+        <button v-on:click="groupSizeDefined" class="btn btn-text">Search</button>
         <h4>or</h4>
-        <button v-on:click="scanCode" class="btn orange">Scan QR code</button>
+        <button v-on:click="scanCode" class="btn btn-text">Scan QR code</button>
       </div>
   </div>
 </template>
@@ -121,10 +121,6 @@ h3 {
   margin: 0;
 }
 
-// .section {
-//   border: 2px solid green; 
-//   margin: 2rem 0;
-// }
 ul {
   list-style-type: none;
   padding: 0;

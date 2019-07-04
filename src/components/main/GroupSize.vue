@@ -5,13 +5,13 @@
 
     <h5>Party for how many?</h5>
 
-    <button class="btn-floating blue" v-on:click="decreasetSize">-</button>
+    <button class="btn-floating btn" v-on:click="decreasetSize">-</button>
 
     <div class="groupSize">
         <p>{{ groupSize }}</p>
     </div>
 
-    <button class="btn-floating blue" v-on:click="incrementSize">+</button>
+    <button class="btn-floating btn" v-on:click="incrementSize">+</button>
     
   </div>
 </template>
