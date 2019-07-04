@@ -78,9 +78,16 @@ export default {
 
 <style scoped lang="scss">
 
+  @import "../sass/_variables.scss";
+
+  .home{
+    background-color: $csecond-green;
+  }
+
   .section {
     border: 2px solid green;
     margin: 2rem 0;
+    
   }
 </style>
 
