@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div >
     <!-- <div id="nav">
       <router-link to="/login">Login</router-link> |
       <router-link to="/home">Home</router-link> |
@@ -10,21 +10,23 @@
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div> -->
 
-    <div v-if="userStatus = ''" class="">
+    <div v-if="loginVerify()" id="firstScreen">
       <LogIn />
     </div>
 
-    <div v-else class="container">
+    <div v-else id="app">
       <div>
         <router-view/>
       </div>
-    </div>
+    
 
-    <div id="nav">
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/home">Home</router-link> |
-      <router-link to="/userprofile">Profile</router-link> |
-      <router-link to="/menu">Menu</router-link> |
+      <div id="nav">
+        <router-link to="/login">Login</router-link> |
+        <router-link to="/home">Home</router-link> |
+        <router-link to="/userprofile">Profile</router-link> |
+        <router-link to="/menu">Menu</router-link> |
+      </div>
+
     </div>
 
 
@@ -48,10 +50,25 @@ export default {
     }
   },
 
+  methods: {
+    loginVerify: function(){
+      let userLogged = this.$store.state.userStatus.nickName;
+
+      if (userLogged == ''){
+        return true;
+      }
+
+      else {
+        return false;
+      }
+    }
+
+  },
+
   computed:{
 
     userStatus(){
-      return this.$store.userStatus.nickName
+      return this.$store.state.userStatus.nickName
     }
   }
 }
@@ -64,6 +81,10 @@ export default {
 @import "./sass/_variables.scss";
 
 
+#firstScreen {
+  background-color: white;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -72,8 +93,15 @@ export default {
   color: #2c3e50;
   width: 100vw;
   margin: auto;
-  background-color: $csecond-green;
+  //background-color: $csecond-green;
 }
+
+
+
+
+
+
+
 #nav {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -94,7 +122,7 @@ export default {
     max-width: 600px;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: #fff;
+    //background-color: #fff;
   }
 
 

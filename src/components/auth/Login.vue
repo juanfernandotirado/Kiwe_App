@@ -98,6 +98,13 @@ export default {
         // width: 500px;
     }
 
+    .login-container{
+        text-align: center;
+        margin: auto;
+    }
+
+   
+
     form {
         margin-bottom: 2rem;
     }
