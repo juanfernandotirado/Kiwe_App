@@ -98,4 +98,25 @@ export default {
     height: 40px;
   }
 
+  .restaurantInformation {
+    display: flex;
+    justify-content: space-between;
+
+    .imageRestaurantGeneralInfo{
+      text-align: left;
+    }
+  }
+
+
+
+
+  .wait {
+    text-transform: lowercase;
+    background-color: orange;
+    color: white;
+    width: fit-content;
+    padding: 1rem;
+    margin: auto;
+}
+
 </style>

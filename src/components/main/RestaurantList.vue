@@ -25,20 +25,24 @@
                     <li v-for="rest in filteredRest" 
                     v-bind:key="rest.id" class="rests"
                     v-on:click="assignRestSelc(selectedRes, rest)">
-                        <div class="restClass">
-                            <div class="restInfo">Restaurant name: 
-                                <div class="restInfoFil"> {{ rest.rName }} </div>
-                            </div>
-                            
-                            <div class="restInfo">Est. Waiting Time: 
-                                <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
-                                <div class="restInfoFil wait"> {{ rest.estTime }} min</div>
+
+                        <img :src="compileUrl(rest.rImgRef)" class="imgRest">
+
+                        <span class="restaurantInformation">
+                            <div class="imageRestaurantGeneralInfo">
+                                <p class="imageRestaurantInformation name"> {{ rest.rName }} </p>
+                                <p class="imageRestaurantInformation"> {{ rest.cuisine }} </p>
+                                <p class="imageRestaurantInformation">Rating: {{ rest.rating }} </p>
+                                <p class="imageRestaurantInformation">Address: {{ rest.address }} </p>
+                                <p class="imageRestaurantInformation">Price Level: {{ rest.priceLevel }} </p>
                             </div>
 
-                            <div class="restInfo">Cuisine: 
-                                <div class="restInfoFil"> {{ rest.cuisine }} </div>
+                            <div class="restWaiting">Est. Waiting Time: 
+                                <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
+                                <div class="wait"> {{ rest.estTime }} min</div>
                             </div>
-                        </div>
+
+                        </span>
                         <!-- <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button> -->
                     </li>
                 </ul>
@@ -66,12 +70,20 @@ export default {
     },
     data(){
         return{  
-            search: ''
+            search: '',
+            urlPart: 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference='
+
 
         }
     },
 
     methods: {
+
+        compileUrl:function(item){
+            return this.urlPart + item;
+        },
+
+
          assignRestSelc: function (target, source){
             this.$store.dispatch('assignRest', source).then(
                   this.$router.push('restDetail')
@@ -217,19 +229,13 @@ li {
     padding-left: 10px;   
 }
 
-.restClass {
-    text-align: left,
-}
 
 .restInfoFil {
     display: inline-block;
     font-weight: normal;
 }
 
-.restInfo {
-    font-weight: bold;
-    display: block,
-}
+
 
 .restInfoFil {
     margin-left: 5px;
@@ -244,9 +250,7 @@ li {
     padding: 1rem;
 }
 
-.wait {
-    text-transform: lowercase;
-}
+
 
 
 .slider {

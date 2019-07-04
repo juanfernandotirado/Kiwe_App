@@ -2,14 +2,23 @@
   <div class="slider">
     <h4>Featured Restaurants</h4>
 
-    <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" :autoplay="true" :speed="1500">
+    <!-- <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" :autoplay="true" :speed="1500"> -->
+    <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true">
   <slide class="slide" v-for="(item,index) in restList" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
-    <img class="img" :src="compileUrl(item.rImgRef)" >
-    <p> {{ item.rName }}</p>    
-    <p> Raiting: {{ item.rating }}</p>
-    <p> Price Level: {{ item.priceLevel }}</p>
-    <p> Address: {{ item.address }}</p>
-    <p> Estimated Waiting Time: {{ item.estTime }}</p>
+    <img class="imgRest" :src="compileUrl(item.rImgRef)" >
+    <span class="restaurantInformation">
+      <div class="imageRestaurantGeneralInfo">
+        <p class="imageRestaurantInformation name"> {{ item.rName }}</p>    
+        <p class="imageRestaurantInformation"> {{item.cuisine}} </p>
+        <p class="imageRestaurantInformation"> Raiting: {{ item.rating }}</p>
+        <p class="imageRestaurantInformation"> Address: {{ item.address }}</p>
+        <p class="imageRestaurantInformation"> Price Level: {{ item.priceLevel }}</p>
+      </div>
+
+      <div class="restWaiting">Est. Waiting Time: 
+        <div class="wait">{{ item.estTime }}</div>
+      </div>
+    </span>
     
   </slide>
    
@@ -69,11 +78,16 @@ export default {
 <style scoped lang="scss">
 .carousel{
 
-
+  height: 500px;
 }
 
 .slide {
+  margin: 0 1%;
 
+  .restaurantInformation {
+    width: 400px;
+    margin: auto;
+  }
 }
 
 .img {
