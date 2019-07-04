@@ -5,7 +5,7 @@
     <!-- <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" :autoplay="true" :speed="1500"> -->
     <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true">
   <slide class="slide" v-for="(item,index) in restList" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
-    <img class="imgRest" :src="compileUrl(item.rImgRef)" >
+    <img class="img-cover" :src="compileUrl(item.rImgRef)" >
     <div class="restaurant-information">
       <div class="imageRestaurantGeneralInfo">
         <p class="imageRestaurantInformation name"> {{ item.rName }}</p>    
@@ -85,19 +85,24 @@ export default {
 
 .slide {
   margin: 0 1%;
+  height: 200px;
+  position: relative;
 
+
+  .img-cover{
+  // position: absolute;
+  // z-index: 10;
+  // width: 100%;
+  // $sc-border-radius: 20px;
+  }
   .restaurant-information {
     // width: 400px;
     margin: auto;
   }
 }
 
-.img {
- width: 300px;
- 
- margin-left: 2%;
- margin-right: 2%;
 
-}
+
+
 </style>
 

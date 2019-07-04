@@ -207,11 +207,12 @@ export default {
 
   .wait {
     text-transform: lowercase;
-    background-color: orange;
+    background-color: $accent;
     color: white;
     width: fit-content;
     padding: 1rem;
     margin: auto;
+    border-radius: $wtb-radius;
 }
 
 

@@ -2,7 +2,8 @@
   <div class="hello">
 
       <div class="welcome section">
-        <h2>Hello, {{nickName}}</h2>
+        <h2>Hello,</h2> 
+          <p class="user-name">{{nickName}}</p>
         <h3>Welcome!</h3>
       </div>
 
@@ -13,9 +14,9 @@
       </div>
 
       <div class="section" id="rest">
-        <h4>Choose the restaurant</h4>
+        <h2 class="section-title">Choose the restaurant</h2>
         <button v-on:click="groupSizeDefined" class="btn btn-text">Search</button>
-        <h4>or</h4>
+        <h4 class="section-title"><span>o</span>r</h4>
         <button v-on:click="scanCode" class="btn btn-text">Scan QR code</button>
       </div>
   </div>
@@ -112,13 +113,35 @@ export default {
 <style scoped lang="scss">
 
 
+  @import "../sass/_variables.scss";
 
 h2 {
   margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 3rem;
+  color: $sc-font-color;
+  text-align: left;
+  font-size: $sc-font-size;
+}
+
+.section-title{
+  text-align: center;
+}
+
+.section-title span{
+  text-transform: lowercase;
+}
+
+.user-name{
+  font-size: 3rem;
+  margin: 0;  
 }
 
 h3 {
   margin: 0;
+  color: $sc-font-color;
+  text-align: center;
+  font-size: $sc-font-size;
 }
 
 ul {
@@ -133,10 +156,10 @@ a {
   color: white;
 }
 
-button {
+/*button {
   display: block;
   text-align: center;
   margin: auto;
   margin-top: 1rem;
-}
+}*/
 </style>

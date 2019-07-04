@@ -10,7 +10,7 @@
       <section class="modal-body">
         <slot name="body">
           <p>Your table will be ready in</p>
-          <h5 class="green-text">5 mintues</h5>
+          <h5 class="green-text">5 minutes</h5>
           <p>Please go back to the restaurant.</p>
         </slot>
        </section>

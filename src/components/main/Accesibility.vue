@@ -46,6 +46,13 @@ export default {
 
 <style scoped lang="scss">
 
+@import "../../sass/_variables.scss";
+
+.dropDown{
+    width: 84%;
+    margin: auto;
+  }
+
 .additional-info{
 
     margin: 2% 1rem;

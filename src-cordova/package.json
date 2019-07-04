@@ -1,5 +1,5 @@
 {
-  "name": "com.test.kiwe.app",
+  "name": "com.kiwe.test.app",
   "displayName": "Kiwe",
   "version": "1.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
@@ -13,6 +13,7 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "dependencies": {
+    "cordova-android": "^8.0.0",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.0.1",
     "phonegap-plugin-barcodescanner": "8.1.0"
@@ -23,9 +24,12 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "phonegap-plugin-barcodescanner": {}
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
     "platforms": [
+      "android",
       "ios",
       "browser"
     ]
