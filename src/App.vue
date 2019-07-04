@@ -53,6 +53,7 @@ export default {
   color: #2c3e50;
   width: 100vw;
   margin: auto;
+  background-color: $csecond-green;
 }
 #nav {
   padding-top: 30px;
@@ -80,8 +81,10 @@ export default {
 
 ///General styling
   .section {
-    border: 2px solid green; 
+    //border: 2px solid green; 
     margin: 2rem 0;
+    background-color: white;
+    border-radius: $sc-border-radius;
   }
 
   .btn {
