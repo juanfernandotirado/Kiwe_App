@@ -19,7 +19,7 @@
                     <input type="text" v-model="search" placeholder="Search restaurants or cuisines">
                 </div>
 
-                <ul>
+                <ul class="restaurtant-list">
                     <li v-for="rest in filteredRest" 
                     v-bind:key="rest.id" class="restaurtant-single"
                     v-on:click="assignRestSelc(selectedRes, rest)">
@@ -37,7 +37,7 @@
 
                             <div class="rest-waiting">Waiting Time 
                                 <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
-                                <div class="wait"> {{ rest.estTime }} min</div>
+                                <div class="wait"><span class="time">{{ rest.estTime }}</span><span class="min">min</span></div>
                             </div>
 
                         </div>
@@ -213,8 +213,8 @@ export default {
 @import '../../sass/_variables.scss';
 
 
-ul {
-    margin: 2rem;
+.restaurtant-list{
+    margin: 1rem 8px;
 }
 
 .goBack {
@@ -223,10 +223,10 @@ ul {
 
 .restaurtant-single{
     position: relative;
-    height: 210px;
+    height: 230px;
     overflow: hidden;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
 
     .restaurant-information{
     position: absolute;
@@ -258,7 +258,18 @@ ul {
     margin-right:10px;
     margin-bottom: 5px;
     font-family: $wtb-ff;
+    .time{
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+    display: block;
+    }
 
+    .min{
+    display: block;
+    line-height: 8px;
+    }
 }
 
 .basic-info{
@@ -269,6 +280,7 @@ ul {
     .name{
     font-weight: bold;
     font-size: 18px;
+    font-family: $sc-font-family;
     }
     p{
          margin: 0;

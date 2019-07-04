@@ -225,9 +225,21 @@ export default {
     background-color: $accent;
     color: white;
     width: fit-content;
-    padding: 1rem;
+    padding: .5rem 2rem;
     margin: auto;
     border-radius: $wtb-radius;
+    .time{
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+    display: block;
+    }
+
+    .min{
+    display: block;
+    line-height: 8px;
+    }
 }
 
 
