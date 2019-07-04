@@ -10,7 +10,7 @@
         <input v-model="inputNickName" type="text" name="nickname" >
         <label for="phone">Phone</label>
         <input v-model="inputPhone" type="text" name="phone" >
-        <button class="btn" v-on:click="submitSignup" type="submit">Sign up</button>
+        <button class="btn btn-text" v-on:click="submitSignup" type="submit">Sign up</button>
       </form>
        <router-link to="/login">Already a member? Log in</router-link>
         <p class="red-text">{{errMsg}}</p>

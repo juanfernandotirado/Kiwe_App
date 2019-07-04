@@ -38,7 +38,7 @@ export default {
   methods: {
 
       signUp:function(){
-          this.$router.push(Signup);
+          this.$router.push('Signup');
       },
 
       submitLogin:function(e){

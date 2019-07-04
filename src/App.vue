@@ -9,7 +9,12 @@
       <router-link to="/reviewList">Review List</router-link> |
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div> -->
-    <div class="container">
+
+    <div v-if="userStatus = ''" class="">
+      <LogIn />
+    </div>
+
+    <div v-else class="container">
       <div>
         <router-view/>
       </div>
@@ -27,12 +32,26 @@
 </template>
 
 <script>
+
+import LogIn from './components/auth/Login.vue'
 export default {
   name: 'App',
+
+  components: {
+    LogIn
+
+  },
    mounted(){
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         console.log(window.cordova);
+    }
+  },
+
+  computed:{
+
+    userStatus(){
+      return this.$store.userStatus.nickName
     }
   }
 }
@@ -75,6 +94,7 @@ export default {
     max-width: 600px;
     margin: 0 auto;
     padding: 10px 20px;
+    background-color: #fff;
   }
 
 
@@ -109,6 +129,7 @@ export default {
     border-radius: $bt-border-radius;
     font-weight: $bt-font-weight;
     font-family: $bt-font-family;
+    text-transform: capitalize;
   }
 
   .btn:hover {
