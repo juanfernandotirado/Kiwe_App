@@ -4,8 +4,6 @@
         <div v-if="!loadedRestaurantList">
             <LoadingKiwe />
         </div>
-        <!-- <h1>Where to eat</h1> -->
-
         <div v-else>
 
             <button v-on:click='goHome' class="btn goBack btn-round"> b </button>
@@ -14,7 +12,7 @@
                     <Slider class="slider"/>
             </div>
 
-            <div class="section searchList">
+            <div class="section search-list">
 
                 <div class="searchB">
                     <h2 class="section-title">Search</h2>
@@ -23,26 +21,26 @@
 
                 <ul>
                     <li v-for="rest in filteredRest" 
-                    v-bind:key="rest.id" class="rests"
+                    v-bind:key="rest.id" class="restaurtant-single"
                     v-on:click="assignRestSelc(selectedRes, rest)">
 
-                        <img :src="compileUrl(rest.rImgRef)" class="imgRest">
+                        <img :src="compileUrl(rest.rImgRef)" class="img-cover">
 
-                        <span class="restaurantInformation">
-                            <div class="imageRestaurantGeneralInfo">
-                                <p class="imageRestaurantInformation name"> {{ rest.rName }} </p>
-                                <p class="imageRestaurantInformation"> {{ rest.cuisine }} </p>
-                                <p class="imageRestaurantInformation">Rating: {{ rest.rating }} </p>
-                                <p class="imageRestaurantInformation">Address: {{ rest.address }} </p>
-                                <p class="imageRestaurantInformation">Price Level: {{ rest.priceLevel }} </p>
+                        <div class="restaurant-information">
+                            <div class="basic-info">
+                                <p class="name"> {{ rest.rName }} </p>
+                                <p>{{ rest.cuisine }} </p>
+                                <p>Rating: {{ rest.rating }} </p>
+                                <!-- <p>Address: {{ rest.address }} </p> -->
+                                <!-- <p>Price Level: {{ rest.priceLevel }} </p> -->
                             </div>
 
-                            <div class="restWaiting">Est. Waiting Time: 
+                            <div class="rest-waiting">Waiting Time 
                                 <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
                                 <div class="wait"> {{ rest.estTime }} min</div>
                             </div>
 
-                        </span>
+                        </div>
                         <!-- <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button> -->
                     </li>
                 </ul>
@@ -223,12 +221,60 @@ ul {
     display: flex;
 }
 
-li {
-    border: 1px solid salmon;
-    margin: 2rem auto;
-    padding-left: 10px;   
+.restaurtant-single{
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 10px 0;
+
+    .restaurant-information{
+    position: absolute;
+    z-index: 12;
+    display: flex;
+    // justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    background: linear-gradient(#94600149,#6d4700,#503400) ;
+    width: 100%;
+    bottom: 0;
+
+    }
+
+    .img-cover{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    border-radius: 10px;
+    }
 }
 
+.rest-waiting{
+    width: 30%;
+    margin-right:10px;
+    margin-bottom: 5px;
+    font-family: $wtb-ff;
+
+}
+
+.basic-info{
+    width: 70%;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    .name{
+    font-weight: bold;
+    font-size: 18px;
+    }
+    p{
+         margin: 0;
+        text-align: left;
+     }
+}
 
 .restInfoFil {
     display: inline-block;
@@ -250,13 +296,6 @@ li {
     padding: 1rem;
 }
 
-
-
-
-.slider {
-//   z-index: -1;
-height: 450px;
-}
 
 .restInfoHide{
     display: none;
