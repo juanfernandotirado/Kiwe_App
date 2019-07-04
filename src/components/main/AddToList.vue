@@ -11,7 +11,7 @@
 
 <script>
 import firebase from 'firebase';
-import VerificationPopUp from '../waitlist/VerificationPopUp.vue'
+import VerificationPopUp from '../popups/VerificationPopUp.vue'
 
 
 export default {

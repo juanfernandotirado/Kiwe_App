@@ -69,7 +69,7 @@
 
 <script>
 
-import WaitListInfo from './WaitListInfo.vue'
+import WaitListInfo from '../waitlist/WaitListInfo.vue'
 import firebase from 'firebase';
 
   export default {

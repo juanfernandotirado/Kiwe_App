@@ -32,7 +32,7 @@
 
 <script>
 
-import WaitListInfo from './WaitListInfo.vue'
+import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
   export default {
     name: 'VerificationPopUp',
