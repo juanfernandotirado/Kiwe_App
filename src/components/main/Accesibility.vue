@@ -53,17 +53,21 @@ export default {
     margin: auto;
   }
 
-.additional-info{
+.dropDown-options{
+   font-size: 16px;
+}
 
+.additional-info{
     margin: 2% 1rem;
 }
 
 select{
     display: block;
+    text-align: center;
 }
 
-.menuTitle {
-    color:black;
-    font-size: 1.5rem;
+.dropDown-menuTitle {
+    color:white;
+    font-size: 16px;
 }
 </style>

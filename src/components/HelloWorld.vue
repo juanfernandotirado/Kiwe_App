@@ -2,7 +2,7 @@
   <div class="hello">
 
       <div class="welcome section">
-        <h2>Hello,</h2> 
+        <h2 class="hello">Hello,</h2> 
           <p class="user-name">{{nickName}}</p>
         <h3>Welcome!</h3>
       </div>
@@ -17,7 +17,7 @@
         <h2 class="section-title">Choose the restaurant</h2>
         <button v-on:click="groupSizeDefined" class="btn btn-text">Search</button>
         <h4 class="section-title"><span>o</span>r</h4>
-        <button v-on:click="scanCode" class="btn btn-text">Scan QR code</button>
+        <button v-on:click="scanCode" class="btn btn-text"><span><img src="../assets/icons/icon-qr.png" alt="QR icon"></span> Scan QR code</button>
       </div>
   </div>
 </template>
@@ -122,10 +122,13 @@ h2 {
   color: $sc-font-color;
   text-align: left;
   font-size: $sc-font-size;
+  font-family: $sc-font-family;
 }
 
 .section-title{
   text-align: center;
+  margin-left: auto;
+  margin-top: 10px;
 }
 
 .section-title span{
@@ -134,14 +137,23 @@ h2 {
 
 .user-name{
   font-size: 3rem;
-  margin: 0;  
+  margin: 0; 
+  font-family: $sc-font-family;
+  line-height: 3rem;
 }
+
+  .btn img{
+      width: 30px;
+      vertical-align: middle;
+  }
 
 h3 {
   margin: 0;
   color: $sc-font-color;
   text-align: center;
   font-size: $sc-font-size;
+  font-family: $sc-font-family;
+    line-height: 1rem;
 }
 
 ul {
