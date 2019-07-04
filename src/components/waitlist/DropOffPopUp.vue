@@ -153,7 +153,11 @@ import firebase from 'firebase';
     flex-direction: column;
   }
 
- 
+ .modal-footer{
+   margin: 0;
+
+   
+ }
 
   .modal-header {
     border-bottom: 1px solid #eeeeee;

@@ -84,7 +84,7 @@ export default {
   .btn-text {
     text-align: center;
     width: 80%;
-    margin: 1rem auto;
+    margin: 1rem auto !important;
     border-radius: 10px;
   }
 
@@ -118,5 +118,30 @@ export default {
     padding: 1rem;
     margin: auto;
 }
+
+
+
+
+  .dropDown {
+    border-radius: 20px;
+
+    .dropDown-menuTitle {
+      background-color: #62AF46;
+      color: white;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      font-size: 1rem;
+
+    }
+
+    .dropDown-options {
+      background-color: #EBF1C8;
+
+      option {
+        text-align: center;
+      }
+
+    }
+  }
 
 </style>

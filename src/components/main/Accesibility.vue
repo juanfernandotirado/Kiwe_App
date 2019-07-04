@@ -2,17 +2,24 @@
  <div class="additional-info">
 <!-- <h5>Accesibility Drop-down Menu</h5> -->
 
-<label for="additionalInfo" class="menuTitle">Any accesibility needed?</label>
+<div class="dropDown">
 
-<select v-model="additionalInfo.accessibility" name="additionalInfo">
-<option value="">No special needs</option>
-<option value="Wheelchair" > Wheelchair </option>
-<option value="Stroller" > Stroller </option> 
-<option value="Baby-Chair" > Baby Chair </option> 
-<option value="Seat-Boster" > Seat Boster </option> 
-<option value="Guide-Dog" > Guide Dog </option> 
+    <label for="additionalInfo" >
+        <div class="dropDown-menuTitle">
+            Any Accesibility needed?        
+        </div>
+    </label>
 
-</select>
+    <select v-model="additionalInfo.accessibility" class="dropDown-options" name="additionalInfo">
+    <option value="">No special needs</option>
+    <option value="Wheelchair" > Wheelchair </option>
+    <option value="Stroller" > Stroller </option> 
+    <option value="Baby-Chair" > Baby Chair </option> 
+    <option value="Seat-Boster" > Seat Boster </option> 
+    <option value="Guide-Dog" > Guide Dog </option> 
+
+    </select>
+</div>
 
 </div>
 </template>

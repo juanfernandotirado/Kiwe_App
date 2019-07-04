@@ -1,18 +1,25 @@
 <template>
  <div class="additional-info">
 
-<h5>Any seating preference?</h5>
+<div class="dropDown">
+    <label for="additionalInfo" >
+        <div class="dropDown-menuTitle">
+            Any seating preference?        
+        </div>
+    </label>
 
-<select v-model="additionalInfo.seatingPreferences" name="seatingPreferences">
-<option value="">No preferences</option>
-<option value="Indoor" > Indoor </option>
-<option value="Outdoor" > Outdoor </option> 
-<option value="Private-Table" > Private-Table </option> 
-<option value="Shared-Table" > Shared-Table </option> 
-<option value="Bar" > Bar </option> 
-<option value="Window-View" > Window-View </option> 
+    <select v-model="additionalInfo.seatingPreferences" name="seatingPreferences" class="dropDown-options">
+    <option value="">No preferences</option>
+    <option value="Indoor" > Indoor </option>
+    <option value="Outdoor" > Outdoor </option> 
+    <option value="Private-Table" > Private-Table </option> 
+    <option value="Shared-Table" > Shared-Table </option> 
+    <option value="Bar" > Bar </option> 
+    <option value="Window-View" > Window-View </option> 
 
-</select>
+    </select>
+
+</div>
 
 </div>
 </template>
