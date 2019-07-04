@@ -59,6 +59,12 @@ const updateGalleryImgs = (context,payload) => {
     context.commit('UPDATE_GALLERY_IMGS',payload);
 }
 
+// Action toggle log in and sign up
+
+const signUpShows = (context) => {
+    context.commit('TOOGLE_JOIN');
+}
+
 // Action toggle pop up confirmation
 
 const popUpShows = (context) => {
@@ -153,6 +159,7 @@ export default{
     joinList,
     addWaitingList,
     updateGalleryImgs,
+    signUpShows,
     popUpShows,
     popUpShowsD,
     isInLine,

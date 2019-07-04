@@ -11,7 +11,12 @@
     </div> -->
 
     <div v-if="loginVerify()" id="firstScreen">
-      <LogIn />
+      <div v-if="!joinMethod" class="login">
+        <LogIn />
+      </div>
+      <div v-else class="register">
+        <Register />
+      </div>
     </div>
 
     <div v-else id="app">
@@ -36,11 +41,14 @@
 <script>
 
 import LogIn from './components/auth/Login.vue'
+import Register from './components/auth/Register.vue'
+
 export default {
   name: 'App',
 
   components: {
-    LogIn
+    LogIn,
+    Register
 
   },
    mounted(){
@@ -69,6 +77,10 @@ export default {
 
     userStatus(){
       return this.$store.state.userStatus.nickName
+    },
+
+    joinMethod(){
+      return this.$store.state.joinMethod
     }
   }
 }
@@ -83,6 +95,9 @@ export default {
 
 #firstScreen {
   background-color: white;
+  padding-top: 6rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 #app {
