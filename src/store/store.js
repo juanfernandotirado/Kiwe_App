@@ -49,6 +49,7 @@ export default new Vuex.Store({
     popUpShow: false,
     popUpShowD: false,
     popUpSuccessShow: false,
+    joinMethod: false,
 
     //Notification Popup
     popUpNotificationShow:false,

@@ -136,6 +136,12 @@ const REST_CURRENT_SPOT = (state,payload) => {
     state.selRest.spot = payload;
 }
 
+// Function toggle log in or sign up
+
+const TOOGLE_JOIN = (state) => {
+    state.joinMethod = !state.joinMethod;
+}
+
 // Function toggle success pop up confirmation
 
 const TOGGLE_POPUP_SUCCESS = (state) => {
@@ -172,6 +178,7 @@ export default {
     JOIN_LIST,
     ADD_TO_WAITING_LIST,
     UPDATE_GALLERY_IMGS,
+    TOOGLE_JOIN,
     TOGGLE_POPUP,
     TOGGLE_POPUP_DROP,
     TOGGLE_ISINLINE,

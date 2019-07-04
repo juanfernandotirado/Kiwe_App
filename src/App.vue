@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div >
     <!-- <div id="nav">
       <router-link to="/login">Login</router-link> |
       <router-link to="/home">Home</router-link> |
@@ -10,21 +10,28 @@
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div> -->
 
-    <div v-if="userStatus = ''" class="">
-      <LogIn />
-    </div>
-
-    <div v-else class="container">
-      <div>
-        <router-view/>
+    <div v-if="loginVerify()" id="firstScreen">
+      <div v-if="!joinMethod" class="login">
+        <LogIn />
+      </div>
+      <div v-else class="register">
+        <Register />
       </div>
     </div>
 
-    <div id="nav">
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/home">Home</router-link> |
-      <router-link to="/userprofile">Profile</router-link> |
-      <router-link to="/menu">Menu</router-link> |
+    <div v-else id="app">
+      <div>
+        <router-view/>
+      </div>
+    
+
+      <div id="nav">
+        <router-link to="/login">Login</router-link> |
+        <router-link to="/home">Home</router-link> |
+        <router-link to="/userprofile">Profile</router-link> |
+        <router-link to="/menu">Menu</router-link> |
+      </div>
+
     </div>
 
 
@@ -34,11 +41,14 @@
 <script>
 
 import LogIn from './components/auth/Login.vue'
+import Register from './components/auth/Register.vue'
+
 export default {
   name: 'App',
 
   components: {
-    LogIn
+    LogIn,
+    Register
 
   },
    mounted(){
@@ -48,10 +58,29 @@ export default {
     }
   },
 
+  methods: {
+    loginVerify: function(){
+      let userLogged = this.$store.state.userStatus.nickName;
+
+      if (userLogged == ''){
+        return true;
+      }
+
+      else {
+        return false;
+      }
+    }
+
+  },
+
   computed:{
 
     userStatus(){
-      return this.$store.userStatus.nickName
+      return this.$store.state.userStatus.nickName
+    },
+
+    joinMethod(){
+      return this.$store.state.joinMethod
     }
   }
 }
@@ -64,6 +93,13 @@ export default {
 @import "./sass/_variables.scss";
 
 
+#firstScreen {
+  background-color: white;
+  padding-top: 6rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -72,8 +108,15 @@ export default {
   color: #2c3e50;
   width: 100vw;
   margin: auto;
-  background-color: $csecond-green;
+  //background-color: $csecond-green;
 }
+
+
+
+
+
+
+
 #nav {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -94,7 +137,7 @@ export default {
     max-width: 600px;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: #fff;
+    //background-color: #fff;
   }
 
 
@@ -183,9 +226,21 @@ export default {
     background-color: $accent;
     color: white;
     width: fit-content;
-    padding: 1rem;
+    padding: .5rem 2rem;
     margin: auto;
     border-radius: $wtb-radius;
+    .time{
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+    display: block;
+    }
+
+    .min{
+    display: block;
+    line-height: 8px;
+    }
 }
 
 

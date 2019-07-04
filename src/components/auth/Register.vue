@@ -1,18 +1,23 @@
 <template>
-  <div class="register-container">
+  <div class="register-container container">
+    <div class="logo">
+      <img src="../../assets/KiweLogo.png" alt="Kiwe Logo" class="logo-image">    
+      <h1 class="logo-title">kiwe</h1>
+    </div>
         <h1 class="container-title">Sign Up</h1>
        <form action="#">
-        <label for="email">E-mail</label>
-        <input v-model="inputEmail" type="email" name="email" >
-        <label for="password">Password</label>
-        <input v-model="inputPwd" type="password" name="password" >
-        <label for="nickname">Nickname</label>
-        <input v-model="inputNickName" type="text" name="nickname" >
-        <label for="phone">Phone</label>
-        <input v-model="inputPhone" type="text" name="phone" >
+        <label class="join-form-label" for="email">E-mail</label>
+        <input class="join-form-input" v-model="inputEmail" type="email" name="email" >
+        <label class="join-form-label" for="password">Password</label>
+        <input class="join-form-input" v-model="inputPwd" type="password" name="password" >
+        <label class="join-form-label" for="nickname">Nickname</label>
+        <input class="join-form-input" v-model="inputNickName" type="text" name="nickname" >
+        <label class="join-form-label" for="phone">Phone</label>
+        <input class="join-form-input" v-model="inputPhone" type="text" name="phone" >
         <button class="btn btn-text" v-on:click="submitSignup" type="submit">Sign up</button>
       </form>
-       <router-link to="/login">Already a member? Log in</router-link>
+      <p v-on:click="logIn"> Already a member? Log in</p>
+       
         <p class="red-text">{{errMsg}}</p>
   </div>
 </template>
@@ -36,6 +41,12 @@ export default {
       }
   },
   methods: {
+
+
+    logIn:function(){
+          this.$store.dispatch('signUpShows');
+      },
+
     submitSignup:function(e){
             e.preventDefault();
             //Submit to Firebase

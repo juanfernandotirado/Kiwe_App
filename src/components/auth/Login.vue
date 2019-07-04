@@ -1,12 +1,17 @@
 <template>
-  <div class="login-container" >
-    <img src="../../assets/KiweLogo.png" alt="Kiwe Logo">    
-    <h1 class="container-title">Kiwe</h1>
-    <form >
-        <label for="email">E-mail</label>
-        <input v-model="inputEmail" type="email" name="email" >
-         <label for="password">Password</label>
-        <input v-model="inputPwd" type="password" name="password" >
+  <div class="login-container container" >
+      <div class="logo">
+        <img src="../../assets/KiweLogo.png" alt="Kiwe Logo" class="logo-image">    
+        <h1 class="logo-title">kiwe</h1>
+    </div>
+
+    <h2>Log In</h2>
+    
+    <form class="join-form">
+        <label class="join-form-label" for="email">E-mail</label>
+        <input class="join-form-input" v-model="inputEmail" type="email" name="email" >
+         <label class="join-form-label" for="password">Password</label>
+        <input class="join-form-input" v-model="inputPwd" type="password" name="password" >
     </form>
 
     <div class="buttons">
@@ -38,7 +43,7 @@ export default {
   methods: {
 
       signUp:function(){
-          this.$router.push('Signup');
+          this.$store.dispatch('signUpShows');
       },
 
       submitLogin:function(e){
@@ -89,17 +94,43 @@ export default {
   </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss">
 
-    
+    @import "../../sass/_variables.scss";
 
-    .container-title{
+    .logo-title {
         text-align: center;
+        font-family: Lobster;
+        margin-top: 0.2rem;
+        color: $main-green;
+
         // width: 500px;
     }
 
+    .container{
+        text-align: center;
+        margin: auto;
+    }
+
+
+
+
     form {
         margin-bottom: 2rem;
+    }
+
+
+    .join-form-label {
+        font-family: 'Source Serif Pro', 'Times New Roman', serif;
+        font-size: 1rem;
+        color: black;
+        font-weight: 700;
+    }
+
+    .join-form-input {
+        background-color: $csecond-green !important;
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 1rem;
     }
 
     .btn {
