@@ -1,12 +1,12 @@
 <template>
   <div class="slider">
-    <h4>Featured Restaurants</h4>
+    <h2 class="section-title">Featured Restaurants</h2>
 
     <!-- <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" :autoplay="true" :speed="1500"> -->
     <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true">
   <slide class="slide" v-for="(item,index) in restList" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
     <img class="imgRest" :src="compileUrl(item.rImgRef)" >
-    <span class="restaurantInformation">
+    <div class="restaurant-information">
       <div class="imageRestaurantGeneralInfo">
         <p class="imageRestaurantInformation name"> {{ item.rName }}</p>    
         <p class="imageRestaurantInformation"> {{item.cuisine}} </p>
@@ -18,7 +18,7 @@
       <div class="restWaiting">Est. Waiting Time: 
         <div class="wait">{{ item.estTime }} min</div>
       </div>
-    </span>
+    </div>
     
   </slide>
    
@@ -76,6 +76,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../../sass/_variables.scss';
+
 .carousel{
 
   height: 500px;
@@ -84,8 +86,8 @@ export default {
 .slide {
   margin: 0 1%;
 
-  .restaurantInformation {
-    width: 400px;
+  .restaurant-information {
+    // width: 400px;
     margin: auto;
   }
 }

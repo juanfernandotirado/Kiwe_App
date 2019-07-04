@@ -87,6 +87,15 @@ export default {
     border-radius: $sc-border-radius;
   }
 
+  .section-title {
+    color: $sc-font-color;
+    text-transform: capitalize;
+    font-size: $sc-font-size;
+    font-family: $sc-font-family;
+    
+  }
+
+
   .btn {
     background-color: $bt-background-color;
     display: block;

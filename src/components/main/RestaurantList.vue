@@ -17,7 +17,7 @@
             <div class="section searchList">
 
                 <div class="searchB">
-                    <h4>Search</h4>
+                    <h2 class="section-title">Search</h2>
                     <input type="text" v-model="search" placeholder="Search restaurants or cuisines">
                 </div>
 
@@ -212,7 +212,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+@import '../../sass/_variables.scss';
 
 
 ul {
