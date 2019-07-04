@@ -1,7 +1,7 @@
 <template>
   <div class="group-size">
 
-    <h4>Set up a table</h4>
+    <h2 class="section-title">Set up a table</h2>
 
     <h5>Party for how many?</h5>
 
@@ -75,6 +75,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+      @import "../../sass/_variables.scss";
 
     * {
         box-sizing: border-box;
