@@ -71,6 +71,9 @@ export default {
     padding: 10px 20px;
   }
 
+
+
+///General styling
   .section {
     border: 2px solid green; 
     margin: 2rem 0;
@@ -98,31 +101,7 @@ export default {
     height: 40px;
   }
 
-  .restaurantInformation {
-    display: flex;
-    justify-content: space-between;
-
-    .imageRestaurantGeneralInfo{
-      text-align: left;
-    }
-  }
-
-
-
-
-  .wait {
-    text-transform: lowercase;
-    background-color: orange;
-    color: white;
-    width: fit-content;
-    padding: 1rem;
-    margin: auto;
-}
-
-
-
-
-  .dropDown {
+   .dropDown {
     border-radius: 20px;
 
     .dropDown-menuTitle {
@@ -143,5 +122,32 @@ export default {
 
     }
   }
+
+
+
+
+///Restaurant styling
+  .restaurantInformation {
+    display: flex;
+    justify-content: space-between;
+
+    .imageRestaurantGeneralInfo{
+      text-align: left;
+    }
+  }
+
+  .wait {
+    text-transform: lowercase;
+    background-color: orange;
+    color: white;
+    width: fit-content;
+    padding: 1rem;
+    margin: auto;
+}
+
+
+
+
+ 
 
 </style>
