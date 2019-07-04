@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'menu',
+    name: 'restaurantMenu',
 
     methods: {
         restMenu: function(){

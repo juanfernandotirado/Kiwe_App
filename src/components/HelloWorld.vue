@@ -121,10 +121,10 @@ h3 {
   margin: 0;
 }
 
-.section {
-  border: 2px solid green; 
-  margin: 2rem 0;
-}
+// .section {
+//   border: 2px solid green; 
+//   margin: 2rem 0;
+// }
 ul {
   list-style-type: none;
   padding: 0;

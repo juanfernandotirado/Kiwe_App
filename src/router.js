@@ -4,13 +4,16 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Register from '@/components/auth/Register.vue';
 import Login from '@/components/auth/Login.vue';
+import Settings from './components/main/Settings.vue'
 import Test from './views/Test.vue';
+import Menu from './views/Menu.vue'
 // import Test1 from './views/Test1.vue';
 import Restaurant from './views/Restaurant.vue'
 // import TestJuan from './views/TestJuan.vue';
 import RestaurantDetail from './components/restaurant/RestaurantDetail.vue';
 import QrCode from './views/QrCode.vue';
 import ReviewList from './views/ReviewList.vue'
+//import { settings } from 'cluster';
 
 
 Vue.use(Router)
@@ -31,6 +34,11 @@ const router = new Router({
       component: Home,
     },
     {
+      path: '/settings',
+      name: 'settings',
+      component: Settings,
+    },
+    {
       path:'/login',
       name: 'Login',
       component: Login
@@ -44,6 +52,11 @@ const router = new Router({
       path:'/test',
       name: 'Test',
       component: Test
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: Menu,
     },
     // {
     //   path:'/test1',

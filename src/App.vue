@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/login">Login</router-link> |
       <router-link to="/home">Home</router-link> |
       <router-link to="/userprofile">Profile</router-link> |
@@ -8,10 +8,18 @@
       <router-link to="/restaurant">Restaurant</router-link> |
       <router-link to="/reviewList">Review List</router-link> |
       <router-link to='/qrCode'>QR Code</router-link> | 
-    </div>
+    </div> -->
     <div class="container">
     <router-view/>
     </div>
+
+    <div id="nav">
+      <router-link to="/home">Home</router-link> |
+      <router-link to="/userprofile">Profile</router-link> |
+      <router-link to="/menu">Menu</router-link> |
+    </div>
+
+
   </div>
 </template>
 
@@ -58,6 +66,26 @@ export default {
     max-width: 600px;
     margin: 0 auto;
     padding: 10px 20px;
+  }
+
+  .section {
+    border: 2px solid green; 
+    margin: 2rem 0;
+  }
+
+  .btn {
+    background-color: green;
+    display: block;
+  }
+
+  .btn-text {
+    text-align: center;
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .btn:hover {
+    background-color: green;
   }
 
 </style>
