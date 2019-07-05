@@ -1,29 +1,32 @@
 <template>
-  <div class="slider">
+  <div class="section">
     <h2 class="section-title">Featured Restaurants</h2>
 
-    <!-- <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true" :autoplay="true" :speed="1500"> -->
-    <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true">
-  <slide class="slide" v-for="(item,index) in restList" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
-    <img class="img-cover" :src="compileUrl(item.rImgRef)" >
-    <div class="restaurant-information">
-      <div class="imageRestaurantGeneralInfo">
-        <p class="imageRestaurantInformation name"> {{ item.rName }}</p>    
-        <p class="imageRestaurantInformation"> {{item.cuisine}} </p>
-        <p class="imageRestaurantInformation"> Raiting: {{ item.rating }}</p>
-        <p class="imageRestaurantInformation"> Address: {{ item.address }}</p>
-        <p class="imageRestaurantInformation"> Price Level: {{ item.priceLevel }}</p>
-      </div>
+    <!-- <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true">
+      <slide class="slide" v-for="(item,index) in restList" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
+        <img class="img-cover" :src="compileUrl(item.rImgRef)" >
+        <div class="restaurant-information">
+          <div class="imageRestaurantGeneralInfo">
+            <p class="imageRestaurantInformation name"> {{ item.rName }}</p>    
+            <p class="imageRestaurantInformation"> {{item.cuisine}} </p>
+            <p class="imageRestaurantInformation"> Raiting: {{ item.rating }}</p>
+            <p class="imageRestaurantInformation"> Address: {{ item.address }}</p>
+            <p class="imageRestaurantInformation"> Price Level: {{ item.priceLevel }}</p>
+          </div>
 
-      <div class="restWaiting">Est. Waiting Time: 
-        <div class="wait">{{ item.estTime }} min</div>
-      </div>
-    </div>
-    
-  </slide>
+          <div class="restWaiting">Est. Waiting Time: 
+            <div class="wait">{{ item.estTime }} min</div>
+          </div>
+        </div>
+        
+      </slide>
    
-</carousel>
-
+      </carousel> -->
+      <div class="feature-restaurant-container">
+        <div class="feature-item" v-for="(item,index) in restList" :key="index" v-on:click="selectedRest(item)">
+          <img class="img-cover" :src="compileUrl(item.rImgRef)">
+        </div>  
+      </div>
   </div>
 </template>
 
@@ -100,6 +103,35 @@ export default {
     margin: auto;
   }
 }
+
+  .feature-restaurant-container
+  { display: flex;  
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 160px;
+    align-items: center;
+    margin: 0 1rem .5rem;
+   
+
+    .feature-item{
+       margin-right: 8px;
+       border-radius: 10px;
+       display: block;
+       height: 160px;
+
+    }
+
+    .img-cover {   
+       border-radius: 10px;
+       display: block;
+       height: 160px;
+       width: auto;
+    }
+
+    &::-webkit-scrollbar {    display: none;}
+
+
+    }
 
 
 
