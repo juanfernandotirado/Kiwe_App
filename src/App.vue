@@ -93,11 +93,18 @@ export default {
 @import "./sass/_variables.scss";
 
 
+* {
+  box-sizing: border-box !important;
+}
+
+
 #firstScreen {
   background-color: white;
-  padding-top: 6rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  //padding-top: 6rem;
+  //margin: auto !important;
+  text-align: center;
+  //padding-left: 2rem;
+  //padding-right: 2rem;
 }
 
 #app {
@@ -134,9 +141,9 @@ export default {
 
  .login-container,
   .register-container{
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 10px 20px;
+    //max-width: 600px;
+    //margin: 0;
+    //padding: 10px 20px;
     //background-color: #fff;
   }
 
@@ -168,7 +175,7 @@ export default {
     text-align: center;
     font-size: $bt-font-size;
     width: 80%;
-    margin: 1rem auto !important;
+    margin: 1rem 10% !important;
     border-radius: $bt-border-radius;
     font-weight: $bt-font-weight;
     font-family: $bt-font-family;

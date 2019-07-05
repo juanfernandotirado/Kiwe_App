@@ -1,26 +1,33 @@
 <template>
-  <div class="login-container container" >
-      <div class="logo">
-        <img src="../../assets/KiweLogo.png" alt="Kiwe Logo" class="logo-image">    
-        <h1 class="logo-title">kiwe</h1>
-    </div>
+  <div class="login-container join-container" >
+        <div class="logo">
+            <img src="../../assets/KiweLogo.png" alt="Kiwe Logo" class="logo-image">    
+            <h1 class="logo-title">kiwe</h1>
+        </div>
 
-    <h2>Log In</h2>
-    
-    <form class="join-form">
-        <label class="join-form-label" for="email">E-mail</label>
-        <input class="join-form-input" v-model="inputEmail" type="email" name="email" >
-         <label class="join-form-label" for="password">Password</label>
-        <input class="join-form-input" v-model="inputPwd" type="password" name="password" >
-    </form>
+        <div class="join">
 
-    <div class="buttons">
-        <button class="btn btn-text" v-on:click="submitLogin" type="submit">Log in</button>
-        <button class="btn btn-text" v-on:click="signUp">Sign up</button>
-    </div>
+            <h2 class="section-title container-title">Log In</h2>
+            
+            <form class="join-form">
+                <label class="join-form-label" for="email">E-mail</label>
+                <input class="join-form-input" v-model="inputEmail" type="email" name="email" >
+                <label class="join-form-label" for="password">Password</label>
+                <input class="join-form-input" v-model="inputPwd" type="password" name="password" >
+            </form>
+
+            <div class="buttons">
+                <button class="btn btn-text" v-on:click="submitLogin" type="submit">Log in</button>
+                <button class="btn btn-text" v-on:click="signUp">Register</button>
+            </div>
+        </div>
+
+        <div class="help">
+            <p>Forgot password?</p>
+        </div>
 
      <!-- <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link> -->
-    <p class="red-text">{{errMsg}}</p>
+    <!-- <p class="red-text">{{errMsg}}</p> -->
 
   </div>
 
@@ -98,39 +105,77 @@ export default {
 
     @import "../../sass/_variables.scss";
 
+    .join-container{
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 30vh 60vh 10vh; 
+        align-items: center;
+    }
+
+    .join,
+    .help {
+        margin: auto;
+    }
+
+    .logo-image {
+        width: 100px;
+    }
+
+    .logo {
+        margin: 3vh auto 3vh auto;
+    }
+
     .logo-title {
         text-align: center;
         font-family: Lobster;
-        margin-top: 0.2rem;
+        margin-top: 1vh;
         color: $main-green;
+        font-size: 2.5rem;
+        margin-bottom: 0;
 
         // width: 500px;
     }
 
+
+    .section-title {
+        margin-top: 1px;
+    }
+
     .container{
         text-align: center;
-        margin: auto;
+        
+    }
+
+    .container-title {
+        font-weight: bold;
     }
 
 
-
-
     form {
-        margin-bottom: 2rem;
+        margin-bottom: 1vh;
+    }
+
+    .join-form {
+        width: 80%;
+        margin: 0 5vh 0 10%;
     }
 
 
     .join-form-label {
         font-family: 'Source Serif Pro', 'Times New Roman', serif;
-        font-size: 1rem;
+        font-size: 1.25rem;
         color: black;
-        font-weight: 700;
+        font-weight: bold;
     }
 
     .join-form-input {
         background-color: $csecond-green !important;
         font-family: 'Open Sans', Arial, sans-serif;
         font-size: 1rem;
+        border-radius: 7px !important;
+        border-bottom: none !important;
+        padding-left: 1rem !important;
+        margin-bottom: 2.5vh !important;
     }
 
     .btn {
@@ -140,5 +185,21 @@ export default {
             width: 100%;
         }
     
+    @media screen and (min-height: 650px){
+        .logo-image {
+            width: 120px;
+        }
 
+        .logo-title {
+            font-size: 3rem;
+        }
+
+        .logo {
+            margin-bottom: 0;
+        }
+
+        .join {
+            margin-top: 1vh;
+        }
+    }
 </style>
