@@ -2,14 +2,13 @@
   <div class="restaurant-gallery">
     <div class="gallery-container">
       <div class="gallery-item" v-for="item in restaurantImgs" :key="item.photo_reference">
-          <img class="" :src="'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=300&photoreference='+item.photo_reference" :alt="item.html_attributions[0]">
+          <img class="" :src="'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=300&photoreference='+item.photo_reference" :alt="item.html_attributions">
       </div>  
     </div>  
   </div>
 </template>
 
 <script>
-
 
 export default {
   name: 'RestaurantGallery',
@@ -26,19 +25,37 @@ export default {
         return this.$store.state.restaurantImgs;
       }
     },
-    mounted(){
+    methods:{
+      //Not working in Cordova App
+      getImgFromGoogleMap:function(){
        let rid = this.selectedRestaurantId;
        let apikey = 'AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ'
 
       let api = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=' + rid + '&key='+ apikey;
-      //let api = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + rid + '&key='+ apikey;
+      //let api = 'http://maps.googleapis.com/maps/api/place/details/json?placeid=' + rid + '&key='+ apikey;
       
       //Get imgs from google map api
       this.axios.get(api,{ crossdomain: true }).then((response) => {
           console.log(response.data)
+          console.log(typeof response.data.result.photos)
           this.$store.dispatch('updateGalleryImgs',response.data.result.photos)
 
         })
+      },
+      getImgFromStore:function(){
+        let imgsArray = this.$store.state.selRest.restaurantGallery;
+        console.log( typeof imgsArray);
+        this.$store.dispatch('updateGalleryImgs',imgsArray)
+      }
+    }
+    ,
+    created(){
+      //Not working in Cordova App
+     // this.getImgFromGoogleMap();
+
+      //Working in Cordova App
+     this.getImgFromStore();
+
     }
   
 }

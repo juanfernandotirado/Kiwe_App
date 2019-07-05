@@ -45,6 +45,7 @@ export default {
                 rating: doc.data().rating,
                 sizeStandard: doc.data().sizeStandard,
                 estTime: 0,
+                restaurantGallery:doc.data().restaurantGallery
                         }
 
 
