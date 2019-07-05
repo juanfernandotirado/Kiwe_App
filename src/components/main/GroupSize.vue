@@ -6,13 +6,13 @@
     <h3>Party for how many?</h3>
 
     <div class="container">
-    <button class="btn" v-on:click="decreasetSize"><img src="../../assets/icons/icon-minus.png" alt="Minus Icon"></button>
+    <button class="btn btn-round" v-on:click="decreasetSize"><img src="../../assets/icons/icon-minus.png" alt="Minus Icon"></button>
 
     <div class="groupSize">
         <p>{{ groupSize }}</p>
     </div>
 
-    <button class="btn" v-on:click="incrementSize"><img src="../../assets/icons/icon-plus.png" alt="Plus Icon"></button>
+    <button class="btn btn-round" v-on:click="incrementSize"><img src="../../assets/icons/icon-plus.png" alt="Plus Icon"></button>
     </div>
   </div>
 </template>

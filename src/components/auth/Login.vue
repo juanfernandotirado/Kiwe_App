@@ -79,6 +79,7 @@ export default {
 
                           //Go to Homepage
                           this.$router.push('home');
+                          this.$store.dispatch('toogleHome');
 
 
                       } else {

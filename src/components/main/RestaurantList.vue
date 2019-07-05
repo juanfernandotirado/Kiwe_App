@@ -6,7 +6,9 @@
         </div>
         <div v-else>
 
-            <button v-on:click='goHome' class="btn goBack btn-round"> b </button>
+            <button v-on:click='goHome' class="btn btn-round btn-back"> 
+                <img src="../../assets/icons/icon-back.png" alt="">    
+            </button>
 
             <div class="section">
                 <Slider class="slider"/>
@@ -223,9 +225,9 @@ export default {
     margin: 1rem 8px;
 }
 
-.goBack {
-    display: flex;
-}
+// .goBack {
+//     display: flex;
+// }
 
 .search-input-container{
     display: flex;

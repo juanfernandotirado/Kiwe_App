@@ -46,6 +46,7 @@ export default new Vuex.Store({
     restaurantImgs:[],
   
 
+    homeShow: false,
     popUpShow: false,
     popUpShowD: false,
     popUpSuccessShow: false,

@@ -90,6 +90,8 @@ export default {
                  // this function is related to resp 
                  console.log('Sign up success');
                  this.$router.push('home');
+                 this.$store.dispatch('toogleHome');
+                 
                }).catch((err) => {
                  //catch means 'if something is wrong with the date'
                  this.errMsg = err.message;
