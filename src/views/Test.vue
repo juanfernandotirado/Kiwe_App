@@ -5,19 +5,19 @@
         {{item.rName}}
       </a>
     </div>
-    <MenuGallery />
+    <RestaurantGallery />
     <!-- <AddToList /> -->
   </div>
 </template>
 
 <script>
-import MenuGallery from '../components/restaurant/MenuGallery.vue';
+import RestaurantGallery from '../components/restaurant/RestaurantGallery.vue';
 import AddToList from '../components/main/AddToList.vue';
 
 export default {
   name:'Test',
   components: {
-      MenuGallery,
+      RestaurantGallery,
       AddToList
   },
   methods: {

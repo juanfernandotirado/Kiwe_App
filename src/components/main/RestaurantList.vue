@@ -1,5 +1,5 @@
 <template>
-    <div class="listRest">
+    <section class="restaurant-section">
 
         <div v-if="!loadedRestaurantList">
             <LoadingKiwe />
@@ -16,7 +16,10 @@
 
                 <div class="searchB">
                     <h2 class="section-title">Search</h2>
-                    <input type="text" v-model="search" placeholder="Search restaurants or cuisines">
+                    <div class="search-input-container">
+                        <span class="search-icon"><img src="../../assets/icons/icon-search.png" alt="search"></span>
+                        <input class="restaurant-search" type="text" v-model="search" placeholder="Search restaurants or cuisines">
+                    </div>
                 </div>
 
                 <ul class="restaurtant-list">
@@ -30,11 +33,7 @@
                             <div class="basic-info">
                                 <p class="name"> {{ rest.rName }} </p>
                                 <p>{{ rest.cuisine }} </p>
-                                <!-- {{assignStars(rest.rating)}} -->
                                 <RatingStars :rating="rest.rating" />
-                                <!-- <p v-html="starElement"></p> -->
-                                <!-- <p>Address: {{ rest.address }} </p> -->
-                                <!-- <p>Price Level: {{ rest.priceLevel }} </p> -->
                             </div>
 
                             <div class="rest-waiting">Waiting Time 
@@ -51,12 +50,10 @@
         </div>
         <br>
 
-    </div>
+    </section>
 </template>
 
 <script>
-
-import MenuGallery from '../restaurant/MenuGallery.vue';
 import Slider from '../main/Slider.vue';
 import LoadingKiwe from '../main/LoadingKiwe.vue';
 import RatingStars from '../restaurant/RatingStars.vue';
@@ -65,7 +62,6 @@ import firebase, { firestore } from 'firebase';
 export default {
     name: "RestaurantList",
     components: {
-        MenuGallery,
         Slider,
         LoadingKiwe,
         RatingStars
@@ -177,32 +173,7 @@ export default {
 
             })
         },
-        //Output Rating stars
-        assignStars:function(rating){
-            
-            let starCount = Math.floor(rating);
-            let output='';
-            for(let i = 0;i<5; i++ )
-            {   
-              
-                if(i<starCount)
-                {
-                    output+='<i class="fas fa-star"></i>';
-                 
-                }
-                else{
-                    output+='<i class="far fa-star"></i>';
-                   
-                }
-                
-            }
-            // this.starElement.push(output);
-            // console.log(this.starElement);
-         
-            // return output;
-          
-            
-        }
+    
         
 
     },
@@ -244,7 +215,9 @@ export default {
 
 <style scoped lang="scss">
 @import '../../sass/_variables.scss';
-
+.restaurant-section{
+    background-color: #ebf1c8;
+}
 
 .restaurtant-list{
     margin: 1rem 8px;
@@ -254,9 +227,34 @@ export default {
     display: flex;
 }
 
+.search-input-container{
+    display: flex;
+    align-items: flex-end;
+    padding: 0 10px;
+    border: 2px solid $main-green;
+    border-radius: 10px;
+    .search-icon{
+        width: 10%;
+        img{
+            width: 100%;
+        }
+    }
+    .restaurant-search{
+        width: 90%;
+        border: none;
+        margin: 0;
+        &:focus{
+            border: none !important;
+            box-shadow: none !important;
+        }
+    }
+}
+
+
+
 .restaurtant-single{
     position: relative;
-    height: 230px;
+    height: 240px;
     overflow: hidden;
     border-radius: 10px;
     margin: 20px 0;
@@ -265,7 +263,6 @@ export default {
     position: absolute;
     z-index: 12;
     display: flex;
-    // justify-content: space-between;
     align-items: flex-end;
     color: white;
     background: linear-gradient(#94600149,#6d4700,#503400) ;

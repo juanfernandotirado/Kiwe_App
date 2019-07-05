@@ -1,57 +1,56 @@
 <template>
-  <div class="restaurant-detail">
-    <!-- <h1>Restaurant Details</h1> -->
-
+  <section class="restaurant-detail-section">
     <button v-on:click="backPage" class="btn btn-round goBack">B</button>
-
+   
+      <RestaurantGallery :selectedRestaurantId="selectedRes.rid" />
+    
 
     <div class="section">
-      <h4>(Menu gallery component here)</h4>
-      <h4 class="restInfoFil"> {{selectedRes.rName}} </h4>
-
-      <section class="selectedRest">
-
-        <div class="restInformation">
+      <h3 class="restaurant-name"> {{selectedRes.rName}} </h3>
+      <div class="restaurant-info-container">
+        <div class="rest-information">
           <div>
-            <div class="restInfo">Rating: </div>
-            <div class="restInfoFil"> {{selectedRes.rating}} </div>
+             <RatingStars :rating="selectedRes.rating" />
           </div>
           <div>
-            <div class="restInfo">Cuisine: </div>
-            <div class="restInfoFil"> {{selectedRes.cuisine}} </div>
+            <p> {{selectedRes.cuisine}} </p>
           </div>
           <div>
-            <div class="restInfo">Address: </div>
-            <div class="restInfoFil"> {{selectedRes.address}} </div>
+            <p> {{selectedRes.address}} </p>
           </div>
           <div>
-            <div class="restInfo">Price Level: </div>
-            <div class="restInfoFil"> {{selectedRes.priceLevel}} </div>
+            <p> {{assignPriceLevel(selectedRes.priceLevel)}} </p>
           </div>
         </div>
 
-        <div class="restWaiting">
-          <div class="restInfo">Waiting time: </div>
-          <div class=" wait"> {{selectedRes.estTime}} min</div>
+        <div class="rest-waiting">
+          <div>Waiting time</div>
+          <div class="wait"><span class="time">{{selectedRes.estTime}}</span><span class="min">min</span> </div>
         </div>
-      </section>
-
-        <Seating/>
+      </div>
+        <div class="section seating-section">
+           <Seating/>
+        </div>
+       
     
       <button v-on:click="nextPage" class="btn btn-text">I'm ready!</button>
     </div>
 
-  </div>
+  </section>
 </template>
 
 <script>
-
-import Seating from '../main/Seating.vue'
+import RatingStars from '../restaurant/RatingStars.vue';
+import Seating from '../main/Seating.vue';
+import RestaurantGallery from './RestaurantGallery.vue';
 import firebase from 'firebase';
+
 
 export default {
     components: {
       Seating,
+      RatingStars,
+      RestaurantGallery
     },
 
     name: "RestaurantList",
@@ -65,16 +64,20 @@ export default {
     methods: {
 
       nextPage:function() {
-
-      console.log('selectedRest');
-      console.log(this.$store.state.selRest);
-
       this.$router.push('reviewList');
       },
 
 
       backPage:function() {
         this.$router.push('restaurant');
+      },
+      assignPriceLevel:function(price){
+        let output='';
+        for(let i=0;i<price;i++)
+        {
+          output+='$';
+        }
+        return output;
       }
     },
 
@@ -87,6 +90,35 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../../sass/_variables.scss";
+
+.restaurant-detail-section{
+    background-color: #ebf1c8;
+}
+
+.restaurant-info-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  .rest-information{
+    width: 60%;
+    text-align: left;
+    p{
+      margin: 0;
+    }
+  }
+
+  .rest-waiting{
+    width: 20%;
+    font-family: $wtb-ff;
+    text-align: right;
+    .wait{
+      margin-right: 0;
+    }
+  }
+
+}
 
 .goBack {
   display: flex;
@@ -97,56 +129,20 @@ export default {
   display: block;
 }
 
-ul {
-    margin: 2rem;
-}
-li {
-    border: 1px solid salmon;
-    margin: 2rem auto;
-    padding-left: 10px;    
-}
 
-.selectedRest {
-  display: flex;
-  justify-content: space-between;
-
-  .restInformation {
-    text-align-last: left;
+ .restaurant-name{
+    text-transform: uppercase;
+    font-family: $sc-font-family;
+    font-weight: bold;
+    color:$accent;
+    font-size: 18px;
+    margin-top: 10px;
   }
 
-}
-
-
-
-
-// .rest {
-//     text-align: left,
-// }
-
-.restInfo, .restInfoFil {
-    display: inline-block,
-}
-
-.restInfo {
-    font-weight: bold,
-}
-
-.restInfoFil {
-    margin-left: 5px;
-    text-transform: capitalize;
-}
-
-.restDet {
-  padding: 1.5rem;
-}
-
-.wait {
-  text-transform: lowercase;
-}
-
-.btn {
-  display: block;
-  margin: 1rem auto;
+.seating-section{
+   .dropDown{
+    width: 80%;
+  }
 }
 
 </style>

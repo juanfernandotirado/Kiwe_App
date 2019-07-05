@@ -243,6 +243,7 @@ export default {
     padding: 0;
     line-height: 25px;
     display: block;
+    text-align: center;
     }
 
     .min{
