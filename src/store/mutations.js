@@ -17,14 +17,12 @@ const GET_USER_STATUS = (state,payload) => {
 
 const ADD_GROUP_SIZE = (state) => {
     state.currentListStatus.grSize +=1;
-    console.log(state.currentListStatus.grSize);
 }
 
 // Function to subtract people from the group
 
 const SUBTRACT_GROUP_SIZE = (state) => {
     state.currentListStatus.grSize -=1;
-    console.log(state.currentListStatus.grSize);
 }
 
 // Function select restaurant from database
