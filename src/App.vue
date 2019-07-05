@@ -152,9 +152,10 @@ export default {
 
   .section-title {
     color: $sc-font-color;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-size: $sc-font-size;
     font-family: $sc-font-family;
+    font-weight: bold;
     margin-top: 10px;
   }
 
