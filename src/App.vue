@@ -20,19 +20,17 @@
     </div>
 
     <div v-else id="app">
-      <div>
+      <div class="app-body">
         <router-view/>
       </div>
-    
 
-      <div id="nav">
-        <router-link to="/login">Login</router-link> |
-        <router-link to="/home">Home</router-link> |
-        <router-link to="/userprofile">Profile</router-link> |
-        <router-link to="/menu">Menu</router-link> |
+      <div class="app-footer">
+        <Footer />
       </div>
 
     </div>
+
+    
 
 
   </div>
@@ -42,13 +40,15 @@
 
 import LogIn from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
+import Footer from './components/template files/footer.vue'
 
 export default {
   name: 'App',
 
   components: {
     LogIn,
-    Register
+    Register,
+    Footer
 
   },
    mounted(){
@@ -116,37 +116,12 @@ export default {
   width: 100vw;
   height: 100vh;
   margin: auto;
+  background-color: $csecond-green;
   //background-color: $csecond-green;
+  padding-top: 3rem;
+
+  
 }
-
-
-
-
-
-
-
-#nav {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-
- .login-container,
-  .register-container{
-    //max-width: 600px;
-    //margin: 0;
-    //padding: 10px 20px;
-    //background-color: #fff;
-  }
 
 
 
