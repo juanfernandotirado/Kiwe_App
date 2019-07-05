@@ -98,9 +98,13 @@ export default {
 
 @import "./sass/_variables.scss";
 
-
+//Unable user select any element(For best ux in phone)
 * {
   box-sizing: border-box !important;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none; 
 }
 
 
