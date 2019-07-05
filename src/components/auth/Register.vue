@@ -1,10 +1,10 @@
 <template>
   <div class="register-container container">
-    <div class="logo">
+    <div class="logo register-logo">
       <img src="../../assets/KiweLogo.png" alt="Kiwe Logo" class="logo-image">    
       <h1 class="logo-title">kiwe</h1>
     </div>
-        <h1 class="container-title">Sign Up</h1>
+        <h2 class="section-title container-title">Sign Up</h2>
        <form action="#">
         <label class="join-form-label" for="email">E-mail</label>
         <input class="join-form-input" v-model="inputEmail" type="email" name="email" >

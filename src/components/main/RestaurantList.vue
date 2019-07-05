@@ -30,7 +30,8 @@
                             <div class="basic-info">
                                 <p class="name"> {{ rest.rName }} </p>
                                 <p>{{ rest.cuisine }} </p>
-                                <p>Rating: {{ rest.rating }} </p>
+                                <p>{{assignStars(rest.rating)}}</p>
+                                <p v-html="starElement"></p>
                                 <!-- <p>Address: {{ rest.address }} </p> -->
                                 <!-- <p>Price Level: {{ rest.priceLevel }} </p> -->
                             </div>
@@ -69,7 +70,8 @@ export default {
     data(){
         return{  
             search: '',
-            urlPart: 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference='
+            urlPart: 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference=',
+            starElement:''
 
 
         }
@@ -171,7 +173,29 @@ export default {
                 }
 
             })
-        }   
+        },
+        //Output Rating stars
+        assignStars:function(rating){
+            
+            let starCount = Math.floor(rating);
+            let output='';
+            for(let i = 0;i<5; i++ )
+            {   
+                if(i<starCount)
+                {
+                    output+='<i class="fas fa-star"></i>';
+                 
+                }
+                else{
+                    output+='<i class="far fa-star"></i>';
+                   
+                }
+                
+            }
+            this.starElement = output;
+        }
+        
+
     },
 
 
