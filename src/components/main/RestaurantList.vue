@@ -9,7 +9,7 @@
             <button v-on:click='goHome' class="btn goBack btn-round"> b </button>
 
             <div class="section">
-                    <Slider class="slider"/>
+                <Slider class="slider"/>
             </div>
 
             <div class="section search-list">
@@ -30,14 +30,15 @@
                             <div class="basic-info">
                                 <p class="name"> {{ rest.rName }} </p>
                                 <p>{{ rest.cuisine }} </p>
-                                <p>{{assignStars(rest.rating)}}</p>
-                                <p v-html="starElement"></p>
+                                <!-- {{assignStars(rest.rating)}} -->
+                                <RatingStars :rating="rest.rating" />
+                                <!-- <p v-html="starElement"></p> -->
                                 <!-- <p>Address: {{ rest.address }} </p> -->
                                 <!-- <p>Price Level: {{ rest.priceLevel }} </p> -->
                             </div>
 
                             <div class="rest-waiting">Waiting Time 
-                                <div class="restInfoHide"> {{assignWaitTime(grSize, rest)}}</div>
+                                <div class="restinfo-hide"> {{assignWaitTime(grSize, rest)}}</div>
                                 <div class="wait"><span class="time">{{ rest.estTime }}</span><span class="min">min</span></div>
                             </div>
 
@@ -56,8 +57,9 @@
 <script>
 
 import MenuGallery from '../restaurant/MenuGallery.vue';
-import Slider from '../main/Slider.vue'
-import LoadingKiwe from '../main/LoadingKiwe.vue'
+import Slider from '../main/Slider.vue';
+import LoadingKiwe from '../main/LoadingKiwe.vue';
+import RatingStars from '../restaurant/RatingStars.vue';
 import firebase, { firestore } from 'firebase';
 
 export default {
@@ -65,13 +67,14 @@ export default {
     components: {
         MenuGallery,
         Slider,
-        LoadingKiwe
+        LoadingKiwe,
+        RatingStars
     },
     data(){
         return{  
             search: '',
             urlPart: 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference=',
-            starElement:''
+            starArray: []
 
 
         }
@@ -84,7 +87,7 @@ export default {
         },
 
 
-         assignRestSelc: function (target, source){
+        assignRestSelc: function (target, source){
             this.$store.dispatch('assignRest', source).then(
                   this.$router.push('restDetail')
             );
@@ -181,6 +184,7 @@ export default {
             let output='';
             for(let i = 0;i<5; i++ )
             {   
+              
                 if(i<starCount)
                 {
                     output+='<i class="fas fa-star"></i>';
@@ -192,7 +196,12 @@ export default {
                 }
                 
             }
-            this.starElement = output;
+            // this.starElement.push(output);
+            // console.log(this.starElement);
+         
+            // return output;
+          
+            
         }
         
 
@@ -301,6 +310,7 @@ export default {
     margin-left: 10px;
     margin-bottom: 5px;
     padding: 5px;
+    padding-bottom: 0;
     .name{
     font-weight: bold;
     font-size: 18px;
@@ -333,7 +343,7 @@ export default {
 }
 
 
-.restInfoHide{
+.restinfo-hide{
     display: none;
 }
 
