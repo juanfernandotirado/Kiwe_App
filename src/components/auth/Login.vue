@@ -138,7 +138,7 @@ export default {
 
 
     .section-title {
-        margin-top: 1px;
+        margin-top: 1vh;
     }
 
     .container{

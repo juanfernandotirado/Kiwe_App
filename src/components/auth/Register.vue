@@ -1,11 +1,14 @@
 <template>
-  <div class="register-container container">
+  <div class="register-container join-container">
     <div class="logo register-logo">
       <img src="../../assets/KiweLogo.png" alt="Kiwe Logo" class="logo-image">    
       <h1 class="logo-title">kiwe</h1>
     </div>
+
+    <div class="join">
         <h2 class="section-title container-title">Sign Up</h2>
-       <form action="#">
+
+       <form action="#" class="join-form">
         <label class="join-form-label" for="email">E-mail</label>
         <input class="join-form-input" v-model="inputEmail" type="email" name="email" >
         <label class="join-form-label" for="password">Password</label>
@@ -14,11 +17,18 @@
         <input class="join-form-input" v-model="inputNickName" type="text" name="nickname" >
         <label class="join-form-label" for="phone">Phone</label>
         <input class="join-form-input" v-model="inputPhone" type="text" name="phone" >
-        <button class="btn btn-text" v-on:click="submitSignup" type="submit">Sign up</button>
       </form>
+
+      <div class="buttons">
+        <button class="btn btn-text" v-on:click="submitSignup" type="submit">Sign up</button>
+      </div>
+    </div>
+
+    <div class="help">
       <p v-on:click="logIn"> Already a member? Log in</p>
+    </div>
        
-        <p class="red-text">{{errMsg}}</p>
+        <!-- <p class="red-text">{{errMsg}}</p> -->
   </div>
 </template>
 
@@ -98,5 +108,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+ .section-title {
+        margin-top: 1vh;
+    }
+
+.join-container {
+  grid-template-rows: 30vh 69% 10vh; 
+}
 
 </style>
