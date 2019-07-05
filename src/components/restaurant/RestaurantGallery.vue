@@ -43,14 +43,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .restaurant-gallery{
+    background-color: #fff;
+    padding: 10px 0;
+  }
+
   .gallery-container 
   { display: flex;  
     overflow-x: auto;
-    height: 180px;
     overflow-y: hidden;
+    height: 200px;
+    align-items: center;
     img {   
        margin-right: 8px;
        border-radius: 10px;
+       border-bottom-left-radius: 0;
+       border-bottom-right-radius: 0;
+       display: block;
+       height: 200px;
+       width: auto;
     }
 
     &::-webkit-scrollbar {    display: none;}

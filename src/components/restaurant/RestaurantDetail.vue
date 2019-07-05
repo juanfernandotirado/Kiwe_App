@@ -3,14 +3,13 @@
     <button v-on:click="backPage" class="btn btn-round goBack">B</button>
    
       <RestaurantGallery :selectedRestaurantId="selectedRes.rid" />
-    
 
-    <div class="section">
+    <div class="section restaurant-info-full">
       <h3 class="restaurant-name"> {{selectedRes.rName}} </h3>
       <div class="restaurant-info-container">
         <div class="rest-information">
           <div>
-             <RatingStars :rating="selectedRes.rating" />
+            <RatingStars :rating="selectedRes.rating" />
           </div>
           <div>
             <p> {{selectedRes.cuisine}} </p>
@@ -94,6 +93,11 @@ export default {
 
 .restaurant-detail-section{
     background-color: #ebf1c8;
+}
+
+.restaurant-info-full{
+    position: relative;
+    top: -65px;
 }
 
 .restaurant-info-container{
