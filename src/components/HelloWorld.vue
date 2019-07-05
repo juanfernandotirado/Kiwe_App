@@ -16,7 +16,7 @@
       <div class="section" id="rest">
         <h2 class="section-title">Choose the restaurant</h2>
         <button v-on:click="groupSizeDefined" class="btn btn-text">Search</button>
-        <h4 class="section-title"><span>o</span>r</h4>
+        <h4 class="section-title"><span>or</span></h4>
         <button v-on:click="scanCode" class="btn btn-text"><span><img src="../assets/icons/icon-qr.png" alt="QR icon"></span> Scan QR code</button>
       </div>
   </div>
@@ -137,14 +137,19 @@ h2 {
 
 .user-name{
   font-size: 3rem;
-  margin: 0; 
+  margin: 1rem auto; 
   font-family: $sc-font-family;
   line-height: 3rem;
+    font-weight: bold;
 }
 
   .btn img{
       width: 30px;
       vertical-align: middle;
+  }
+
+  .btn{
+    margin: 2rem auto;
   }
 
 h3 {

@@ -2,6 +2,10 @@
 <div>
   <div class="modal-backdrop" v-if="show">
     <div class="modal">
+
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
+
       <header class="modal-header">
         <slot name="header">
         </slot>
@@ -9,10 +13,10 @@
       <section class="modal-body">
         <slot name="body">
           <h4>Drop me off</h4>
-          <p>Leave the queue at</p>
-          <p> {{waiting.rName}} </p> 
-          <p>Waiting time</p>
-          <p> {{selRest.estTime}} </p>
+          <p><b>LEAVE ME IN THE QUEUE FOR</b></p>
+          <p class="restName"> {{waiting.rName}} </p> 
+          <p><b>Waiting Time:</b></p>
+          <div class="wait"> <span class="time">{{selRest.estTime}}</span><span class="min">min</span> </div>
         </slot>
       </section>
       <footer class="modal-footer">
@@ -23,7 +27,7 @@
               class="btn btn-text"
               v-on:click="keepWaiting"
             >
-              Keep Waiting
+              Stay in the queue
           </button>
           <button
               type="button"
@@ -133,6 +137,51 @@ import firebase from 'firebase';
 
 <style scoped lang="scss">
 
+  @import "../../sass/_variables.scss";
+
+ .restName{
+    text-transform: uppercase;
+    font-family: $sc-font-family;
+    font-weight: bold;
+    color:$accent;
+    font-size: 18px;
+  }
+
+h4{
+    font-size: 3rem;
+  margin: 1rem auto; 
+  font-family: $sc-font-family;
+  line-height: 3rem;
+    font-weight: bold;
+}
+
+  .kiwi1{
+    width: 50px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+  }
+  .kiwi2{
+    width: 50px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+  }
+
+  p{
+    margin: 0 auto;
+  }
+
+    b{
+    font-family: $bt-font-family;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+
   .modal-backdrop {
     position: fixed;
     top: 0;
@@ -148,9 +197,11 @@ import firebase from 'firebase';
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
+    overflow-y:visible;
     display: flex;
     flex-direction: column;
+    height: 600px;
+    border-radius: 10px;
   }
 
  .modal-footer{

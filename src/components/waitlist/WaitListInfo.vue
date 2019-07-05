@@ -2,11 +2,13 @@
   <div class="wait-list-info-container">
         <h2 class="section-title">Your current Waiting List</h2>
         <h4 class="restName">{{ rName }}</h4>
-        <p>Party for {{grSize}}</p>
-        <p>Position in the queue: {{currentSpot}}</p>
+        <p class="party">Party for</p>
+          <p class="size">{{grSize}}</p>
+        <p class="position">Position in the queue</p>
+        <p class="spot"> {{currentSpot}}</p>
 
-        <div class="restWaiting"> Waiting Time:
-          <div class="wait"> {{ assignWaitTime(grSize,selectedRes) }} min</div>
+        <div class="restWaiting"> <b>Waiting Time:</b> 
+          <div class="wait"> <span class="time">{{ assignWaitTime(grSize,selectedRes) }}</span><span class="min">min</span> </div>
         </div>
         <!-- <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p> -->
 
@@ -169,6 +171,46 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  @import "../../sass/_variables.scss";
+
+  .restName{
+    text-transform: uppercase;
+    font-family: $sc-font-family;
+    font-weight: bold;
+    color:$accent;
+    font-size: 22px;
+  }
+
+  .section{
+    border: 0px;
+  }
+
+  p{
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+  }
+
+  .party, .position{
+    text-transform: uppercase;
+    font-family: $bt-font-family;
+    font-weight: bold;
+  }
+
+  b{
+    font-family: $bt-font-family;
+    font-weight: bold;
+  }
+
+  .size, .spot{
+        font-family: $sc-font-family;
+    font-weight: bold;
+    color:$accent;
+    font-size: 22px;
+  }
+
+  
+
   
 </style>
 

@@ -2,13 +2,17 @@
 <div>
   <div class="modal-backdrop">
     <div class="modal">
+
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
+
       <header class="modal-header">
         <slot name="header">
         </slot>
       </header>
       <section class="modal-body">
         <slot name="body">
-          <p>Hello, </p>
+          <!--<p clas>Hello, </p>-->
           <h3> {{userName}} </h3>
           <WaitListInfo/> 
         </slot>
@@ -66,6 +70,16 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
 <style scoped lang="scss">
 
+  @import "../../sass/_variables.scss";
+
+h3{
+  font-size: 3rem;
+  margin: 0; 
+  font-family: $sc-font-family;
+  line-height: 3rem;
+  font-weight: bold;
+}
+
   .modal-backdrop {
     position: fixed;
     top: 0;
@@ -81,9 +95,30 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
+    overflow-y:visible;
     display: flex;
     flex-direction: column;
+    height: 800px;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .kiwi1{
+    width: 50px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+  }
+
+  .kiwi2{
+    width: 50px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
   }
 
   .modal-footer {
@@ -100,7 +135,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
   .modal-body {
     position: relative;
-    padding: 20px 10px;
+    padding: 40px 10px;
   }
 
   

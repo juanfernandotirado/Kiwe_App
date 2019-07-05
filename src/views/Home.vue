@@ -85,7 +85,7 @@ export default {
   }
 
   .section {
-    border: 2px solid green;
+    border: 0;
     margin: 2rem 0;
     
   }
