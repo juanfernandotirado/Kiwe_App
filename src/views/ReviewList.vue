@@ -1,7 +1,9 @@
 <template>
     <div>
 
-      <button v-on:click="backPage" class="btn btn-round">B</button>
+      <button v-on:click="backPage" class="btn btn-round btn-back">
+        <img src="../assets/icons/icon-back.png" alt="">
+      </button>
 
       <div class="section">
         <ReviewWaitlist/>

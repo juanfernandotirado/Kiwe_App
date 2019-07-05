@@ -162,6 +162,11 @@ const DENY_POPUP_NOTIFICATION = (state,payload) => {
     state.popUpNotificationShow = false;
 }
 
+// Function check if user is in Home page
+
+const TOGGLE_HOME = (state) => {
+    state.homeShow = !state.homeShow;
+}
 
 
 
@@ -192,6 +197,6 @@ export default {
     CONTROL_LOADING,
     CONTROL_POPUP_NOTIFICATION,
     DENY_POPUP_NOTIFICATION,
-    
+    TOGGLE_HOME
 
 }

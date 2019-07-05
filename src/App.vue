@@ -20,6 +20,10 @@
     </div>
 
     <div v-else id="app">
+
+      <div class="app-header">
+        <Header />
+      </div>
       <div class="app-body">
         <router-view/>
       </div>
@@ -40,6 +44,7 @@
 
 import LogIn from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
+import Header from './components/template files/header.vue'
 import Footer from './components/template files/footer.vue'
 
 export default {
@@ -48,6 +53,7 @@ export default {
   components: {
     LogIn,
     Register,
+    Header,
     Footer
 
   },
@@ -114,11 +120,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   width: 100vw;
-  height: 100vh;
+  //height: 100vh;
   margin: auto;
   background-color: $csecond-green;
+  padding-bottom: 12vh;
   //background-color: $csecond-green;
-  padding-top: 3rem;
+  //padding-top: 3rem;
 
   
 }
@@ -128,7 +135,7 @@ export default {
 ///General styling
   .section {
     //border: 2px solid green; 
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
     background-color: white;
     border-radius: $sc-border-radius;
   }
@@ -167,6 +174,19 @@ export default {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+
+  }
+
+  .btn-back {
+    width: 40px;
+    padding: 5px;
+    position: absolute;
+    top: 1vh;
+    left: 4vh;
+
+    img {
+      width: 30px;
+    }
   }
 
    .dropDown {

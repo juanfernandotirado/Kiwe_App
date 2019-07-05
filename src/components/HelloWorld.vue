@@ -60,10 +60,13 @@ export default {
     groupSizeDefined:function(){
       this.$store.state.currentListStatus.groupSize
       this.$router.push('restaurant');
+      this.$store.dispatch('toogleHome');
     },
 
     scanCode:function(){
       // this.$router.push('qrCode');
+
+      this.$store.dispatch('toogleHome');
 
       let that = this;
         window.cordova.plugins.barcodeScanner.scan(

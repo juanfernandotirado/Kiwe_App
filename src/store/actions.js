@@ -147,6 +147,10 @@ const denyPopupNotification = (context,payload) => {
     context.commit('DENY_POPUP_NOTIFICATION',payload);
 }
 
+// Action check if user is in Home page
+const toogleHome = (context) => {
+    context.commit('TOGGLE_HOME');
+}
 
 export default{
     changeName,
@@ -173,6 +177,7 @@ export default{
     togglePopUpSuccessShows,
     controlLoading,
     controlPopupNotification,
-    denyPopupNotification
+    denyPopupNotification,
+    toogleHome
 
 } 

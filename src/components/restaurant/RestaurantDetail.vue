@@ -1,6 +1,10 @@
 <template>
   <section class="restaurant-detail-section">
-    <button v-on:click="backPage" class="btn btn-round goBack">B</button>
+
+      <button v-on:click="backPage" class="btn btn-round btn-back">
+        <img src="../../assets/icons/icon-back.png" alt="">
+      </button>
+
    
       <RestaurantGallery :selectedRestaurantId="selectedRes.rid" />
 
@@ -124,10 +128,10 @@ export default {
 
 }
 
-.goBack {
-  display: flex;
-  margin: 0 !important;
-}
+// .goBack {
+//   display: flex;
+//   margin: 0 !important;
+// }
 
 .routerLinks {
   display: block;
