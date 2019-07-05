@@ -87,6 +87,7 @@ export default {
 
     h3{
         font-size: 16px;
+        margin-top: 1rem;
     }
 
     .btn {

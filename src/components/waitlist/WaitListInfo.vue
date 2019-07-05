@@ -1,12 +1,12 @@
 <template>
   <div class="wait-list-info-container">
-        <h4>Your current spot</h4>
+        <h2 class="section-title">Your current Waiting List</h2>
         <h4 class="restName">{{ rName }}</h4>
         <p>Party for {{grSize}}</p>
         <p>Position in the queue: {{currentSpot}}</p>
 
         <div class="restWaiting"> Waiting Time:
-          <div class="wait"> {{ assignWaitTime(grSize,selectedRes) }} min.</div>
+          <div class="wait"> {{ assignWaitTime(grSize,selectedRes) }} min</div>
         </div>
         <!-- <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p> -->
 
