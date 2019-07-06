@@ -138,11 +138,7 @@ export default {
 
 #firstScreen {
   background-color: white;
-  //padding-top: 6rem;
-  //margin: auto !important;
   text-align: center;
-  //padding-left: 2rem;
-  //padding-right: 2rem;
 }
 
 #app {
@@ -152,13 +148,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   width: 100vw;
-  //height: 100vh;
   margin: auto;
   background-color: $csecond-green;
   padding-bottom: 12vh;
-  //padding-top: 3rem;
   min-height: 100vh;
-  
+
+
+  .app-body {
+    margin-bottom: 6vh;
+  }
 }
 
 
@@ -180,6 +178,8 @@ export default {
     margin-top: 10px;
   }
 
+
+///buttons
 
   .btn {
     background-color: $bt-background-color;
@@ -242,6 +242,29 @@ export default {
     }
   }
 
+///Footer
+
+#footer-icon {
+    max-width: 50px;
+}
+
+.router-link-active p,
+.router-link-active svg path 
+{
+    color: orange !important;
+    fill: orange;
+    //background-color: hotpink;
+}
+
+
+.footer-menu p {
+  font-family: 'Open Sans', serif;
+  font-weight: bold;
+  display: block;font-size: 0.8rem;
+  margin-top: 0;
+  line-height: 0.9rem;
+  color: black;
+}
 
 
 
