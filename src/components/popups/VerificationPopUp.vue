@@ -94,7 +94,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    height: 800px;
+    //height: 75vh;
     border-radius: 10px;
     position: relative;
     margin-top: 20%;
@@ -132,7 +132,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
   .modal-body {
     position: relative;
-    padding: 40px 10px;
+    padding: 20px 10px;
   }
 
   
