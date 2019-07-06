@@ -9,7 +9,7 @@
       <router-link to="/reviewList">Review List</router-link> |
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div> -->
-
+<!-- 
     <div v-if="loginVerify" id="firstScreen">
       <div v-if="!joinMethod" class="login">
         <LogIn />
@@ -17,18 +17,18 @@
       <div v-else class="register">
         <Register />
       </div>
-    </div>
+    </div> -->
 
-    <div v-else id="app">
+    <div id="app">
 
-      <div class="app-header">
+      <div v-if="logined" class="app-header">
         <Header />
       </div>
       <div class="app-body">
         <router-view/>
       </div>
 
-      <div class="app-footer">
+      <div v-if="logined" class="app-footer">
         <Footer />
       </div>
 
@@ -56,6 +56,11 @@ export default {
     Header,
     Footer
 
+  },
+   data:function(){
+    return{
+       logined : false
+    }
   },
    mounted(){
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -98,6 +103,17 @@ export default {
     joinMethod(){
       return this.$store.state.joinMethod
     }
+  },
+  updated(){
+     const currentUser = firebase.auth().currentUser;
+       if(currentUser){  
+           this.logined = true;
+        }
+        else {
+          this.logined = false;
+          // this.$router.replace('login');
+          // console.log("Please login first");
+        }
   }
 }
 </script>

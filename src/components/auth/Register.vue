@@ -55,7 +55,8 @@ export default {
 
 
     logIn:function(){
-          this.$store.dispatch('signUpShows');
+          // this.$store.dispatch('signUpShows');
+        this.$router.push('/login');
       },
 
     submitSignup:function(e){
