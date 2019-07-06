@@ -86,6 +86,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 14;
   }
 
   .modal {
