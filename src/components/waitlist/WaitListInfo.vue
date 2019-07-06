@@ -1,7 +1,7 @@
 <template>
   <div class="wait-list-info-container">
         <h2 class="section-title">Your current Waiting List</h2>
-        <h4 class="restName">{{ rName }}</h4>
+        <h3 class="restName">{{ rName }}</h3>
         <p class="party">Party for</p>
           <p class="size">{{grSize}}</p>
         <p class="position">Position in the queue</p>

@@ -1,9 +1,11 @@
 <template>
-    <div class="section">
-        <h2 class="section-title">Menu</h2>
-        <button v-on:click="goToSettings" class="btn btn-text">Settings</button>
-        <button v-on:click="goToFaq" class="btn btn-text">FAQ</button>
-        <button v-on:click="goToAbout" class="btn btn-text">About</button>
+    <div class="menu">
+        <div class="section">
+            <h2 class="section-title">Menu</h2>
+            <button v-on:click="goToSettings" class="btn btn-text">Settings</button>
+            <button v-on:click="goToFaq" class="btn btn-text">FAQ</button>
+            <button v-on:click="goToAbout" class="btn btn-text">About</button>
+        </div>
     </div>
     
 </template>

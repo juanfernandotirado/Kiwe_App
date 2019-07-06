@@ -146,18 +146,23 @@ export default {
   width: 100vw;
   margin: auto;
   background-color: $csecond-green;
-  padding-bottom: 12vh;
-  min-height: 100vh;
-
-
-  .app-body {
-    margin-bottom: 6vh;
-  }
+  //padding-bottom: 12vh;
+  min-height: 90vh;
 }
 
 
 
 ///General styling
+
+
+  .home,
+  .user-profile,
+  .restaurant-section,
+  .restaurant-detail-section,
+  .wait-list-info-section {
+    padding-bottom: 90px;
+  }
+
   .section {
     //border: 2px solid green; 
     margin: 0 0 2rem 0;

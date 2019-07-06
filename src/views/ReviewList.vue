@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="wait-list-info-section">
 
       <button v-on:click="backPage" class="btn btn-round btn-back">
         <img src="../assets/icons/icon-back.png" alt="">

@@ -1,7 +1,9 @@
 <template>
-  <div class="user-profile section">
-    <Profile/>
-    <button v-on:click="logout" class="btn red">Log out</button>
+  <div class="user-profile">
+    <div class="section">
+      <Profile/>
+      <button v-on:click="logout" class="btn red">Log out</button>
+    </div>
   </div>
 </template>
 
