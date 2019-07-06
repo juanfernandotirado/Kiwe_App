@@ -1,18 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import firebase from 'firebase';
 
 import Home from './views/Home.vue'
 import Register from '@/components/auth/Register.vue';
 import Login from '@/components/auth/Login.vue';
 import Settings from './components/main/Settings.vue'
 import Menu from './views/Menu.vue'
-// import Test1 from './views/Test1.vue';
 import Restaurant from './views/Restaurant.vue'
-// import TestJuan from './views/TestJuan.vue';
 import RestaurantDetail from './components/restaurant/RestaurantDetail.vue';
 import QrCode from './views/QrCode.vue';
 import ReviewList from './views/ReviewList.vue'
-//import { settings } from 'cluster';
+
 
 
 Vue.use(Router)
@@ -52,21 +51,11 @@ const router = new Router({
       name: 'menu',
       component: Menu,
     },
-    // {
-    //   path:'/test1',
-    //   name: 'Test1',
-    //   component: Test1
-    // },
     {
       path:'/restaurant',
       name: 'restaurant',
       component: Restaurant
     },
-    // {
-    //   path:'/testjuan',
-    //   name: 'TestJuan',
-    //   component: TestJuan
-    // },
     {
       path: '/reviewList',
       name: 'reviewList',
@@ -92,6 +81,23 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/UserProfile.vue')
     }
   ]
+});
+
+router.beforeEach((to, from, next) => {
+  const currentUser = firebase.auth().currentUser;
+  if (to.fullPath !== '/login') {
+    if(to.fullPath === '/signup')
+    {
+      next();
+      return
+    }
+    if (!currentUser) {
+      next('/login');
+      return
+    }
+  }
+
+  next();
 });
 
 export default router;
