@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-      <h1>Profile</h1>
+      <h2 class="section-title">Profile</h2>
 <div class="" v-show="!show">
       <p>Nickname: {{ docRef.nickName }}</p>
 

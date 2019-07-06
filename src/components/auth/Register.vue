@@ -17,18 +17,19 @@
         <input class="join-form-input" v-model="inputNickName" type="text" name="nickname" >
         <label class="join-form-label" for="phone">Phone</label>
         <input class="join-form-input" v-model="inputPhone" type="text" name="phone" >
-      </form>
-
+      
+       <p class="red-text">{{errMsg}}</p>
       <div class="buttons">
         <button class="btn btn-text" v-on:click="submitSignup" type="submit">Sign up</button>
       </div>
+      </form>
     </div>
 
     <div class="help">
       <p v-on:click="logIn"> Already a member? Log in</p>
     </div>
        
-        <!-- <p class="red-text">{{errMsg}}</p> -->
+       
   </div>
 </template>
 
