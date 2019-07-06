@@ -75,7 +75,9 @@ export default {
       const currentUser = firebase.auth().currentUser;
         console.log('Pe',currentUser)
         if(currentUser)
-        {
+        {     
+              if(!this.$store.state.userStatus.nickName)
+              {
               let db = firebase.firestore();
               //Get user profile information
               let docRef = db.collection("users").doc(currentUser.uid);
@@ -99,6 +101,7 @@ export default {
                       console.log("Error getting document:", err);
                        this.errMsg = err;
                   });
+              }
         }
   }
 
