@@ -14,12 +14,13 @@
                 <input class="join-form-input" v-model="inputEmail" type="email" name="email" >
                 <label class="join-form-label" for="password">Password</label>
                 <input class="join-form-input" v-model="inputPwd" type="password" name="password" >
-            </form>
-
+           
+               <p class="red-text">{{errMsg}}</p>
             <div class="buttons">
                 <button class="btn btn-text" v-on:click="submitLogin" type="submit">Log in</button>
                 <button class="btn btn-text" v-on:click="signUp">Register</button>
             </div>
+            </form>
         </div>
 
         <div class="help">
@@ -27,7 +28,7 @@
         </div>
 
      <!-- <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link> -->
-    <!-- <p class="red-text">{{errMsg}}</p> -->
+ 
 
   </div>
 
@@ -111,6 +112,7 @@ export default {
         grid-template-columns: 1;
         grid-template-rows: 30vh 60vh 10vh; 
         align-items: center;
+        background-color: white;
     }
 
     .join,

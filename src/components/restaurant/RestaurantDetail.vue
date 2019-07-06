@@ -101,7 +101,7 @@ export default {
 
 .restaurant-info-full{
     position: relative;
-    top: -65px;
+    top: -30px;
 }
 
 .restaurant-info-container{
@@ -128,10 +128,6 @@ export default {
 
 }
 
-// .goBack {
-//   display: flex;
-//   margin: 0 !important;
-// }
 
 .routerLinks {
   display: block;

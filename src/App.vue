@@ -10,7 +10,7 @@
       <router-link to='/qrCode'>QR Code</router-link> | 
     </div> -->
 
-    <div v-if="loginVerify()" id="firstScreen">
+    <div v-if="loginVerify" id="firstScreen">
       <div v-if="!joinMethod" class="login">
         <LogIn />
       </div>
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-
+import firebase from 'firebase';
 import LogIn from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
 import Header from './components/template-files/Header.vue'
@@ -65,26 +65,36 @@ export default {
   },
 
   methods: {
-    loginVerify: function(){
-      let userLogged = this.$store.state.userStatus.nickName;
+    // loginVerify: function(){
+    //   let userLogged = this.$store.state.userStatus.nickName;
+    //   const currentUser = firebase.auth().currentUser;
+    //   console.log(currentUser);
+    //   if (userLogged == ''){
+    //   // if(currentUser){  
+    //     return true;
+    //   }
 
-      if (userLogged == ''){
-        return true;
-      }
-
-      else {
-        return false;
-      }
-    }
+    //   else {
+    //     return false;
+    //   }
+    // }
 
   },
 
   computed:{
+    loginVerify(){
+       let userLogged = this.$store.state.userStatus.nickName;
+        const currentUser = firebase.auth().currentUser;
+        console.log(currentUser);
+        // if (userLogged == ''){
+        if(!currentUser){  
+          return true;
+        }
 
-    userStatus(){
-      return this.$store.state.userStatus.nickName
+        else {
+          return false;
+        }
     },
-
     joinMethod(){
       return this.$store.state.joinMethod
     }
@@ -94,13 +104,15 @@ export default {
 
 
 <style lang="scss">
- 
-
 @import "./sass/_variables.scss";
 
-
+//Unable user select any element(For best ux in phone)
 * {
   box-sizing: border-box !important;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none; 
 }
 
 
@@ -124,9 +136,8 @@ export default {
   margin: auto;
   background-color: $csecond-green;
   padding-bottom: 12vh;
-  //background-color: $csecond-green;
   //padding-top: 3rem;
-
+  min-height: 100vh;
   
 }
 
@@ -229,7 +240,7 @@ export default {
     background-color: $accent;
     color: white;
     width: fit-content;
-    padding: .5rem 2rem;
+    padding: .5rem 1.5rem;
     margin: auto;
     border-radius: $wtb-radius;
     .time{

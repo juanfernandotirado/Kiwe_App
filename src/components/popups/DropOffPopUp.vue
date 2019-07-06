@@ -200,8 +200,10 @@ h4{
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 60vh;
     border-radius: 10px;
+    position: relative;
+    margin-top: 20%;
   }
 
  .modal-footer{

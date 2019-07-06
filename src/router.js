@@ -5,7 +5,6 @@ import Home from './views/Home.vue'
 import Register from '@/components/auth/Register.vue';
 import Login from '@/components/auth/Login.vue';
 import Settings from './components/main/Settings.vue'
-import Test from './views/Test.vue';
 import Menu from './views/Menu.vue'
 // import Test1 from './views/Test1.vue';
 import Restaurant from './views/Restaurant.vue'
@@ -47,11 +46,6 @@ const router = new Router({
       path:'/signup',
       name: 'Signup',
       component: Register
-    },
-    {
-      path:'/test',
-      name: 'Test',
-      component: Test
     },
     {
       path: '/menu',
