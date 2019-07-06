@@ -12,15 +12,9 @@
       </header>
       <section class="modal-body">
         <slot name="body">
-          <!--<p clas>Hello, </p>-->
-          <h3> {{userName}} </h3>
+          <h3 class="user-name"> {{userName}} </h3>
           <WaitListInfo/> 
-        </slot>
-       </section>
-       <footer class="modal-footer">
-          <slot name="footer">
-
-            <button
+          <button
               type="button"
               class="btn btn-text"
               v-on:click="goHome()"
@@ -28,7 +22,8 @@
               Done
           </button>
         </slot>
-      </footer>
+       </section>
+  
     </div>
   </div>
   </div>
@@ -72,12 +67,13 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
   @import "../../sass/_variables.scss";
 
-h3{
+.user-name{
   font-size: 3rem;
   margin: 0; 
   font-family: $sc-font-family;
   line-height: 3rem;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
   .modal-backdrop {
@@ -101,6 +97,7 @@ h3{
     height: 800px;
     border-radius: 10px;
     position: relative;
+    margin-top: 20%;
   }
 
   .kiwi1{

@@ -79,7 +79,7 @@ export default {
                             restList.map(item => {
                                 if(item.rid === scanRid){
                                     that.$store.dispatch("assignRest", item);
-                                    that.$router.push('restDetail')
+                                    that.$router.push('restDetail');
                                 }
                             })
 
