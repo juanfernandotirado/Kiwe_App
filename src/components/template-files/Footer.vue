@@ -3,18 +3,21 @@
         <!-- <router-link to="/login">Login</router-link> | -->
         
        
-        <router-link to="/userprofile">
+        <router-link to="/userprofile" class="footer-menu">
             <img src="../../assets/icons/icon-profile.png" alt="" class="footer-icon">
+            <p>Profile</p>
         </router-link>
         
 
-        <router-link to="/home">
+        <router-link to="/home" class="footer-menu">
             <img src="../../assets/icons/icon-home.png" alt="" class="footer-icon">
+            <p>Home</p>
         </router-link>
 
 
-        <router-link to="/menu">
+        <router-link to="/menu" class="footer-menu">
             <img src="../../assets/icons/icon-menu.png" alt="" class="footer-icon">
+            <p>Menu</p>
         </router-link>
       </div>
 </template>
@@ -51,6 +54,7 @@ export default {
 
 .footer-icon:active {
     color: orange;
+    background-color: #hotpink;
 }
 
 .section {

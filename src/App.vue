@@ -44,8 +44,8 @@
 
 import LogIn from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
-import Header from './components/template files/header.vue'
-import Footer from './components/template files/footer.vue'
+import Header from './components/template-files/Header.vue'
+import Footer from './components/template-files/Footer.vue'
 
 export default {
   name: 'App',
