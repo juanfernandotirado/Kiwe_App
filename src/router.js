@@ -86,6 +86,12 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
   if (to.fullPath !== '/login') {
+    if(currentUser&&to.fullPath === '/signup')
+    { 
+      console.log('You already login')
+      next('/home');
+      return
+    }
     if(to.fullPath === '/signup')
     {
       next();
