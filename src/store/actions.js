@@ -148,8 +148,8 @@ const denyPopupNotification = (context,payload) => {
 }
 
 // Action check if user is in Home page
-const toogleHome = (context) => {
-    context.commit('TOGGLE_HOME');
+const toogleFirstStep = (context) => {
+    context.commit('TOGGLE_FIRST_STEP');
 }
 
 export default{
@@ -178,6 +178,6 @@ export default{
     controlLoading,
     controlPopupNotification,
     denyPopupNotification,
-    toogleHome
+    toogleFirstStep
 
 } 

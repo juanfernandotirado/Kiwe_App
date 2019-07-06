@@ -50,7 +50,7 @@ export default new Vuex.Store({
     popUpShow: false,
     popUpShowD: false,
     popUpSuccessShow: false,
-    joinMethod: false,
+    firstStep: true,
 
     //Notification Popup
     popUpNotificationShow:false,

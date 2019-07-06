@@ -65,7 +65,7 @@ export default {
     assignAdditionalInfo:function(addInfo){
 
       if (addInfo === '' || addInfo === ''){
-        return 'None';
+        return 'Not applicable';
       }
 
       else {

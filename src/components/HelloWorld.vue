@@ -8,12 +8,26 @@
       </div>
 
       <div class="section setT">
-        <GroupSize/> 
-        <Accesibility/>
-        <button class="btn btn-text"><a href="#rest">Proceed</a></button>
+
+
+        <div class="section-step1" v-if="firstStep">
+          <GroupSize/> 
+          <Accesibility/>
+          <button class="btn btn-text" v-on:click="firstStepComplete"><a href="#rest">Proceed</a></button>
+        </div>
+
+
+        <div class="section-step1-defined" v-else>
+          <h2 class="section-title">Set up a table</h2>
+          <p class="section-content">Party for</p>
+          <p class="section-information-number"> {{grSize}} </p>
+          <p class="section-content">Accesibility needed</p>
+          <p class="section-information-text"> {{assignAdditionalInfo(accesibility)}} </p>
+          <button class="btn btn-text" v-on:click="firstStepEdit">Edit</button>
+        </div>
       </div>
 
-      <div class="section" id="rest">
+      <div class="section" id="rest" v-show="!firstStep">
         <h2 class="section-title">Choose the restaurant</h2>
         <button v-on:click="groupSizeDefined" class="btn btn-text">Search</button>
         <h4 class="section-title"><span>or</span></h4>
@@ -47,10 +61,46 @@ export default {
   computed:{
      nickName () {
      return this.$store.state.userStatus.nickName
+    },
+
+    grSize () {
+      return this.$store.state.currentListStatus.grSize
+    },
+
+    accesibility () {
+      return this.$store.state.additionalInfo.accessibility
+    },
+
+    firstStep () {
+      return this.$store.state.firstStep
     }
     
   },
   methods:{
+
+    firstStepComplete:function () {
+      this.$store.dispatch('toogleFirstStep')
+    },
+
+    firstStepEdit:function () {
+      this.$store.dispatch('toogleFirstStep')
+    },
+
+
+    assignAdditionalInfo:function(addInfo){
+
+      if (addInfo === '' ){
+        return 'Not applicable';
+      }
+
+      else {
+        return addInfo;
+      }
+
+    },
+
+
+
     changeName:function(){
       this.$store.dispatch('changeName',this.newName).then(()=>{
       this.newName = '';
@@ -114,15 +164,8 @@ export default {
 
   @import "../sass/_variables.scss";
 
-h2 {
-  margin-bottom: 0;
-  margin-top: 0;
-  margin-left: 3rem;
-  color: $sc-font-color;
-  text-align: left;
-  font-size: $sc-font-size;
-  font-family: $sc-font-family;
-}
+
+///section classes
 
 .section-title{
   text-align: center;
@@ -133,6 +176,45 @@ h2 {
 .section-title span{
   text-transform: lowercase;
 }
+
+.section-content,
+.section-information-number,
+.section-information-text {
+  margin: 1vh auto 1vh auto;
+}
+
+.section-content {
+  text-transform: uppercase;
+  font-family: $bt-font-family;
+  font-weight: bold;
+}
+
+.section-information-text,
+.section-information-number {
+  font-family: $bt-font-family;
+  font-weight: bold;
+  color:$accent;
+}
+
+.section-information-number {
+  font-size: 1.5rem;
+}
+
+
+
+
+
+
+h2 {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 3rem;
+  color: $sc-font-color;
+  text-align: left;
+  font-size: $sc-font-size;
+  font-family: $sc-font-family;
+}
+
 
 .user-name{
   font-size: 3rem;

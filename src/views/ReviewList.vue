@@ -47,10 +47,7 @@ export default {
 
 <style scoped lang="scss">
 
-.section {
-  border: 2px solid green;
-  margin: 2rem 0;
-}
+
 
 .slider {
   z-index: -1;
