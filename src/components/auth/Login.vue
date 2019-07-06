@@ -50,8 +50,10 @@ export default {
 
   methods: {
 
-      signUp:function(){
-          this.$store.dispatch('signUpShows');
+      signUp:function(e){
+          e.preventDefault();
+          this.$router.push('/signup');
+        //   this.$store.dispatch('signUpShows');
       },
 
       submitLogin:function(e){
@@ -98,7 +100,45 @@ export default {
               });
                     },
         
-                }
+                },
+
+    mounted(){
+        //Check current user is login already
+        const currentUser = firebase.auth().currentUser;
+        console.log('Pe',currentUser)
+        if(currentUser)
+        {
+              let db = firebase.firestore();
+              //Get user profile information
+              let docRef = db.collection("users").doc(currentUser.uid);
+                  docRef.get().then((doc) => {
+                      if (doc.exists) {
+                          console.log("Document data:", doc.data());
+                          const userStatus = {
+                                          uid: currentUser.uid,
+                                          isInLine: doc.data().isInLine,
+                                          nickName: doc.data().nickName,
+                                          profile: doc.data().profile,
+                                          phone: doc.data().phone,  
+                                          preferences: doc.data().profile,                                      }
+                          //Set UserStatus to store
+                          this.$store.dispatch('getUserStatus',userStatus);
+
+                          //Go to Homepage
+                          this.$router.push('home');
+                    
+
+
+                      } else {
+                          // doc.data() will be undefined in this case
+                          console.log("No such document!");
+                      }
+                  }).catch((err) => {
+                      console.log("Error getting document:", err);
+                       this.errMsg = err;
+                  });
+        }
+    }
             }
   </script>
 
@@ -171,6 +211,10 @@ export default {
         font-weight: bold;
     }
 
+    input[type=email]:not(.browser-default):focus:not([readonly])+label{
+         color: black;
+    }
+
     .join-form-input {
         background-color: $csecond-green !important;
         font-family: 'Open Sans', Arial, sans-serif;
@@ -179,6 +223,12 @@ export default {
         border-bottom: none !important;
         padding-left: 1rem !important;
         margin-bottom: 2.5vh !important;
+         &:focus{
+            border: none !important;
+            box-shadow: none !important;
+
+            
+        }
     }
 
     .btn {

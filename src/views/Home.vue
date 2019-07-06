@@ -35,6 +35,7 @@ import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
 import DropOffPop from '../components/popups/DropOffPopUp.vue';
 import SuccessPopUp from '../components/popups/SuccessPopUp.vue';
 import NotificationPopUp from '../components/popups/NotificationPopUp.vue';
+import firebase from 'firebase';
 
 export default {
   name: 'home',
@@ -70,6 +71,35 @@ export default {
     //   //if the user is not logged in, go to login page
     //    this.$router.replace('login');
     // }
+
+      const currentUser = firebase.auth().currentUser;
+        console.log('Pe',currentUser)
+        if(currentUser)
+        {
+              let db = firebase.firestore();
+              //Get user profile information
+              let docRef = db.collection("users").doc(currentUser.uid);
+                  docRef.get().then((doc) => {
+                      if (doc.exists) {
+                          console.log("Document data:", doc.data());
+                          const userStatus = {
+                                          uid: currentUser.uid,
+                                          isInLine: doc.data().isInLine,
+                                          nickName: doc.data().nickName,
+                                          profile: doc.data().profile,
+                                          phone: doc.data().phone,  
+                                          preferences: doc.data().profile,                                      }
+                          //Set UserStatus to store
+                          this.$store.dispatch('getUserStatus',userStatus);
+                      } else {
+                          // doc.data() will be undefined in this case
+                          console.log("No such document!");
+                      }
+                  }).catch((err) => {
+                      console.log("Error getting document:", err);
+                       this.errMsg = err;
+                  });
+        }
   }
 
  
