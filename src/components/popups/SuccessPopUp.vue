@@ -2,28 +2,19 @@
 <div>
   <div class="modal-backdrop" v-if="popUpSuccessShow">
     <div class="modal">
-      <header class="modal-header">
-        <slot name="header">
-          <h4 class="green-text center-align">Congratulations!</h4>
-        </slot>
-      </header>
+
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
+
       <section class="modal-body">
         <slot name="body">
-          <p>Your table is ready!</p>
-          <p>Please go back to the restaurant.</p>
+        <h4 class="section-title">Congratulations!</h4>
+          <p><b>Your table is ready!</b></p>
+          <p><b>Please go back to the restaurant</b></p>
+          <button type="button" class="btn btn-text" v-on:click="goHome()">OK</button>
         </slot>
        </section>
-       <footer class="modal-footer">
-          <slot name="footer">
-            <button
-              type="button"
-              class="btn-green"
-              v-on:click="goHome()"
-            >
-              OK
-          </button>
-        </slot>
-      </footer>
+
     </div>
   </div>
   </div>
@@ -96,6 +87,8 @@
 
 <style scoped lang="scss">
 
+  @import "../../sass/_variables.scss";
+
   .modal-backdrop {
     position: fixed;
     top: 0;
@@ -112,9 +105,13 @@
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
+    overflow-y:visible;
     display: flex;
     flex-direction: column;
+    //height: 50vh;
+    border-radius: 10px;
+    position: relative;
+ 
   }
 
   .modal-header,
@@ -155,5 +152,31 @@
     border: 1px solid #4AAE9B;
     border-radius: 2px;
     cursor: pointer;
+  }
+
+    .kiwi1{
+    width: 50px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+  }
+  .kiwi2{
+    width: 50px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+  }
+
+  h4{
+    margin-top: 1rem;
+  }
+
+  b{
+    font-family: $bt-font-family;
+    font-weight: bold;
   }
 </style>

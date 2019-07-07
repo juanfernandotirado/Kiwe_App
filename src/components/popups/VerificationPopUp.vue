@@ -6,10 +6,6 @@
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
 
-      <header class="modal-header">
-        <slot name="header">
-        </slot>
-      </header>
       <section class="modal-body">
         <slot name="body">
           <h3 class="user-name"> {{userName}} </h3>
@@ -95,10 +91,10 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    //height: 75vh;
+    height: 75vh;
     border-radius: 10px;
     position: relative;
-    margin-top: 20%;
+    //margin-top: 20%;
   }
 
   .kiwi1{
@@ -133,7 +129,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
   .modal-body {
     position: relative;
-    padding: 20px 10px;
+    padding: 20px 20px;
   }
 
   

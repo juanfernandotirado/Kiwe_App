@@ -96,13 +96,13 @@ export default {
     box-sizing: border-box;
     padding: 5px;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 
   }
 
   .btn img{
-      width: 30px;
+      width: 40px;
   }
 
 

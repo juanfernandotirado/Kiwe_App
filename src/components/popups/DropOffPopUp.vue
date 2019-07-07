@@ -44,14 +44,18 @@
 
 
   <div class="modal-backdrop" v-if="show2">
-      <div class="modal">
+      <div class="modal modal2">
+
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
+
       <header class="modal-header">
         <slot name="header">
         </slot>
       </header>
       <section class="modal-body">
         <slot name="body">
-            Your spot has been removed fom the restaurant! 
+            <h3>Your spot has been removed fom the restaurant!</h3> 
         </slot>
        </section>
        <footer class="modal-footer">
@@ -204,13 +208,25 @@ h4{
     height: 60vh;
     border-radius: 10px;
     position: relative;
-    margin-top: 20%;
+ 
+  }
+
+  .modal2 footer{
+    margin-top: 3rem;
+  }
+
+  .modal2 .modal-body h3{
+  font-size: 2rem;
+  margin: 0; 
+  font-family: $sc-font-family;
+  line-height: 3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 3rem;
   }
 
  .modal-footer{
    margin: 0;
-
-   
  }
 
   .modal-header {

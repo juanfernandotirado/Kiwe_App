@@ -27,7 +27,7 @@
         </router-link>
 
 
-        <router-link to="/menu"class="footer-menu" >
+        <router-link to="/menu" class="footer-menu" >
             <!-- <img src="../../assets/icons/icon-menu.png" alt="" class="footer-icon"> -->
             <svg id="footer-icon" data-name="menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178.49 180.32">
                 <title>menu</title>
@@ -65,6 +65,14 @@ export default {
     z-index: 12;
     //margin: 0;
     overflow: hidden;
+}
+
+.footer-menu{
+    margin-bottom: 0;
+}
+
+.app-footer #nav{
+    padding-bottom: 0.2rem;
 }
 
 #nav {

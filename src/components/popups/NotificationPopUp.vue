@@ -2,29 +2,25 @@
 <div>
   <div class="modal-backdrop" v-if="popUpNotificationShow">
     <div class="modal">
-      <header class="modal-header">
-        <slot name="header">
-          <h4 class="green-text center-align"></h4>
-        </slot>
-      </header>
+
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
+      <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
+
       <section class="modal-body">
         <slot name="body">
-          <p>Your table will be ready in</p>
-          <h5 class="green-text">5 minutes</h5>
-          <p>Please go back to the restaurant.</p>
+          <h2 class="hello">Hello,</h2> 
+          <h3 class="user-name"> {{userName}} </h3>
+          <p><B>YOU ARE IN THE WAITING LIST AT</B></p>
+          <h3 class="restName">{{ rName }}</h3>
+
+        <div class="restWaiting"> <b>Your table will be ready in:</b> 
+          <div class="wait"> <span class="time">05</span><span class="min">min</span> </div>
+        </div>
+          <p><b>PLEASE, HEAD BACK TO THE RESTAURANT</b></p>
+          <button type="button" class="btn btn-text" v-on:click="gotIt()">OK</button>
         </slot>
        </section>
-       <footer class="modal-footer">
-          <slot name="footer">
-            <button
-              type="button"
-              class="btn-green"
-              v-on:click="gotIt()"
-            >
-              OK
-          </button>
-        </slot>
-      </footer>
+
     </div>
   </div>
   </div>
@@ -50,13 +46,23 @@
     computed:{
       popUpNotificationShow(){
       return this.$store.state.popUpNotificationShow
-      }
+      },
+
+      userName(){
+      return this.$store.state.userStatus.nickName
+      },
+
+    rName(){
+      return this.$store.state.currentListStatus.rName
+    },
     
     }
   }
 </script>
 
 <style scoped lang="scss">
+
+  @import "../../sass/_variables.scss";
 
   .modal-backdrop {
     position: fixed;
@@ -74,14 +80,35 @@
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
+    overflow-y:visible;
     display: flex;
     flex-direction: column;
+    height: 75vh;
+    border-radius: 10px;
+    position: relative;
+
+  }
+
+    .kiwi1{
+    width: 50px;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+  }
+  .kiwi2{
+    width: 50px;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
   }
 
   .modal-header,
   .modal-footer {
-    padding: 15px;
+    //padding: 15px;
     display: flex;
   }
 
@@ -118,4 +145,38 @@
     border-radius: 2px;
     cursor: pointer;
   }
+
+  .hello {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-left: 3rem;
+  color: $sc-font-color;
+  text-align: left;
+  font-size: $sc-font-size;
+  font-family: $sc-font-family;
+}
+
+.user-name{
+  font-size: 3rem;
+  margin: 0; 
+  font-family: $sc-font-family;
+  line-height: 3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+  b{
+    font-family: $bt-font-family;
+    font-weight: bold;
+  }
+
+    .restName{
+    text-transform: uppercase;
+    font-family: $sc-font-family;
+    font-weight: bold;
+    color:$accent;
+    font-size: 22px;
+  }
+
 </style>

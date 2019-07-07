@@ -200,11 +200,6 @@ export default {
   font-size: 1.5rem;
 }
 
-
-
-
-
-
 h2 {
   margin-bottom: 0;
   margin-top: 0;
@@ -239,7 +234,8 @@ h3 {
   text-align: center;
   font-size: $sc-font-size;
   font-family: $sc-font-family;
-    line-height: 1rem;
+  line-height: 1rem;
+  font-weight: bold;
 }
 
 ul {
@@ -262,6 +258,7 @@ a {
 }*/
 
 .hello {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 </style>

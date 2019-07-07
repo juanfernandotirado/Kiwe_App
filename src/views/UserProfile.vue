@@ -2,7 +2,7 @@
   <div class="user-profile">
     <div class="section">
       <Profile/>
-      <button v-on:click="logout" class="btn red">Log out</button>
+      <button v-on:click="logout" class="btn btn-text">Log out</button>
     </div>
   </div>
 </template>
