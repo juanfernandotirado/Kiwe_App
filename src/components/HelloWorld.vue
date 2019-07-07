@@ -17,7 +17,7 @@
         </div>
 
 
-        <div class="section-step1-defined" v-else>
+        <div class="section section-step1-defined" v-else>
           <h2 class="section-title">Set up a table</h2>
           <p class="section-content">Party for</p>
           <p class="section-information-number"> {{grSize}} </p>
