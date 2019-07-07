@@ -62,7 +62,7 @@ export default {
 
   },
 
-  mounted(){
+  created(){
 
     //functiom provided by vue. Run each time we go to a component. 
     //currentUser is all the information about the user. 

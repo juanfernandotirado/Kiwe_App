@@ -217,6 +217,7 @@ export default {
        display: block;
        height: 160px;
        position: relative;
+       width: 70vw;
 
 
     }
