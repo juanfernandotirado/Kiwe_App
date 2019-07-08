@@ -27,10 +27,28 @@ export default {
     },
 
     methods: {
+
         addToList: function(){
             let currentTime = new Date();
             let that = this;
             let docName = currentTime.getTime() + '_' +this.$store.state.userStatus.uid;
+
+            let hour = currentTime.getHours();
+            let minute = currentTime.getMinutes();
+            let hourMinute;
+            console.log(hour);
+            console.log(minute);
+            if (hour <13) {
+                hourMinute = (hour + ":" + minute + " am");
+                if (hour == 0){
+                    hourMinute = (12 + ":" + minute + " am");
+                }
+            }
+            else {
+                hour = hour-12;
+                hourMinute = (hour + ":" + minute + " pm");
+            }
+
             
             let currentStatus = {
                 uid:this.$store.state.userStatus.uid,
@@ -39,11 +57,14 @@ export default {
                 currentSpot:this.$store.state.currentListStatus.currentSpot,
                 rid:this.$store.state.currentListStatus.rid,
                 rName:this.$store.state.currentListStatus.rName,
+                rRating: this.$store.state.selRest.rating,
+                rImgRef: this.$store.state.selRest.rImgRef,
                 addOptionsAccs:this.$store.state.additionalInfo.accessibility,
                 addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences,
                 joinTime: currentTime.getTime(),
                 joinAt: currentTime.getTime(),
-                joinHour: `${currentTime.getHours()}:${currentTime.getMinutes()}`,
+                // joinHour: `${currentTime.getHours()}:${currentTime.getMinutes()}`,
+                 joinHour: hourMinute,
                 date: `${currentTime.getMonth()+1}-${currentTime.getDate()}-${currentTime.getFullYear()}`,
                 status: 'waiting',
                 did:docName //Save the document name in currentStatus
@@ -61,7 +82,7 @@ export default {
                 addOptionsAccs:this.$store.state.additionalInfo.accessibility,
                 addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences,
                 joinTime: currentTime.getTime(),
-                joinHour: `${currentTime.getHours()}:${currentTime.getMinutes()}`,
+                joinHour: hourMinute,
                 date: `${currentTime.getMonth()+1}-${currentTime.getDate()}-${currentTime.getFullYear()}`,
                 status: 'waiting',
                 notification: ''

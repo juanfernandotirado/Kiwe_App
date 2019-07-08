@@ -44,6 +44,7 @@ const SELECT_RESTAURANT = (state,payload) =>{
     state.currentListStatus.rName = state.selRest.rName;
     state.currentListStatus.rid = state.selRest.rid;
     state.currentListStatus.estTime = state.selRest.estTime;
+    state.currentListStatus.rRating = state.selRest.rating;
 }
 
 // Function add information to currentList store variable
