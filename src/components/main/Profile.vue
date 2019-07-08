@@ -55,9 +55,9 @@
         <button class="btn btn-text" @click="editProfile" v-show="!show">Edit</button>
         <br>
         <button class="btn btn-text" @click="cancelEdit" v-show="show">Cancel</button>
-        <br>
+        
         <button class="btn btn-text" @click="saveProfileChanges" type="submit" v-show="show">Save</button>
-
+        <br>
   </div>
 </template>
 
@@ -204,15 +204,17 @@ b{
 input[type="text"]{
     text-align: center;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-size: 1.5rem;
+    font-family: $bt-font-family;
 }
 
 input[type="tel"]{
     text-align: center;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-size: 1.5rem;
+    font-family: $bt-font-family;
 }
 
 </style>
