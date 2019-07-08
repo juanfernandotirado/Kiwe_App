@@ -75,7 +75,8 @@ export default {
                 phone: this.inputPhone,
                 profile: {},
                 isInLine: false,
-                createdTime: new Date()
+                createdTime: new Date(),
+                history: [],
                 //in here we created different properties for the user
                }).then(() =>{
 
@@ -84,7 +85,8 @@ export default {
                                           isInLine: false,
                                           nickName: this.inputNickName,
                                           phone:this.inputPhone,
-                                          profile: {}
+                                          profile: {},
+                                          history: [],
                                         }
                   //Set UserStatus to store
                   this.$store.dispatch('getUserStatus',userStatus);

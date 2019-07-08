@@ -168,6 +168,18 @@ const TOGGLE_FIRST_STEP = (state) => {
     state.firstStep = !state.firstStep;
 }
 
+// Function add history to user profile
+
+const ADD_HISTORY = (state,payload) => {
+    state.userStatus.history.push(payload);
+}
+
+// Function change status to success
+
+const CHANGE_STATUS = (state) => {
+    state.currentListStatus.status = 'success';
+}
+
 
 
 export default {
@@ -197,6 +209,8 @@ export default {
     CONTROL_LOADING,
     CONTROL_POPUP_NOTIFICATION,
     DENY_POPUP_NOTIFICATION,
-    TOGGLE_FIRST_STEP
+    TOGGLE_FIRST_STEP,
+    ADD_HISTORY,
+    CHANGE_STATUS
 
 }

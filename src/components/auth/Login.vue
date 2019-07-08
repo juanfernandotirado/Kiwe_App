@@ -76,7 +76,8 @@ export default {
                                           nickName: doc.data().nickName,
                                           profile: doc.data().profile,
                                           phone: doc.data().phone,  
-                                          preferences: doc.data().profile,                                      }
+                                          preferences: doc.data().profile, 
+                                          history: doc.data().history,                                     }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
 
@@ -120,7 +121,8 @@ export default {
                                           nickName: doc.data().nickName,
                                           profile: doc.data().profile,
                                           phone: doc.data().phone,  
-                                          preferences: doc.data().profile,                                      }
+                                          preferences: doc.data().profile,  
+                                          history: doc.data().history,                                    }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
 

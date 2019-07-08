@@ -152,6 +152,16 @@ const toogleFirstStep = (context) => {
     context.commit('TOGGLE_FIRST_STEP');
 }
 
+// Action add history to user profile
+const addHistory = (context,payload) => {
+    context.commit('ADD_HISTORY', payload);
+}
+
+// Action change status to success
+const changeStatus = (context) => {
+    context.commit('CHANGE_STATUS');
+}
+
 export default{
     changeName,
     getUserStatus,
@@ -178,6 +188,8 @@ export default{
     controlLoading,
     controlPopupNotification,
     denyPopupNotification,
-    toogleFirstStep
+    toogleFirstStep,
+    addHistory,
+    changeStatus
 
 } 

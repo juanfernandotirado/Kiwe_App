@@ -70,10 +70,27 @@
     methods: {
 
       goHome: function(){
+
+        let currentListStatus = this.$store.state.currentListStatus;
+        let history = this.$store.state.userStatus.history;
+
         this.$store.dispatch('togglePopUpSuccessShows');
         this.$store.dispatch('denyPopupNotification',false);
+        this.$store.dispatch('changeStatus');
         this.$store.dispatch('isInLine');
+        this.$store.dispatch('emptyWaitlist');
+        this.$store.dispatch('addHistory',currentListStatus);
         this.$router.push('home');
+
+        let db = firebase.firestore();
+        let that = this;
+
+        let addToHistory =db.collection("users").doc(this.$store.state.userStatus.uid).update({
+          history : this.$store.state.userStatus.history,
+        })
+
+        this.$store.dispatch('emptyStatus');
+
       }  
     },
 
