@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-on:click="dropOff" class="btn btn-text">Drop off the queue</button>
+        <button v-on:click="dropOff" class="btn btn-text btn-drop">Drop off the queue</button>
     </div>
     
 </template>
@@ -22,6 +22,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.btn{
+    background-color: white;
+}
+
+.btn-text {
+    color: black;
+}
 
 </style>
 

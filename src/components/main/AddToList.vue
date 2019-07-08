@@ -32,6 +32,8 @@ export default {
             let currentTime = new Date();
             let that = this;
             let docName = currentTime.getTime() + '_' +this.$store.state.userStatus.uid;
+            let uid = this.$store.state.userStatus.uid;
+            let did = this.$store.state.currentListStatus.did;
 
             let hour = currentTime.getHours();
             let minute = currentTime.getMinutes();
@@ -88,11 +90,23 @@ export default {
                 notification: ''
                 //in here we created different properties for the user
 
+          
+
+            // db.collection('users').doc(uid).set({
+            // })
+
+           
+
             }).then(()=>{
                 that.$store.dispatch('addWaitingList',currentStatus);
                 that.$store.dispatch('joinList', currentStatus);
                 that.$store.dispatch('isInLine');
                 that.$store.dispatch('popUpShows');
+
+                db.collection('users').doc(uid).update({
+                    isInLine:true,
+                    currentWaiting: docName,
+                    })
             })
                
         }

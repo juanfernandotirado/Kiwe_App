@@ -112,9 +112,15 @@ import firebase from 'firebase';
         this.$store.dispatch('popUpShowsD');
 
         let didUser = this.$store.state.currentListStatus.did;
+        let uid = this.$store.state.userStatus.uid;
+
 
         let db = firebase.firestore();
         db.collection('waitlist').doc(didUser).delete();
+        db.collection('users').doc(uid).update({
+                    isInLine: false,
+                    currentWaiting: "",
+        })
 
         this.$store.dispatch('emptyStatus');
          this.$router.push('home');

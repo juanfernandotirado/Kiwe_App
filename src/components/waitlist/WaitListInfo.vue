@@ -106,7 +106,7 @@ export default {
         
         let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
         
-        let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
+        let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
         let rid = this.$store.state.selRest.rid;
         let uid = this.$store.state.currentListStatus.uid;
         let did = this.$store.state.currentListStatus.did;

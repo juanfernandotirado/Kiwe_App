@@ -77,6 +77,8 @@
         let finishWait = new Date();
         let waitedTime = finishWait.getTime();
 
+        let uid = this.$store.state.userStatus.uid;
+
         this.$store.dispatch('addWaitedTime', waitedTime);
         this.$store.dispatch('addHistory', currentListStatus);
         
@@ -90,8 +92,10 @@
         let db = firebase.firestore();
         let that = this;
 
-        let addToHistory =db.collection("users").doc(this.$store.state.userStatus.uid).update({
+        let addToHistory =db.collection("users").doc(uid).update({
           history : this.$store.state.userStatus.history,
+          isInLine: false,
+          currentWaiting: "",
         })
 
         //this.$store.dispatch('emptyStatus');
