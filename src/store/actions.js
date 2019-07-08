@@ -162,6 +162,11 @@ const changeStatus = (context) => {
     context.commit('CHANGE_STATUS');
 }
 
+// Action add waited time to CurrentListStatus
+const addWaitedTime = (context,payload) => {
+    context.commit('ADD_WAITED_TIME', payload);
+}
+
 export default{
     changeName,
     getUserStatus,
@@ -190,6 +195,7 @@ export default{
     denyPopupNotification,
     toogleFirstStep,
     addHistory,
-    changeStatus
+    changeStatus,
+    addWaitedTime
 
 } 

@@ -180,6 +180,12 @@ const CHANGE_STATUS = (state) => {
     state.currentListStatus.status = 'success';
 }
 
+// Function add waited time to currentListStatus
+
+const ADD_WAITED_TIME = (state,payload) => {
+    state.currentListStatus.waitedTime = payload;
+}
+
 
 
 export default {
@@ -211,6 +217,7 @@ export default {
     DENY_POPUP_NOTIFICATION,
     TOGGLE_FIRST_STEP,
     ADD_HISTORY,
-    CHANGE_STATUS
+    CHANGE_STATUS,
+    ADD_WAITED_TIME
 
 }

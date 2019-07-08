@@ -10,7 +10,7 @@
                     <p class="date"> {{history.date}} </p>
                     <p class="time"> {{history.joinHour}} </p>
                     <p class="grSize">Party for: {{history.grSize}} </p>
-                    <p>Waited for:{{ ((history.joinTime).getTime()+1/60000)-((history.joinTime).getTime()+1/60000)}} mins</p>
+                    <p>Waited for: {{ ((((history.waitedTime)+1)/60000)-(((history.joinAt)+1)/60000)).toFixed(0)}} mins</p>
                     <!-- Wait Time:{{ ((currentTime-new Date(spot.joinTime).getTime()+1)/60000).toFixed(0)}}mins -->
                 </div>
             </div>

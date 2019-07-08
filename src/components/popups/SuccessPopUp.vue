@@ -75,12 +75,10 @@
         let history = this.$store.state.userStatus.history;
 
         let finishWait = new Date();
-        let currentTime = finishWait.getTime();
+        let waitedTime = finishWait.getTime();
 
+        this.$store.dispatch('addWaitedTime', waitedTime);
         this.$store.dispatch('addHistory', currentListStatus);
-
-        console.log(currentListStatus);
-
         
 
         this.$store.dispatch('togglePopUpSuccessShows');
