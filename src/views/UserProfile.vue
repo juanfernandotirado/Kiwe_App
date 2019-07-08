@@ -2,6 +2,13 @@
   <div class="user-profile">
     <div class="section">
       <Profile/>
+    </div>
+
+    <div class="section">
+      <UserHistory />
+    </div>
+
+    <div class="section">
       <button v-on:click="logout" class="btn btn-text">Log out</button>
     </div>
   </div>
@@ -10,13 +17,15 @@
 <script>
 import firebase from 'firebase';
 import Profile from '../components/main/Profile.vue'
+import UserHistory from '../components/main/UserHistory.vue'
 
 
 export default {
   name:'UserProfile',
 
   components: {
-    Profile
+    Profile,
+    UserHistory
   },
 
   methods: {

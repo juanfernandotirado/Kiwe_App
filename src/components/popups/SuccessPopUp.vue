@@ -74,13 +74,20 @@
         let currentListStatus = this.$store.state.currentListStatus;
         let history = this.$store.state.userStatus.history;
 
+        let finishWait = new Date();
+        let currentTime = finishWait.getTime();
+
+        this.$store.dispatch('addHistory', currentListStatus);
+
+        console.log(currentListStatus);
+
+        
+
         this.$store.dispatch('togglePopUpSuccessShows');
         this.$store.dispatch('denyPopupNotification',false);
-        this.$store.dispatch('changeStatus');
         this.$store.dispatch('isInLine');
-        this.$store.dispatch('emptyWaitlist');
-        this.$store.dispatch('addHistory',currentListStatus);
         this.$router.push('home');
+        this.$store.dispatch('changeStatus');
 
         let db = firebase.firestore();
         let that = this;
@@ -89,8 +96,8 @@
           history : this.$store.state.userStatus.history,
         })
 
-        this.$store.dispatch('emptyStatus');
-
+        //this.$store.dispatch('emptyStatus');
+        //this.$store.dispatch('emptyWaitlist');
       }  
     },
 
@@ -98,7 +105,12 @@
       popUpSuccessShow(){
       return this.$store.state.popUpSuccessShow
     }
-    }
+    },
+
+    // beforeDestroy(){
+    //   this.$store.dispatch('emptyStatus');
+    //   this.$store.dispatch('emptyWaitlist');
+    // }
   }
 </script>
 
