@@ -62,7 +62,7 @@ export default {
                 addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences,
                 joinTime: currentTime.getTime(),
                 joinHour: `${currentTime.getHours()}:${currentTime.getMinutes()}`,
-                date: `${currentTime.getFullYear()}-${currentTime.getMonth()+1}-${currentTime.getDate()}`,
+                date: `${currentTime.getMonth()+1}-${currentTime.getDate()}-${currentTime.getFullYear()}`,
                 status: 'waiting',
                 notification: ''
                 //in here we created different properties for the user
