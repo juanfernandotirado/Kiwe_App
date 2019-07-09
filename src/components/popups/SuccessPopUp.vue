@@ -63,6 +63,11 @@
                     //Get notification
                     that.$store.dispatch('controlPopupNotification',true);
                   }
+                  // else if(item.status=="success"){
+                  //     that.$store.dispatch('togglePopUpSuccessShows');
+                  //     //stop listen update
+                  //     unsubscribe();
+                  // }
 
                 
                 } 
@@ -73,7 +78,8 @@
 
     },
 
-    beforeUpdate(){
+    created(){
+      let did = this.$store.state.currentListStatus.did;
       let db = firebase.firestore();
       let that = this;
 
@@ -168,7 +174,7 @@
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    max-height: 480px;
     border-radius: 10px;
     position: relative;
  
@@ -185,10 +191,9 @@
   //   justify-content: center;
   // }
 
-  // .modal-footer {
-  //   border-top: 1px solid #eeeeee;
-  //   justify-content: flex-end;
-  // }
+  .modal-footer {
+    padding: 0;
+  }
 
   .modal-body {
     position: relative;
@@ -231,8 +236,8 @@
   }
 
  h4{
-  font-size: 2rem;
-  margin: 1rem auto; 
+  //font-size: 2rem;
+  margin: 1vh auto; 
   font-family: $sc-font-family;
   line-height: 3rem;
   font-weight: bold;
@@ -241,5 +246,9 @@
     font-family: $bt-font-family;
     font-weight: bold;
     font-size: 1rem;
+  }
+
+  .btn-text {
+    margin: 1vh 10% !important;
   }
 </style>

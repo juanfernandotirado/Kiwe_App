@@ -116,7 +116,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    height: 75vh;
+    max-height: 480px;
     border-radius: 10px;
     position: relative;
     //margin-top: 20%;
@@ -143,6 +143,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
   .modal-footer {
     //padding: 15px;
     display: flex;
+    padding: 0;
   }
 
  
@@ -159,7 +160,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
 
   .hello {
-  margin-bottom: 1rem;
+  margin-bottom: 1vh;
   font-weight: bold;
   margin-top: 0;
   margin-left: 3rem;
@@ -168,6 +169,14 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
   font-size: 1.2rem;
   font-family: $sc-font-family;
 
+}
+
+.section-title {
+  margin-bottom: 1vh;
+}
+
+.btn-text {
+  margin: 1vh 10% !important;
 }
 
   

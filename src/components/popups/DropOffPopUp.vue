@@ -217,7 +217,7 @@ h4{
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    max-height: 480px;
     border-radius: 10px;
     position: relative;
  

@@ -89,13 +89,18 @@
     z-index: 14;
   }
 
+  .popup {
+    padding: 0;
+    margin: 25px;
+  }
+
   .modal {
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    height: 75vh;
+    max-height: 480px;
     border-radius: 10px;
     position: relative;
 
@@ -137,7 +142,7 @@
 
   .modal-body {
     position: relative;
-    padding: 20px 10px;
+    //padding: 20px 10px;
   }
 
   .btn-close {
@@ -190,6 +195,10 @@
     font-weight: bold;
     color:$accent;
     font-size: 22px;
+  }
+
+  .btn-text {
+    margin: 1vh 10% !important;
   }
 
 </style>
