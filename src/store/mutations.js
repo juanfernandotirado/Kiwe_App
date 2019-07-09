@@ -103,6 +103,7 @@ const EMPTY_STATUS = (state) => {
     state.currentListStatus.uid = '';
     state.currentListStatus.did = '';
     state.currentListStatus.status = '';
+    state.currentListStatus.rImgRef = '';
 }
 
 // Function profile Update Nickname

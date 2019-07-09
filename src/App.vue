@@ -193,7 +193,7 @@ export default {
 
   .btn-text {
     text-align: center;
-    font-size: $bt-font-size;
+    font-size: 1rem;
     width: 80%;
     margin: 1rem 10% !important;
     border-radius: $bt-border-radius;
@@ -327,8 +327,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 2.4rem;
-  height: 100%;
+  padding: 25px;
+  height: 90%;
 }
 
 .modal.modal-footer {

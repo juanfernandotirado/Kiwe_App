@@ -100,7 +100,7 @@ export default {
 
             let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
 
-            let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
+            let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
             let rid = rest.rid;
             let grSize = this.$store.state.currentListStatus.grSize;
 
@@ -143,9 +143,12 @@ export default {
                      
                     }
 
+
+
                 })
 
             rest.spot = spotCounter;
+            that.$store.dispatch('updateSpot', rest.groupSpot);
        
 
             }).then(function(){

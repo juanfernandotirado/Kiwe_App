@@ -104,69 +104,128 @@ export default {
 
   created(){
         
-        let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
+    let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
         
-        let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
-        let rid = this.$store.state.selRest.rid;
-        let uid = this.$store.state.currentListStatus.uid;
-        let did = this.$store.state.currentListStatus.did;
+    let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
+    let rid = this.$store.state.selRest.rid;
+    let uid = this.$store.state.currentListStatus.uid;
+    let did = this.$store.state.currentListStatus.did;
        
-        let grpLimitSmall = this.$store.state.selRest.sizeStandard.small;
-        let grpLimitMedium = this.$store.state.selRest.sizeStandard.medium;
-        let grpLimitLarge = this.$store.state.selRest.sizeStandard.large;
+    let grpLimitSmall = this.$store.state.selRest.sizeStandard.small;
+    let grpLimitMedium = this.$store.state.selRest.sizeStandard.medium;
+    let grpLimitLarge = this.$store.state.selRest.sizeStandard.large;
 
 
-        let db = firebase.firestore();
-        let that = this;
+    let db = firebase.firestore();
+    let that = this;
 
-        db.collection("waitlist").where("rid", "==", rid).where("status", "==", 'waiting').where("date","==",formatDate)
-        .onSnapshot(function(querySnapshot) {
-          let spotCounter = {
+    db.collection("waitlist").where("rid", "==", rid).where("status", "==", 'waiting').where("date","==",formatDate)
+    .onSnapshot(function(querySnapshot) {
+      let spotCounter = {
             smallGroup:0,
             mediumGroup:0,
             bigGroup:0,
-          }
+      }
          
-          querySnapshot.docChanges().forEach(function(change){
-            if(change.type==="added" || change.type==="removed")
-              { 
-                  let item = change.doc.data();
-                if (item.grSize <= grpLimitSmall) {
-                
-                  spotCounter.smallGroup++;
-                  if(uid === item.uid)
-                  {
-                    console.log("your spot!",spotCounter.smallGroup);
-                    that.$store.dispatch('updateSpot',spotCounter.smallGroup);
-                  }
-                  
-                }
-                else if (item.grSize <= grpLimitMedium) {
-                  spotCounter.mediumGroup++;
-                  if(uid === item.uid)
-                  {
-                    console.log("your spot!",spotCounter.mediumGroup);
-                    that.$store.dispatch('updateSpot',spotCounter.mediumGroup);
-                  }
+      querySnapshot.docChanges().forEach(function(change){
+        if(change.type==="added" || change.type==="removed") { 
+          let item = change.doc.data();
 
-                }
-                else if (item.grSize <= grpLimitLarge) {
-                  spotCounter.bigGroup++;
-                  if(uid === item.uid)
-                  {
-                    console.log("your spot!",spotCounter.bigGroup);
-                    that.$store.dispatch('updateSpot',spotCounter.bigGroup);
-                  }
-                }
+          if (item.grSize <= grpLimitSmall) {
+            spotCounter.smallGroup++;
+
+            if(uid === item.uid){
+              console.log("your spot!",spotCounter.smallGroup);
+              that.$store.dispatch('updateSpot',spotCounter.smallGroup);
+            }       
+          }
+
+          else if (item.grSize <= grpLimitMedium) {
+            spotCounter.mediumGroup++;
+
+            if(uid === item.uid){
+              console.log("your spot!",spotCounter.mediumGroup);
+              that.$store.dispatch('updateSpot',spotCounter.mediumGroup);
+            }
+          }
+
+          else if (item.grSize <= grpLimitLarge) {
+            spotCounter.bigGroup++;
+
+              if(uid === item.uid){
+                console.log("your spot!",spotCounter.bigGroup);
+                that.$store.dispatch('updateSpot',spotCounter.bigGroup);
               }
-           
+          }
+        }
+            
 
-          })
-        })
-  
+      })
+    })
+    
+  },
+
+  // beforeUpdate(){
+        
+  //   let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
+        
+  //   let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
+  //   let rid = this.$store.state.selRest.rid;
+  //   let uid = this.$store.state.currentListStatus.uid;
+  //   let did = this.$store.state.currentListStatus.did;
        
+  //   let grpLimitSmall = this.$store.state.selRest.sizeStandard.small;
+  //   let grpLimitMedium = this.$store.state.selRest.sizeStandard.medium;
+  //   let grpLimitLarge = this.$store.state.selRest.sizeStandard.large;
 
-    }
+
+  //   let db = firebase.firestore();
+  //   let that = this;
+
+  //   db.collection("waitlist").where("rid", "==", rid).where("status", "==", 'waiting').where("date","==",formatDate)
+  //   .onSnapshot(function(querySnapshot) {
+  //     let spotCounter = {
+  //           smallGroup:1,
+  //           mediumGroup:1,
+  //           bigGroup:1,
+  //     }
+         
+  //     querySnapshot.docChanges().forEach(function(change){
+  //       if(change.type==="added" || change.type==="removed"){ 
+  //         let item = change.doc.data();
+
+  //         if (item.grSize <= grpLimitSmall) {
+  //           spotCounter.smallGroup++;
+
+  //           if(uid === item.uid){
+  //             console.log("your spot!",spotCounter.smallGroup);
+  //             that.$store.dispatch('updateSpot',spotCounter.smallGroup);
+  //           }
+                  
+  //         }
+
+  //         else if (item.grSize <= grpLimitMedium) {
+  //           spotCounter.mediumGroup++;
+
+  //           if(uid === item.uid){
+  //             console.log("your spot!",spotCounter.mediumGroup);
+  //             that.$store.dispatch('updateSpot',spotCounter.mediumGroup);
+  //           }
+
+  //         }
+
+  //         else if (item.grSize <= grpLimitLarge) {
+  //           spotCounter.bigGroup++;
+
+  //           if(uid === item.uid){
+  //             console.log("your spot!",spotCounter.bigGroup);
+  //             that.$store.dispatch('updateSpot',spotCounter.bigGroup);
+  //           }
+  //         }
+  //       }
+  //     })
+  //   })
+  // }
 }
 </script>
 
@@ -179,7 +238,7 @@ export default {
     font-family: $sc-font-family;
     font-weight: bold;
     color:$accent;
-    font-size: 22px;
+    font-size: 1.2rem;
   }
 
   .section{

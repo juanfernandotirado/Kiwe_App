@@ -59,22 +59,40 @@
                 let item = doc.data();
                 console.log('Something updated in firebase.',item)
                 try {
-                if(!that.$store.state.denyNotification&&item.notification.length>1)
-                { 
-                  //Get notification
-                  that.$store.dispatch('controlPopupNotification',true);
-                }
+                  if(!that.$store.state.denyNotification&&item.notification.length>1){ 
+                    //Get notification
+                    that.$store.dispatch('controlPopupNotification',true);
+                  }
 
-                else if(item.status=="success")
-                {
-                    that.$store.dispatch('togglePopUpSuccessShows');
-                    //stop listen update
-                    unsubscribe();
-                }
-                } catch (error) {
+                
+                } 
+                catch (error) {
                   console.log(error);
                 }
-            });
+      });
+
+    },
+
+    beforeUpdate(){
+      let db = firebase.firestore();
+      let that = this;
+
+      let successCustomer = db.collection("waitlist").doc(did)
+            .onSnapshot(function(doc) {
+                let item = doc.data();
+                console.log('Something updated in firebase.',item)
+                try {
+              
+                  if(item.status=="success"){
+                      that.$store.dispatch('togglePopUpSuccessShows');
+                      //stop listen update
+                      unsubscribe();
+                  }
+                }
+                catch (error) {
+                  console.log(error);
+                }
+      });
 
     },
     
@@ -110,7 +128,6 @@
           currentWaiting: "",
         })
 
-        //this.$store.dispatch('emptyStatus');
         //this.$store.dispatch('emptyWaitlist');
       }  
     },
@@ -158,7 +175,7 @@
   }
 
   .modal-footer {
-    padding: 15px;
+    //padding: 15px;
     display: flex;
   }
 
@@ -175,7 +192,7 @@
 
   .modal-body {
     position: relative;
-    padding: 20px 10px;
+    //padding: 20px 10px;
   }
 
   .btn-close {
@@ -214,7 +231,7 @@
   }
 
  h4{
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 1rem auto; 
   font-family: $sc-font-family;
   line-height: 3rem;
@@ -223,6 +240,6 @@
   b{
     font-family: $bt-font-family;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 </style>

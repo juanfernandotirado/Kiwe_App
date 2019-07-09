@@ -62,6 +62,11 @@ export default {
 
   },
 
+  // beforeMount(){
+  //   this.$store.dispatch('emptyStatus');
+
+  // },
+
   created(){
 
     //functiom provided by vue. Run each time we go to a component. 

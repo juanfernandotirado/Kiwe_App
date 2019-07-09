@@ -76,8 +76,20 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
   @import "../../sass/_variables.scss";
 
+  .section-title {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .restName {
+    font-size: 1.2rem;
+  }
+
 .user-name{
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 0; 
   font-family: $sc-font-family;
   line-height: 3rem;
@@ -129,7 +141,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
   }
 
   .modal-footer {
-    padding: 15px;
+    //padding: 15px;
     display: flex;
   }
 
@@ -142,7 +154,7 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
   .modal-body {
     position: relative;
-    padding: 20px 20px;
+    //padding: 20px 20px;
   }
 
 
@@ -153,8 +165,9 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
   margin-left: 3rem;
   color: $sc-font-color;
   text-align: left;
-  font-size: $sc-font-size;
+  font-size: 1.2rem;
   font-family: $sc-font-family;
+
 }
 
   

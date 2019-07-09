@@ -54,26 +54,26 @@
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
 
-      <header class="modal-header">
-        <slot name="header">
-        </slot>
-      </header>
+      <div class="popup">
       
-      <section class="modal-body">
-        <slot name="body">
-            <h3>Your spot has been removed fom the restaurant!</h3> 
-        </slot>
-       </section>
-       <footer class="modal-footer">
-          <slot name="footer">
-          <button
-              type="button"
-              class="btn btn-text"
-              v-on:click="dropOffSpot">
-              Close
-          </button>
-        </slot>
-      </footer>
+        <section class="modal-body">
+          <slot name="body">
+              <h3>Your spot has been removed fom the restaurant!</h3> 
+          </slot>
+        </section>
+        <footer class="modal-footer">
+            <slot name="footer">
+            <button
+                type="button"
+                class="btn btn-text"
+                v-on:click="dropOffSpot">
+                Close
+            </button>
+          </slot>
+        </footer>
+
+      </div>
+
     </div>
 
 
@@ -164,12 +164,13 @@ import firebase from 'firebase';
   }
 
 h4{
-  font-size: 3rem;
-  margin: 1rem auto; 
+  font-size: 2rem;
+  //margin: 1rem auto; 
   font-family: $sc-font-family;
   line-height: 3rem;
   font-weight: bold;
   color: black;
+  margin: 0;
 }
 
   .kiwi1{
@@ -189,15 +190,12 @@ h4{
     z-index: 200;
   }
 
-  p{
-    margin:auto;
-    font-size: 1.5rem;
-  }
+ 
 
     b{
     font-family: $bt-font-family;
     font-weight: bold;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .modal-backdrop {
@@ -253,7 +251,7 @@ h4{
 
   .modal-body {
     position: relative;
-    padding: 20px 10px;
+    //padding: 20px 10px;
   }
 
  
