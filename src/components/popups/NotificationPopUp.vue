@@ -6,20 +6,32 @@
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
 
-      <section class="modal-body">
-        <slot name="body">
-          <h2 class="hello">Hello,</h2> 
-          <h3 class="user-name"> {{userName}} </h3>
-          <p><B>YOU ARE IN THE WAITING LIST AT</B></p>
-          <h3 class="restName">{{ rName }}</h3>
+      <div class="popup">
+        <header class="modal-header">
+          <slot name="header">
+            <h2 class="hello">Hello,</h2> 
+            <h3 class="user-name"> {{userName}} </h3>
+          </slot>
+        </header>
 
-        <div class="restWaiting"> <b>Your table will be ready in:</b> 
-          <div class="wait"> <span class="time">05</span><span class="min">min</span> </div>
-        </div>
-          <p><b>PLEASE, HEAD BACK TO THE RESTAURANT</b></p>
-          <button type="button" class="btn btn-text" v-on:click="gotIt()">OK</button>
-        </slot>
-       </section>
+        <section class="modal-body">
+          <slot name="body">
+            <p><B>YOU ARE IN THE WAITING LIST AT</B></p>
+            <h3 class="restName">{{ rName }}</h3>
+
+            <div class="restWaiting"> <b>Your table will be ready in:</b> 
+              <div class="wait"> <span class="time">05</span><span class="min">min</span> </div>
+            </div>
+            <p><b>PLEASE, HEAD BACK TO THE RESTAURANT</b></p>
+          </slot>
+        </section>
+
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button type="button" class="btn btn-text" v-on:click="gotIt()">OK</button>
+          </slot>
+        </footer>
+      </div>
 
     </div>
   </div>
@@ -106,22 +118,22 @@
     z-index: 200;
   }
 
-  .modal-header,
+
   .modal-footer {
     //padding: 15px;
     display: flex;
   }
 
-  .modal-header {
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: center;
-  }
+  // .modal-header {
+  //   border-bottom: 1px solid #eeeeee;
+  //   color: #4AAE9B;
+  //   justify-content: center;
+  // }
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    justify-content: flex-end;
-  }
+  // .modal-footer {
+  //   border-top: 1px solid #eeeeee;
+  //   justify-content: flex-end;
+  // }
 
   .modal-body {
     position: relative;
@@ -164,6 +176,7 @@
   line-height: 3rem;
   font-weight: bold;
   margin-bottom: 5px;
+  color: black;
 }
 
   b{

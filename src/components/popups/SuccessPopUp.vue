@@ -6,14 +6,26 @@
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
 
-      <section class="modal-body">
-        <slot name="body">
-        <h4 class="section-title">Congratulations!</h4>
-          <p><b>Your table is ready!</b></p>
-          <p><b>Please go back to the restaurant</b></p>
-          <button type="button" class="btn btn-text" v-on:click="goHome()">OK</button>
-        </slot>
-       </section>
+      <div class="popup">
+        <header class="modal-header">
+          <slot name="header">
+            <h4 class="section-title">Congratulations!</h4>
+          </slot>
+        </header>
+
+        <section class="modal-body">
+          <slot name="body">
+            <p><b>Your table is ready!</b></p>
+            <p><b>Please go back to the restaurant</b></p>
+          </slot>
+        </section>
+
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button type="button" class="btn btn-text" v-on:click="goHome()">OK</button>
+          </slot>
+        </footer>
+      </div>
 
     </div>
   </div>
@@ -139,28 +151,27 @@
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    //height: 50vh;
+    height: 50vh;
     border-radius: 10px;
     position: relative;
  
   }
 
-  .modal-header,
   .modal-footer {
     padding: 15px;
     display: flex;
   }
 
-  .modal-header {
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: center;
-  }
+  // .modal-header {
+  //   border-bottom: 1px solid #eeeeee;
+  //   color: #4AAE9B;
+  //   justify-content: center;
+  // }
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    justify-content: flex-end;
-  }
+  // .modal-footer {
+  //   border-top: 1px solid #eeeeee;
+  //   justify-content: flex-end;
+  // }
 
   .modal-body {
     position: relative;
@@ -202,12 +213,16 @@
     z-index: 200;
   }
 
-  h4{
-    margin-top: 1rem;
-  }
-
+ h4{
+  font-size: 3rem;
+  margin: 1rem auto; 
+  font-family: $sc-font-family;
+  line-height: 3rem;
+  font-weight: bold;
+}
   b{
     font-family: $bt-font-family;
     font-weight: bold;
+    font-size: 1.5rem;
   }
 </style>

@@ -6,38 +6,43 @@
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
 
-      <header class="modal-header">
-        <slot name="header">
-        </slot>
-      </header>
-      <section class="modal-body">
-        <slot name="body">
-          <h4>Drop me off</h4>
-          <p><b>LEAVE ME IN THE QUEUE FOR</b></p>
-          <p class="restName"> {{waiting.rName}} </p> 
-          <p><b>Waiting Time:</b></p>
-          <div class="wait"> <span class="time">{{selRest.estTime}}</span><span class="min">min</span> </div>
-        </slot>
-      </section>
-      <footer class="modal-footer">
-          <slot name="footer">
+      <div class="popup">
+        <header class="modal-header">
+          <slot name="header">
+            <h4>Drop me off</h4>
+          </slot>
+        </header>
 
+        <section class="modal-body">
+          <slot name="body">
+            <p><b>LEAVE ME IN THE QUEUE FOR</b></p>
+            <p class="restName"> {{waiting.rName}} </p> 
+            <p><b>Waiting Time:</b></p>
+            <div class="wait"> <span class="time">{{selRest.estTime}}</span><span class="min">min</span> </div>
+          </slot>
+        </section>
+
+        <footer class="modal-footer">
+            <slot name="footer">
+
+              <button
+                type="button"
+                class="btn btn-text"
+                v-on:click="keepWaiting"
+              >
+                Stay in the queue
+            </button>
             <button
-              type="button"
-              class="btn btn-text"
-              v-on:click="keepWaiting"
-            >
-              Stay in the queue
-          </button>
-          <button
-              type="button"
-              class="btn btn-text"
-              v-on:click="dropOffConfirm"
-            >
-              Drop Off
-          </button>
-        </slot>
-      </footer>
+                type="button"
+                class="btn btn-text"
+                v-on:click="dropOffConfirm"
+              >
+                Drop Off
+            </button>
+          </slot>
+        </footer>
+      </div>
+
     </div>
   </div>
 
@@ -53,6 +58,7 @@
         <slot name="header">
         </slot>
       </header>
+      
       <section class="modal-body">
         <slot name="body">
             <h3>Your spot has been removed fom the restaurant!</h3> 
@@ -158,11 +164,12 @@ import firebase from 'firebase';
   }
 
 h4{
-    font-size: 3rem;
+  font-size: 3rem;
   margin: 1rem auto; 
   font-family: $sc-font-family;
   line-height: 3rem;
-    font-weight: bold;
+  font-weight: bold;
+  color: black;
 }
 
   .kiwi1{
@@ -183,7 +190,8 @@ h4{
   }
 
   p{
-    margin: 0 auto;
+    margin:auto;
+    font-size: 1.5rem;
   }
 
     b{
@@ -235,11 +243,11 @@ h4{
    margin: 0;
  }
 
-  .modal-header {
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: space-between;
-  }
+  // .modal-header {
+  //   border-bottom: 1px solid #eeeeee;
+  //   color: #4AAE9B;
+  //   justify-content: space-between;
+  // }
 
  
 

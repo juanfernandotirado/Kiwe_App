@@ -6,19 +6,32 @@
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi2">
 
-      <section class="modal-body">
-        <slot name="body">
-          <h3 class="user-name"> {{userName}} </h3>
-          <WaitListInfo/> 
-          <button
+      <div class="popup">
+        <header class="modal-header">
+          <slot name="header">
+            <h2 class="hello">Hello,</h2> 
+            <h3 class="user-name"> {{userName}} </h3>
+          </slot>
+        </header>
+
+        <section class="modal-body">
+          <slot name="body">
+            <WaitListInfo/> 
+          </slot>
+        </section>
+
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button
               type="button"
               class="btn btn-text"
               v-on:click="goHome()"
-            >
-              Done
-          </button>
-        </slot>
-       </section>
+              >
+                Done
+            </button>
+          </slot>
+        </footer>
+      </div>
   
     </div>
   </div>
@@ -122,15 +135,27 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 
  
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    justify-content: space-around;
-  }
+  // .modal-footer {
+  //   border-top: 1px solid #eeeeee;
+  //   justify-content: space-around;
+  // }
 
   .modal-body {
     position: relative;
     padding: 20px 20px;
   }
+
+
+  .hello {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-left: 3rem;
+  color: $sc-font-color;
+  text-align: left;
+  font-size: $sc-font-size;
+  font-family: $sc-font-family;
+}
 
   
 </style>

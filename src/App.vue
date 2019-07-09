@@ -315,8 +315,32 @@ export default {
     display: block;
     line-height: 8px;
     }
+
+
+
+
 }
 
+///Popups
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2.4rem;
+  height: 100%;
+}
+
+.modal.modal-footer {
+  border: none;
+  background-color: transparent;
+}
+
+.modal-header {
+  border: none;
+  display: block;
+
+}
 
 
 
