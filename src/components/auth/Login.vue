@@ -24,7 +24,7 @@
         </div>
 
         <div class="help">
-            <p>Forgot password?</p>
+            <button class="btn btn-text btn-optional">Forgot password?</button>
         </div>
 
      <!-- <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link> -->
@@ -239,6 +239,8 @@ export default {
             margin: 1rem auto;
             width: 100%;
         }
+
+    
     
     @media screen and (min-height: 650px){
         .logo-image {

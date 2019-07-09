@@ -5,7 +5,7 @@
         <h2 class="section-title">Waiting list information</h2>
         <div>
           <h3 class="restaurant-name"> {{ currentListStatus.rName }}</h3>
-          <div class="restaurant">
+          <div class="restaurant" v-show="!show">
             <p class="section-content">Party for </p>
             <p class="section-information-number"> {{ currentListStatus.grSize }}</p>
             <!-- <p>Group before you: {{rWaiting}}</p> -->
@@ -13,9 +13,21 @@
             <p class="section-information-text"> {{assignAdditionalInfo(additionalInfo.accessibility)}} </p>
             <p class="section-content">Seating preference </p>
             <p class="section-information-text"> {{assignAdditionalInfo(additionalInfo.seatingPreferences)}} </p>
-            <button class="btn btn-text" v-on:click='EditInfo'>Edit information</button>
+
+
+
+            <button class="btn btn-text" @click='show=!show' v-show="!show">Edit information</button>
           </div>
 
+        </div>
+
+        <div class="edit-info restaurant" v-show="show">
+         <GroupSize/>
+         <Accesibility/>
+         <Seating/>
+
+          <button class="btn btn-text" @click="show=!show">Save</button>
+          
         </div>
 
       
@@ -36,13 +48,24 @@
 
 <script>
 
+import GroupSize from '../main/GroupSize.vue'
+import Accesibility from '../main/Accesibility.vue'
+import Seating from '../main/Seating.vue'
+
 export default {
   name:'ReviewList',
 
   data:function(){
     return {
+      show:false,
     }
    
+  },
+
+  components: {
+    GroupSize,
+    Accesibility,
+    Seating
   },
 
   methods: {
@@ -133,6 +156,10 @@ export default {
   
   .restName{
     text-transform: capitalize;
+  }
+
+  .additional-info {
+    margin: 1.5rem 0;
   }
 </style>
 

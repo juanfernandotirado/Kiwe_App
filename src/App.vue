@@ -225,6 +225,17 @@ export default {
     }
   }
 
+  .btn-optional {
+    background-color: transparent;
+    color: black;
+    margin: 0 !important;
+    width: 100%;
+    padding: 0;
+    font-weight: normal;
+    text-decoration: underline $main-green;
+    box-shadow: none;
+  }
+
    .dropDown {
     border-radius: 20px;
 
