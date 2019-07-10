@@ -64,7 +64,7 @@ export default {
         },
 
         topThreeHistory: function (history) {
-            // let historyShort = [];
+            let historyShort = [];
             // let originalHistory = history.length;
             // let newHistory = originalHistory - 3;
 
