@@ -22,6 +22,7 @@ const GET_WAITING_TO_CURRENTLIST = (state,payload) => {
     state.currentListStatus.joinTime = payload.joinTime;
     state.currentListStatus.joinHour = payload.joinHour;
     state.currentListStatus.rName = payload.rName;
+    state.currentListStatus.did = payload.did;
 }
 
 // Function to add people to the group

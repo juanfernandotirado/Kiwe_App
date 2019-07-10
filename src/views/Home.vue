@@ -75,6 +75,8 @@ export default {
             let db = firebase.firestore();
             let that = this;
 
+            let uid = this.$store.state.userStatus.uid
+
             
 
             db.collection("restaurants").onSnapshot(function (querySnapshot){
@@ -119,6 +121,7 @@ export default {
                     nickName : doc.data().nickName,
                     rName : doc.data().rName,
                     rid : doc.data().rid,
+                    did: did,
                   }
 
                   let restId = doc.data().rid;

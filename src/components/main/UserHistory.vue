@@ -2,7 +2,7 @@
     <div>
         <h2 class="section-title">History</h2>
         <ul class="user-history">
-            <li v-for="history in historyList"
+            <li v-for="history in topThreeHistory(historyList)"
             v-bind:key="history.id"
             class="history">
 
@@ -42,9 +42,11 @@ export default {
         RatingStars
     },
 
+
     data(){
         return {
             urlPart: 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference=',
+
         }
 
     },
@@ -52,12 +54,33 @@ export default {
     computed: {
         historyList(){
             return this.$store.state.userStatus.history
-        }
+        },
+
     },
 
     methods: {
         compileUrl: function (item) {
             return this.urlPart + item;
+        },
+
+        topThreeHistory: function (history) {
+            let historyShort = [];
+            let originalHistory = history.length;
+            let newHistory = originalHistory - 3;
+
+            //console.log(history);
+            //console.log(originalHistory);
+            //console.log(newHistory);
+
+
+            for(var i=newHistory; i < originalHistory; i++){
+                //console.log(history[i]);
+                historyShort.push(history[i]);
+
+            }
+            //console.log(historyShort);
+            return historyShort;
+        
         }
     }
 
