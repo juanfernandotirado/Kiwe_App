@@ -287,11 +287,7 @@ export default {
               that.$store.dispatch('emptyWaitlist');
               that.$store.dispatch('emptyStatus');
               that.$store.dispatch('toogleFirstStep');
-              that.$store.dispatch('isInLine');
-
-
-
-
+              //that.$store.dispatch('isInLine');
             
           }
         })

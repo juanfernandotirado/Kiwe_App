@@ -8,7 +8,8 @@
         <p class="spot"> {{currentSpot}}</p>
 
         <div class="restWaiting"> <b>Waiting Time:</b> 
-          <div class="wait"> <span class="time">{{ assignWaitTime(grSize,selectedRes) }}</span><span class="min">min</span> </div>
+          <div class="wait" v-if="!popupNotification"> <span class="time">{{ assignWaitTime(grSize,selectedRes) }}</span><span class="min">min</span> </div>
+          <div class="wait wait-notification" v-else> <span class="time"> 5 </span><span class="min">min</span> </div>
         </div>
         <!-- <p>Time you joined: {{ joinTime.getDate() }} {{ months[joinTime.getMonth()] }},  {{ joinTime.getHours() }}:{{ joinTime.getMinutes() }} </p> -->
 
@@ -106,6 +107,10 @@ export default {
     selectedRes(){
       return this.$store.state.selRest
     },
+
+    popupNotification(){
+      return this.$store.state.popupNotification
+    }
 
   },
 

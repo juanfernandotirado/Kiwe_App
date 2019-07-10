@@ -53,6 +53,7 @@ export default new Vuex.Store({
     popupNotification: false,
     firstStep: true,
 
+
     //Notification Popup
     popUpNotificationShow:false,
     denyNotification:false,
