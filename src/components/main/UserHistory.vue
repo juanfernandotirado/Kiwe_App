@@ -68,16 +68,27 @@ export default {
             // let originalHistory = history.length;
             // let newHistory = originalHistory - 3;
 
-     
+            console.log("History",history)
             //console.log(originalHistory);
             //console.log(newHistory);
-
-            for(var i=0; i < 3; i++){
+            if(history.length>=3)
+            {
+                for(var i=0; i < 3; i++){
                 //console.log(history[i]);
                 historyShort.push(history[i]);
 
+                }
             }
+            else{
+                for(var i=0; i < history.length; i++){
+                //console.log(history[i]);
+                historyShort.push(history[i]);
+
+                }
+            }
+            
             //console.log(historyShort);
+            console.log(historyShort);
             return historyShort;
         
         }
