@@ -25,7 +25,7 @@
         <Header />
       </div>
       <div class="app-body">
-        <router-view/>
+          <router-view/>
       </div>
 
       <div v-if="logined" class="app-footer">

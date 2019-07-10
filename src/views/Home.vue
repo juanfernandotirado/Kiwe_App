@@ -15,7 +15,7 @@
       </div>
 
       <DropOffPop />
-      <SuccessPopUp />
+        <SuccessPopUp />
       <NotificationPopUp />
 
     </div>

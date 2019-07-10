@@ -316,6 +316,12 @@ export default {
             width: 100%;
         }
 
+    .btn-optional:hover,
+    .btn-optional:visited{
+        background-color: transparent !important;
+        box-shadow: none;
+    }
+
     
     
     @media screen and (min-height: 650px){

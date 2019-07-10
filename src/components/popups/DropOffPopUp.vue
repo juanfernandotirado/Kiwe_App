@@ -30,7 +30,7 @@
                 class="btn btn-text"
                 v-on:click="keepWaiting"
               >
-                Stay in the queue
+                Stay in line
             </button>
             <button
                 type="button"
@@ -217,14 +217,19 @@ h4{
     overflow-y:visible;
     display: flex;
     flex-direction: column;
-    max-height: 480px;
+    height: 480px;
     border-radius: 10px;
     position: relative;
  
   }
 
+  .popup {
+    height: auto;
+  }
+
   .modal2 footer{
     margin-top: 3rem;
+    width: auto;
   }
 
   .modal2 .modal-body h3{
@@ -237,8 +242,17 @@ h4{
   margin-top: 3rem;
   }
 
+  .modal2 {
+        width: auto;
+        height: 480px;
+        width: 80%;
+
+  }
+
  .modal-footer{
    margin: 0;
+    width: auto;
+
  }
 
   // .modal-header {

@@ -45,7 +45,7 @@
       }
     },
 
-    created(){
+    mounted(){
       let did = this.$store.state.currentListStatus.did;
       let joinTime = this.$store.state.currentListStatus.joinAt;
 
@@ -59,12 +59,12 @@
                 let item = doc.data();
                 console.log('Something updated in firebase.',item)
                 try {
-                  if(!that.$store.state.denyNotification&&item.notification.length>1){ 
-                    //Get notification
-                    
-                    that.$store.dispatch('controlPopupNotification',true);
-                  }
-                  else if(item.status=="success"){
+                  // if(!that.$store.state.denyNotification&&item.notification.length>1){ 
+                  //   //Get notification
+
+                  //   that.$store.dispatch('controlPopupNotification',true);
+                  // }
+                   if(item.status=="success"){
                       that.$store.dispatch('togglePopUpSuccessShows');
                       //stop listen update
                       unsubscribe();
@@ -79,7 +79,7 @@
 
     },
 
-    // beforeMount(){
+    // mounted(){
     //   let did = this.$store.state.currentListStatus.did;
     //   let db = firebase.firestore();
     //   let that = this;
@@ -121,7 +121,7 @@
         
 
         this.$store.dispatch('togglePopUpSuccessShows');
-        this.$store.dispatch('denyPopupNotification',false);
+        //this.$store.dispatch('denyPopupNotification',false);
         this.$store.dispatch('isInLine');
         this.$router.push('home');
         this.$store.dispatch('changeStatus');
