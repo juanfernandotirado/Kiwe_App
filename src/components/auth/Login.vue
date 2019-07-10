@@ -48,7 +48,7 @@ export default {
       }
   },
 
-  methods: {
+    methods: {
 
       signUp:function(e){
           e.preventDefault();
@@ -57,6 +57,9 @@ export default {
       },
 
       submitLogin:function(e){
+
+          let db = firebase.firestore();
+
           e.preventDefault();
           //Submit to Firebase
            firebase.auth().signInWithEmailAndPassword(this.inputEmail, this.inputPwd)
@@ -64,7 +67,7 @@ export default {
               //Help me check if the entered user and password is correct to what we have in the database
               console.log('Login Success', user.user);
 
-              let db = firebase.firestore();
+              //let db = firebase.firestore();
               //Get user profile information
               let docRef = db.collection("users").doc(user.user.uid);
                   docRef.get().then((doc) => {
@@ -77,7 +80,9 @@ export default {
                                           profile: doc.data().profile,
                                           phone: doc.data().phone,  
                                           preferences: doc.data().profile, 
-                                          history: doc.data().history,                                     }
+                                          history: doc.data().history, 
+                                          currentWaiting: doc.data().currentWaiting,                                    
+                                          }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
 
@@ -97,10 +102,62 @@ export default {
             }).catch((err) => {
                 // Handle Errors here.
                 this.errMsg = err.message;
-              });
-                    },
+            });
+
+
+
+        //     let did = this.$store.state.userStatus.currentWaiting;
+
+        // let that = this;
+
+        // let restList = this.$store.state.restaurantList;
+
+
+        // db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+        //     let currentWaiting = {
+        //         currentSpot : doc.data().currentSpot,
+        //         date : doc.data().date,
+        //         grSize : doc.data().grSize,
+        //         joinTime : doc.data().joinTime,
+        //         joinHour : doc.data().joinHour,
+        //         nickName : doc.data().nickName,
+        //         rName : doc.data().rName,
+        //         rid : doc.data().rid,
+        //     }
+
+        //     that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
+
+
+        //     let restId = doc.data().rid;
+        //     let rest;
+
+
+        //     console.log('waitlist dada', currentWaiting);
+
+        //     console.log(restList);
+
+        //     for (rest of restList){
+        //         if (rest.rid === restId){
+        //             that.$store.dispatch('assignRest', rest);
+        //             console.log(that.$store.state.selRest);
+
+        //         }
+        //     }
+
+
+      
+        // })
         
-                },
+    
+
+
+            
+
+
+        },
+        
+    },
 
     mounted(){
         //Check current user is login already
@@ -121,7 +178,9 @@ export default {
                                           profile: doc.data().profile,
                                           phone: doc.data().phone,  
                                           preferences: doc.data().profile,  
-                                          history: doc.data().history,                                    }
+                                          history: doc.data().history,  
+                                          currentWaiting: doc.data().currentWaiting,                                        
+                            }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
 
@@ -140,7 +199,7 @@ export default {
                   });
         }
     }
-            }
+}
   </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

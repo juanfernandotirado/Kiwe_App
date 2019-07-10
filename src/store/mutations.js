@@ -13,6 +13,17 @@ const GET_USER_STATUS = (state,payload) => {
     console.log(state.userStatus);
 }
 
+// Function get waitlist information from database
+
+const GET_WAITING_TO_CURRENTLIST = (state,payload) => {
+    state.currentListStatus.currentSpot = payload.currentSpot;
+    state.currentListStatus.date = payload.date;
+    state.currentListStatus.grSize = payload.grSize;
+    state.currentListStatus.joinTime = payload.joinTime;
+    state.currentListStatus.joinHour = payload.joinHour;
+    state.currentListStatus.rName = payload.rName;
+}
+
 // Function to add people to the group
 
 const ADD_GROUP_SIZE = (state) => {
@@ -193,6 +204,7 @@ const ADD_WAITED_TIME = (state,payload) => {
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
+    GET_WAITING_TO_CURRENTLIST,
     ADD_GROUP_SIZE,
     SUBTRACT_GROUP_SIZE,
     SELECT_REST_DB,

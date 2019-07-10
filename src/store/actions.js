@@ -11,6 +11,12 @@ const getUserStatus = (context,payload) => {
     context.commit('GET_USER_STATUS',payload);
 };
 
+// Action get waitlist information from database
+
+const getWaitingSetCurrent = (context,payload) => {
+    context.commit('GET_WAITING_TO_CURRENTLIST',payload);
+}
+
 // Action to add people to the group
 
 const addGroupSize = (context) => {
@@ -170,6 +176,7 @@ const addWaitedTime = (context,payload) => {
 export default{
     changeName,
     getUserStatus,
+    getWaitingSetCurrent,
     addGroupSize,
     subtractGroupSize,
     assignRestDb,

@@ -67,6 +67,133 @@ export default {
 
   // },
 
+  beforeCreate(){
+
+            // let did = this.$store.state.userStatus.currentWaiting;
+
+
+            let db = firebase.firestore();
+            let that = this;
+
+            //let loadedRestaurantList = this.$store.state.loadedRestaurantList;
+            
+
+            db.collection("restaurants").onSnapshot(function (querySnapshot){
+              that.$store.dispatch('emptyRestDb');
+
+              querySnapshot.forEach(function(doc){
+                  console.log(doc.id, " => " , doc.data());
+
+
+                  let restListdb = {
+                            address: doc.data().address,
+                            cuisine: doc.data().cuisine,
+                            loginId: doc.data().loginId,
+                            priceLevel: doc.data().priceLevel,
+                            rName: doc.data().rName,
+                            rImgRef: doc.data().rImgRef,
+                            rid: doc.data().rid,
+                            waitTime: doc.data().waitTime,
+                            rating: doc.data().rating,
+                            sizeStandard: doc.data().sizeStandard,
+                            estTime: 0,
+                            restaurantGallery:doc.data().restaurantGallery
+                  }
+
+                  that.$store.dispatch('assignRestDb', restListdb);
+                  //Loaded All restaurant, hide loading
+                  that.$store.dispatch('controlLoading', true);
+
+                })
+
+                let did = that.$store.state.userStatus.currentWaiting;
+
+
+                db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+                  let currentWaiting = {
+                    currentSpot : doc.data().currentSpot,
+                    date : doc.data().date,
+                    grSize : doc.data().grSize,
+                    joinTime : doc.data().joinTime,
+                    joinHour : doc.data().joinHour,
+                    nickName : doc.data().nickName,
+                    rName : doc.data().rName,
+                    rid : doc.data().rid,
+                  }
+
+                  let restId = doc.data().rid;
+
+                  let restList = that.$store.state.restaurantList;
+                console.log(restList);
+
+                let rest;
+
+
+                for (rest of restList){
+                  if (rest.rid === restId){
+                    that.$store.dispatch('assignRest', rest);
+                    console.log(that.$store.state.selRest);
+
+                  }
+                }
+
+
+
+
+
+                that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
+
+            })
+
+              // db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+              //   let restId = doc.data().rid;
+              // })
+
+
+              //   let restList = that.$store.state.restaurantList;
+              //   console.log(restList);
+
+              //   let rest;
+
+
+              //   for (rest of restList){
+              //     if (rest.rid === restId){
+              //       that.$store.dispatch('assignRest', rest);
+              //       console.log(that.$store.state.selRest);
+
+              //     }
+              //   }
+
+              
+
+
+            })
+
+
+
+            
+
+            // let restList = this.$store.state.restaurantList;
+            // console.log(restList);
+
+            // let restId = doc.data().rid;
+            // let rest;
+
+            // console.log('waitlist data', currentWaiting);
+
+            // for (rest of restList){
+            //     if (rest.rid === restId){
+            //       that.$store.dispatch('assignRest', rest);
+            //       console.log(that.$store.state.selRest);
+
+            //     }
+            // }
+
+        
+  },
+
   created(){
 
     //functiom provided by vue. Run each time we go to a component. 
@@ -96,7 +223,9 @@ export default {
                                           profile: doc.data().profile,
                                           phone: doc.data().phone,  
                                           preferences: doc.data().profile,
-                                          history: doc.data().history,                                          }
+                                          history: doc.data().history, 
+                                          currentWaiting: doc.data().currentWaiting,                                    
+                                         }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
                       } else {
@@ -107,6 +236,8 @@ export default {
                       console.log("Error getting document:", err);
                        this.errMsg = err;
                   });
+
+                  
               }
         }
   }

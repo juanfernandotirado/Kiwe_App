@@ -102,6 +102,54 @@ export default {
 
   },
 
+  beforeCreate(){
+
+    // let did = this.$store.state.userStatus.currentWaiting;
+
+    //         let db = firebase.firestore();
+    //         let that = this;
+
+    // let restList = this.$store.state.restaurantList;
+
+
+    // db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+    //   let currentWaiting = {
+    //     currentSpot : doc.data().currentSpot,
+    //     date : doc.data().date,
+    //     grSize : doc.data().grSize,
+    //     joinTime : doc.data().joinTime,
+    //     joinHour : doc.data().joinHour,
+    //     nickName : doc.data().nickName,
+    //     rName : doc.data().rName,
+    //     rid : doc.data().rid,
+    //   }
+
+    //   let restId = doc.data().rid;
+    //   let rest;
+
+
+    //   console.log('waitlist dada', currentWaiting);
+
+    //   console.log(restList);
+
+    //   for (rest of restList){
+    //     if (rest.rid === restId){
+    //       that.$store.dispatch('assignRest', rest);
+    //       console.log(that.$store.state.selRest);
+
+    //     }
+    //   }
+
+    //   that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
+
+      
+    // })
+        
+    
+
+  },
+
   created(){
         
     let currentDate = new Date(this.$store.state.currentListStatus.joinTime);

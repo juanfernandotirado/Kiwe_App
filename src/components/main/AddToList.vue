@@ -87,7 +87,8 @@ export default {
                 joinHour: hourMinute,
                 date: `${currentTime.getMonth()+1}-${currentTime.getDate()}-${currentTime.getFullYear()}`,
                 status: 'waiting',
-                notification: ''
+                notification: '',
+                currentSpot: this.$store.state.currentListStatus.currentSpot,
                 //in here we created different properties for the user
 
           
