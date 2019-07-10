@@ -75,14 +75,14 @@ export default {
             {
                 for(var i=0; i < 3; i++){
                 //console.log(history[i]);
-                historyShort.push(history[i]);
+                historyShort.push(history[history.length-(i+1)]);
 
                 }
             }
             else{
                 for(var i=0; i < history.length; i++){
                 //console.log(history[i]);
-                historyShort.push(history[i]);
+                historyShort.push(history[history.length-(i+1)]);
 
                 }
             }
