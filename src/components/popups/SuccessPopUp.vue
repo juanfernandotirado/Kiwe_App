@@ -59,11 +59,11 @@
                 let item = doc.data();
                 console.log('Something updated in firebase.',item)
                 try {
-                  // if(!that.$store.state.denyNotification&&item.notification.length>1){ 
-                  //   //Get notification
+                  if(!that.$store.state.denyNotification&&item.notification.length>1){ 
+                    //Get notification
 
-                  //   that.$store.dispatch('controlPopupNotification',true);
-                  // }
+                    that.$store.dispatch('controlPopupNotification',true);
+                  }
                    if(item.status=="success"){
                       that.$store.dispatch('togglePopUpSuccessShows');
                       //stop listen update
