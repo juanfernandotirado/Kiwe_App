@@ -180,6 +180,25 @@ export default {
         
   },
 
+  // created(){
+  //   let db = firebase.firestore();
+  //   let uid = this.$store.state.userStatus.uid;
+  //   console.log(uid)
+
+  //   let that = this;
+
+  //   let outQueue = db.collection("users").doc(uid).onSnapshot(function(doc){
+  //     let item = doc.date();
+      
+  //       if (item.uid.isInLine === false){
+  //         that.$store.dispatch('isInLine');
+  //         outQueue();
+        
+  //     }
+  //   })
+
+  // },
+
   created(){
 
     //functiom provided by vue. Run each time we go to a component. 
@@ -215,8 +234,7 @@ export default {
         //           let restId = doc.data().rid;
 
 
-        if(currentUser)
-        {     
+        if(currentUser){     
               if(!this.$store.state.userStatus.nickName)
               {
               let db = firebase.firestore();
@@ -253,6 +271,30 @@ export default {
                   
               }
         }
+
+        let db = firebase.firestore();
+        let uid = this.$store.state.userStatus.uid;
+        
+
+        let that = this;
+
+        db.collection("users").doc(uid).onSnapshot(function(doc){
+          let item = doc.data();
+          
+            if (item.isInLine === false){
+              console.log('user id')
+              console.log(uid)
+              that.$store.dispatch('emptyWaitlist');
+              that.$store.dispatch('emptyStatus');
+              that.$store.dispatch('toogleFirstStep');
+              that.$store.dispatch('isInLine');
+
+
+
+
+            
+          }
+        })
   }
 
  

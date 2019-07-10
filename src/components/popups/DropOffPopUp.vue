@@ -116,6 +116,7 @@ import firebase from 'firebase';
         this.$store.dispatch('emptyWaitlist');
        
         this.$store.dispatch('popUpShowsD');
+        this.$store.dispatch('toogleFirstStep');
 
         let didUser = this.$store.state.currentListStatus.did;
         let uid = this.$store.state.userStatus.uid;
