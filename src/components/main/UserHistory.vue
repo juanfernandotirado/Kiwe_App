@@ -2,8 +2,8 @@
     <div>
         <h2 class="section-title">History</h2>
         <ul class="user-history">
-            <li v-for="history in topThreeHistory(historyList)"
-            v-bind:key="history.id"
+            <li v-for="(history,index) in topThreeHistory(historyList)"
+            v-bind:key="index"
             class="history">
 
                 <img :src="compileUrl(history.rImgRef)" alt="" class="img-cover">
@@ -64,15 +64,15 @@ export default {
         },
 
         topThreeHistory: function (history) {
-            let historyShort = [];
-            let originalHistory = history.length;
-            let newHistory = originalHistory - 3;
+            // let historyShort = [];
+            // let originalHistory = history.length;
+            // let newHistory = originalHistory - 3;
 
-            //console.log(history);
+     
             //console.log(originalHistory);
             //console.log(newHistory);
 
-            for(var i=newHistory; i < originalHistory; i++){
+            for(var i=0; i < 3; i++){
                 //console.log(history[i]);
                 historyShort.push(history[i]);
 
