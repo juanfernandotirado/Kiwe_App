@@ -24,7 +24,7 @@
         </div>
 
         <div class="help">
-            <button class="btn btn-text btn-optional">Forgot password?</button>
+            <a class="optional-link">Forgot password?</a>
         </div>
 
      <!-- <router-link to="/signup">Not on virtual line-up yet? Sign up</router-link> -->
@@ -316,10 +316,9 @@ export default {
             width: 100%;
         }
 
-    .btn-optional:hover,
-    .btn-optional:visited{
-        background-color: transparent !important;
-        box-shadow: none;
+    .optional-link {
+        text-decoration: none;
+        color: black
     }
 
     
