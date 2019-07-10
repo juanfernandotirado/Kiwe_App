@@ -56,7 +56,6 @@ export default new Vuex.Store({
     popUpNotificationShow:false,
     denyNotification:false,
 
-    loadedWaitlistInfo:false,
 
     loadedRestaurantList: false,
 

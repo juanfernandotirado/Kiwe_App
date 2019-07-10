@@ -72,7 +72,6 @@ export default {
             //console.log(originalHistory);
             //console.log(newHistory);
 
-
             for(var i=newHistory; i < originalHistory; i++){
                 //console.log(history[i]);
                 historyShort.push(history[i]);

@@ -89,6 +89,32 @@ export default {
                           //Go to Homepage
                           this.$router.push('home');
 
+                        //   if(userStatus.isInLine === true){
+
+                        //         let did = that.$store.state.userStatus.currentWaiting;
+
+
+                        //         db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+                        //         let currentWaiting = {
+                        //             currentSpot : doc.data().currentSpot,
+                        //             date : doc.data().date,
+                        //             grSize : doc.data().grSize,
+                        //             joinTime : doc.data().joinTime,
+                        //             joinHour : doc.data().joinHour,
+                        //             nickName : doc.data().nickName,
+                        //             rName : doc.data().rName,
+                        //             rid : doc.data().rid,
+                        //             did: did,
+                        //             status: doc.data().status,
+                        //             rImgRef : doc.data().rImgRef,
+                        //         }
+
+                        //         that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
+
+                        //         })
+                        //   }
+
 
                       } else {
                           // doc.data() will be undefined in this case
@@ -104,7 +130,11 @@ export default {
                 this.errMsg = err.message;
             });
 
+            // let userS = this.$store.state.userStatus;
+            // console.log('user saved on local');
+            // console.log(userS)
 
+            
         },
         
     },
@@ -114,7 +144,40 @@ export default {
         const currentUser = firebase.auth().currentUser;
         console.log('Pe',currentUser)
         if(currentUser)
-        {
+        {     
+            
+
+            // if(userS.isInLine === true){
+
+            //     let did = this.$store.state.userStatus.currentWaiting;
+
+
+            //     db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+            //         let currentWaiting = {
+            //                             currentSpot : doc.data().currentSpot,
+            //                             date : doc.data().date,
+            //                             grSize : doc.data().grSize,
+            //                             joinTime : doc.data().joinTime,
+            //                             joinHour : doc.data().joinHour,
+            //                             nickName : doc.data().nickName,
+            //                             rName : doc.data().rName,
+            //                             rid : doc.data().rid,
+            //                             did: did,
+            //                             status: doc.data().status,
+            //                             rImgRef : doc.data().rImgRef,
+            //         }
+
+            //         that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
+
+            //     })
+            // }
+
+
+
+
+
+
               let db = firebase.firestore();
               //Get user profile information
               let docRef = db.collection("users").doc(currentUser.uid);
@@ -136,8 +199,10 @@ export default {
 
                           //Go to Homepage
                           this.$router.push('home');
-                    
 
+                        //   let userS = this.$store.state.userStatus;
+                        // console.log('user saved on local');
+                        // console.log(userS)
 
                       } else {
                           // doc.data() will be undefined in this case
@@ -147,6 +212,9 @@ export default {
                       console.log("Error getting document:", err);
                        this.errMsg = err;
                   });
+
+            
+                    
         }
     }
 }

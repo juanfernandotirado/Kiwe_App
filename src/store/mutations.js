@@ -10,7 +10,7 @@ const UPDATE_USER_NICKNAME = (state,payload) =>{
 
 const GET_USER_STATUS = (state,payload) => {
     state.userStatus = payload;
-    console.log(state.userStatus);
+    // console.log(state.userStatus);
 }
 
 // Function get waitlist information from database
@@ -23,6 +23,10 @@ const GET_WAITING_TO_CURRENTLIST = (state,payload) => {
     state.currentListStatus.joinHour = payload.joinHour;
     state.currentListStatus.rName = payload.rName;
     state.currentListStatus.did = payload.did;
+    state.currentListStatus.status = payload.status;
+    state.currentListStatus.rid = payload.rid;
+    state.currentListStatus.joinAt = payload.joinAt;
+    state.currentListStatus.rImgRef = payload.rImgRef;
 }
 
 // Function to add people to the group
@@ -165,10 +169,6 @@ const CONTROL_LOADING = (state,payload) => {
     state.loadedRestaurantList = payload;
 }
 
-//Function control loader waitlistInfo
-const CONTROL_LOADING_WAITLIST = (state,payload) => {
-    state.loadedWaitlistInfo = payload;
-}
 
 // Function control notification pop up
 const CONTROL_POPUP_NOTIFICATION = (state,payload) => {
@@ -233,7 +233,6 @@ export default {
     REST_CURRENT_SPOT,
     TOGGLE_POPUP_SUCCESS,
     CONTROL_LOADING,
-    CONTROL_LOADING_WAITLIST,
     CONTROL_POPUP_NOTIFICATION,
     DENY_POPUP_NOTIFICATION,
     TOGGLE_FIRST_STEP,

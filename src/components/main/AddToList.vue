@@ -80,15 +80,17 @@ export default {
                 nickName:this.$store.state.userStatus.nickName,
                 grSize:this.$store.state.currentListStatus.grSize,
                 rid:this.$store.state.currentListStatus.rid,
+                rImgRef: this.$store.state.selRest.rImgRef,
                 rName:this.$store.state.currentListStatus.rName,
                 addOptionsAccs:this.$store.state.additionalInfo.accessibility,
                 addOptionsSeating:this.$store.state.additionalInfo.seatingPreferences,
                 joinTime: currentTime.getTime(),
+                joinAt: currentTime.getTime(),
                 joinHour: hourMinute,
                 date: `${currentTime.getMonth()+1}-${currentTime.getDate()}-${currentTime.getFullYear()}`,
                 status: 'waiting',
                 notification: '',
-                currentSpot: this.$store.state.currentListStatus.currentSpot,
+                currentSpot:this.$store.state.currentListStatus.currentSpot,
                 //in here we created different properties for the user
 
           

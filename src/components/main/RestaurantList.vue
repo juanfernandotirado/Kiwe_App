@@ -101,8 +101,11 @@ export default {
             let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
 
             let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
+            //console.log(formatDate);
             let rid = rest.rid;
+            let rName = rest.rName;
             let grSize = this.$store.state.currentListStatus.grSize;
+            
 
             let spotCounter = {
                     smallGroup:0,
@@ -114,41 +117,70 @@ export default {
             let mediumTable = rest.sizeStandard.medium;
             let bigTable = rest.sizeStandard.large;
 
+            
+
 
             let db = firebase.firestore();
 
             let that = this;
 
             db.collection('waitlist').where("rid", "==", rid).where("status", "==", 'waiting').where("date", "==", formatDate).orderBy("joinTime", "desc").get().then(function(querySnapshot){ 
-                
+                // console.log('teables size for '+ rName);
+                //     console.log(smallTable);
+                //     console.log(mediumTable);
+                //     console.log(bigTable);
+                //     console.log('group size in currentList')
+                //     console.log(grSize);
 
                 querySnapshot.forEach(function(doc){
                     let item = doc.data();
 
+                    
+
                     if (item.grSize <= smallTable){
                         spotCounter.smallGroup++;
-                        rest.groupSpot = spotCounter.smallGroup;
+                        // rest.groupSpot = spotCounter.smallGroup;
+                        // console.log('small table spot');
+                        // console.log(rest.groupSpot);
+                    //      that.$store.dispatch('updateSpot', rest.groupSpot);
+                    // console.log('current spot saved in currentList');
+                    // console.log(that.$store.state.currentListStatus.currentSpot);
                     
                     }
 
-                    else if (item.grSize <= mediumTable){
+                    else if (item.grSize > smallTable && item.grSize <= mediumTable){
                         spotCounter.mediumGroup++;
-                        rest.groupSpot = spotCounter.mediumGroup;
+                        // rest.groupSpot = spotCounter.mediumGroup;
+                        // console.log('medium table spot');
+                        // console.log(rest.groupSpot);
+                    //      that.$store.dispatch('updateSpot', rest.groupSpot);
+                    // console.log('current spot saved in currentList');
+                    // console.log(that.$store.state.currentListStatus.currentSpot);
+
                       
                     }
 
                     else {
                         spotCounter.bigGroup++;
-                        rest.groupSpot = spotCounter.bigGroup;
+                        // rest.groupSpot = spotCounter.bigGroup;
+                        // console.log('big table spot');
+                        // console.log(rest.groupSpot);
+                    //      that.$store.dispatch('updateSpot', rest.groupSpot);
+                    // console.log('current spot saved in currentList');
+                    // console.log(that.$store.state.currentListStatus.currentSpot);
+
                      
                     }
 
-
-
                 })
+                    //   that.$store.dispatch('updateSpot', rest.groupSpot);
+                    console.log('current spot saved in currentList');
+                    console.log(that.$store.state.currentListStatus.currentSpot);
+
+
 
             rest.spot = spotCounter;
-            that.$store.dispatch('updateSpot', rest.groupSpot);
+            
        
 
             }).then(function(){

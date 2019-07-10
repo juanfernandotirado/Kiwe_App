@@ -1,8 +1,5 @@
 <template>
   <div class="wait-list-info-container">
-    <div class="loading" v-if="!loadedWaitlistInfo">
-      <LoadingKiwe />
-    </div>
         <h2 class="section-title">Your current Waiting List</h2>
         <h3 class="restName">{{ rName }}</h3>
         <p class="party">Party for</p>
@@ -21,13 +18,11 @@
 
 <script>
 import firebase from 'firebase';  
-import LoadingKiwe from '../main/LoadingKiwe.vue'
 
 export default {
   name:'WaitListInfo',
 
   components: {
-    LoadingKiwe
   },
   
   data:function(){

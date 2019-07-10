@@ -45,7 +45,7 @@
       }
     },
 
-    beforeCreate(){
+    created(){
       let did = this.$store.state.currentListStatus.did;
       let joinTime = this.$store.state.currentListStatus.joinAt;
 
@@ -61,13 +61,14 @@
                 try {
                   if(!that.$store.state.denyNotification&&item.notification.length>1){ 
                     //Get notification
+                    
                     that.$store.dispatch('controlPopupNotification',true);
                   }
-                  // else if(item.status=="success"){
-                  //     that.$store.dispatch('togglePopUpSuccessShows');
-                  //     //stop listen update
-                  //     unsubscribe();
-                  // }
+                  else if(item.status=="success"){
+                      that.$store.dispatch('togglePopUpSuccessShows');
+                      //stop listen update
+                      unsubscribe();
+                  }
 
                 
                 } 
@@ -78,29 +79,29 @@
 
     },
 
-    created(){
-      let did = this.$store.state.currentListStatus.did;
-      let db = firebase.firestore();
-      let that = this;
+    // beforeMount(){
+    //   let did = this.$store.state.currentListStatus.did;
+    //   let db = firebase.firestore();
+    //   let that = this;
 
-      let successCustomer = db.collection("waitlist").doc(did)
-            .onSnapshot(function(doc) {
-                let item = doc.data();
-                console.log('Something updated in firebase.',item)
-                try {
+    //   let successCustomer = db.collection("waitlist").doc(did)
+    //         .onSnapshot(function(doc) {
+    //             let item = doc.data();
+    //             console.log('Something updated in firebase.',item)
+    //             try {
               
-                  if(item.status=="success"){
-                      that.$store.dispatch('togglePopUpSuccessShows');
-                      //stop listen update
-                      unsubscribe();
-                  }
-                }
-                catch (error) {
-                  console.log(error);
-                }
-      });
+    //               if(item.status=="success"){
+    //                   that.$store.dispatch('togglePopUpSuccessShows');
+    //                   //stop listen update
+    //                   unsubscribe();
+    //               }
+    //             }
+    //             catch (error) {
+    //               console.log(error);
+    //             }
+    //   });
 
-    },
+    // },
     
 
     methods: {

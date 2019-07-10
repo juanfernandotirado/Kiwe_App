@@ -69,7 +69,12 @@ export default {
 
   beforeCreate(){
 
-            // let did = this.$store.state.userStatus.currentWaiting;
+            // console.log('user in local');        
+            // console.log(this.$store.state.userStatus)
+
+
+
+            //  let did = this.$store.state.userStatus.currentWaiting;
 
 
             let db = firebase.firestore();
@@ -83,7 +88,7 @@ export default {
               that.$store.dispatch('emptyRestDb');
 
               querySnapshot.forEach(function(doc){
-                  console.log(doc.id, " => " , doc.data());
+                  //console.log(doc.id, " => " , doc.data());
 
 
                   let restListdb = {
@@ -107,27 +112,48 @@ export default {
 
                 })
 
-                let did = that.$store.state.userStatus.currentWaiting;
+                let userWait = that.$store.state.userStatus.isInLine;
+
+                console.log(userWait);
+
+                if(userWait === true) {
+
+                  let did = that.$store.state.userStatus.currentWaiting;
+
+                  db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+                    let currentWaiting = {
+                      currentSpot : doc.data().currentSpot,
+                      date : doc.data().date,
+                      grSize : doc.data().grSize,
+                      rImgRef: doc.data().rImgRef,
+                      joinTime : doc.data().joinTime,
+                      joinHour : doc.data().joinHour,
+                      joinAt : doc.data().joinAt,
+                      nickName : doc.data().nickName,
+                      rName : doc.data().rName,
+                      rid : doc.data().rid,
+                      did: did,
+                      status: doc.data().status,
+                      rImgRef : doc.data().rImgRef,
+                    }
+
+                  that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
+
+                  let currentList = that.$store.state.currentListStatus;
 
 
-                db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+                  console.log('currentListStatus')
+                  console.log(currentList)
 
-                  let currentWaiting = {
-                    currentSpot : doc.data().currentSpot,
-                    date : doc.data().date,
-                    grSize : doc.data().grSize,
-                    joinTime : doc.data().joinTime,
-                    joinHour : doc.data().joinHour,
-                    nickName : doc.data().nickName,
-                    rName : doc.data().rName,
-                    rid : doc.data().rid,
-                    did: did,
-                  }
+                  let restId = currentList.rid;
+                  console.log('current list rest name')
+                  console.log(restId);
 
-                  let restId = doc.data().rid;
+
 
                   let restList = that.$store.state.restaurantList;
-                console.log(restList);
+                  console.log(restList);
 
                 let rest;
 
@@ -140,10 +166,11 @@ export default {
                   }
                 }
 
-                that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
-                that.$store.dispatch('controlLoadingWaitlist', true);
+                
 
             })
+
+            }
 
               
 
@@ -165,6 +192,29 @@ export default {
 
       const currentUser = firebase.auth().currentUser;
         console.log('Pe',currentUser)
+
+
+
+
+        // db.collection("waitlist").doc(did).onSnapshot(function (doc) {
+
+        //            let currentWaiting = {
+        //              currentSpot : doc.data().currentSpot,
+        //             date : doc.data().date,
+        //             grSize : doc.data().grSize,
+        //             joinTime : doc.data().joinTime,
+        //             joinHour : doc.data().joinHour,
+        //             nickName : doc.data().nickName,
+        //             rName : doc.data().rName,
+        //             rid : doc.data().rid,
+        //             did: did,
+        //             status: doc.data().status,
+        //             rImgRef : doc.data().rImgRef,
+        //           }
+
+        //           let restId = doc.data().rid;
+
+
         if(currentUser)
         {     
               if(!this.$store.state.userStatus.nickName)
@@ -187,6 +237,10 @@ export default {
                                          }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
+
+
+                          console.log('user saved on local');
+                          console.log(this.$store.state.userStatus)
                       } else {
                           // doc.data() will be undefined in this case
                           console.log("No such document!");
