@@ -1,5 +1,8 @@
 <template>
   <div class="wait-list-info-container">
+    <div class="loading" v-if="!loadedWaitlistInfo">
+      <LoadingKiwe />
+    </div>
         <h2 class="section-title">Your current Waiting List</h2>
         <h3 class="restName">{{ rName }}</h3>
         <p class="party">Party for</p>
@@ -18,9 +21,14 @@
 
 <script>
 import firebase from 'firebase';  
+import LoadingKiwe from '../main/LoadingKiwe.vue'
 
 export default {
   name:'WaitListInfo',
+
+  components: {
+    LoadingKiwe
+  },
   
   data:function(){
     return {
@@ -72,6 +80,10 @@ export default {
 
    computed:{
 
+     loadedWaitlistInfo(){
+       return this.$store.state.loadedWaitlistInfo
+     },
+
     uName(){
       return this.$store.state.userStatus.nickName
     },
@@ -102,53 +114,6 @@ export default {
 
   },
 
-  beforeCreate(){
-
-    // let did = this.$store.state.userStatus.currentWaiting;
-
-    //         let db = firebase.firestore();
-    //         let that = this;
-
-    // let restList = this.$store.state.restaurantList;
-
-
-    // db.collection("waitlist").doc(did).onSnapshot(function (doc) {
-
-    //   let currentWaiting = {
-    //     currentSpot : doc.data().currentSpot,
-    //     date : doc.data().date,
-    //     grSize : doc.data().grSize,
-    //     joinTime : doc.data().joinTime,
-    //     joinHour : doc.data().joinHour,
-    //     nickName : doc.data().nickName,
-    //     rName : doc.data().rName,
-    //     rid : doc.data().rid,
-    //   }
-
-    //   let restId = doc.data().rid;
-    //   let rest;
-
-
-    //   console.log('waitlist dada', currentWaiting);
-
-    //   console.log(restList);
-
-    //   for (rest of restList){
-    //     if (rest.rid === restId){
-    //       that.$store.dispatch('assignRest', rest);
-    //       console.log(that.$store.state.selRest);
-
-    //     }
-    //   }
-
-    //   that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
-
-      
-    // })
-        
-    
-
-  },
 
   created(){
         

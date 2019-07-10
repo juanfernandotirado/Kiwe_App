@@ -75,7 +75,6 @@ export default {
             let db = firebase.firestore();
             let that = this;
 
-            //let loadedRestaurantList = this.$store.state.loadedRestaurantList;
             
 
             db.collection("restaurants").onSnapshot(function (querySnapshot){
@@ -138,58 +137,15 @@ export default {
                   }
                 }
 
-
-
-
-
                 that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
+                that.$store.dispatch('controlLoadingWaitlist', true);
 
             })
-
-              // db.collection("waitlist").doc(did).onSnapshot(function (doc) {
-
-              //   let restId = doc.data().rid;
-              // })
-
-
-              //   let restList = that.$store.state.restaurantList;
-              //   console.log(restList);
-
-              //   let rest;
-
-
-              //   for (rest of restList){
-              //     if (rest.rid === restId){
-              //       that.$store.dispatch('assignRest', rest);
-              //       console.log(that.$store.state.selRest);
-
-              //     }
-              //   }
 
               
 
 
             })
-
-
-
-            
-
-            // let restList = this.$store.state.restaurantList;
-            // console.log(restList);
-
-            // let restId = doc.data().rid;
-            // let rest;
-
-            // console.log('waitlist data', currentWaiting);
-
-            // for (rest of restList){
-            //     if (rest.rid === restId){
-            //       that.$store.dispatch('assignRest', rest);
-            //       console.log(that.$store.state.selRest);
-
-            //     }
-            // }
 
         
   },

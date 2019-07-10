@@ -143,6 +143,12 @@ const controlLoading = (context,payload) => {
     context.commit('CONTROL_LOADING',payload);
 }
 
+// Action control loader restaurant list
+const controlLoadingWaitlist = (context,payload) => {
+    context.commit('CONTROL_LOADING_WAITLIST',payload);
+}
+
+
 // Action control notification
 const controlPopupNotification = (context,payload) => {
     context.commit('CONTROL_POPUP_NOTIFICATION',payload);
@@ -198,6 +204,7 @@ export default{
     rUpdateSpot,
     togglePopUpSuccessShows,
     controlLoading,
+    controlLoadingWaitlist,
     controlPopupNotification,
     denyPopupNotification,
     toogleFirstStep,

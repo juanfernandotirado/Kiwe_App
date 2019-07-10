@@ -164,6 +164,11 @@ const CONTROL_LOADING = (state,payload) => {
     state.loadedRestaurantList = payload;
 }
 
+//Function control loader waitlistInfo
+const CONTROL_LOADING_WAITLIST = (state,payload) => {
+    state.loadedWaitlistInfo = payload;
+}
+
 // Function control notification pop up
 const CONTROL_POPUP_NOTIFICATION = (state,payload) => {
     state.popUpNotificationShow = payload;
@@ -227,6 +232,7 @@ export default {
     REST_CURRENT_SPOT,
     TOGGLE_POPUP_SUCCESS,
     CONTROL_LOADING,
+    CONTROL_LOADING_WAITLIST,
     CONTROL_POPUP_NOTIFICATION,
     DENY_POPUP_NOTIFICATION,
     TOGGLE_FIRST_STEP,
