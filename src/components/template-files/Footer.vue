@@ -47,7 +47,7 @@
 
 <script>
 export default {
-    name: 'footer',
+    name: 'Footer',
     activation: 0,
 
     methods: { 

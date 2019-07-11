@@ -1,23 +1,5 @@
 <template>
   <div >
-    <!-- <div id="nav">
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/home">Home</router-link> |
-      <router-link to="/userprofile">Profile</router-link> |
-      <router-link to="/test">Test</router-link> |
-      <router-link to="/restaurant">Restaurant</router-link> |
-      <router-link to="/reviewList">Review List</router-link> |
-      <router-link to='/qrCode'>QR Code</router-link> | 
-    </div> -->
-<!-- 
-    <div v-if="loginVerify" id="firstScreen">
-      <div v-if="!joinMethod" class="login">
-        <LogIn />
-      </div>
-      <div v-else class="register">
-        <Register />
-      </div>
-    </div> -->
 
     <div id="app">
 
