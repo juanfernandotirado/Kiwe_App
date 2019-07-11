@@ -178,6 +178,11 @@ const emptyCurrentWaiting = (context) => {
     context.commit('EMPTY_CURRENT_WAITING');
 }
 
+// Action change waiting time for 5 minutes
+const fiveMinuteWait = (context) => {
+    context.commit('FIVE_MINUTE_WAIT');
+}
+
 export default{
     changeName,
     getUserStatus,
@@ -209,6 +214,7 @@ export default{
     addHistory,
     changeStatus,
     addWaitedTime,
-    emptyCurrentWaiting
+    emptyCurrentWaiting,
+    fiveMinuteWait
 
 } 

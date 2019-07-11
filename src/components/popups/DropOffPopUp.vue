@@ -18,7 +18,8 @@
             <p><b>LEAVE ME IN THE QUEUE FOR</b></p>
             <p class="restName"> {{waiting.rName}} </p> 
             <p><b>Waiting Time:</b></p>
-            <div class="wait"> <span class="time">{{selRest.estTime}}</span><span class="min">min</span> </div>
+            <div class="wait" v-if="popupFiveMinute=false"> <span class="time">{{selRest.estTime}}</span><span class="min">min</span> </div>
+            <div class="wait" v-else> <span class="time">5</span><span class="min">min</span> </div>
           </slot>
         </section>
 
@@ -115,6 +116,7 @@ import firebase from 'firebase';
         this.$store.dispatch('denyPopupNotification',false);
         this.$store.dispatch('emptyWaitlist');
        
+        this.$store.dispatch('fiveMinuteWait');
         this.$store.dispatch('popUpShowsD');
         this.$store.dispatch('toogleFirstStep');
 

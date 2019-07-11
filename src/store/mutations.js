@@ -212,6 +212,12 @@ const EMPTY_CURRENT_WAITING = (state) => {
     state.userStatus.currentWaiting = "";
 }
 
+// Function change waiting time for 5 minutes
+
+const FIVE_MINUTE_WAIT = (state) => {
+    state.popupFiveMinute = !state.popupFiveMinute;
+}
+
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
@@ -244,6 +250,7 @@ export default {
     ADD_HISTORY,
     CHANGE_STATUS,
     ADD_WAITED_TIME,
-    EMPTY_CURRENT_WAITING
+    EMPTY_CURRENT_WAITING,
+    FIVE_MINUTE_WAIT
 
 }

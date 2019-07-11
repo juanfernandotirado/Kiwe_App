@@ -119,7 +119,7 @@
         this.$store.dispatch('addWaitedTime', waitedTime);
         this.$store.dispatch('addHistory', currentListStatus);
         
-
+        this.$store.dispatch('fiveMinuteWait');
         this.$store.dispatch('togglePopUpSuccessShows');
         this.$store.dispatch('denyPopupNotification',false);
         this.$store.dispatch('emptyCurrentWaiting');

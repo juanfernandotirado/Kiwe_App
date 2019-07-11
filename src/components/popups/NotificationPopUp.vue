@@ -20,7 +20,7 @@
             <h3 class="restName">{{ rName }}</h3>
 
             <div class="restWaiting"> <b>Your table will be ready in:</b> 
-              <div class="wait"> <span class="time">05</span><span class="min">min</span> </div>
+              <div class="wait"> <span class="time">5</span><span class="min">min</span> </div>
             </div>
             <p><b>PLEASE, HEAD BACK TO THE RESTAURANT</b></p>
           </slot>
@@ -52,6 +52,7 @@
 
       gotIt: function(){
         this.$store.dispatch('denyPopupNotification',true);
+        this.$store.dispatch('fiveMinuteWait');
       }  
     },
 
