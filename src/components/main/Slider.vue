@@ -127,7 +127,7 @@ export default {
         display: flex;
         align-items: center;
         color: white;
-        background: linear-gradient(#94600149,#6d4700,#503400) ;
+        background: linear-gradient(#94600149,#6d4700,#503400);
         width: 100%;
         bottom: 0;
         justify-content: space-between;
