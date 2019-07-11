@@ -41,6 +41,12 @@ const emptyRestDb = (context) => {
     context.commit('EMPTY_REST_DB');
 };
 
+// Action empty selected restaurant
+
+const emptySelRest = (context) => {
+    context.commit('EMPTY_SEL_REST');
+}
+
 // Action add information to selected restaurant
 
 const assignRest = (context,payload) => {
@@ -85,8 +91,8 @@ const popUpShowsD = (context) => {
 
 // Action toggle isInLine
 
-const isInLine = (context) => {
-    context.commit('TOGGLE_ISINLINE');
+const isInLine = (context,payload) => {
+    context.commit('TOGGLE_ISINLINE',payload);
 }
 
 // Action empty waitlist array
@@ -182,6 +188,11 @@ const changeEstTimeOnSingleRestaurant = (context,payload)=>{
     context.commit('CHANGE_EST_TIME_ON_SINGLE_RESTAURANT',payload);
 }
 
+// Action change waiting time for 5 minutes
+const fiveMinuteWait = (context) => {
+    context.commit('FIVE_MINUTE_WAIT');
+}
+
 export default{
     changeName,
     getUserStatus,
@@ -190,6 +201,7 @@ export default{
     subtractGroupSize,
     assignRestDb,
     emptyRestDb,
+    emptySelRest,
     assignRest,
     joinList,
     addWaitingList,
@@ -214,6 +226,7 @@ export default{
     changeStatus,
     addWaitedTime,
     emptyCurrentWaiting,
-    changeEstTimeOnSingleRestaurant
+    changeEstTimeOnSingleRestaurant,
+    fiveMinuteWait
 
 } 

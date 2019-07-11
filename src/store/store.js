@@ -12,7 +12,7 @@ export default new Vuex.Store({
     userStatus: {
       nickName: '',
       isInLine: false,
-      
+
     },
 
   
@@ -53,11 +53,13 @@ export default new Vuex.Store({
     popUpSuccessShow: false,
     popupNotification: false,
     firstStep: true,
+    popupFiveMinute: false,
 
 
     //Notification Popup
     popUpNotificationShow:false,
     denyNotification:false,
+    
 
 
     loadedRestaurantList: false,

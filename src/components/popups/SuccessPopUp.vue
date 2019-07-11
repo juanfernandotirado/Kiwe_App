@@ -52,6 +52,7 @@
       let db = firebase.firestore();
       let that = this;
 
+      console.log('database id in successpopup', did);
 
       //Fetch Realtime Notification from firebase update
       let unsubscribe = db.collection("waitlist").doc(did)
@@ -119,12 +120,13 @@
         this.$store.dispatch('addWaitedTime', waitedTime);
         this.$store.dispatch('addHistory', currentListStatus);
         
-
+        this.$store.dispatch('fiveMinuteWait');
         this.$store.dispatch('togglePopUpSuccessShows');
         this.$store.dispatch('denyPopupNotification',false);
         this.$store.dispatch('emptyCurrentWaiting');
-        //this.$store.dispatch('emptyStatus');
-        this.$store.dispatch('isInLine');
+        this.$store.dispatch('emptySelRest');
+        this.$store.dispatch('isInLine', false);
+        this.$store.dispatch('emptyStatus');
         this.$router.push('home');
         this.$store.dispatch('changeStatus');
         this.$store.dispatch('toogleFirstStep')

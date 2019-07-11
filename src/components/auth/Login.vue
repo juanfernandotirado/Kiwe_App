@@ -81,7 +81,8 @@ export default {
                                           phone: doc.data().phone,  
                                           preferences: doc.data().profile, 
                                           history: doc.data().history, 
-                                          currentWaiting: doc.data().currentWaiting,                                    
+                                          currentWaiting: doc.data().currentWaiting,
+                                          //deleted: doc.data().deleted,                                    
                                           }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
@@ -192,7 +193,8 @@ export default {
                                           phone: doc.data().phone,  
                                           preferences: doc.data().profile,  
                                           history: doc.data().history,  
-                                          currentWaiting: doc.data().currentWaiting,                                        
+                                          currentWaiting: doc.data().currentWaiting, 
+                                          //deleted: doc.data().deleted,                                        
                             }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);

@@ -53,6 +53,12 @@ const EMPTY_REST_DB = (state) => {
     state.restaurantList=[];
 }
 
+// Function empty selected restaurant
+
+const EMPTY_SEL_REST = (state) => {
+    state.selRest = {};
+}
+
 // Function add information to selected restaurant
 
 const SELECT_RESTAURANT = (state,payload) =>{
@@ -97,8 +103,8 @@ const TOGGLE_POPUP_DROP = (state) => {
 
 // Function toggle isInLine
 
-const TOGGLE_ISINLINE = (state) => {
-    state.userStatus.isInLine = !state.userStatus.isInLine;
+const TOGGLE_ISINLINE = (state,payload) => {
+    state.userStatus.isInLine = payload;
 }
 
 // Function empty waitlist array
@@ -216,6 +222,12 @@ const CHANGE_EST_TIME_ON_SINGLE_RESTAURANT = (state,payload) => {
     state.restaurantList[payload.index].estTime = payload.estTime
 } 
 
+// Function change waiting time for 5 minutes
+
+const FIVE_MINUTE_WAIT = (state) => {
+    state.popupFiveMinute = !state.popupFiveMinute;
+}
+
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
@@ -224,6 +236,7 @@ export default {
     SUBTRACT_GROUP_SIZE,
     SELECT_REST_DB,
     EMPTY_REST_DB,
+    EMPTY_SEL_REST,
     SELECT_RESTAURANT,
     JOIN_LIST,
     ADD_TO_WAITING_LIST,
@@ -234,7 +247,6 @@ export default {
     TOGGLE_ISINLINE,
     EMPTY_WAITLIST,
     EMPTY_STATUS,
-    TOGGLE_ISINLINE,
     UPDATE_NICKNAME,
     UPDATE_PHONENUMBER,
     UPDATE_PROFILE,
@@ -249,6 +261,7 @@ export default {
     CHANGE_STATUS,
     ADD_WAITED_TIME,
     EMPTY_CURRENT_WAITING,
-    CHANGE_EST_TIME_ON_SINGLE_RESTAURANT
+    CHANGE_EST_TIME_ON_SINGLE_RESTAURANT,
+    FIVE_MINUTE_WAIT
 
 }
