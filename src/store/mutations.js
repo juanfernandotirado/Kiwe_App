@@ -212,6 +212,10 @@ const EMPTY_CURRENT_WAITING = (state) => {
     state.userStatus.currentWaiting = "";
 }
 
+const CHANGE_EST_TIME_ON_SINGLE_RESTAURANT = (state,payload) => {
+    state.restaurantList[payload.index].estTime = payload.estTime
+} 
+
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
@@ -244,6 +248,7 @@ export default {
     ADD_HISTORY,
     CHANGE_STATUS,
     ADD_WAITED_TIME,
-    EMPTY_CURRENT_WAITING
+    EMPTY_CURRENT_WAITING,
+    CHANGE_EST_TIME_ON_SINGLE_RESTAURANT
 
 }
