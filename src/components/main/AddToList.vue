@@ -103,16 +103,19 @@ export default {
             }).then(()=>{
                 that.$store.dispatch('addWaitingList',currentStatus);
                 that.$store.dispatch('joinList', currentStatus);
-                that.$store.dispatch('isInLine');
+                that.$store.dispatch('isInLine', true);
                 that.$store.dispatch('popUpShows');
                 console.log(docName);
+
+                console.log( 'database id adding to user', docName);
+                console.log('user id in addtolist', uid);
 
                 db.collection('users').doc(uid).update({
                     isInLine:true,
                     currentWaiting: docName,
-                    deleted: false,
-                    })
-                    console.log( 'database id adding to user', docName);
+                }).catch(function(error){
+                        console.log(error);
+            })
 
             })
                

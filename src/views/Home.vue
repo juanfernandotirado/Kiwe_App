@@ -216,9 +216,6 @@ export default {
       const currentUser = firebase.auth().currentUser;
         console.log('Pe',currentUser)
 
-
-
-
         // db.collection("waitlist").doc(did).onSnapshot(function (doc) {
 
         //            let currentWaiting = {
@@ -237,7 +234,6 @@ export default {
 
         //           let restId = doc.data().rid;
 
-
         if(currentUser){     
               if(!this.$store.state.userStatus.nickName)
               {
@@ -255,7 +251,8 @@ export default {
                                           phone: doc.data().phone,  
                                           preferences: doc.data().profile,
                                           history: doc.data().history, 
-                                          currentWaiting: doc.data().currentWaiting,                                    
+                                          currentWaiting: doc.data().currentWaiting,    
+                                          //deleted: doc.data().deleted,                                 
                                          }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
@@ -285,29 +282,31 @@ export default {
         db.collection("users").doc(uid).onSnapshot(function(doc){
           let item = doc.data();
           
-            if (item.isInLine === false && item.deleted === true){
+            if (item.isInLine === false){
               console.log('user id')
               console.log(uid)
-              that.$store.dispatch('emptyWaitlist');
-              that.$store.dispatch('emptyStatus');
-              that.$store.dispatch('toogleFirstStep');
-              that.$store.dispatch('emptyCurrentWaiting');
-              that.$store.dispatch('isInLine');
+              //that.$store.dispatch('emptyWaitlist');
+              //that.$store.dispatch('emptyStatus');
+              //that.$store.dispatch('toogleFirstStep');
+              //that.$store.dispatch('isInLine', false);
+              //that.$store.dispatch('emptyCurrentWaiting');
+              //that.$store.dispatch('emptySelRest');
+              
 
               db.collection('users').doc(uid).update({
                 currentWaiting: "",
-                deleted: false,
+                //deleted: false,
               })
             }
 
 
         })
-        // .then(()=>{
-        //   db.collection('users').doc(uid).update({
-        //     currentWaiting: "",
-        //     deleted: false,
-        //   })
+        
 
+        // //console.log('user id', uid);
+        // db.collection('users').doc(uid).update({
+        //   //deleted: false,
+        //   //currentWaiting: "",
         // })
   }
 

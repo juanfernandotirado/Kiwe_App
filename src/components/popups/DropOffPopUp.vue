@@ -112,9 +112,10 @@ import firebase from 'firebase';
 
       dropOffSpot: function() {
 
-        this.$store.dispatch('isInLine');
+        this.$store.dispatch('isInLine', false);
         this.$store.dispatch('denyPopupNotification',false);
         this.$store.dispatch('emptyWaitlist');
+        this.$store.dispatch('emptySelRest');
        
         this.$store.dispatch('fiveMinuteWait');
         this.$store.dispatch('popUpShowsD');
@@ -129,6 +130,8 @@ import firebase from 'firebase';
         db.collection('users').doc(uid).update({
                     isInLine: false,
                     currentWaiting: "",
+        }).catch(function(error){
+          console.log(error);
         })
 
         this.$store.dispatch('emptyStatus');

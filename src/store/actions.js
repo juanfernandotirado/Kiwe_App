@@ -41,6 +41,12 @@ const emptyRestDb = (context) => {
     context.commit('EMPTY_REST_DB');
 };
 
+// Action empty selected restaurant
+
+const emptySelRest = (context) => {
+    context.commit('EMPTY_SEL_REST');
+}
+
 // Action add information to selected restaurant
 
 const assignRest = (context,payload) => {
@@ -85,8 +91,8 @@ const popUpShowsD = (context) => {
 
 // Action toggle isInLine
 
-const isInLine = (context) => {
-    context.commit('TOGGLE_ISINLINE');
+const isInLine = (context,payload) => {
+    context.commit('TOGGLE_ISINLINE',payload);
 }
 
 // Action empty waitlist array
@@ -191,6 +197,7 @@ export default{
     subtractGroupSize,
     assignRestDb,
     emptyRestDb,
+    emptySelRest,
     assignRest,
     joinList,
     addWaitingList,
