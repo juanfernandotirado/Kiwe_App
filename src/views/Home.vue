@@ -103,7 +103,9 @@ export default {
                             rating: doc.data().rating,
                             sizeStandard: doc.data().sizeStandard,
                             estTime: 0,
-                            restaurantGallery:doc.data().restaurantGallery
+                            restaurantGallery:doc.data().restaurantGallery,
+                            spot: 'none',
+                            
                   }
 
                   that.$store.dispatch('assignRestDb', restListdb);
@@ -137,6 +139,8 @@ export default {
                       status: doc.data().status,
                       rImgRef : doc.data().rImgRef,
                     }
+
+                    console.log('current list from ')
 
                   that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
 
@@ -281,16 +285,30 @@ export default {
         db.collection("users").doc(uid).onSnapshot(function(doc){
           let item = doc.data();
           
-            if (item.isInLine === false){
+            if (item.isInLine === false && item.deleted === true){
               console.log('user id')
               console.log(uid)
               that.$store.dispatch('emptyWaitlist');
               that.$store.dispatch('emptyStatus');
               that.$store.dispatch('toogleFirstStep');
-              //that.$store.dispatch('isInLine');
-            
-          }
+              that.$store.dispatch('emptyCurrentWaiting');
+              that.$store.dispatch('isInLine');
+
+              db.collection('users').doc(uid).update({
+                currentWaiting: "",
+                deleted: false,
+              })
+            }
+
+
         })
+        // .then(()=>{
+        //   db.collection('users').doc(uid).update({
+        //     currentWaiting: "",
+        //     deleted: false,
+        //   })
+
+        // })
   }
 
  

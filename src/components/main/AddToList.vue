@@ -32,6 +32,7 @@ export default {
             let currentTime = new Date();
             let that = this;
             let docName = currentTime.getTime() + '_' +this.$store.state.userStatus.uid;
+            console.log('doc name',docName);
             let uid = this.$store.state.userStatus.uid;
             let did = this.$store.state.currentListStatus.did;
 
@@ -74,6 +75,9 @@ export default {
 
             let db = firebase.firestore();
 
+            console.log('database id before firebase',docName);
+            console.log('current spot in currentList', this.$store.state.currentListStatus.currentSpot);
+
             db.collection('waitlist').doc(docName).set({
                 //From this object of the firebase(reps), grab just the UID to set the user information on firebase.
                 uid:this.$store.state.userStatus.uid,
@@ -91,25 +95,25 @@ export default {
                 status: 'waiting',
                 notification: '',
                 currentSpot:this.$store.state.currentListStatus.currentSpot,
+                did:docName,
                 //in here we created different properties for the user
 
           
-
-            // db.collection('users').doc(uid).set({
-            // })
-
-           
 
             }).then(()=>{
                 that.$store.dispatch('addWaitingList',currentStatus);
                 that.$store.dispatch('joinList', currentStatus);
                 that.$store.dispatch('isInLine');
                 that.$store.dispatch('popUpShows');
+                console.log(docName);
 
                 db.collection('users').doc(uid).update({
                     isInLine:true,
                     currentWaiting: docName,
+                    deleted: false,
                     })
+                    console.log( 'database id adding to user', docName);
+
             })
                
         }

@@ -318,7 +318,7 @@ export default {
 
     .optional-link {
         text-decoration: none;
-        color: black
+        color: black;
     }
 
     

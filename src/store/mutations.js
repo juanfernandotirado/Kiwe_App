@@ -120,6 +120,7 @@ const EMPTY_STATUS = (state) => {
     state.currentListStatus.did = '';
     state.currentListStatus.status = '';
     state.currentListStatus.rImgRef = '';
+    state.currentListStatus.joinAt = '';
 }
 
 // Function profile Update Nickname
@@ -205,7 +206,11 @@ const ADD_WAITED_TIME = (state,payload) => {
     state.currentListStatus.waitedTime = payload;
 }
 
+// Function empty currentWaiting
 
+const EMPTY_CURRENT_WAITING = (state) => {
+    state.userStatus.currentWaiting = "";
+}
 
 export default {
     UPDATE_USER_NICKNAME,
@@ -238,6 +243,7 @@ export default {
     TOGGLE_FIRST_STEP,
     ADD_HISTORY,
     CHANGE_STATUS,
-    ADD_WAITED_TIME
+    ADD_WAITED_TIME,
+    EMPTY_CURRENT_WAITING
 
 }

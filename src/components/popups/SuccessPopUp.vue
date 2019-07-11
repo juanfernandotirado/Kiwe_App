@@ -122,6 +122,8 @@
 
         this.$store.dispatch('togglePopUpSuccessShows');
         this.$store.dispatch('denyPopupNotification',false);
+        this.$store.dispatch('emptyCurrentWaiting');
+        //this.$store.dispatch('emptyStatus');
         this.$store.dispatch('isInLine');
         this.$router.push('home');
         this.$store.dispatch('changeStatus');

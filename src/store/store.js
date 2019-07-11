@@ -11,7 +11,8 @@ export default new Vuex.Store({
     
     userStatus: {
       nickName: '',
-      isInLine: false
+      isInLine: false,
+      
     },
 
   

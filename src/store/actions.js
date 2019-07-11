@@ -173,6 +173,11 @@ const addWaitedTime = (context,payload) => {
     context.commit('ADD_WAITED_TIME', payload);
 }
 
+// Action empty currentWaiting
+const emptyCurrentWaiting = (context) => {
+    context.commit('EMPTY_CURRENT_WAITING');
+}
+
 export default{
     changeName,
     getUserStatus,
@@ -203,6 +208,7 @@ export default{
     toogleFirstStep,
     addHistory,
     changeStatus,
-    addWaitedTime
+    addWaitedTime,
+    emptyCurrentWaiting
 
 } 
