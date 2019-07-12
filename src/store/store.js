@@ -49,7 +49,8 @@ export default new Vuex.Store({
 
     homeShow: false,
     popUpShow: false,
-    popUpShowD: false,
+    popUpDropConfirm: false,
+    popUpDropOff: false,
     popUpSuccessShow: false,
     popupNotification: false,
     firstStep: true,

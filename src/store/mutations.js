@@ -95,10 +95,16 @@ const TOGGLE_POPUP = (state) => {
     state.popUpShow = !state.popUpShow;
 }
 
+// Function toggle pop up drop off confirmation
+
+const TOGGLE_POPUP_DROP_CONFIRM = (state) => {
+    state.popUpDropConfirm = !state.popUpDropConfirm;
+}
+
 // Function toggle pop up drop off
 
-const TOGGLE_POPUP_DROP = (state) => {
-    state.popUpShowD = !state.popUpShowD;
+const TOGGLE_POPUP_DROP_OFF = (state) => {
+    state. popUpDropOff = !state. popUpDropOff;
 }
 
 // Function toggle isInLine
@@ -239,7 +245,8 @@ export default {
     UPDATE_GALLERY_IMGS,
     TOOGLE_JOIN,
     TOGGLE_POPUP,
-    TOGGLE_POPUP_DROP,
+    TOGGLE_POPUP_DROP_CONFIRM,
+    TOGGLE_POPUP_DROP_OFF,
     TOGGLE_ISINLINE,
     EMPTY_WAITLIST,
     EMPTY_STATUS,

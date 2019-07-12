@@ -10,6 +10,10 @@
           <router-view/>
       </div>
 
+      <DropOffPop />
+      <SuccessPopUp />
+      <NotificationPopUp />
+
       <div v-if="logined" class="app-footer">
         <Footer />
       </div>
@@ -23,11 +27,14 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase, { firestore } from 'firebase';
 import LogIn from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
 import Header from './components/template-files/Header.vue'
 import Footer from './components/template-files/Footer.vue'
+import DropOffPop from './components/popups/DropOffPopUp.vue';
+import SuccessPopUp from './components/popups/SuccessPopUp.vue';
+import NotificationPopUp from './components/popups/NotificationPopUp.vue';
 
 export default {
   name: 'App',
@@ -36,7 +43,10 @@ export default {
     LogIn,
     Register,
     Header,
-    Footer
+    Footer,
+    DropOffPop,
+    SuccessPopUp,
+    NotificationPopUp
 
   },
    data:function(){
@@ -68,6 +78,9 @@ export default {
 
   },
 
+
+  
+
   computed:{
     loginVerify(){
        let userLogged = this.$store.state.userStatus.nickName;
@@ -87,6 +100,9 @@ export default {
     }
   },
   updated(){
+
+
+    
      const currentUser = firebase.auth().currentUser;
        if(currentUser){  
            this.logined = true;
@@ -96,6 +112,40 @@ export default {
           // this.$router.replace('login');
           // console.log("Please login first");
         }
+
+
+
+        let db = firebase.firestore();
+
+        let userWait = this.$store.state.userStatus.isInLine;
+      if(userWait === true) {
+        let did = this.$store.state.userStatus.currentWaiting;
+        console.log('i am going to listen', userWait);
+        console.log('database id in app', did);
+
+        let unsubscribe = db.collection("waitlist").doc(did)
+            .onSnapshot(function(doc) {
+                let item = doc.data();
+                console.log('Something updated in firebase.',item)
+                try {
+                  if(!this.$store.state.denyNotification&&item.notification.length>1){ 
+                    //Get notification
+                    console.log('yes, I am sending not');
+                    this.$store.dispatch('controlPopupNotification',true);
+                  }
+                  if(item.status=="success"){
+                    console.log('notification sent')
+                      this.$store.dispatch('togglePopUpSuccessShows');
+                      //stop listen update
+                      unsubscribe();
+                  }
+                } 
+                catch (error) {
+                  console.log(error);
+                }
+      });
+
+    }
   }
 }
 </script>

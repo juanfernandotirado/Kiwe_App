@@ -83,10 +83,16 @@ const popUpShows = (context) => {
     context.commit('TOGGLE_POPUP');
 }
 
+// Action toggle pop up drop off confirmation
+
+const popUpDropConfirmToggle = (context) => {
+    context.commit('TOGGLE_POPUP_DROP_CONFIRM');
+}
+
 // Action toggle pop up drop off
 
-const popUpShowsD = (context) => {
-    context.commit('TOGGLE_POPUP_DROP');
+const popUpDropOffToggle = (context) => {
+    context.commit('TOGGLE_POPUP_DROP_OFF');
 }
 
 // Action toggle isInLine
@@ -204,7 +210,8 @@ export default{
     updateGalleryImgs,
     signUpShows,
     popUpShows,
-    popUpShowsD,
+    popUpDropConfirmToggle,
+    popUpDropOffToggle,
     isInLine,
     emptyWaitlist,
     emptyStatus,

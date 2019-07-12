@@ -14,7 +14,7 @@ export default {
     methods: {
 
         dropOff: function(){
-            this.$store.dispatch('popUpShowsD')
+            this.$store.dispatch('popUpDropConfirmToggle')
         }
     },
    

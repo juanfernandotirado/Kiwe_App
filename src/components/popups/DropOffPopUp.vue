@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="modal-backdrop" v-if="show">
+  <div class="modal-backdrop" v-if="popUpDropConfirm">
     <div class="modal">
 
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
@@ -49,7 +49,7 @@
 
 
 
-  <div class="modal-backdrop" v-if="show2">
+  <div class="modal-backdrop" v-if="popUpDropOff">
       <div class="modal modal2">
 
       <img src="../../assets/icons/kiwe.png" alt="Kiwi" class="kiwi1">
@@ -88,16 +88,15 @@ import WaitListInfo from '../waitlist/WaitListInfo.vue'
 import firebase from 'firebase';
 
   export default {
-    name: 'VerificationPopUp',
+    name: 'DropOffPopUp',
 
       components: {
     WaitListInfo
   },
 
     data:function(){
-    return{
-      show2: false
-    }
+      return{
+      }
     },
 
     methods: {
@@ -106,7 +105,8 @@ import firebase from 'firebase';
       },
 
       dropOffConfirm: function(){
-        this.show2 = true;
+        this.$store.dispatch('popUpDropConfirmToggle');
+        this.$store.dispatch('popUpDropOffToggle');        
         console.log(this.$store.state.currentListStatus)
       },
 
@@ -117,8 +117,7 @@ import firebase from 'firebase';
         this.$store.dispatch('emptyWaitlist');
         this.$store.dispatch('emptySelRest');
        
-        this.$store.dispatch('fiveMinuteWait');
-        this.$store.dispatch('popUpShowsD');
+        this.$store.dispatch('popUpDropOffToggle');
         this.$store.dispatch('toogleFirstStep');
 
         let didUser = this.$store.state.currentListStatus.did;
@@ -140,8 +139,12 @@ import firebase from 'firebase';
     },
 
     computed: {
-      show() {
-      return this.$store.state.popUpShowD
+      popUpDropConfirm() {
+      return this.$store.state.popUpDropConfirm
+    },
+
+    popUpDropOff() {
+      return this.$store.state.popUpDropOff
     },
 
     waiting() {
