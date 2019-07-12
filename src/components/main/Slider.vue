@@ -1,27 +1,6 @@
 <template>
   <div class="section">
     <h2 class="section-title">Featured Restaurants</h2>
-
-    <!-- <carousel class="carousel" :scrollPerPage="false" :loop="true" :centerMode="true">
-      <slide class="slide" v-for="(item,index) in restList" v-bind:key="index" @slideclick='handleSlideClick' :data-item="index">
-        <img class="img-cover" :src="compileUrl(item.rImgRef)" >
-        <div class="restaurant-information">
-          <div class="imageRestaurantGeneralInfo">
-            <p class="imageRestaurantInformation name"> {{ item.rName }}</p>    
-            <p class="imageRestaurantInformation"> {{item.cuisine}} </p>
-            <p class="imageRestaurantInformation"> Raiting: {{ item.rating }}</p>
-            <p class="imageRestaurantInformation"> Address: {{ item.address }}</p>
-            <p class="imageRestaurantInformation"> Price Level: {{ item.priceLevel }}</p>
-          </div>
-
-          <div class="restWaiting">Est. Waiting Time: 
-            <div class="wait">{{ item.estTime }} min</div>
-          </div>
-        </div>
-        
-      </slide>
-   
-      </carousel> -->
       <div class="feature-restaurant-container">
         <div class="feature-item" v-for="(item,index) in restList" :key="index" v-on:click="selectedRest(item)">
           <div class="img-container">
@@ -36,7 +15,6 @@
                             </div>
 
                             <div class="rest-waiting">
-                                <div class="restinfo-hide"> {{assignWaitTime(grSize, item)}}</div>
                                 <div class="wait"><span class="time">{{ item.estTime }}</span><span class="min">min</span></div>
                             </div>
 
@@ -48,15 +26,12 @@
 
 <script>
 import firebase, { firestore } from 'firebase';
-import { Carousel, Slide } from 'vue-carousel';
 import RatingStars from '../restaurant/RatingStars.vue';
 
 export default {
   name: 'Slider',
 
   components: {
-    Carousel,
-    // Slide,
     RatingStars
   },
 
@@ -76,7 +51,7 @@ export default {
    
 
     selectedRest: function(item) {
-      console.log(item);
+ 
       this.$store.dispatch('assignRest', item).then(
         this.$router.push('restDetail')
       )
@@ -84,84 +59,7 @@ export default {
 
     handleSlideClick: function (dataset) {
       this.selectedRest(this.$store.state.restaurantList[dataset.item]);
-    },
-
-    assignWaitTime:function(grp, rest){
-
-            let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
-
-            let formatDate = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`
-            let rid = rest.rid;
-            let grSize = this.$store.state.currentListStatus.grSize;
-
-            let spotCounter = {
-                    smallGroup:0,
-                    mediumGroup:0,
-                    bigGroup:0,
-            }
-
-            let smallTable = rest.sizeStandard.small;
-            let mediumTable = rest.sizeStandard.medium;
-            let bigTable = rest.sizeStandard.large;
-
-
-            let db = firebase.firestore();
-
-            let that = this;
-
-            db.collection('waitlist').where("rid", "==", rid).where("status", "==", 'waiting').where("date", "==", formatDate).orderBy("joinTime", "desc").get().then(function(querySnapshot){ 
-                
-
-                querySnapshot.forEach(function(doc){
-                    let item = doc.data();
-
-                    if (item.grSize <= smallTable){
-                        spotCounter.smallGroup++;
-                        rest.groupSpot = spotCounter.smallGroup;
-                    
-                    }
-
-                    else if (item.grSize <= mediumTable){
-                        spotCounter.mediumGroup++;
-                        rest.groupSpot = spotCounter.mediumGroup;
-                      
-                    }
-
-                    else {
-                        spotCounter.bigGroup++;
-                        rest.groupSpot = spotCounter.bigGroup;
-                     
-                    }
-
-                })
-
-            rest.spot = spotCounter;
-       
-
-            }).then(function(){
-
-                let currentSpot = spotCounter;
-
-                let smallTableWait = rest.waitTime.small;
-                let mediumTableWait = rest.waitTime.medium;
-                let bigTableWait = rest.waitTime.large;
-                
-                if (grp <= smallTable) {
-            
-                    rest.estTime = smallTableWait*(rest.spot.smallGroup+1);
-                    return rest.estTime;
-                }
-                else if (grp <=mediumTable) {
-                    rest.estTime = mediumTableWait*(rest.spot.mediumGroup+1);
-                    return rest.estTime;
-                }
-                else  {
-                    rest.estTime = bigTableWait*(rest.spot.bigGroup+1);
-                    return rest.estTime;
-                }
-
-            })
-        }
+    }
 
   },
   computed:{
@@ -229,7 +127,7 @@ export default {
         display: flex;
         align-items: center;
         color: white;
-        background: linear-gradient(#94600149,#6d4700,#503400) ;
+        background: linear-gradient(#94600149,#6d4700,#503400);
         width: 100%;
         bottom: 0;
         justify-content: space-between;

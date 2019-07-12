@@ -1,6 +1,6 @@
 <template>
     <p class="rating-container">
-        <span class="star-container" v-html="showStars"></span>&nbsp;<span>{{rating}}</span>
+        <span class="star-container" v-html="showStars"></span>
     </p>
 </template>
 <script>
@@ -14,21 +14,22 @@ export default {
         showStars(){
             let starCount = Math.floor(this.rating);
             let output='';
+            let decimal = (this.rating - Math.floor(this.rating)).toFixed(1)*10;
             for(let i = 0;i<5; i++ )
-            {   
-              
+            {       
                 if(i<starCount)
                 {
+                    if(i==(starCount-1)&&decimal>=5) {
+                    output+='<i class="fas fa-star-half-alt"></i>';
+                    }
+                    else{
                     output+='<i class="fas fa-star"></i>';
-                 
+                    }
                 }
                 else{
                     output+='<i class="far fa-star"></i>';
-                   
                 }
-                
             }
-            
             return output;
         }
     }

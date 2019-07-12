@@ -7,7 +7,7 @@
         <div v-else>
 
             <button v-on:click='goHome' class="btn btn-round btn-back"> 
-                <img src="../../assets/icons/icon-back.png" alt="">    
+                <img src="../../assets/icons/icon-back.png" alt="back-icon">    
             </button>
             <Slider/>
             
@@ -36,12 +36,9 @@
                             </div>
 
                             <div class="rest-waiting">Waiting Time 
-                                <div class="restinfo-hide"> {{assignWaitTime(grSize, rest)}}</div>
                                 <div class="wait"><span class="time">{{ rest.estTime }}</span><span class="min">min</span></div>
                             </div>
-
                         </div>
-                        <!-- <button class="btn orange" v-on:click="assignRestSelc(selectedRes, rest)"> See details </button> -->
                     </li>
                 </ul>
             </div>
@@ -95,121 +92,6 @@ export default {
             return spotTime;
         },
         
-
-        assignWaitTime:function(grp, rest){
-
-            let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
-
-            let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
-            //console.log(formatDate);
-            let rid = rest.rid;
-            let rName = rest.rName;
-            let grSize = this.$store.state.currentListStatus.grSize;
-            
-
-            let spotCounter = {
-                    smallGroup:0,
-                    mediumGroup:0,
-                    bigGroup:0,
-            }
-
-            let smallTable = rest.sizeStandard.small;
-            let mediumTable = rest.sizeStandard.medium;
-            let bigTable = rest.sizeStandard.large;
-
-            
-
-
-            let db = firebase.firestore();
-
-            let that = this;
-
-            db.collection('waitlist').where("rid", "==", rid).where("status", "==", 'waiting').where("date", "==", formatDate).orderBy("joinTime", "desc").get().then(function(querySnapshot){ 
-                // console.log('teables size for '+ rName);
-                //     console.log(smallTable);
-                //     console.log(mediumTable);
-                //     console.log(bigTable);
-                //     console.log('group size in currentList')
-                //     console.log(grSize);
-
-                querySnapshot.forEach(function(doc){
-                    let item = doc.data();
-
-                    
-
-                    if (item.grSize <= smallTable){
-                        spotCounter.smallGroup++;
-                        // rest.groupSpot = spotCounter.smallGroup;
-                        // console.log('small table spot');
-                        // console.log(rest.groupSpot);
-                    //      that.$store.dispatch('updateSpot', rest.groupSpot);
-                    // console.log('current spot saved in currentList');
-                    // console.log(that.$store.state.currentListStatus.currentSpot);
-                    
-                    }
-
-                    else if (item.grSize > smallTable && item.grSize <= mediumTable){
-                        spotCounter.mediumGroup++;
-                        // rest.groupSpot = spotCounter.mediumGroup;
-                        // console.log('medium table spot');
-                        // console.log(rest.groupSpot);
-                    //      that.$store.dispatch('updateSpot', rest.groupSpot);
-                    // console.log('current spot saved in currentList');
-                    // console.log(that.$store.state.currentListStatus.currentSpot);
-
-                      
-                    }
-
-                    else {
-                        spotCounter.bigGroup++;
-                        // rest.groupSpot = spotCounter.bigGroup;
-                        // console.log('big table spot');
-                        // console.log(rest.groupSpot);
-                    //      that.$store.dispatch('updateSpot', rest.groupSpot);
-                    // console.log('current spot saved in currentList');
-                    // console.log(that.$store.state.currentListStatus.currentSpot);
-
-                     
-                    }
-
-                })
-                    //   that.$store.dispatch('updateSpot', rest.groupSpot);
-                    console.log('current spot saved in currentList');
-                    console.log(that.$store.state.currentListStatus.currentSpot);
-
-
-
-            rest.spot = spotCounter;
-            
-       
-
-            }).then(function(){
-
-                let currentSpot = spotCounter;
-
-                let smallTableWait = rest.waitTime.small;
-                let mediumTableWait = rest.waitTime.medium;
-                let bigTableWait = rest.waitTime.large;
-                
-                if (grp <= smallTable) {
-            
-                    rest.estTime = smallTableWait*(rest.spot.smallGroup+1);
-                    return rest.estTime;
-                }
-                else if (grp <=mediumTable) {
-                    rest.estTime = mediumTableWait*(rest.spot.mediumGroup+1);
-                    return rest.estTime;
-                }
-                else  {
-                    rest.estTime = bigTableWait*(rest.spot.bigGroup+1);
-                    return rest.estTime;
-                }
-
-            })
-        },
-    
-        
-
     },
 
 
@@ -243,6 +125,104 @@ export default {
                 }
             })
         }
+    },
+    created(){
+        let currentDate = new Date(this.$store.state.currentListStatus.joinTime);
+        let formatDate = `${currentDate.getMonth()+1}-${currentDate.getDate()}-${currentDate.getFullYear()}`
+        let that = this;
+        let grSize = this.$store.state.currentListStatus.grSize;
+            
+        let db = firebase.firestore();
+        this.restList.forEach((item,index) => {
+        //Define user group belong to which size group
+        let groupBelong = "small";
+        if(grSize<=item.sizeStandard.small)
+        {
+            groupBelong="small";
+          
+        }
+        else if(grSize>item.sizeStandard.small && grSize<=item.sizeStandard.medium)
+        {
+            groupBelong="medium";
+        }
+        else{
+            groupBelong="large";
+        }
+
+        let spotCounter =1;
+        
+        switch(groupBelong)
+        {   
+            default:
+            //Small group waitlist
+            case "small": 
+            db.collection('waitlist').where("grSize", "<=", item.sizeStandard.small).where("rid", "==", item.rid).where("status", "==", 'waiting').where("date", "==", formatDate)
+           .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    spotCounter++;
+                });
+                let theTime = spotCounter*item.waitTime.small;
+                let payload = {
+                    estTime: theTime,
+                    index:index
+                }
+               
+                that.$store.dispatch('changeEstTimeOnSingleRestaurant',payload);
+
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+                }); break;
+            //Medium group waitlist
+            case "medium": 
+             db.collection('waitlist').where("grSize", "<=", item.sizeStandard.medium).where("grSize", ">", item.sizeStandard.small).where("rid", "==", item.rid).where("status", "==", 'waiting').where("date", "==", formatDate)
+           .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    spotCounter+=1;
+                });
+               
+                let theTime = spotCounter*item.waitTime.medium;
+                let payload = {
+                    estTime: theTime,
+                    index:index
+                }
+               
+                that.$store.dispatch('changeEstTimeOnSingleRestaurant',payload);
+
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+                }); break;
+             //Large group waitlist
+            case "large": 
+             db.collection('waitlist').where("grSize", ">", item.sizeStandard.medium).where("rid", "==", item.rid).where("status", "==", 'waiting').where("date", "==", formatDate)
+           .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    spotCounter+=1;
+                });
+               
+                let theTime = spotCounter*item.waitTime.large;
+                let payload = {
+                    estTime: theTime,
+                    index:index
+                }
+               
+                that.$store.dispatch('changeEstTimeOnSingleRestaurant',payload);
+
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+                }); break;
+
+        }
+        
+     
+        });
+        
+    
     }
 }
 </script>
@@ -299,7 +279,7 @@ export default {
     display: flex;
     align-items: flex-end;
     color: white;
-    background: linear-gradient(#94600149,#6d4700,#503400) ;
+    background: linear-gradient(#94600149,#6d4700,#503400);
     width: 100%;
     bottom: 0;
 

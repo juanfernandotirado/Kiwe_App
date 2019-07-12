@@ -224,6 +224,10 @@ const EMPTY_CURRENT_WAITING = (state) => {
     state.userStatus.currentWaiting = "";
 }
 
+const CHANGE_EST_TIME_ON_SINGLE_RESTAURANT = (state,payload) => {
+    state.restaurantList[payload.index].estTime = payload.estTime
+} 
+
 // Function change waiting time for 5 minutes
 
 const FIVE_MINUTE_WAIT = (state) => {
@@ -264,6 +268,7 @@ export default {
     CHANGE_STATUS,
     ADD_WAITED_TIME,
     EMPTY_CURRENT_WAITING,
+    CHANGE_EST_TIME_ON_SINGLE_RESTAURANT,
     FIVE_MINUTE_WAIT
 
 }

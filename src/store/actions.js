@@ -190,6 +190,10 @@ const emptyCurrentWaiting = (context) => {
     context.commit('EMPTY_CURRENT_WAITING');
 }
 
+const changeEstTimeOnSingleRestaurant = (context,payload)=>{
+    context.commit('CHANGE_EST_TIME_ON_SINGLE_RESTAURANT',payload);
+}
+
 // Action change waiting time for 5 minutes
 const fiveMinuteWait = (context) => {
     context.commit('FIVE_MINUTE_WAIT');
@@ -229,6 +233,7 @@ export default{
     changeStatus,
     addWaitedTime,
     emptyCurrentWaiting,
+    changeEstTimeOnSingleRestaurant,
     fiveMinuteWait
 
 } 
