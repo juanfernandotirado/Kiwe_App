@@ -175,6 +175,16 @@ const addHistory = (context,payload) => {
     context.commit('ADD_HISTORY', payload);
 }
 
+// Action add history to user profile
+const addHistoryThree = (context,payload) => {
+    context.commit('ADD_HISTORY_THREE', payload);
+}
+
+// Action assign new history for maximum three
+const reverseHistory = (context) => {
+    context.commit('REVERSE_HISTORY');
+}
+
 // Action change status to success
 const changeStatus = (context) => {
     context.commit('CHANGE_STATUS');
@@ -188,6 +198,11 @@ const addWaitedTime = (context,payload) => {
 // Action empty currentWaiting
 const emptyCurrentWaiting = (context) => {
     context.commit('EMPTY_CURRENT_WAITING');
+}
+
+// Action add currentWaiting to UserStatus
+const addCurrentWaiting = (context, payload) => {
+    context.commit('ADD_CURRENT_wAITING', payload);
 }
 
 const changeEstTimeOnSingleRestaurant = (context,payload)=>{
@@ -230,9 +245,12 @@ export default{
     denyPopupNotification,
     toogleFirstStep,
     addHistory,
+    addHistoryThree,
+    reverseHistory,
     changeStatus,
     addWaitedTime,
     emptyCurrentWaiting,
+    addCurrentWaiting,
     changeEstTimeOnSingleRestaurant,
     fiveMinuteWait
 

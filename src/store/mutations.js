@@ -203,7 +203,20 @@ const TOGGLE_FIRST_STEP = (state) => {
 // Function add history to user profile
 
 const ADD_HISTORY = (state,payload) => {
-    state.userStatus.history.push(payload);
+    state.userStatus.history.unshift(payload);
+}
+
+// Function add history to user profile max three
+
+const ADD_HISTORY_THREE = (state,payload) => {
+    state.userStatus.history.splice(2,1);
+    state.userStatus.history.unshift(payload);
+}
+
+// Function reverse history
+
+const REVERSE_HISTORY =(state) => {
+    state.userStatus.history.reverse();
 }
 
 // Function change status to success
@@ -223,6 +236,12 @@ const ADD_WAITED_TIME = (state,payload) => {
 const EMPTY_CURRENT_WAITING = (state) => {
     state.userStatus.currentWaiting = "";
 }
+
+// Function add currentWaiting to UserStatus
+
+const ADD_CURRENT_wAITING = (state,payload) => {
+    state.userStatus.currentWaiting = payload;
+} 
 
 const CHANGE_EST_TIME_ON_SINGLE_RESTAURANT = (state,payload) => {
     state.restaurantList[payload.index].estTime = payload.estTime
@@ -265,9 +284,12 @@ export default {
     DENY_POPUP_NOTIFICATION,
     TOGGLE_FIRST_STEP,
     ADD_HISTORY,
+    ADD_HISTORY_THREE,
+    REVERSE_HISTORY,
     CHANGE_STATUS,
     ADD_WAITED_TIME,
     EMPTY_CURRENT_WAITING,
+    ADD_CURRENT_wAITING,
     CHANGE_EST_TIME_ON_SINGLE_RESTAURANT,
     FIVE_MINUTE_WAIT
 

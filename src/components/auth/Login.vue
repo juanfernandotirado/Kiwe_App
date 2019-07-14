@@ -146,15 +146,10 @@ export default {
         console.log('Pe',currentUser)
         if(currentUser)
         {     
-            
-
             // if(userS.isInLine === true){
 
             //     let did = this.$store.state.userStatus.currentWaiting;
-
-
             //     db.collection("waitlist").doc(did).onSnapshot(function (doc) {
-
             //         let currentWaiting = {
             //                             currentSpot : doc.data().currentSpot,
             //                             date : doc.data().date,
@@ -168,16 +163,9 @@ export default {
             //                             status: doc.data().status,
             //                             rImgRef : doc.data().rImgRef,
             //         }
-
             //         that.$store.dispatch('getWaitingSetCurrent', currentWaiting);
-
             //     })
             // }
-
-
-
-
-
 
               let db = firebase.firestore();
               //Get user profile information
@@ -218,6 +206,43 @@ export default {
             
                     
         }
+
+        
+    },
+
+    beforeDestroy() {
+        let historyShort = [];
+        let historyStore = this.$store.state.userStatus.history;
+            // let originalHistory = history.length;
+            // let newHistory = originalHistory - 3;
+
+            console.log("History from store passed on function",historyStore)
+            //console.log(originalHistory);
+            //console.log(newHistory);
+            if(historyStore.length>=3)
+            {
+                for(var i=0; i < 3; i++){
+                //console.log(history[i]);
+                historyShort.push(historyStore[historyStore.length-(i+1)]);
+
+                }
+            }
+            else{
+                for(var i=0; i < historyStore.length; i++){
+                //console.log(history[i]);
+                historyShort.push(historyStore[historyStore.length-(i+1)]);
+
+                }
+            }
+            
+            //console.log(historyShort);
+            console.log('new short history',historyShort);
+            this.$store.dispatch('assignShortHistory', historyShort);
+            console.log('new short history on store', historyStore);
+            // this.$store.dispatch('reverseHistory');
+            // console.log('reverse history',historyStore);
+
+            //return historyShort;
     }
 }
   </script>

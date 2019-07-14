@@ -2,7 +2,7 @@
     <div>
         <h2 class="section-title">History</h2>
         <ul class="user-history">
-            <li v-for="(history,index) in topThreeHistory(historyList)"
+            <li v-for="(history,index) in historyList"
             v-bind:key="index"
             class="history">
 
@@ -46,16 +46,13 @@ export default {
     data(){
         return {
             urlPart: 'https://maps.googleapis.com/maps/api/place/photo?key=AIzaSyCxKHIpSrggNO7p1N-n7V0FkJ8DohiK9MQ&maxwidth=400&photoreference=',
-
         }
-
     },
 
     computed: {
         historyList(){
             return this.$store.state.userStatus.history
         },
-
     },
 
     methods: {
@@ -64,34 +61,71 @@ export default {
         },
 
         topThreeHistory: function (history) {
-            let historyShort = [];
-            // let originalHistory = history.length;
-            // let newHistory = originalHistory - 3;
+            // let historyShort = [];
+            // let historyStore = this.$store.state.userStatus.history;
+            // // let originalHistory = history.length;
+            // // let newHistory = originalHistory - 3;
 
-            console.log("History",history)
-            //console.log(originalHistory);
-            //console.log(newHistory);
-            if(history.length>=3)
-            {
-                for(var i=0; i < 3; i++){
-                //console.log(history[i]);
-                historyShort.push(history[history.length-(i+1)]);
+            // console.log("History from store passed on function",history)
+            // //console.log(originalHistory);
+            // //console.log(newHistory);
+            // if(history.length>=3)
+            // {
+            //     for(var i=0; i < 3; i++){
+            //     //console.log(history[i]);
+            //     historyShort.push(history[history.length-(i+1)]);
 
-                }
-            }
-            else{
-                for(var i=0; i < history.length; i++){
-                //console.log(history[i]);
-                historyShort.push(history[history.length-(i+1)]);
+            //     }
+            // }
+            // else{
+            //     for(var i=0; i < history.length; i++){
+            //     //console.log(history[i]);
+            //     historyShort.push(history[history.length-(i+1)]);
 
-                }
-            }
+            //     }
+            // }
             
-            //console.log(historyShort);
-            console.log(historyShort);
-            return historyShort;
-        
+            // //console.log(historyShort);
+            // console.log('new short history',historyShort);
+            // this.$store.dispatch('assignShortHistory', historyShort);
+            // console.log('new short history on store', historyStore);
+
+            // return historyShort;
         }
+    },
+
+    beforeCreate() {
+        // let historyShort = [];
+        // let historyStore = this.$store.state.userStatus.history;
+        //     // let originalHistory = history.length;
+        //     // let newHistory = originalHistory - 3;
+
+        //     console.log("History from store passed on function",historyStore)
+        //     //console.log(originalHistory);
+        //     //console.log(newHistory);
+        //     if(historyStore.length>=3)
+        //     {
+        //         for(var i=0; i < 3; i++){
+        //         //console.log(history[i]);
+        //         historyShort.push(historyStore[historyStore.length-(i+1)]);
+
+        //         }
+        //     }
+        //     else{
+        //         for(var i=0; i < historyStore.length; i++){
+        //         //console.log(history[i]);
+        //         historyShort.push(historyStore[historyStore.length-(i+1)]);
+
+        //         }
+        //     }
+            
+        //     //console.log(historyShort);
+        //     console.log('new short history',historyShort);
+        //     this.$store.dispatch('assignShortHistory', historyShort);
+        //     console.log('new short history on store', historyStore);
+
+        //     //return historyShort;
+
     }
 
     
