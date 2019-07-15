@@ -15,8 +15,8 @@
       </div>
 
         <!-- <DropOffPop /> -->
-          <SuccessPopUp />
-        <NotificationPopUp />
+          <!-- <SuccessPopUp />
+        <NotificationPopUp /> -->
 
     </div>
 
@@ -33,8 +33,8 @@ import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
 import RestaurantMenu from '../components/restaurant/RestaurantMenu.vue';
 import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
 // import DropOffPop from '../components/popups/DropOffPopUp.vue';
-import SuccessPopUp from '../components/popups/SuccessPopUp.vue';
-import NotificationPopUp from '../components/popups/NotificationPopUp.vue';
+// import SuccessPopUp from '../components/popups/SuccessPopUp.vue';
+// import NotificationPopUp from '../components/popups/NotificationPopUp.vue';
 import firebase from 'firebase';
 
 export default {
@@ -45,8 +45,8 @@ export default {
     RestaurantMenu,
     DropOffConf,
     // DropOffPop,
-    SuccessPopUp,
-    NotificationPopUp
+    // SuccessPopUp,
+    // NotificationPopUp
 
    
   },

@@ -44,67 +44,7 @@
        
       }
     },
-
-    beforeCreate(){
-      let did = this.$store.state.currentListStatus.did;
-      let joinTime = this.$store.state.currentListStatus.joinAt;
-
-      let db = firebase.firestore();
-      let that = this;
-
-      console.log('database id in successpopup', did);
-
-      //Fetch Realtime Notification from firebase update
-      let unsubscribe = db.collection("waitlist").doc(did)
-            .onSnapshot(function(doc) {
-                let item = doc.data();
-                console.log('Something updated in firebase.',item)
-                try {
-                  if(!that.$store.state.denyNotification&&item.notification.length>1){ 
-                    //Get notification
-
-                    that.$store.dispatch('controlPopupNotification',true);
-                  }
-                  //  if(item.status=="success"){
-                  //     that.$store.dispatch('togglePopUpSuccessShows');
-                  //     //stop listen update
-                  //     unsubscribe();
-                  // }
-
-                
-                } 
-                catch (error) {
-                  console.log(error);
-                }
-      });
-
-    },
-
-    created(){
-      let did = this.$store.state.currentListStatus.did;
-      let db = firebase.firestore();
-      let that = this;
-
-      let successCustomer = db.collection("waitlist").doc(did)
-            .onSnapshot(function(doc) {
-                let item = doc.data();
-                console.log('Something updated in firebase.',item)
-                try {
-              
-                  if(item.status=="success"){
-                      that.$store.dispatch('togglePopUpSuccessShows');
-                      //stop listen update
-                      unsubscribe();
-                  }
-                }
-                catch (error) {
-                  console.log(error);
-                }
-      });
-
-    },
     
-
     methods: {
 
       goHome: function(){
@@ -119,7 +59,7 @@
 
         this.$store.dispatch('addWaitedTime', waitedTime);
 
-        if (history.length<3){
+        if (history&&history.length<3){
           console.log('currentListStatus before adding to history', currentListStatus);
           this.$store.dispatch('addHistory', currentListStatus);
 
