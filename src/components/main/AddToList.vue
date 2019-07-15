@@ -105,6 +105,9 @@ export default {
                 that.$store.dispatch('joinList', currentStatus);
                 that.$store.dispatch('isInLine', true);
                 that.$store.dispatch('popUpShows');
+
+                //Ready fot listen waitlist
+                that.$store.dispatch('controlListenList',true);
                 console.log(docName);
 
                 console.log( 'database id adding to user', docName);

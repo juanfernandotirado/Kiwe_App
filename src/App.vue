@@ -116,29 +116,35 @@ export default {
 
 
         let db = firebase.firestore();
+        let that = this;
 
         let userWait = this.$store.state.userStatus.isInLine;
-      if(userWait === true) {
-        let did = this.$store.state.userStatus.currentWaiting;
+        let isActiveListenWaitlist = this.$store.state.isActiveListenWaitlist;
+      if(userWait&&isActiveListenWaitlist) {
+        let did = this.$store.state.currentListStatus.did;
         console.log('i am going to listen', userWait);
         console.log('database id in app', did);
+         //Already listen waitlist, turn the listen variable to false.
+        this.$store.dispatch('controlListenList',false);
 
         let unsubscribe = db.collection("waitlist").doc(did)
             .onSnapshot(function(doc) {
                 let item = doc.data();
                 console.log('Something updated in firebase.',item)
                 try {
-                  if(!this.$store.state.denyNotification&&item.notification.length>1){ 
-                    //Get notification
-                    console.log('yes, I am sending not');
-                    this.$store.dispatch('controlPopupNotification',true);
-                  }
                   if(item.status=="success"){
                     console.log('notification sent')
-                      this.$store.dispatch('togglePopUpSuccessShows');
+                      that.$store.dispatch('togglePopUpSuccessShows');
                       //stop listen update
                       unsubscribe();
                   }
+
+                  if(!that.$store.state.denyNotification&&item.notification.length>1){ 
+                    //Get notification
+                    console.log('yes, I am sending not');
+                    that.$store.dispatch('controlPopupNotification',true);
+                  }
+                  
                 } 
                 catch (error) {
                   console.log(error);

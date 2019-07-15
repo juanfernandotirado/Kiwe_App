@@ -234,6 +234,14 @@ const FIVE_MINUTE_WAIT = (state) => {
     state.popupFiveMinute = !state.popupFiveMinute;
 }
 
+
+//Function control active listen wait list
+const CONTROL_LISTEN_LIST = (state,payload) => {
+    state.isActiveListenWaitlist = payload;
+}
+
+
+
 export default {
     UPDATE_USER_NICKNAME,
     GET_USER_STATUS,
@@ -269,6 +277,7 @@ export default {
     ADD_WAITED_TIME,
     EMPTY_CURRENT_WAITING,
     CHANGE_EST_TIME_ON_SINGLE_RESTAURANT,
-    FIVE_MINUTE_WAIT
+    FIVE_MINUTE_WAIT,
+    CONTROL_LISTEN_LIST
 
 }

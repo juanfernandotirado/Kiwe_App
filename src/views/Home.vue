@@ -292,7 +292,7 @@ export default {
               //that.$store.dispatch('emptyCurrentWaiting');
               //that.$store.dispatch('emptySelRest');
               
-
+              //I don't understand what is this for? ---------------------Sunny
               db.collection('users').doc(uid).update({
                 currentWaiting: "",
                 //deleted: false,
@@ -302,12 +302,6 @@ export default {
 
         })
         
-
-        // //console.log('user id', uid);
-        // db.collection('users').doc(uid).update({
-        //   //deleted: false,
-        //   //currentWaiting: "",
-        // })
   }
 
  

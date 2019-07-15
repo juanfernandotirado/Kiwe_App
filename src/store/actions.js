@@ -199,6 +199,13 @@ const fiveMinuteWait = (context) => {
     context.commit('FIVE_MINUTE_WAIT');
 }
 
+
+//Function control active listen wait list
+const controlListenList = (context,payload) => {
+    context.commit('CONTROL_LISTEN_LIST',payload);
+}
+
+
 export default{
     changeName,
     getUserStatus,
@@ -234,6 +241,7 @@ export default{
     addWaitedTime,
     emptyCurrentWaiting,
     changeEstTimeOnSingleRestaurant,
-    fiveMinuteWait
+    fiveMinuteWait,
+    controlListenList
 
 } 

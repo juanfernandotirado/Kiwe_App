@@ -56,6 +56,10 @@ export default new Vuex.Store({
     firstStep: true,
     popupFiveMinute: false,
 
+    //Active Listening change in firebase
+    isActiveListenWaitlist:false,
+
+
 
     //Notification Popup
     popUpNotificationShow:false,
