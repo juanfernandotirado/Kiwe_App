@@ -6,13 +6,17 @@
 
 <script>
 import firebase, { firestore } from 'firebase';
-import RestaurantList from '../components/main/RestaurantList'
+const RestaurantList = import( '../components/main/RestaurantList')
 import LoadingKiwe from '../components/main/LoadingKiwe.vue'
 
 export default {
     name: 'Restaurant',
     components: {
-        RestaurantList,
+        RestaurantList: () => ({
+            component: RestaurantList,
+            loading: LoadingKiwe,
+            timeout: 1500
+        })
     },
     methods: {
 
