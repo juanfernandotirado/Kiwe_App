@@ -55,54 +55,54 @@
       console.log('database id in successpopup', did);
 
       //Fetch Realtime Notification from firebase update
-      // let unsubscribe = db.collection("waitlist").doc(did)
-      //       .onSnapshot(function(doc) {
-      //           let item = doc.data();
-      //           console.log('Something updated in firebase.',item)
-      //           try {
-      //             if(!that.$store.state.denyNotification&&item.notification.length>1){ 
-      //               //Get notification
+      let unsubscribe = db.collection("waitlist").doc(did)
+            .onSnapshot(function(doc) {
+                let item = doc.data();
+                console.log('Something updated in firebase.',item)
+                try {
+                  if(!that.$store.state.denyNotification&&item.notification.length>1){ 
+                    //Get notification
 
-      //               that.$store.dispatch('controlPopupNotification',true);
-      //             }
-      //              if(item.status=="success"){
-      //                 that.$store.dispatch('togglePopUpSuccessShows');
-      //                 //stop listen update
-      //                 unsubscribe();
-      //             }
+                    that.$store.dispatch('controlPopupNotification',true);
+                  }
+                  //  if(item.status=="success"){
+                  //     that.$store.dispatch('togglePopUpSuccessShows');
+                  //     //stop listen update
+                  //     unsubscribe();
+                  // }
 
                 
-      //           } 
-      //           catch (error) {
-      //             console.log(error);
-      //           }
-      // });
+                } 
+                catch (error) {
+                  console.log(error);
+                }
+      });
 
     },
 
-    // created(){
-    //   let did = this.$store.state.currentListStatus.did;
-    //   let db = firebase.firestore();
-    //   let that = this;
+    created(){
+      let did = this.$store.state.currentListStatus.did;
+      let db = firebase.firestore();
+      let that = this;
 
-    //   let successCustomer = db.collection("waitlist").doc(did)
-    //         .onSnapshot(function(doc) {
-    //             let item = doc.data();
-    //             console.log('Something updated in firebase.',item)
-    //             try {
+      let successCustomer = db.collection("waitlist").doc(did)
+            .onSnapshot(function(doc) {
+                let item = doc.data();
+                console.log('Something updated in firebase.',item)
+                try {
               
-    //               if(item.status=="success"){
-    //                   that.$store.dispatch('togglePopUpSuccessShows');
-    //                   //stop listen update
-    //                   unsubscribe();
-    //               }
-    //             }
-    //             catch (error) {
-    //               console.log(error);
-    //             }
-    //   });
+                  if(item.status=="success"){
+                      that.$store.dispatch('togglePopUpSuccessShows');
+                      //stop listen update
+                      unsubscribe();
+                  }
+                }
+                catch (error) {
+                  console.log(error);
+                }
+      });
 
-    // },
+    },
     
 
     methods: {
@@ -118,29 +118,61 @@
         let uid = this.$store.state.userStatus.uid;
 
         this.$store.dispatch('addWaitedTime', waitedTime);
-        this.$store.dispatch('addHistory', currentListStatus);
+
+        if (history.length<3){
+          console.log('currentListStatus before adding to history', currentListStatus);
+          this.$store.dispatch('addHistory', currentListStatus);
+
+          this.$store.dispatch('fiveMinuteWait');
+          this.$store.dispatch('togglePopUpSuccessShows');
+          this.$store.dispatch('denyPopupNotification',false);
+          //this.$store.dispatch('emptyCurrentWaiting');
+          this.$store.dispatch('emptySelRest');
+          this.$store.dispatch('isInLine', false);
+          //this.$store.dispatch('emptyStatus');
+          this.$router.push('home');
+          this.$store.dispatch('changeStatus');
+          this.$store.dispatch('toogleFirstStep')
+
+          let db = firebase.firestore();
+          let that = this;
+
+          let addToHistory =db.collection("users").doc(uid).update({
+            history : history,
+            isInLine: false,
+            currentWaiting: "",
+            success: true, 
+          })
+        }
+
+        else {
+          console.log('currentListStatus before adding to history', currentListStatus);
+          this.$store.dispatch('addHistoryThree', currentListStatus);
+          this.$store.dispatch('fiveMinuteWait');
+          this.$store.dispatch('togglePopUpSuccessShows');
+          this.$store.dispatch('denyPopupNotification',false);
+          //this.$store.dispatch('emptyCurrentWaiting');
+          this.$store.dispatch('emptySelRest');
+          this.$store.dispatch('isInLine', false);
+          //this.$store.dispatch('emptyStatus');
+          this.$router.push('home');
+          this.$store.dispatch('changeStatus');
+          this.$store.dispatch('toogleFirstStep')
+
+          let db = firebase.firestore();
+          let that = this;
+
+          let addToHistory =db.collection("users").doc(uid).update({
+            history : history,
+            isInLine: false,
+            currentWaiting: "",
+            success: true, 
+          })
+        }
         
-        this.$store.dispatch('fiveMinuteWait');
-        this.$store.dispatch('togglePopUpSuccessShows');
-        this.$store.dispatch('denyPopupNotification',false);
-        this.$store.dispatch('emptyCurrentWaiting');
-        this.$store.dispatch('emptySelRest');
-        this.$store.dispatch('isInLine', false);
-        this.$store.dispatch('emptyStatus');
-        this.$router.push('home');
-        this.$store.dispatch('changeStatus');
-        this.$store.dispatch('toogleFirstStep')
-
-        let db = firebase.firestore();
-        let that = this;
-
-        let addToHistory =db.collection("users").doc(uid).update({
-          history : this.$store.state.userStatus.history,
-          isInLine: false,
-          currentWaiting: "",
-        })
-
+        
         //this.$store.dispatch('emptyWaitlist');
+        //this.$store.dispatch('emptyStatus');
       }  
     },
 
@@ -153,6 +185,15 @@
     // beforeDestroy(){
     //   this.$store.dispatch('emptyStatus');
     //   this.$store.dispatch('emptyWaitlist');
+
+    //   let db = firebase.firestore();
+    //   let that = this;
+
+      
+    //       db.collection("users").doc(uid),update({
+    //         history: this.$store.state.userStatus.history,
+    //       })
+      
     // }
   }
 </script>

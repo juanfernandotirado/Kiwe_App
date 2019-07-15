@@ -103,6 +103,7 @@ export default {
             }).then(()=>{
                 that.$store.dispatch('addWaitingList',currentStatus);
                 that.$store.dispatch('joinList', currentStatus);
+                //that.$store.dispatch('addCurrentWaiting', docName);
                 that.$store.dispatch('isInLine', true);
                 that.$store.dispatch('popUpShows');
 

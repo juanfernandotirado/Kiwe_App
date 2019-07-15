@@ -11,8 +11,8 @@
       </div>
 
       <DropOffPop />
-      <SuccessPopUp />
-      <NotificationPopUp />
+      <!-- <SuccessPopUp />
+      <NotificationPopUp /> -->
 
       <div v-if="logined" class="app-footer">
         <Footer />
@@ -33,8 +33,8 @@ import Register from './components/auth/Register.vue'
 import Header from './components/template-files/Header.vue'
 import Footer from './components/template-files/Footer.vue'
 import DropOffPop from './components/popups/DropOffPopUp.vue';
-import SuccessPopUp from './components/popups/SuccessPopUp.vue';
-import NotificationPopUp from './components/popups/NotificationPopUp.vue';
+// import SuccessPopUp from './components/popups/SuccessPopUp.vue';
+// import NotificationPopUp from './components/popups/NotificationPopUp.vue';
 
 export default {
   name: 'App',
@@ -45,8 +45,8 @@ export default {
     Header,
     Footer,
     DropOffPop,
-    SuccessPopUp,
-    NotificationPopUp
+    // SuccessPopUp,
+    // NotificationPopUp
 
   },
    data:function(){

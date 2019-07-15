@@ -14,9 +14,9 @@
         <DropOffConf />
       </div>
 
-      <!-- <DropOffPop />
-        <SuccessPopUp />
-      <NotificationPopUp /> -->
+        <!-- <DropOffPop /> -->
+          <SuccessPopUp />
+        <NotificationPopUp />
 
     </div>
 
@@ -33,8 +33,8 @@ import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
 import RestaurantMenu from '../components/restaurant/RestaurantMenu.vue';
 import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
 // import DropOffPop from '../components/popups/DropOffPopUp.vue';
-// import SuccessPopUp from '../components/popups/SuccessPopUp.vue';
-// import NotificationPopUp from '../components/popups/NotificationPopUp.vue';
+import SuccessPopUp from '../components/popups/SuccessPopUp.vue';
+import NotificationPopUp from '../components/popups/NotificationPopUp.vue';
 import firebase from 'firebase';
 
 export default {
@@ -45,8 +45,8 @@ export default {
     RestaurantMenu,
     DropOffConf,
     // DropOffPop,
-    // SuccessPopUp,
-    // NotificationPopUp
+    SuccessPopUp,
+    NotificationPopUp
 
    
   },
@@ -176,9 +176,9 @@ export default {
 
             }
 
-              
 
 
+            
             })
 
         
@@ -251,8 +251,8 @@ export default {
                                           phone: doc.data().phone,  
                                           preferences: doc.data().profile,
                                           history: doc.data().history, 
-                                          currentWaiting: doc.data().currentWaiting,    
-                                          //deleted: doc.data().deleted,                                 
+                                          currentWaiting: doc.data().currentWaiting,
+                                          //deleted: doc.data().deleted,
                                          }
                           //Set UserStatus to store
                           this.$store.dispatch('getUserStatus',userStatus);
@@ -277,30 +277,31 @@ export default {
         let uid = this.$store.state.userStatus.uid;
         
 
-        let that = this;
+        // let that = this;
 
-        db.collection("users").doc(uid).onSnapshot(function(doc){
-          let item = doc.data();
+        // db.collection("users").doc(uid).onSnapshot(function(doc){
+        //   let item = doc.data();
           
-            if (item.isInLine === false){
-              console.log('user id')
-              console.log(uid)
-              //that.$store.dispatch('emptyWaitlist');
-              //that.$store.dispatch('emptyStatus');
-              //that.$store.dispatch('toogleFirstStep');
-              //that.$store.dispatch('isInLine', false);
-              //that.$store.dispatch('emptyCurrentWaiting');
-              //that.$store.dispatch('emptySelRest');
+        //     if (item.isInLine === false){
+        //       console.log('user id')
+        //       console.log(uid)
+        //       //that.$store.dispatch('emptyWaitlist');
+        //       that.$store.dispatch('emptyStatus');
+        //       //that.$store.dispatch('toogleFirstStep');
+        //       //that.$store.dispatch('isInLine', false);
+        //       //that.$store.dispatch('emptyCurrentWaiting');
+        //       //that.$store.dispatch('emptySelRest');
               
-              //I don't understand what is this for? ---------------------Sunny
-              db.collection('users').doc(uid).update({
-                currentWaiting: "",
-                //deleted: false,
-              })
-            }
+
+        //       db.collection('users').doc(uid).update({
+        //         currentWaiting: "",
+        //         success: false,
+        //         //deleted: false,
+        //       })
+        //     }
 
 
-        })
+        // })
         
   }
 
