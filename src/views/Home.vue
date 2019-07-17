@@ -7,7 +7,7 @@
 
       <div class="section">
         <WaitListInfo />
-        <RestaurantMenu />
+        <RestaurantMenuBtn />
       </div>
 
       <div class="section">
@@ -30,7 +30,7 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
 import WaitListInfo from '@/components/waitlist/WaitListInfo.vue';
-import RestaurantMenu from '../components/restaurant/RestaurantMenu.vue';
+import RestaurantMenuBtn from '../components/restaurant/RestaurantMenuBtn.vue';
 import DropOffConf from '../components/waitlist/DropOffConfirmation.vue';
 // import DropOffPop from '../components/popups/DropOffPopUp.vue';
 // import SuccessPopUp from '../components/popups/SuccessPopUp.vue';
@@ -42,7 +42,7 @@ export default {
   components: {
     HelloWorld,
     WaitListInfo,
-    RestaurantMenu,
+    RestaurantMenuBtn,
     DropOffConf,
     // DropOffPop,
     // SuccessPopUp,

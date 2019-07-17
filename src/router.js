@@ -10,8 +10,8 @@ import Menu from './views/Menu.vue'
 import Restaurant from './views/Restaurant.vue'
 import RestaurantDetail from './components/restaurant/RestaurantDetail.vue';
 import QrCode from './views/QrCode.vue';
-import ReviewList from './views/ReviewList.vue'
-
+import ReviewList from './views/ReviewList.vue';
+import RestaurantMenu from './views/RestaurantMenu.vue';
 
 
 Vue.use(Router)
@@ -71,6 +71,11 @@ const router = new Router({
       name: 'qrCode',
       component: QrCode
 
+    },
+    {
+      path:'/restaurantmenu',
+      name:'RestaurantMenu',
+      component: RestaurantMenu
     },
     {
       path: '/userprofile',

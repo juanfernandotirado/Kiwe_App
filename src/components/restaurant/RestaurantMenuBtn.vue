@@ -2,14 +2,16 @@
     <div>
         <button class="btn btn-text" v-on:click='restMenu'>Restaurant Menu</button>
     </div>
+
 </template>
 
 <script>
 export default {
-    name: 'restaurantMenu',
+    name: 'restaurantMenuBtn',
 
     methods: {
         restMenu: function(){
+            this.$router.push('restaurantmenu');
       }
     }
     
