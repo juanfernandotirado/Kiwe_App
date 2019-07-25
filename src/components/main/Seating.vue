@@ -12,10 +12,10 @@
     <option value="">No preferences</option>
     <option value="Indoor" > Indoor </option>
     <option value="Outdoor" > Outdoor </option> 
-    <option value="Private-Table" > Private-Table </option> 
-    <option value="Shared-Table" > Shared-Table </option> 
+    <option value="Private Table" > Private Table </option> 
+    <option value="Shared Table" > Shared Table </option> 
     <option value="Bar" > Bar </option> 
-    <option value="Window-View" > Window-View </option> 
+    <option value="Window View" > Window View </option> 
 
     </select>
 

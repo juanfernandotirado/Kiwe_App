@@ -14,9 +14,9 @@
     <option value="">No special needs</option>
     <option value="Wheelchair" > Wheelchair </option>
     <option value="Stroller" > Stroller </option> 
-    <option value="Baby-Chair" > Baby Chair </option> 
-    <option value="Seat-Boster" > Seat Booster </option> 
-    <option value="Guide-Dog" > Guide Dog </option> 
+    <option value="Baby Chair" > Baby Chair </option> 
+    <option value="Seat Boster" > Seat Booster </option> 
+    <option value="Guide Dog" > Guide Dog </option> 
 
     </select>
 </div>

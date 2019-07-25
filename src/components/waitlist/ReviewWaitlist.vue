@@ -133,6 +133,8 @@ export default {
     text-transform: uppercase;
     font-family: $bt-font-family;
     font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 1rem;
   }
 
   .section-information-text,
@@ -140,10 +142,14 @@ export default {
     font-family: $bt-font-family;
     font-weight: bold;
     color:$accent;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1;
   }
 
   .section-information-number {
     font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
 

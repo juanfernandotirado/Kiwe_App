@@ -279,7 +279,7 @@ export default {
     display: flex;
     align-items: flex-end;
     color: white;
-    background: linear-gradient(#94600149,#6d4700,#503400);
+    background: #50340099;
     width: 100%;
     bottom: 0;
 
