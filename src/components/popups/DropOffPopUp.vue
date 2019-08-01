@@ -9,7 +9,7 @@
       <div class="popup">
         <header class="modal-header">
           <slot name="header">
-            <h4>Drop me off</h4>
+            <h4>Drop me Out</h4>
           </slot>
         </header>
 
@@ -38,7 +38,7 @@
                 class="btn btn-text"
                 v-on:click="dropOffConfirm"
               >
-                Drop Off
+                Drop Out
             </button>
           </slot>
         </footer>
@@ -101,7 +101,7 @@ import firebase from 'firebase';
 
     methods: {
       keepWaiting: function() {
-        this.$store.dispatch('popUpShowsD')
+         this.$store.dispatch('popUpDropConfirmToggle');
       },
 
       dropOffConfirm: function(){
