@@ -5,7 +5,7 @@
         </button>
         <div class="rest-menu-container">
             <div class="rest-menu">
-             <img class="rest-menu-img" src="../assets/jam_menu.png" alt="jam cafe menu">
+             <img class="rest-menu-img" src="../assets/mexican_menu.png" alt="The mexican menu">
        
             </div>
         </div>
@@ -36,7 +36,9 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-
+    .rest-menu-img{
+        max-width: 100%;
+    }
 </style>
 
 
