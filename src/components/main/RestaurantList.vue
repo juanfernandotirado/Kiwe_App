@@ -158,8 +158,8 @@ export default {
             case "small": 
             db.collection('waitlist').where("grSize", "<=", item.sizeStandard.small).where("rid", "==", item.rid).where("status", "==", 'waiting').where("date", "==", formatDate)
            .get()
-            .then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) =>{
                     spotCounter++;
                 });
                 let theTime = spotCounter*item.waitTime.small;
@@ -167,8 +167,9 @@ export default {
                     estTime: theTime,
                     index:index
                 }
-               
-                that.$store.dispatch('changeEstTimeOnSingleRestaurant',payload);
+                
+                this.$store.dispatch('changeEstTimeOnSingleRestaurant',payload);
+              
 
             })
             .catch(function(error) {
